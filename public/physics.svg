@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="300" height="300">
+    <rect x="0" y="0" width="300" height="300" fill="#f4f6f6" />
+    <circle cx="150" cy="150" r="20" fill="#3498db" />
+    <ellipse cx="150" cy="150" rx="40" ry="65" fill="none" stroke="#3498db" strokeWidth="6" strokeOpacity="0.3" />
+    <ellipse cx="150" cy="150" rx="40" ry="65" fill="none" stroke="#3498db" strokeWidth="4" strokeOpacity="0.5" />
+    <ellipse cx="150" cy="150" rx="40" ry="65" fill="none" stroke="#2c3e50" strokeWidth="3" />
+    <ellipse cx="150" cy="150" rx="65" ry="40" fill="none" stroke="#3498db" strokeWidth="6" strokeOpacity="0.3" />
+    <ellipse cx="150" cy="150" rx="65" ry="40" fill="none" stroke="#3498db" strokeWidth="4" strokeOpacity="0.5" />
+    <ellipse cx="150" cy="150" rx="65" ry="40" fill="none" stroke="#2c3e50" strokeWidth="3" />
+    <ellipse cx="150" cy="150" rx="85" ry="110" fill="none" stroke="#3498db" strokeWidth="6" strokeOpacity="0.3" />
+    <ellipse cx="150" cy="150" rx="85" ry="110" fill="none" stroke="#3498db" strokeWidth="4" strokeOpacity="0.5" />
+    <ellipse cx="150" cy="150" rx="85" ry="110" fill="none" stroke="#2c3e50" strokeWidth="3" />
+    <ellipse cx="150" cy="150" rx="110" ry="85" fill="none" stroke="#3498db" strokeWidth="6" strokeOpacity="0.3" />
+    <ellipse cx="150" cy="150" rx="110" ry="85" fill="none" stroke="#3498db" strokeWidth="4" strokeOpacity="0.5" />
+    <ellipse cx="150" cy="150" rx="110" ry="85" fill="none" stroke="#2c3e50" strokeWidth="3" />
+    <circle cx="190.0" cy="150.0" r="3" fill="#2e4053" />
+    <circle cx="110.0" cy="150.0" r="4" fill="#2e4053" />
+    <circle cx="215.0" cy="150.0" r="3" fill="#2e4053" />
+    <circle cx="117.50000000000001" cy="184.64101615137756" r="4" fill="#2e4053" />
+    <circle cx="117.49999999999997" cy="115.35898384862247" r="5" fill="#2e4053" />
+    <circle cx="235.0" cy="150.0" r="3" fill="#2e4053" />
+    <circle cx="150.0" cy="260.0" r="4" fill="#2e4053" />
+    <circle cx="65.0" cy="150.0" r="5" fill="#2e4053" />
+    <circle cx="149.99999999999997" cy="40.0" r="3" fill="#2e4053" />
+    <circle cx="260.0" cy="150.0" r="3" fill="#2e4053" />
+    <circle cx="95.00000000000003" cy="223.6121593216773" r="4" fill="#2e4053" />
+    <circle cx="94.99999999999994" cy="76.38784067832273" r="5" fill="#2e4053" />
+</svg>

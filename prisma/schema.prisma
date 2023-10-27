@@ -1,0 +1,21 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+
+
+type subTopics {
+  mainField String
+  subTopics String[]
+}
+
+model scienceFields {
+  id        String                   @id @default(auto()) @map("_id") @db.ObjectId
+  title     String
+  subFields subTopics[]
+}
