@@ -1,0 +1,42 @@
+.menuWrapper{
+  max-width: 320px;
+  margin: 0 auto;
+}
+
+.titleField {
+  color: var(--color-background3);
+  font-size: var(--font-size-nav-item-menu-field);
+}
+
+.branchContainer {
+  padding: 10px 10px;
+}
+
+.gridLayout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  /* 2 columns */
+  gap: 2px;
+}
+
+.navListItem {
+  font-weight: bold;
+  padding-top: 0px;
+  padding-bottom: 5px;
+}
+
+.subField {
+  list-style: none;
+  padding-left: 3px;
+}
+
+.subTopic {
+  font-weight: 500;
+  line-height: 110%;
+  padding-top: 2px;
+  padding-bottom: 4px;
+  border-left: 3px solid #d5dbdb;
+  padding-left: 3px;
+  color: var(--color-title1);
+}
+

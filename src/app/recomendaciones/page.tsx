@@ -1,17 +1,21 @@
-// "use client"
+import React from 'react';
+import { ScienceFieldsMenu } from './components/ScienceFieldsMenu';
+import data from './menu/data';
+import NavBar from '@/NavBarContainer';
 
-// export const medadata = {
-//   title : "Recomendaciones"
-// }
+export const metadata = {
+  title: "Recomendaciones",
+};
 
-import React from 'react'
-
-const page = () => {
+const ScienceFieldsPage: React.FC = () => {
   return (
     <div>
-      
+      <NavBar title='./' profileLink={''} menuLink=''/>
+      <h1>Title 1</h1>
+      <p>This is a paragraph.</p>
+      <ScienceFieldsMenu data={data} />
     </div>
-  )
-}
+  );
+};
 
-export default page
+export default ScienceFieldsPage;

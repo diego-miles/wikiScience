@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './Navbar.module.css';
+import Link from 'next/link';
 
 interface NavbarProps {
   title: string;
@@ -10,9 +11,13 @@ interface NavbarProps {
 const NavBarContainer: React.FC<NavbarProps> = ({ title, profileLink, menuLink }) => {
   return (
     <div className={styles.navbarContainer}>
-      <a href={profileLink} className={styles.leftIcon} />  
+      <Link href={profileLink} className={styles.leftIcon} passHref>
+        <span className={styles.iconWrapper}></span>
+      </Link>
       <h6 className={styles.title}>{title}</h6>
-      <a href={menuLink} className={styles.rightIcon} /> 
+      <Link href={menuLink} className={styles.rightIcon} passHref>
+        <span className={styles.iconWrapper}></span>
+      </Link>
     </div>
   );
 }
