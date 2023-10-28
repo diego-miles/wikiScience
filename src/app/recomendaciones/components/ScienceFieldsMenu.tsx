@@ -1,95 +1,146 @@
-"use client"
+ "use client"
 import React, { FC, useState } from 'react';
 import Link from 'next/link';
-import { FaListUl } from 'react-icons/fa';
+import { FaListUl, FaChevronDown, FaChevronRight } from 'react-icons/fa';
 import styles from '../components/ScienceFieldsMenu.module.css';
 
+interface ScienceField {
+  mainField: string;
+  subTopics: string[];
+}
+
+interface Wiki {
+  title: string;
+  subFields: ScienceField[];
+}
+
 interface ScienceFieldsMenuProps {
-  data: Wiki.ScienceField[];
+  data: Wiki[];
 }
 
 export const ScienceFieldsMenu: FC<ScienceFieldsMenuProps> = ({ data }) => {
   return (
     <div>
       {data.map((field, index) => (
-        <Field key={index} field={field} />
+        <ExpandableItem key={index} title={field.title} items={field.subFields} />
       ))}
     </div>
   );
 };
 
-interface FieldProps {
-  field: Wiki.ScienceField;
+interface ExpandableItemProps {
+  title: string;
+  items: ScienceField[];
 }
 
-const Field: FC<FieldProps> = ({ field }) => {
+const ExpandableItem: FC<ExpandableItemProps> = ({ title, items }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [clickCount, setClickCount] = useState(0);
-  const [isListOpen, setIsListOpen] = useState(false);  
 
-  const handleClick = () => {
-    setClickCount(prevCount => prevCount + 1);
-    if (clickCount < 1) {
-      setIsOpen(!isOpen);
-    } else {
-      window.location.href = `/articles/${field.title}`;  // Navegar en el segundo clic
-    }
-  };
+  const toggleOpen = () => setIsOpen(prev => !prev);
 
-  const handleIconClick = (event: React.MouseEvent) => {
-    event.stopPropagation();  // Detener la propagación del evento
-    setIsListOpen(!isListOpen);  // Alternar la superposición de lista al hacer clic en el icono
-  };
-
-
-return (
-    <div>
-      <h2 onClick={handleClick}>
-        {field.title}
-        <FaListUl onClick={handleIconClick} className={styles.icon} />  {/* Icono con manejador de clic */}
-      </h2>
-      {isOpen &&
-        field.subFields.map((subField, index) => (
-          <SubField key={index} subField={subField} />
-        ))}
-      {isListOpen && (
-        <div className={styles.listOverlay}>
-          {/* Tu contenido de lista aquí */}
-          <button onClick={() => setIsListOpen(false)} className={styles.closeButton}>Cerrar</button>  {/* Botón para cerrar la superposición */}
+  return (
+    <div className={styles.item}>
+      <div onClick={toggleOpen} className={styles.itemHeader}>
+        <div className={styles.textIconWrapper}>
+          <h2>{title}</h2>
+          <div className={styles.iconContainer}>
+            <ListIconWithOverlay>
+              <p>This is a list content for {title}</p>
+            </ListIconWithOverlay>
+          </div>
         </div>
-      )}
+        <div className={styles.menuIcon}>
+          {isOpen ? <FaChevronDown /> : <FaChevronRight />}
+        </div>
+      </div>
+      {isOpen &&
+        items.map((item, index) => (
+          <ExpandableSubItem key={index} title={item.mainField} items={item.subTopics} />
+        ))}
     </div>
   );
 };
 
-interface SubFieldProps {
-  subField: Wiki.SubTopic;
+interface ExpandableSubItemProps {
+  title: string;
+  items: string[];
 }
 
-const SubField: FC<SubFieldProps> = ({ subField }) => {
+const ExpandableSubItem: FC<ExpandableSubItemProps> = ({ title, items }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [clickCount, setClickCount] = useState(0);
 
-  const handleClick = () => {
-    setClickCount(prevCount => prevCount + 1);
-    if (clickCount < 1) {
-      setIsOpen(!isOpen);
-    } else {
-      window.location.href = `/articles/${subField.mainField}`;  // Navegar en el segundo clic
-    }
+  const toggleOpen = () => setIsOpen(prev => !prev);
+
+  return (
+    <div className={styles.item}>
+      <div onClick={toggleOpen} className={styles.itemHeader}>
+        <div className={styles.textIconWrapper}>
+          <h3>{title}</h3>
+          <div className={styles.iconContainer}>
+            <ListIconWithOverlay>
+              <p>This is a list content for {title}</p>
+            </ListIconWithOverlay>
+          </div>
+        </div>
+        <div className={styles.menuIcon}>
+          {isOpen ? <FaChevronDown /> : <FaChevronRight />}
+        </div>
+      </div>
+      {isOpen && items.map((item, index) => (
+        <LinkItem key={index} item={item} />
+      ))}
+    </div>
+  );
+};
+
+// ... rest of your code ...
+
+
+function isScienceField(item: Wiki.ScienceField | Wiki.SubTopic): item is Wiki.ScienceField {
+  return (item as Wiki.ScienceField).subFields !== undefined;
+}
+
+function isSubTopic(item: Wiki.ScienceField | Wiki.SubTopic): item is Wiki.SubTopic {
+  return (item as Wiki.SubTopic).subTopics !== undefined;  // Assuming subTopics is the correct property name
+}
+
+interface LinkItemProps {
+  item: string;
+}
+
+const LinkItem: FC<LinkItemProps> = ({ item }) => (
+  <div className={styles.linkItem}>
+    <Link href={`/articles/${item}`}>
+      <p>{item}</p>
+    </Link>
+    <div className={styles.iconContainer}>
+      <ListIconWithOverlay>
+        <p>This is a list content for {item}</p>
+      </ListIconWithOverlay>
+    </div>
+  </div>
+);
+interface ListIconWithOverlayProps {
+  children: React.ReactNode;
+}
+
+const ListIconWithOverlay: FC<ListIconWithOverlayProps> = ({ children }) => {
+  const [isListOpen, setIsListOpen] = useState(false);
+
+  const toggleListOpen = (event: React.MouseEvent) => {
+    event.stopPropagation();
+    setIsListOpen(prev => !prev);
   };
 
   return (
-    <div style={{ marginLeft: '20px' }}>
-      <h3 onClick={handleClick}>{subField.mainField}</h3>
-      {isOpen &&
-        subField.subTopics.map((subTopic, index) => (
-          <div key={index} style={{ marginLeft: '20px' }}>
-            <Link href={`/articles/${subTopic}`}>
-              <p>{subTopic}</p>
-            </Link>
-          </div>
-        ))}
-    </div>
+    <>
+      <FaListUl onClick={toggleListOpen} className={styles.icon} />
+      {isListOpen && (
+        <div className={styles.listOverlay}>
+          {children}
+          <button onClick={() => setIsListOpen(false)} className={styles.closeButton}>Cerrar</button>
+        </div>
+      )}
+    </>
   );
 };
