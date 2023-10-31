@@ -1,0 +1,12 @@
+/* ContextSpace.module.css */
+.contextSpace {
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contextSpace img {
+    width: 40px;
+    height: 20px;
+}

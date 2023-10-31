@@ -9,7 +9,7 @@ const crimson_text = Crimson_Text({
 })
 
 const montserrat = Montserrat({
-  weight: ['300', '400', '500', '600', '700'],
+  weight: ['300', '400', '500', '600', '700', '800','900'],
   subsets: ['latin']
 })
 

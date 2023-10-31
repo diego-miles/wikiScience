@@ -4,7 +4,7 @@ const scienceFields = [
     title: 'Ciencias Naturales',
     subFields: [
       {
-        mainField: 'Biología',
+        title: 'Biología',
         subTopics: [
           'Genética',
           'Ecología',
@@ -15,7 +15,7 @@ const scienceFields = [
         ]
       },
       {
-        mainField: 'Química',
+        title: 'Química',
         subTopics: [
           'Química Orgánica',
           'Química Inorgánica',
@@ -25,7 +25,7 @@ const scienceFields = [
         ]
       },
       {
-        mainField: 'Física',
+        title: 'Física',
         subTopics: [
           'Mecánica Clásica',
           'Electromagnetismo',
@@ -40,7 +40,7 @@ const scienceFields = [
     title: 'Ciencias Formales',
     subFields: [
       {
-        mainField: 'Matemáticas',
+        title: 'Matemáticas',
         subTopics: [
           'Álgebra',
           'Cálculo Diferencial e Integral',
@@ -52,7 +52,7 @@ const scienceFields = [
         ]
       },
       {
-        mainField: 'Lógica',
+        title: 'Lógica',
         subTopics: [
           'Lógica Proposicional',
           'Lógica de Primer Orden',
@@ -62,7 +62,7 @@ const scienceFields = [
         ]
       },
       {
-        mainField: 'Teoría de la Computación',
+        title: 'Teoría de la Computación',
         subTopics: [
           'Autómatas y Lenguajes Formales',
           'Complejidad Computacional',
@@ -72,7 +72,7 @@ const scienceFields = [
         ]
       },
       {
-        mainField: 'Lingüística Formal',
+        title: 'Lingüística Formal',
         subTopics: [
           'Gramáticas Generativas',
           'Semántica Formal',
@@ -86,7 +86,7 @@ const scienceFields = [
     title: 'Ciencias Sociales',
     subFields: [
       {
-        mainField: 'Economía',
+        title: 'Economía',
         subTopics: [
           'Microeconomía',
           'Macroeconomía',
@@ -95,7 +95,7 @@ const scienceFields = [
         ]
       },
       {
-        mainField: 'Psicología de la Evolución',
+        title: 'Psicología de la Evolución',
         subTopics: [
           'Selección Natural y Comportamiento',
           'Evolución del Aprendizaje',
@@ -109,7 +109,7 @@ const scienceFields = [
     title: 'Tecnología e Ingeniería',
     subFields: [
       {
-        mainField: 'Tecnologías de Información y Comunicación (TICs)',
+        title: 'Tecnologías de Información y Comunicación (TICs)',
         subTopics: [
           'Desarrollo de Software',
           'Ciberseguridad',
@@ -118,7 +118,7 @@ const scienceFields = [
         ]
       },
       {
-        mainField: 'Ingeniería Electrónica',
+        title: 'Ingeniería Electrónica',
         subTopics: [
           'Ingeniería de Circuitos',
           'Robótica',
@@ -126,7 +126,7 @@ const scienceFields = [
         ]
       },
       {
-        mainField: 'Ingeniería de Energías',
+        title: 'Ingeniería de Energías',
         subTopics: [
           'Energía Solar',
           'Energía Eólica',
@@ -134,7 +134,7 @@ const scienceFields = [
         ]
       },
       {
-        mainField: 'Ingeniería Mecánica',
+        title: 'Ingeniería Mecánica',
         subTopics: [
           'Dinámica de Fluidos',
           'Mecánica de Materiales',
@@ -142,7 +142,7 @@ const scienceFields = [
         ]
       },
       {
-        mainField: 'Ingeniería Civil',
+        title: 'Ingeniería Civil',
         subTopics: [
           'Ingeniería Estructural',
           'Ingeniería de Transporte',
@@ -150,7 +150,7 @@ const scienceFields = [
         ]
       },
       {
-        mainField: 'Ingeniería Química',
+        title: 'Ingeniería Química',
         subTopics: [
           'Procesos Químicos',
           'Ingeniería de Reactores',
@@ -158,7 +158,7 @@ const scienceFields = [
         ]
       },
       {
-        mainField: 'Ingeniería Ambiental',
+        title: 'Ingeniería Ambiental',
         subTopics: [
           'Gestión de Residuos',
           'Tecnologías Limpias',
@@ -166,7 +166,7 @@ const scienceFields = [
         ]
       },
       {
-        mainField: 'Automatización en Ingeniería',
+        title: 'Automatización en Ingeniería',
         subTopics: [
           'Automatización de Procesos Industriales',
           'Control de Sistemas',

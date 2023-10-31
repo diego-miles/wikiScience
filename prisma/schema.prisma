@@ -10,7 +10,7 @@ datasource db {
 
 
 type subTopics {
-  mainField String
+  title String
   subTopics String[]
 }
 
@@ -18,4 +18,24 @@ model scienceFields {
   id        String                   @id @default(auto()) @map("_id") @db.ObjectId
   title     String
   subFields subTopics[]
+}
+
+
+
+model Book {
+  id          String   @id @default(auto()) @map("_id") @test("ObjectId")
+  title       String
+  authors     String[]
+  coverImage  String
+  summary     String
+  ratings     Rating[]
+  subfield    String
+  temarioImgs String[]
+}
+
+model Rating {
+  id        String @id @default(auto()) @map("_id") @test("ObjectId")
+  amazon    Float
+  goodreads Float
+  google    Float
 }

@@ -1,0 +1,6 @@
+/* Paragraph.module.css */
+.paragraph {
+    font-size: var(--font-size-text);
+    color: var(--color-title2);
+}
+

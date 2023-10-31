@@ -1,11 +1,11 @@
 // types/globals.d.ts
 declare namespace Wiki {
-    interface Props {
+    interface PropsFields {
     data: ScienceField[];
     onClose: () => void;
     }
     interface SubTopic {
-    mainField: string;
+    title: string;
     subTopics: string[];
     }   
     interface ScienceField {

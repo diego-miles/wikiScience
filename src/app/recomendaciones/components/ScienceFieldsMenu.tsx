@@ -1,26 +1,21 @@
- "use client"
+"use client"
 import React, { FC, useState } from 'react';
 import Link from 'next/link';
 import { FaListUl, FaChevronDown, FaChevronRight } from 'react-icons/fa';
 import styles from '../components/ScienceFieldsMenu.module.css';
 
-interface ScienceField {
-  mainField: string;
-  subTopics: string[];
-}
-
-interface Wiki {
-  title: string;
-  subFields: ScienceField[];
-}
-
 interface ScienceFieldsMenuProps {
-  data: Wiki[];
+  data: Wiki.ScienceField[];
+}
+
+
+const menu = {
+  padding: '20px 0px',
 }
 
 export const ScienceFieldsMenu: FC<ScienceFieldsMenuProps> = ({ data }) => {
   return (
-    <div>
+    <div style={menu}>
       {data.map((field, index) => (
         <ExpandableItem key={index} title={field.title} items={field.subFields} />
       ))}
@@ -30,32 +25,31 @@ export const ScienceFieldsMenu: FC<ScienceFieldsMenuProps> = ({ data }) => {
 
 interface ExpandableItemProps {
   title: string;
-  items: ScienceField[];
+  items: Wiki.SubTopic[]; // Global type
 }
 
 const ExpandableItem: FC<ExpandableItemProps> = ({ title, items }) => {
   const [isOpen, setIsOpen] = useState(false);
-
   const toggleOpen = () => setIsOpen(prev => !prev);
-
+  
   return (
-    <div className={styles.item}>
-      <div onClick={toggleOpen} className={styles.itemHeader}>
-        <div className={styles.textIconWrapper}>
+    <div className={styles.ScienceFieldsMenu__item}>
+      <div onClick={toggleOpen} className={styles.ScienceFieldsMenu__itemHeader}>
+        <div className={styles.ScienceFieldsMenu__textIconWrapper}>
           <h2>{title}</h2>
-          <div className={styles.iconContainer}>
+          <div className={styles.ScienceFieldsMenu__iconContainer}>
             <ListIconWithOverlay>
               <p>This is a list content for {title}</p>
             </ListIconWithOverlay>
           </div>
         </div>
-        <div className={styles.menuIcon}>
+        <div className={styles.ScienceFieldsMenu__menuIcon}>
           {isOpen ? <FaChevronDown /> : <FaChevronRight />}
         </div>
       </div>
       {isOpen &&
         items.map((item, index) => (
-          <ExpandableSubItem key={index} title={item.mainField} items={item.subTopics} />
+          <ExpandableSubItem key={index} title={item.title} items={item.subTopics} />
         ))}
     </div>
   );
@@ -68,21 +62,20 @@ interface ExpandableSubItemProps {
 
 const ExpandableSubItem: FC<ExpandableSubItemProps> = ({ title, items }) => {
   const [isOpen, setIsOpen] = useState(false);
-
   const toggleOpen = () => setIsOpen(prev => !prev);
 
   return (
-    <div className={styles.item}>
-      <div onClick={toggleOpen} className={styles.itemHeader}>
-        <div className={styles.textIconWrapper}>
+    <div className={styles.ScienceFieldsMenu__item}>
+      <div onClick={toggleOpen} className={styles.ScienceFieldsMenu__itemHeader}>
+        <div className={styles.ScienceFieldsMenu__textIconWrapper}>
           <h3>{title}</h3>
-          <div className={styles.iconContainer}>
+          <div className={styles.ScienceFieldsMenu__iconContainer}>
             <ListIconWithOverlay>
               <p>This is a list content for {title}</p>
             </ListIconWithOverlay>
           </div>
         </div>
-        <div className={styles.menuIcon}>
+        <div className={styles.ScienceFieldsMenu__menuIcon}>
           {isOpen ? <FaChevronDown /> : <FaChevronRight />}
         </div>
       </div>
@@ -93,40 +86,29 @@ const ExpandableSubItem: FC<ExpandableSubItemProps> = ({ title, items }) => {
   );
 };
 
-// ... rest of your code ...
-
-
-function isScienceField(item: Wiki.ScienceField | Wiki.SubTopic): item is Wiki.ScienceField {
-  return (item as Wiki.ScienceField).subFields !== undefined;
-}
-
-function isSubTopic(item: Wiki.ScienceField | Wiki.SubTopic): item is Wiki.SubTopic {
-  return (item as Wiki.SubTopic).subTopics !== undefined;  // Assuming subTopics is the correct property name
-}
-
 interface LinkItemProps {
   item: string;
 }
 
 const LinkItem: FC<LinkItemProps> = ({ item }) => (
-  <div className={styles.linkItem}>
+  <div className={styles.ScienceFieldsMenu__linkItem}>
     <Link href={`/articles/${item}`}>
-      <p>{item}</p>
+      <h4>{item}</h4>
     </Link>
-    <div className={styles.iconContainer}>
+    <div className={styles.ScienceFieldsMenu__iconContainer}>
       <ListIconWithOverlay>
         <p>This is a list content for {item}</p>
       </ListIconWithOverlay>
     </div>
   </div>
 );
+
 interface ListIconWithOverlayProps {
   children: React.ReactNode;
 }
 
 const ListIconWithOverlay: FC<ListIconWithOverlayProps> = ({ children }) => {
   const [isListOpen, setIsListOpen] = useState(false);
-
   const toggleListOpen = (event: React.MouseEvent) => {
     event.stopPropagation();
     setIsListOpen(prev => !prev);
@@ -134,11 +116,11 @@ const ListIconWithOverlay: FC<ListIconWithOverlayProps> = ({ children }) => {
 
   return (
     <>
-      <FaListUl onClick={toggleListOpen} className={styles.icon} />
+      <FaListUl onClick={toggleListOpen} className={styles.ScienceFieldsMenu__icon} />
       {isListOpen && (
-        <div className={styles.listOverlay}>
+        <div className={styles.ScienceFieldsMenu__listOverlay}>
           {children}
-          <button onClick={() => setIsListOpen(false)} className={styles.closeButton}>Cerrar</button>
+          <button onClick={() => setIsListOpen(false)} className={styles.ScienceFieldsMenu__closeButton}>Cerrar</button>
         </div>
       )}
     </>
