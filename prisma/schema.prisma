@@ -28,12 +28,12 @@ model Topic {
 
 model Book {
   id                String  @id @map("_id") @default(auto()) @db.ObjectId
-  englishTitle     String  
-  spanishTitle     String? 
+  englishTitle      String  
+  spanishTitle      String? 
   authors           String[] 
-  spanishEdition   Boolean? 
-  publicationDate  String?
-  lastEdition      String?
+  spanishEdition    Boolean? 
+  publicationDate   String?
+  lastEdition       String?
   summary           String?
   keywords          String[]
   pages             Int?

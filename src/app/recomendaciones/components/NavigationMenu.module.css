@@ -1,3 +1,11 @@
+.menuWrapper {
+  position: absolute;
+  background-color: var(--color-background1);
+  z-index: 1000;
+  margin: 0 auto;
+  padding-bottom: 50px;
+}
+
 .backLinkWrapper {
   position: absolute;
   top: -8px;
@@ -10,10 +18,6 @@
   text-decoration: none;
 }
 
-/* .menuWrapper{
-  max-width: 320px;
-  margin: 0 auto;
-} */
 
 .titleField {
   color: var(--color-background3);
@@ -51,3 +55,5 @@
   padding-left: 3px;
   color: var(--color-title1);
 }
+
+

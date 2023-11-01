@@ -2,10 +2,6 @@
 import React from 'react';
 import styles from './NavigationMenu.module.css';
 import data from '@/data';
-// import NavBar from "@/NavBarContainer";
-// import Link from 'next/link';
-import BackButton from '../components/BackButton';
-
 
 const NavigationMenu = () => {
     
@@ -15,7 +11,7 @@ const NavigationMenu = () => {
                 <BackButton />
             </div> */}
             {/* <NavBar title='./' profileLink={''} menuLink=''/> */}
-            <main>
+            <main className={styles.menuMain}>
                 <div className={styles.header}>
                 </div>
                 <div className={styles.navContainer}>
