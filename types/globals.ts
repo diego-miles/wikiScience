@@ -6,7 +6,7 @@ declare namespace Wiki {
     }
     interface SubTopic {
     title: string;
-    subTopics: string[];
+    topics: string[];
     }   
     interface ScienceField {
     title: string;

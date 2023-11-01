@@ -1,7 +1,7 @@
 import React from 'react';
-import { ScienceFieldsMenu } from './components/ScienceFieldsMenu';
+import { ScienceFieldsMenu } from './ScienceFieldsMenu';
 import data from '@/data';
-import NavBar from '@/NavBarContainer';
+import NavBar from './components/NavBarContainer';
 import styles from './Recomendaciones.module.css';
 
 export const metadata = {
@@ -13,7 +13,7 @@ export const metadata = {
 const ScienceFieldsPage: React.FC = () => {
   return (
     <div className=''>
-      <NavBar title='./' profileLink={''} menuLink='http://localhost:3000/recomendaciones/menu'/>
+      <NavBar title='./' profileLink={''}/>
       <main>
         <div className={styles.divContext}>
           <p className={styles.textContext}>Ranking</p>

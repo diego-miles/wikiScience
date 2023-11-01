@@ -1,7 +1,6 @@
 // components/Temario.tsx
 import { useState } from 'react';
-import styles from './Temario.module.css';
-
+import styles from '../page.module.css';
 type Props = {
   coverImage: string;
   temarioImgs: string[];

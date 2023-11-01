@@ -38,18 +38,10 @@
   margin: 0;
 }
 
-
 html::-webkit-scrollbar {
   width: 10px;
   background: rgb(182, 182, 182)
 }
-
-/* html::-webkit-scrollbar-tracK {
-  width: 10px;
-  background: transparent
-  
-} */
-
 
 
 body {
@@ -122,14 +114,5 @@ li {
   list-style: none;
   font-family: var(--font-size-nav-item-menu);
   font-size: 13px;
-  /* padding: 2px; */
 }
-
-
-/* @media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-} */
-
 

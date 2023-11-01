@@ -5,7 +5,7 @@ const scienceFields = [
     subFields: [
       {
         title: 'Biología',
-        subTopics: [
+        topics: [
           'Genética',
           'Ecología',
           'Bioquímica',
@@ -16,7 +16,7 @@ const scienceFields = [
       },
       {
         title: 'Química',
-        subTopics: [
+        topics: [
           'Química Orgánica',
           'Química Inorgánica',
           'Química Analítica',
@@ -26,7 +26,7 @@ const scienceFields = [
       },
       {
         title: 'Física',
-        subTopics: [
+        topics: [
           'Mecánica Clásica',
           'Electromagnetismo',
           'Termodinámica',
@@ -41,7 +41,7 @@ const scienceFields = [
     subFields: [
       {
         title: 'Matemáticas',
-        subTopics: [
+        topics: [
           'Álgebra',
           'Cálculo Diferencial e Integral',
           'Geometría y Topología',
@@ -53,7 +53,7 @@ const scienceFields = [
       },
       {
         title: 'Lógica',
-        subTopics: [
+        topics: [
           'Lógica Proposicional',
           'Lógica de Primer Orden',
           'Lógica Modal',
@@ -63,7 +63,7 @@ const scienceFields = [
       },
       {
         title: 'Teoría de la Computación',
-        subTopics: [
+        topics: [
           'Autómatas y Lenguajes Formales',
           'Complejidad Computacional',
           'Algoritmos y Estructuras de Datos',
@@ -73,7 +73,7 @@ const scienceFields = [
       },
       {
         title: 'Lingüística Formal',
-        subTopics: [
+        topics: [
           'Gramáticas Generativas',
           'Semántica Formal',
           'Pragmática Formal',
@@ -87,7 +87,7 @@ const scienceFields = [
     subFields: [
       {
         title: 'Economía',
-        subTopics: [
+        topics: [
           'Microeconomía',
           'Macroeconomía',
           'Economía del Desarrollo',
@@ -96,7 +96,7 @@ const scienceFields = [
       },
       {
         title: 'Psicología de la Evolución',
-        subTopics: [
+        topics: [
           'Selección Natural y Comportamiento',
           'Evolución del Aprendizaje',
           'Evolución de la Cooperación',
@@ -110,7 +110,7 @@ const scienceFields = [
     subFields: [
       {
         title: 'Tecnologías de Información y Comunicación (TICs)',
-        subTopics: [
+        topics: [
           'Desarrollo de Software',
           'Ciberseguridad',
           'Inteligencia Artificial',
@@ -119,7 +119,7 @@ const scienceFields = [
       },
       {
         title: 'Ingeniería Electrónica',
-        subTopics: [
+        topics: [
           'Ingeniería de Circuitos',
           'Robótica',
           'Electrónica de Potencia'
@@ -127,7 +127,7 @@ const scienceFields = [
       },
       {
         title: 'Ingeniería de Energías',
-        subTopics: [
+        topics: [
           'Energía Solar',
           'Energía Eólica',
           'Energía Nuclear'
@@ -135,7 +135,7 @@ const scienceFields = [
       },
       {
         title: 'Ingeniería Mecánica',
-        subTopics: [
+        topics: [
           'Dinámica de Fluidos',
           'Mecánica de Materiales',
           'Termodinámica Aplicada'
@@ -143,7 +143,7 @@ const scienceFields = [
       },
       {
         title: 'Ingeniería Civil',
-        subTopics: [
+        topics: [
           'Ingeniería Estructural',
           'Ingeniería de Transporte',
           'Ingeniería Hidráulica'
@@ -151,7 +151,7 @@ const scienceFields = [
       },
       {
         title: 'Ingeniería Química',
-        subTopics: [
+        topics: [
           'Procesos Químicos',
           'Ingeniería de Reactores',
           'Termodinámica Química'
@@ -159,7 +159,7 @@ const scienceFields = [
       },
       {
         title: 'Ingeniería Ambiental',
-        subTopics: [
+        topics: [
           'Gestión de Residuos',
           'Tecnologías Limpias',
           'Conservación de Recursos'
@@ -167,7 +167,7 @@ const scienceFields = [
       },
       {
         title: 'Automatización en Ingeniería',
-        subTopics: [
+        topics: [
           'Automatización de Procesos Industriales',
           'Control de Sistemas',
           'Robótica Industrial',

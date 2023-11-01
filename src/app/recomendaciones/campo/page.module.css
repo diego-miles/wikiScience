@@ -1,0 +1,33 @@
+
+.contextSpace {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+.globalDivSpace {
+    height: 20px;
+}
+
+.localContextLinksContainer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.localContextLinkSide {
+  width: 20px;
+}
+
+.localContextLinkCenter {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.localContextLinkItem {
+  padding-top: 5px;
+}

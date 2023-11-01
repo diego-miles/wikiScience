@@ -1,0 +1,37 @@
+.navbarContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #f5f5f5;
+}
+
+.icon {
+  background-size: cover;
+  cursor: pointer;
+}
+
+.leftIcon {
+  width: 30px;
+  height: 40px;
+  background-image: url('/iconmonkey-blue.svg');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.rightIcon {
+  width: 35px;
+  height: 40px;
+  margin-bottom: 5px;
+  background-image: url('/microscope.svg');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: 400;
+}
+

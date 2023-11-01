@@ -2,7 +2,7 @@
 import React, { FC, useState } from 'react';
 import Link from 'next/link';
 import { FaListUl, FaChevronDown, FaChevronRight } from 'react-icons/fa';
-import styles from '../components/ScienceFieldsMenu.module.css';
+import styles from './ScienceFieldsMenu.module.css';
 
 interface ScienceFieldsMenuProps {
   data: Wiki.ScienceField[];
@@ -49,7 +49,7 @@ const ExpandableItem: FC<ExpandableItemProps> = ({ title, items }) => {
       </div>
       {isOpen &&
         items.map((item, index) => (
-          <ExpandableSubItem key={index} title={item.title} items={item.subTopics} />
+          <ExpandableSubItem key={index} title={item.title} items={item.topics} />
         ))}
     </div>
   );
