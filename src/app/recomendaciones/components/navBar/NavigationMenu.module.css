@@ -2,14 +2,8 @@
   position: absolute;
   background-color: var(--color-background1);
   z-index: 1000;
-  margin: 0 auto;
+  max-width: 320px;
   padding-bottom: 50px;
-}
-
-.backLinkWrapper {
-  position: absolute;
-  top: -8px;
-  right: 15px;
 }
 
 .crossIcon {

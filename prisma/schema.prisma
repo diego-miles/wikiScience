@@ -7,45 +7,33 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-// model ScienceFields {
-//   id       String  @id @map("_id") @default(auto()) @db.ObjectId
-//   title    String
-//   subFields SubFields[]
-// }
-
-// type SubFields {
-//   title     String
-//   topics    String[]
-// }
-
-model Topic {
-  id       String  @id @map("_id") @default(auto()) @db.ObjectId
-  topic    String 
-  field    String
-  SubField String
-  books    Book[]  @relation("TopicToBooks")
+type Books {
+  englishTitle    String
+  authors         String[]
+  keywords        String[]
+  coverImage      String?
+  syllabusImages  String[]
+  pages           Int
+  lastEdition     String?
+  publicationDate String?
+  originCountry   String?
+  spanishEdition  Boolean?
+  spanishTitle    String?
+  ratings         Ratings?
+  summary         String?
 }
 
-model Book {
-  id                String  @id @map("_id") @default(auto()) @db.ObjectId
-  englishTitle      String  
-  spanishTitle      String? 
-  authors           String[] 
-  spanishEdition    Boolean? 
-  publicationDate   String?
-  lastEdition       String?
-  summary           String?
-  keywords          String[]
-  pages             Int?
-  ratings           Rating
-  originCountry     String?
-  coverImage        String?
-  syllabusImages    String[]
-  topic             Topic?  @relation("TopicToBooks", fields: [id], references: [id])
+type Ratings {
+  amazon    Int
+  goodreads Int
+  google    Int
 }
 
-type Rating {
-  amazon    Float
-  goodreads Float
-  google    Float
+model Recommendation {
+  id        String                 @id @default(auto()) @map("_id")   @db.ObjectId
+  field     String
+  SubField  String
+  topic     String   @unique
+  books     Books[]
+  @@map("recommendations")
 }

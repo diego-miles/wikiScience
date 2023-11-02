@@ -47,14 +47,14 @@ html::-webkit-scrollbar {
 body {
   overflow-y: scroll;
   overflow-x: hidden;
-  margin: 0 auto;
   background-color: var(--color-background1);
+  max-width: 320px;
+  margin: 0 auto;
 }
 
 main {
-    max-width: 320px;
-    margin: 0 auto;
     padding: 0 5px;
+    margin: 0 auto;
 }
 
 
@@ -116,3 +116,6 @@ li {
   font-size: 13px;
 }
 
+span {
+  color: var(--color-title2);
+}

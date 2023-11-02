@@ -1,7 +1,7 @@
 "use client"
 import React, { useState } from 'react';
 import styles from './NavbarContainer.module.css';
-import NavigationMenu from '../NavigationMenu';
+import NavigationMenu from './NavigationMenu';
 
 interface NavbarProps {
   title: string;

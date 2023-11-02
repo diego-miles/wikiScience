@@ -62,7 +62,7 @@
   width: 30px;
   height: 5px;
   background-color: var(--color-active-element);
-  border-radius: 1px;
+  border-radius: 3px;
   transition: transform 0.3s ease;
   /* Transición para la transformación */
   transform: translate(-50%, -50%) rotate(0);

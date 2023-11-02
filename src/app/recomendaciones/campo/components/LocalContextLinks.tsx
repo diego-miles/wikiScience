@@ -1,5 +1,5 @@
 // components/LocalContextLinks.tsx
-import styles from './ArticlePage.module.css';
+import styles from '../page.module.css';
 
 type LocalContextLinksProps = {
   links: string[];

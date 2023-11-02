@@ -49,7 +49,7 @@ const ExpandableItem: FC<ExpandableItemProps> = ({ title, items }) => {
       </div>
       {isOpen &&
         items.map((item, index) => (
-          <ExpandableSubItem key={index} title={item.title} items={item.topics} />
+          <ExpandableSubItem  key={index} title={item.title} items={item.topics} />
         ))}
     </div>
   );

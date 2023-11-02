@@ -5,7 +5,7 @@ type ArticleTitleProps = {
 
 const ArticleTitle: React.FC<ArticleTitleProps> = ({ topic }) => (
   <h1>
-    <span>Mejores libros de </span>
+    <span>Best books on</span><br/>
     {topic}
   </h1>
 );

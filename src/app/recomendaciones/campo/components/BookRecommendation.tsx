@@ -1,20 +1,9 @@
 // components/BookRecommendation.tsx
-import styles from './ArticlePage.module.css';
-
-type Book = {
-  title: string;
-  authors: string[];
-  coverImage: string;
-  ratings: {
-    amazon: number;
-    goodreads: number;
-    google: number;
-  };
-  summary: string;
-};
+import styles from '../page.module.css';
+import { Books } from '@prisma/client';
 
 type BookRecommendationProps = {
-  book: Book;
+  book: Books;
 };
 
 const BookRecommendation: React.FC<BookRecommendationProps> = ({ book }) => (
