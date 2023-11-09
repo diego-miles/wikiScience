@@ -2,7 +2,7 @@
   /* Paleta de Colores */
   --color-title1: #2e4053;
   --color-title2: #6a7c85;
-  /* --color-title2: #B0B6B9; */
+  --color-title6: #B0B6B9;
   --color-title3: #2c3e50;
   --color-title4: #2c3e50;
   --color-active-element: #3498db;
@@ -26,7 +26,9 @@
   --font-size-title1: 25px;
   --font-size-title2: 20px;
   --font-size-title3: 16px;
-  --font-size-title4: 15px;
+  --font-size-title4: 14px;
+  --font-size-title5: 12px;
+  --font-size-title6: 12px;
   --font-size-nav-item-menu-field: 15px;
   --font-size-nav-item-menu-branch: 15px;
   --font-size-nav-item-menu: 13px;
@@ -105,9 +107,20 @@ h4 {
   padding: 8px 0px;
 }
 
+h5 {
+  font-family: var(--font-family-title1);
+  font-size: var(--font-size-title5);
+  color: var(--color-title4);
+  font-weight: 400;
+  padding: 8px 0px;
+}
+
 h6 {
-  font-family: var(--font-family-title2);
+  font-family: var(--font-family-text);
+  font-size: var(--font-size-title6);
+  font-weight: 400;
   text-align: center;
+    color: var(--color-title6);
 }
 
 li {
@@ -119,3 +132,4 @@ li {
 span {
   color: var(--color-title2);
 }
+

@@ -30,9 +30,9 @@
   background-repeat: no-repeat;
 }
 
-.title {
-  font-size: 20px;
-  font-weight: 400;
+.active {
+  color: var(--color-active-element);
+  padding-right: 10px;
 }
 
 .crossIcon {

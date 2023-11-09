@@ -7,33 +7,41 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-type Books {
+type RatingDetail {
+  average Float
+  number  Int
+}
+
+type Ratings {
+  amazon    RatingDetail
+  goodreads RatingDetail
+  google    RatingDetail
+}
+
+type Book {
   englishTitle    String
+  spanishTitle    String?
   authors         String[]
   keywords        String[]
   coverImage      String?
   syllabusImages  String[]
-  pages           Int
-  lastEdition     String?
-  publicationDate String?
+  pages           Int?
+  lastEdition     Int?  //numero de edición
+  lastEditionDate Int?  // año de edicion
+  publicationDate Int?
   originCountry   String?
   spanishEdition  Boolean?
-  spanishTitle    String?
   ratings         Ratings?
   summary         String?
-}
-
-type Ratings {
-  amazon    Int
-  goodreads Int
-  google    Int
+  amazonLink      String?
 }
 
 model Recommendation {
-  id        String                 @id @default(auto()) @map("_id")   @db.ObjectId
-  field     String
-  SubField  String
-  topic     String   @unique
-  books     Books[]
+  id       String    @id @default(auto()) @map("_id") @db.ObjectId
+  field    String
+  subField String
+  topic    String    
+  books    Book[]
+  slug     String    @unique  // topic para url
   @@map("recommendations")
 }

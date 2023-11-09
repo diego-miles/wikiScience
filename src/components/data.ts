@@ -1,182 +1,180 @@
-
 const scienceFields = [
   {
-    title: 'Ciencias Naturales',
+    title: 'Natural Sciences',
     subFields: [
       {
-        title: 'Biología',
+        title: 'Biology',
         topics: [
-          'Genética',
-          'Ecología',
-          'Bioquímica',
-          'Biología Evolutiva',
-          'Botánica',
-          'Zoología'
+          'Genetics',
+          'Ecology',
+          'Biochemistry',
+          'Evolutionary Biology',
+          'Botany',
+          'Zoology'
         ]
       },
       {
-        title: 'Química',
+        title: 'Chemistry',
         topics: [
-          'Química Orgánica',
-          'Química Inorgánica',
-          'Química Analítica',
-          'Química Física',
-          'Electroquímica'
+          'Organic Chemistry',
+          'Inorganic Chemistry',
+          'Analytical Chemistry',
+          'Physical Chemistry',
+          'Electrochemistry'
         ]
       },
       {
-        title: 'Física',
+        title: 'Physics',
         topics: [
-          'Mecánica Clásica',
-          'Electromagnetismo',
-          'Termodinámica',
-          'Física Cuántica',
-          'Astrofísica'
+          'Classical Mechanics',
+          'Electromagnetism',
+          'Thermodynamics',
+          'Quantum Physics',
+          'Astrophysics'
         ]
       }
     ]
   },
   {
-    title: 'Ciencias Formales',
+    title: 'Formal Sciences',
     subFields: [
       {
-        title: 'Matemáticas',
+        title: 'Mathematics',
         topics: [
-          'Álgebra',
-          'Cálculo Diferencial e Integral',
-          'Geometría y Topología',
-          'Teoría de Números',
-          'Estadística y Probabilidad',
-          'Matemáticas Discretas',
-          'Matemáticas Aplicadas'
+          'Algebra',
+          'Differential and Integral Calculus',
+          'Geometry and Topology',
+          'Number Theory',
+          'Statistics and Probability',
+          'Discrete Mathematics',
+          'Applied Mathematics'
         ]
       },
       {
-        title: 'Lógica',
+        title: 'Logic',
         topics: [
-          'Lógica Proposicional',
-          'Lógica de Primer Orden',
-          'Lógica Modal',
-          'Lógica Difusa',
-          'Lógica Computacional'
+          'Propositional Logic',
+          'First-order Logic',
+          'Modal Logic',
+          'Fuzzy Logic',
+          'Computational Logic'
         ]
       },
       {
-        title: 'Teoría de la Computación',
+        title: 'Theory of Computation',
         topics: [
-          'Autómatas y Lenguajes Formales',
-          'Complejidad Computacional',
-          'Algoritmos y Estructuras de Datos',
-          'Computación Cuántica',
-          'Teoría de la Información'
+          'Automata and Formal Languages',
+          'Computational Complexity',
+          'Algorithms and Data Structures',
+          'Quantum Computing',
+          'Information Theory'
         ]
       },
       {
-        title: 'Lingüística Formal',
+        title: 'Formal Linguistics',
         topics: [
-          'Gramáticas Generativas',
-          'Semántica Formal',
-          'Pragmática Formal',
-          'Fonología Computacional'
+          'Generative Grammars',
+          'Formal Semantics',
+          'Formal Pragmatics',
+          'Computational Phonology'
         ]
       }
     ]
   },
   {
-    title: 'Ciencias Sociales',
+    title: 'Social Sciences',
     subFields: [
       {
-        title: 'Economía',
+        title: 'Economics',
         topics: [
-          'Microeconomía',
-          'Macroeconomía',
-          'Economía del Desarrollo',
-          'Economía Conductual'
+          'Microeconomics',
+          'Macroeconomics',
+          'Development Economics',
+          'Behavioral Economics'
         ]
       },
       {
-        title: 'Psicología de la Evolución',
+        title: 'Evolutionary Psychology',
         topics: [
-          'Selección Natural y Comportamiento',
-          'Evolución del Aprendizaje',
-          'Evolución de la Cooperación',
-          'Evolución de la Cognición'
+          'Natural Selection and Behavior',
+          'Evolution of Learning',
+          'Evolution of Cooperation',
+          'Evolution of Cognition'
         ]
       }
     ]
   },
   {
-    title: 'Tecnología e Ingeniería',
+    title: 'Technology and Engineering',
     subFields: [
       {
-        title: 'Tecnologías de Información y Comunicación (TICs)',
+        title: 'Information and Communication Technologies (ICTs)',
         topics: [
-          'Desarrollo de Software',
-          'Ciberseguridad',
-          'Inteligencia Artificial',
-          'Redes y Comunicaciones'
+          'Software Development',
+          'Cybersecurity',
+          'Artificial Intelligence',
+          'Networks and Communications'
         ]
       },
       {
-        title: 'Ingeniería Electrónica',
+        title: 'Electronic Engineering',
         topics: [
-          'Ingeniería de Circuitos',
-          'Robótica',
-          'Electrónica de Potencia'
+          'Circuit Engineering',
+          'Robotics',
+          'Power Electronics'
         ]
       },
       {
-        title: 'Ingeniería de Energías',
+        title: 'Energy Engineering',
         topics: [
-          'Energía Solar',
-          'Energía Eólica',
-          'Energía Nuclear'
+          'Solar Energy',
+          'Wind Energy',
+          'Nuclear Energy'
         ]
       },
       {
-        title: 'Ingeniería Mecánica',
+        title: 'Mechanical Engineering',
         topics: [
-          'Dinámica de Fluidos',
-          'Mecánica de Materiales',
-          'Termodinámica Aplicada'
+          'Fluid Dynamics',
+          'Material Mechanics',
+          'Applied Thermodynamics'
         ]
       },
       {
-        title: 'Ingeniería Civil',
+        title: 'Civil Engineering',
         topics: [
-          'Ingeniería Estructural',
-          'Ingeniería de Transporte',
-          'Ingeniería Hidráulica'
+          'Structural Engineering',
+          'Transportation Engineering',
+          'Hydraulic Engineering'
         ]
       },
       {
-        title: 'Ingeniería Química',
+        title: 'Chemical Engineering',
         topics: [
-          'Procesos Químicos',
-          'Ingeniería de Reactores',
-          'Termodinámica Química'
+          'Chemical Processes',
+          'Reactor Engineering',
+          'Chemical Thermodynamics'
         ]
       },
       {
-        title: 'Ingeniería Ambiental',
+        title: 'Environmental Engineering',
         topics: [
-          'Gestión de Residuos',
-          'Tecnologías Limpias',
-          'Conservación de Recursos'
+          'Waste Management',
+          'Clean Technologies',
+          'Resource Conservation'
         ]
       },
       {
-        title: 'Automatización en Ingeniería',
+        title: 'Engineering Automation',
         topics: [
-          'Automatización de Procesos Industriales',
-          'Control de Sistemas',
-          'Robótica Industrial',
-          'Internet de las Cosas (IoT) en Ingeniería'
+          'Industrial Process Automation',
+          'Systems Control',
+          'Industrial Robotics',
+          'Internet of Things (IoT) in Engineering'
         ]
       }
     ]
   },
-
 ];
 
 export default scienceFields;

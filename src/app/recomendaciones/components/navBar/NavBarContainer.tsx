@@ -5,9 +5,10 @@ import NavigationMenu from './NavigationMenu';
 
 interface NavbarProps {
   title: string;
+  title2: string;
 }
 
-const NavBarContainer: React.FC<NavbarProps> = ({ title }) => {
+const NavBarContainer: React.FC<NavbarProps> = ({ title, title2 }) => {
   const [isMenuVisible, setMenuVisible] = useState(false);
 
   const toggleMenu = () => {
@@ -17,7 +18,9 @@ const NavBarContainer: React.FC<NavbarProps> = ({ title }) => {
   return (
     <div>
       <div className={styles.navbarContainer}>
-        <h6 className={styles.title}>{title}</h6>
+        <h6>{title}</h6>
+        <h6>{">"}</h6>
+        <h6 className={styles.active}>{title2}</h6>
         <span className={styles.rightIcon} onClick={toggleMenu}>
           <div className={`${styles.iconWrapper} ${styles.crossIcon} ${isMenuVisible ? styles.crossIconOpen : styles.crossIconClosed}`}></div>
         </span>
