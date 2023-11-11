@@ -1,0 +1,31 @@
+.localContextLinksContainer {
+    display: flex;
+    flex-direction: column;
+    padding: 0 0px;
+}
+
+.linkArrowRow {
+    display: flex;
+    align-items: center;
+}
+
+.arrow {
+    width: 10px;
+    height: 2px;
+    background-color: #B0B6B9;
+    margin-right: 10px;
+    /* Space between arrow and link */
+    position: relative;
+    margin-bottom: 7px;
+    padding-right: 10px;
+}
+
+.arrow::before {
+    content: '';
+    position: absolute;
+    right: -5px;
+    top: 50%;
+    border: 3px solid transparent;
+    border-left-color: #B0B6B9;
+    transform: translateY(-50%);
+}

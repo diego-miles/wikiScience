@@ -11,8 +11,8 @@ export const metadata = {
 const Page: React.FC = () => {
   return (
     <div className=''>
+      <NavBar/>
       <main>
-        <NavBar title='./'/>
           <div className={styles.divContext}>
             <p className={styles.textContext}>Ranking</p>
           </div>

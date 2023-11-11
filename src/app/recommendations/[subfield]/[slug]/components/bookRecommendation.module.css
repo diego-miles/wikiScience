@@ -1,0 +1,83 @@
+.container {
+    padding-top: 20px;
+    padding-bottom: 15px;
+}
+
+.cover {
+    position: relative;
+    margin-bottom: 100px;
+}
+
+.coverImg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 20px;
+  padding-top: 10px;
+}
+
+
+
+.overlay {
+    position: absolute;
+    bottom: 0;
+    background-color: var(--color-accent1);
+}
+
+.details,
+.ratings {
+    display: flex;
+    justify-content: space-between;
+}
+
+.detailItem,
+.rating {
+    flex: 1;
+    text-align: center;
+}
+
+.detailTitle {
+    margin-bottom: 0.5rem;
+}
+
+
+
+.bookRecommendation .infoGrid,
+.bookRecommendation .ratingsGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 20px;
+}
+
+
+
+.bookRecommendation .ratingsTitle {
+    text-align: center;
+}
+
+.title {
+    position: relative;
+    /* padding-left: 20px; */
+}
+
+.title:before {
+    content: '';
+    position: absolute;
+    left: -100vw;
+    /* Extiende la cinta hacia la izquierda del viewport */
+    top: 0;
+    width: calc(100vw - 10px);
+    /* El ancho total menos el padding del título */
+    height: 80%;
+    /* background-image: repeating-linear-gradient(-45deg,
+            #e8e8e8,
+            #e8e8e8, 8px,
+            transparent 10px,
+            transparent 13px
+        ); */
+    z-index: -1;
+    /* Para que la cinta quede detrás del texto */
+}

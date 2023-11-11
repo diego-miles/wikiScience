@@ -1,16 +1,18 @@
 :root {
   /* Paleta de Colores */
   --color-title1: #2e4053;
-  --color-title2: #6a7c85;
+  --color-title2: #2c3e50;
+  --color-title3: #2e4053;
+  --color-title4: #2e4053;
+  --color-title5: #B0B6B9;
   --color-title6: #B0B6B9;
-  --color-title3: #2c3e50;
-  --color-title4: #2c3e50;
+  --color-span: #B0B6B9;
   --color-active-element: #3498db;
   --color-background1: #f4f6f6;
   --color-background2: #d5dbdb;
   --color-background3: #B0B6B9;
   --color-menu: #e9edef;
-  --color-span: #839192;
+  --color-span: #6a7c85;
   --color-accent1: #e74c3c;
   --color-accent2: #16a085;
   --color-dark: #2c3e50;
@@ -27,8 +29,8 @@
   --font-size-title2: 20px;
   --font-size-title3: 16px;
   --font-size-title4: 14px;
-  --font-size-title5: 12px;
-  --font-size-title6: 12px;
+  --font-size-title5: 17px;
+  --font-size-title6: 13px;
   --font-size-nav-item-menu-field: 15px;
   --font-size-nav-item-menu-branch: 15px;
   --font-size-nav-item-menu: 13px;
@@ -50,19 +52,27 @@ body {
   overflow-y: scroll;
   overflow-x: hidden;
   background-color: var(--color-background1);
-  max-width: 320px;
   margin: 0 auto;
 }
 
 main {
-    padding: 0 5px;
+  max-width: 320px;
+    padding: 0px 10px;
+    padding-top: 65px;
     margin: 0 auto;
 }
 
 
 a {
-  color: inherit;
+  color: var(--color-title6);
   text-decoration: none;
+  display: block;
+  /* text-align:center; */
+  font-family: var(--font-family-text);
+  font-size: var(--font-size-title5);
+  font-style: italic;
+  line-height: 1;
+  padding-bottom: 7px;
 }
 
 p {
@@ -80,13 +90,13 @@ h1 {
   color: var(--color-title1);
   text-align: center;
   line-height: 1;
-  padding-bottom: 20px;
+  padding-bottom: 25px;
 }
 
 h2 {
   font-family: var(--font-family-title2);
   font-size: var(--font-size-title2);
-  color: var(--color-title2);
+  color: var(--color-title1);
   font-weight: 400;
   padding-bottom: 15px;
 }
@@ -104,23 +114,22 @@ h4 {
   font-size: var(--font-size-title4);
   color: var(--color-title4);
   font-weight: 400;
-  padding: 8px 0px;
+  /* padding: 8px 0px; */
+  /* padding-bottom: 8px; */
 }
 
 h5 {
-  font-family: var(--font-family-title1);
+  font-family: var(--font-family-text);
   font-size: var(--font-size-title5);
-  color: var(--color-title4);
+  color: var(--color-title5);
   font-weight: 400;
-  padding: 8px 0px;
 }
 
 h6 {
   font-family: var(--font-family-text);
   font-size: var(--font-size-title6);
   font-weight: 400;
-  text-align: center;
-    color: var(--color-title6);
+  color: var(--color-title6);
 }
 
 li {
@@ -130,6 +139,14 @@ li {
 }
 
 span {
-  color: var(--color-title2);
+  color: var(--color-span);
+}
+
+.globalSpace {
+  height: 20px;
+}
+
+.active-color {
+  color: var(--color-active-element);
 }
 

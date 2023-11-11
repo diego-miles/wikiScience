@@ -1,9 +1,14 @@
 .menuWrapper {
-  position: absolute;
   background-color: var(--color-background1);
-  z-index: 1000;
-  max-width: 320px;
+  position: fixed;
+  width: 100%;
+  max-height: 100vh;
+  z-index: 10;
   padding-bottom: 50px;
+  overflow-y: auto;
+}
+.menuWrapper::-webkit-scrollbar {
+  display: none;
 }
 
 .crossIcon {
@@ -17,7 +22,6 @@
   color: var(--color-background3);
   font-size: 20px;
   padding-top: 10px;
-  padding-bottom: 5px;
 }
 
 .branchContainer {
@@ -40,13 +44,14 @@
 .subField {
   list-style: none;
   padding-left: 3px;
+  padding-top: 2px;
 }
 
 .subTopic {
   font-weight: 500;
   line-height: 110%;
-  padding-top: 2px;
-  padding-bottom: 4px;
+  padding-top: 0px;
+  padding-bottom: 5px;
   border-left: 3px solid #d5dbdb;
   padding-left: 3px;
   color: var(--color-title1);

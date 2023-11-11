@@ -10,6 +10,7 @@ datasource db {
 type RatingDetail {
   average Float
   number  Int
+  link    String
 }
 
 type Ratings {
@@ -37,11 +38,12 @@ type Book {
 }
 
 model Recommendation {
-  id       String    @id @default(auto()) @map("_id") @db.ObjectId
-  field    String
-  subField String
-  topic    String    
-  books    Book[]
-  slug     String    @unique  // topic para url
+  id            String    @id @default(auto()) @map("_id") @db.ObjectId
+  field         String
+  subField      String
+  topic         String    
+  topicSummary  String
+  books         Book[]
+  slug          String    @unique  // topic para url
   @@map("recommendations")
 }
