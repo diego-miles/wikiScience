@@ -3,16 +3,20 @@ import React from 'react';
 import styles from './NavigationMenu.module.css';
 import data from '@/data';
 
-const NavigationMenu = () => {
+interface NavigationMenuProps {
+  className?: string;
+  style?: React.CSSProperties; // Add this line
+}
+
+
+
+
+const NavigationMenu: React.FC<NavigationMenuProps> = ({ className, style }) => {
     
     return (
-        <div className={styles.menuWrapper}>
-            {/* <div className={styles.backLinkWrapper}>
-                <BackButton />
-            </div> */}
-            {/* <NavBar title='./' profileLink={''} menuLink=''/> */}
+        <div className={`${styles.menuWrapper} ${className}`} style={style}>
             <main className={styles.menuMain}>
-                <div className={styles.header}>
+                <div className={styles.header}>Best Books
                 </div>
                 <div className={styles.navContainer}>
                         {data.map((field, idx) => (

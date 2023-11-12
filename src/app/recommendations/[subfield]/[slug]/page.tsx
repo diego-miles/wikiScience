@@ -60,7 +60,7 @@ async function RecommendationPage(
                 <LocalContextLinks links={bookLinks || []} />
                 <div className='globalSpace'></div>
                 <Summary summary={recommendations?.topicSummary} />
-                <div className='globalSpace'></div>
+                {/* <div className='globalSpace'></div> */}
                 {bookRecommendations}
                 <div className='globalSpace'></div>
                 <div className='globalSpace'></div>

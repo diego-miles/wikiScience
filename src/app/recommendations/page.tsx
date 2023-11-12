@@ -4,6 +4,7 @@ import data from '@/data';
 import NavBar from './components/navBar/NavBarContainer';
 import styles from './Recomendaciones.module.css';
 
+
 export const metadata = {
   title: "Recomendaciones",
 };
@@ -12,7 +13,7 @@ const Page: React.FC = () => {
   return (
     <div className=''>
       <NavBar/>
-      <main>
+      <main className={styles.animatedElement}>
           <div className={styles.divContext}>
             <p className={styles.textContext}>Ranking</p>
           </div>

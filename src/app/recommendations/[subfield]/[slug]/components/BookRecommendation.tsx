@@ -28,11 +28,11 @@ const BookRecommendation: React.FC<BookRecommendationProps> = ({ book }) => {
     <div className={styles.bookRecommendation}>
       <div className='globalSpace'></div>
       <h2 id={book.englishTitle.replace(/\s+/g, '-').toLowerCase()} className={styles.title}> {'"' + englishTitle + '"'} <span>by {authorsFormatted}</span></h2>
-      {/* {coverImage && (
+      {coverImage && (
         <figure className={styles.coverImg}>
           <img width="130px" src={coverImage} alt={`Cover of the book ${englishTitle}`} />
         </figure>
-      )} */}
+      )}
 
       {/* Grid para páginas y fechas */}
       <div className={styles.infoGrid}>
@@ -69,7 +69,6 @@ const BookRecommendation: React.FC<BookRecommendationProps> = ({ book }) => {
 
       {summary && <p className={styles.summary}>{summary}</p>}
 
-      <div className='globalSpace'></div>
     </div>
   );
 };

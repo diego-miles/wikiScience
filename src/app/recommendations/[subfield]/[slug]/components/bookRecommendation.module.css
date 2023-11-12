@@ -60,7 +60,7 @@
 
 .title {
     position: relative;
-    /* padding-left: 20px; */
+    padding-top: 20px;
 }
 
 .title:before {
@@ -72,12 +72,6 @@
     width: calc(100vw - 10px);
     /* El ancho total menos el padding del título */
     height: 80%;
-    /* background-image: repeating-linear-gradient(-45deg,
-            #e8e8e8,
-            #e8e8e8, 8px,
-            transparent 10px,
-            transparent 13px
-        ); */
-    z-index: -1;
-    /* Para que la cinta quede detrás del texto */
-}
+    z-index: -1;}
+
+

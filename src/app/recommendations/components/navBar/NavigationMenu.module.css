@@ -7,9 +7,35 @@
   padding-bottom: 50px;
   overflow-y: auto;
 }
-.menuWrapper::-webkit-scrollbar {
-  display: none;
+
+.header {
+  color: var(--color-active-element);
+  text-align: center;
+  border: solid 1px var(--color-active-element);
+  border-radius: 5px;
+  margin: 0px 50px;
+  margin-top: 15px;
 }
+
+.no-scroll {
+  overflow: hidden;
+  height: 100%;
+}
+
+.menuWrapper::-webkit-scrollbar {
+  width: 5px;
+}
+
+.menuWrapper::-webkit-scrollbar-thumb {
+  background: var(--color-accent2);
+  border-radius: 8px;
+}
+
+.menuWrapper::-webkit-scrollbar-track {
+  background: var(--color-background2);
+}
+
+
 
 .crossIcon {
   font-size: 24px;
@@ -31,7 +57,6 @@
 .gridLayout {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  /* 2 columns */
   gap: 2px;
 }
 
