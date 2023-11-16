@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './BookRecommendation.module.css';
 import { Book } from '@prisma/client'; // Ajusta la ruta de importación según tu configuración
+import Temario from './Temario';
 
 type BookRecommendationProps = {
   book: Book;
@@ -28,11 +29,7 @@ const BookRecommendation: React.FC<BookRecommendationProps> = ({ book }) => {
     <div className={styles.bookRecommendation}>
       <div className='globalSpace'></div>
       <h2 id={book.englishTitle.replace(/\s+/g, '-').toLowerCase()} className={styles.title}> {'"' + englishTitle + '"'} <span>by {authorsFormatted}</span></h2>
-      {coverImage && (
-        <figure className={styles.coverImg}>
-          <img width="130px" src={coverImage} alt={`Cover of the book ${englishTitle}`} />
-        </figure>
-      )}
+      <Temario title={englishTitle}/>
 
       {/* Grid para páginas y fechas */}
       <div className={styles.infoGrid}>
@@ -47,22 +44,22 @@ const BookRecommendation: React.FC<BookRecommendationProps> = ({ book }) => {
         {ratings?.amazon && 
           <div>
             <h5>Amazon</h5>
-            <h5 className='active-color'>{ratings.amazon.number} reviews</h5>
-            <p>{ratings.amazon.average}</p>
+            {/* <h5 className='active-color'>{ratings.amazon.number}</h5> */}
+            <p className='active-color'>{ratings.amazon.average}</p>
           </div>
         }
         {ratings?.goodreads && 
           <div>
             <h5>Goodreads</h5>
-            <h5 className='active-color'>{ratings.goodreads.number} reviews</h5>
-            <p>{ratings.goodreads.average}</p>
+            {/* <h5 className='active-color'>{ratings.goodreads.number}</h5> */}
+            <p className='active-color'>{ratings.goodreads.average}</p>
           </div>
         }
         {ratings?.google && 
           <div>
             <h5>Google</h5>
-            <h5 className='active-color'>{ratings.google.number} reviews</h5>
-            <p>{ratings.google.average}</p>
+            {/* <h5 className='active-color'>{ratings.google.number}</h5> */}
+            <p className='active-color'>{ratings.google.average}</p>
           </div>
         }
       </div>

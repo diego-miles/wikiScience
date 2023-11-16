@@ -1,22 +1,23 @@
 .container {
-    padding-top: 20px;
-    padding-bottom: 15px;
+    padding-top: 2rem;
+    /* era 20px */
+    padding-bottom: 1.5rem;
+    /* era 15px */
 }
 
 .cover {
     position: relative;
-    margin-bottom: 100px;
+    margin-bottom: 10rem;
+    /* era 100px */
 }
 
 .coverImg {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding-bottom: 20px;
-  padding-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 2rem;
+    padding-top: 1rem;
 }
-
-
 
 .overlay {
     position: absolute;
@@ -40,19 +41,18 @@
     margin-bottom: 0.5rem;
 }
 
-
-
 .bookRecommendation .infoGrid,
 .bookRecommendation .ratingsGrid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
+    gap: 1rem;
+    /* era 10px */
     text-align: center;
-    padding-top: 10px;
-    padding-bottom: 20px;
+    padding-top: 1rem;
+    /* era 10px */
+    padding-bottom: 2rem;
+    /* era 20px */
 }
-
-
 
 .bookRecommendation .ratingsTitle {
     text-align: center;
@@ -60,18 +60,6 @@
 
 .title {
     position: relative;
-    padding-top: 20px;
+    padding-top: 2rem;
 }
-
-.title:before {
-    content: '';
-    position: absolute;
-    left: -100vw;
-    /* Extiende la cinta hacia la izquierda del viewport */
-    top: 0;
-    width: calc(100vw - 10px);
-    /* El ancho total menos el padding del título */
-    height: 80%;
-    z-index: -1;}
-
 

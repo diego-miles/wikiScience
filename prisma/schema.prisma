@@ -27,23 +27,35 @@ type Book {
   coverImage      String?
   syllabusImages  String[]
   pages           Int?
-  lastEdition     Int?  //numero de edición
-  lastEditionDate Int?  // año de edicion
+  lastEdition     Int? //numero de edición
+  lastEditionDate Int? // año de edicion
   publicationDate Int?
   originCountry   String?
   spanishEdition  Boolean?
   ratings         Ratings?
-  summary         String?
+  summary         String[]
   amazonLink      String?
 }
 
 model Recommendation {
-  id            String    @id @default(auto()) @map("_id") @db.ObjectId
-  field         String
-  subField      String
-  topic         String    
-  topicSummary  String
-  books         Book[]
-  slug          String    @unique  // topic para url
+  id           String @id @default(auto()) @map("_id") @db.ObjectId
+  field        String
+  subField     String
+  topic        String
+  topicSummary String
+  slug         String @unique
+  books        Book[]
+
   @@map("recommendations")
+}
+
+model subFieldRecommendation {
+  id              String @id @default(auto()) @map("_id") @db.ObjectId
+  field           String
+  subField        String
+  subFieldSummary String
+  slug            String @unique
+  books           Book[]
+
+  @@map("subfieldRecommendations")
 }

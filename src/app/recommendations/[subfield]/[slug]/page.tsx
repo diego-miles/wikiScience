@@ -1,13 +1,13 @@
 import prisma from '@/lib/db/prisma'; 
 import NavBar from '../../components/navBar/NavBarContainer';
-import ContextSpace from './components/ContextSpace';
-import ArticleTitle from './components/ArticleTitle';
-import LocalContextLinks from './components/LocalContextLinks';
-import Summary from './components/Summary';
-import BookRecommendation from './components/BookRecommendation';
+import ContextSpace from '../components/ContextSpace';
+import ArticleTitle from '../components/ArticleTitle';
+import LocalContextLinks from '../components/LocalContextLinks';
+import Summary from '../components/Summary';
+import BookRecommendation from '../components/BookRecommendation';
 // import styles from './page.module.css';
 import {cache} from "react";
-// import { Metadata } from 'next';
+import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
 interface ProductPageProps {
@@ -25,17 +25,17 @@ const getRecommendation = cache(async (slug: string) => {
 })
 
 
-// export async function generateMetadata(
-//     {params:{slug}}: ProductPageProps): Promise<Metadata>{
-//         const recommendations = await getRecommendation(slug);
-//         return {
-//             title: recommendations?.slug,
-//             description: recommendations?.slug,
-//             // openGraph: {
-//             //     images: [{url: recommendations?.books[0].coverImage}]
-//             // }
-//         }
-//     }
+export async function generateMetadata(
+    {params:{slug}}: ProductPageProps): Promise<Metadata>{
+        const recommendations = await getRecommendation(slug);
+        return {
+            title: recommendations?.slug,
+            description: recommendations?.slug,
+            // openGraph: {
+            //     images: [{url: recommendations?.books[0].coverImage}]
+            // }
+        }
+    }
 
 async function RecommendationPage(
     {params:{slug}}: ProductPageProps,
@@ -52,7 +52,7 @@ async function RecommendationPage(
  );
 
     return (
-        <div>
+        <div className='globalHeadPad'>
             <NavBar title={recommendations?.field} title2={recommendations?.subField} title3={recommendations?.topic} domain="http://localhost:3000/" />
             <main>
                 <ContextSpace />

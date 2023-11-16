@@ -5,7 +5,7 @@ import data from '@/data';
 
 interface NavigationMenuProps {
   className?: string;
-  style?: React.CSSProperties; // Add this line
+  style?: React.CSSProperties;
 }
 
 
@@ -15,7 +15,7 @@ const NavigationMenu: React.FC<NavigationMenuProps> = ({ className, style }) => 
     
     return (
         <div className={`${styles.menuWrapper} ${className}`} style={style}>
-            <main className={styles.menuMain}>
+            <div className={styles.menuMain}>
                 <div className={styles.header}>Best Books
                 </div>
                 <div className={styles.navContainer}>
@@ -37,7 +37,7 @@ const NavigationMenu: React.FC<NavigationMenuProps> = ({ className, style }) => 
                             </div>
                         ))}
                 </div>
-            </main>
+            </div>
         </div>
     );
 }

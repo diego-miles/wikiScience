@@ -1,6 +1,6 @@
 
 .contextSpace {
-    height: 50px;
+    height: 5rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -8,7 +8,7 @@
 
 
 .globalDivSpace {
-    height: 20px;
+    height: 2rem;
 }
 
 .localContextLinkCenter {
@@ -19,5 +19,5 @@
 }
 
 .localContextLinkItem {
-  padding-top: 5px;
+  padding-top: .5rem;
 }

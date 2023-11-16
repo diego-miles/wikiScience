@@ -77,7 +77,7 @@ const toggleMenu = () => {
 
 
   return (
-    <div>
+    <div className={styles.Container}>
       <div style={navbarStyle} className={styles.navbarContainer}>
         <div className={styles.contextualLinks}>
           <Link href={`${domain}/recommendations/`} legacyBehavior>
@@ -106,7 +106,6 @@ const toggleMenu = () => {
         </span>
       </div>
       <NavigationMenu style={menuStyle} />
-
     </div>
   );
 };

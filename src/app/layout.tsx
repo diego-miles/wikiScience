@@ -3,6 +3,7 @@ import { Crimson_Text, Montserrat } from 'next/font/google'
 import './globals.css'
 import './Footer'
 import Footer from './Footer'
+// import ScrollbarUpdater from './ScrollBarUpdater';
 
 const crimson_text = Crimson_Text({
   weight: ['400', '600', '700'],
@@ -32,10 +33,12 @@ export default function RootLayout({
 
   return (
     <html lang="en">
-            <body className={`${crimson_text.className} ${montserrat.className}`}>
-                {children}
-                <Footer/>
-            </body>
+    <body className={`${crimson_text.className} ${montserrat.className}`}>
+        {children}
+        {/* <ScrollbarUpdater /> */}
+        <Footer/>
+        
+    </body>
     </html>
   )
 }
