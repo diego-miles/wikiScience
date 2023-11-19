@@ -1,19 +1,20 @@
 import React from 'react';
 import styles from './BookRecommendation.module.css';
 import { Book } from '@prisma/client'; // Ajusta la ruta de importación según tu configuración
-import Temario from './Temario';
+import Syllabus from './Syllabus';
 
 type BookRecommendationProps = {
   book: Book;
+  priority: boolean;
 };
 
-const BookRecommendation: React.FC<BookRecommendationProps> = ({ book }) => {
+const BookRecommendation: React.FC<BookRecommendationProps> = ({ book, priority }) => {
+    console.log('Priority in BookRecommendation:', priority);
   const {
     englishTitle,
     authors,
-    coverImage,
     pages,
-    lastEditionDate,
+    lastEditionYear,
     publicationDate,
     ratings,
     summary,
@@ -21,51 +22,56 @@ const BookRecommendation: React.FC<BookRecommendationProps> = ({ book }) => {
 
   const authorsFormatted = authors.join(', ');
 
-  // Opcional: Formatear fechas a un formato más legible
-  const formattedLastEditionDate = lastEditionDate ? new Date(lastEditionDate).toLocaleDateString() : '';
-  const formattedPublicationDate = publicationDate ? new Date(publicationDate).toLocaleDateString() : '';
+  const summaryParagraphs = summary.map((paragraph, index) => (
+    <p key={index} className={styles.summaryParagraph}>{paragraph}</p>
+  ));
+
 
   return (
     <div className={styles.bookRecommendation}>
-      <div className='globalSpace'></div>
-      <h2 id={book.englishTitle.replace(/\s+/g, '-').toLowerCase()} className={styles.title}> {'"' + englishTitle + '"'} <span>by {authorsFormatted}</span></h2>
-      <Temario title={englishTitle}/>
 
-      {/* Grid para páginas y fechas */}
-      <div className={styles.infoGrid}>
-        {publicationDate && <div> <h5>Publication</h5> <p>{publicationDate}</p></div>}
-        {pages && <div><h5>Pages</h5> <p>{pages}</p></div>}
-        {lastEditionDate && <div> <h5>Last Edition</h5> <p>{lastEditionDate}</p></div>}
+      <h2 id={book.englishTitle.replace(/\s+/g, '-').toLowerCase()} className={styles.title} >
+        {'"' + englishTitle + '"'} <span>by {authorsFormatted}</span>
+      </h2>
+      <div className={styles.contentGrid}>
+        <div className={styles.leftColumn}>
+          <Syllabus title={englishTitle} priority={priority}/>
+          <div className={styles.infoGrid}>
+            {publicationDate && <div> <h5>Publication</h5> <p>{publicationDate}</p></div>}
+            {pages && <div><h5>Pages</h5> <p>{pages}</p></div>}
+            {lastEditionYear && <div> <h5>Last Edition</h5> <p>{lastEditionYear}</p></div>}
+          </div>
+
+          <p className={styles.ratingsTitle}>Ratings:</p>
+          <div className={styles.ratingsGrid}>
+            {ratings?.amazon && 
+              <div>
+                <h5>Amazon</h5>
+                <p className='active-color'>{ratings.amazon.average}</p>
+              </div>
+            }
+            {ratings?.goodreads && 
+              <div>
+                <h5>Goodreads</h5>
+                <p className='active-color'>{ratings.goodreads.average}</p>
+              </div>
+            }
+            {ratings?.google && 
+              <div>
+                <h5>Google</h5>
+                <p className='active-color'>{ratings.google.average}</p>
+              </div>
+            }
+          </div>
+        </div>
+
+        <div className={styles.rightColumn}>
+          {/* Generando párrafos para cada elemento del array summary */}
+          {summary.map((paragraph, index) => (
+            <p key={index} className={styles.summaryParagraph}>{paragraph}</p>
+          ))}
+        </div>
       </div>
-
-      <p className={styles.ratingsTitle}>Ratings:</p>
-      {/* Grid para calificaciones */}
-      <div className={styles.ratingsGrid}>
-        {ratings?.amazon && 
-          <div>
-            <h5>Amazon</h5>
-            {/* <h5 className='active-color'>{ratings.amazon.number}</h5> */}
-            <p className='active-color'>{ratings.amazon.average}</p>
-          </div>
-        }
-        {ratings?.goodreads && 
-          <div>
-            <h5>Goodreads</h5>
-            {/* <h5 className='active-color'>{ratings.goodreads.number}</h5> */}
-            <p className='active-color'>{ratings.goodreads.average}</p>
-          </div>
-        }
-        {ratings?.google && 
-          <div>
-            <h5>Google</h5>
-            {/* <h5 className='active-color'>{ratings.google.number}</h5> */}
-            <p className='active-color'>{ratings.google.average}</p>
-          </div>
-        }
-      </div>
-
-      {summary && <p className={styles.summary}>{summary}</p>}
-
     </div>
   );
 };

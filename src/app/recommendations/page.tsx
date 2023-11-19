@@ -11,7 +11,7 @@ export const metadata = {
 
 const Page: React.FC = () => {
   return (
-    <div className=''>
+    <div>
       <NavBar/>
       <main className={styles.animatedElement}>
           <div className={styles.divContext}>

@@ -1,6 +1,15 @@
 .divContext {
-  height: 50px;
+  height: 5rem;
+  /* padding-top: 1rem; */
   text-align: center;
+}
+
+.divContext p {
+  color: var(--color-background3);
+}
+
+.animatedElement p {
+  padding-bottom: 3rem;
 }
 
 /* @keyframes fadeInUp {

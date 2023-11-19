@@ -1,6 +1,6 @@
 // components/ArticleTitle.tsx
 type ArticleTitleProps = {
-  topic: string;
+  topic?: string;
 };
 
 const ArticleTitle: React.FC<ArticleTitleProps> = ({ topic }) => (

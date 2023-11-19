@@ -1,0 +1,16 @@
+/* .scroll {
+    overflow-y: scroll;
+}
+
+.scroll::-webkit-scrollbar {
+    width: 0.5rem;
+}
+
+.scroll::-webkit-scrollbar-thumb {
+    background: var(--color-accent2);
+    border-radius: 0.8rem;
+}
+
+.scroll::-webkit-scrollbar-track {
+    background: var(--color-background2);
+} */

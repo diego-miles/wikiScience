@@ -20,42 +20,41 @@ type Ratings {
 }
 
 type Book {
-  englishTitle    String
-  spanishTitle    String?
-  authors         String[]
-  keywords        String[]
-  coverImage      String?
-  syllabusImages  String[]
-  pages           Int?
-  lastEdition     Int? //numero de edición
-  lastEditionDate Int? // año de edicion
-  publicationDate Int?
-  originCountry   String?
-  spanishEdition  Boolean?
-  ratings         Ratings?
-  summary         String[]
-  amazonLink      String?
+  englishTitle      String
+  spanishTitle      String?
+  authors           String[]
+  keywords          String[]
+  coverImage        String?
+  syllabusImages    String[]
+  pages             Int?
+  lastEditionYear   Int? //numero de edición
+  lastEditionNumber Int? // año de edicion
+  publicationDate   Int?
+  originCountry     String?
+  spanishEdition    Boolean?
+  ratings           Ratings?
+  summary           String[]
+  amazonLink        String?
 }
 
 model Recommendation {
   id           String @id @default(auto()) @map("_id") @db.ObjectId
   field        String
   subField     String
-  topic        String
+  topic        String @unique
   topicSummary String
   slug         String @unique
   books        Book[]
 
-  @@map("recommendations")
+  @@map("topicsRecommendation")
 }
 
 model subFieldRecommendation {
-  id              String @id @default(auto()) @map("_id") @db.ObjectId
-  field           String
-  subField        String
-  subFieldSummary String
-  slug            String @unique
-  books           Book[]
+  id       String @id @default(auto()) @map("_id") @db.ObjectId
+  field    String
+  subField String
+  slug     String @unique
+  books    Book[]
 
   @@map("subfieldRecommendations")
 }

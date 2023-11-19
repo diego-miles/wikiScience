@@ -21,3 +21,16 @@
 .localContextLinkItem {
   padding-top: .5rem;
 }
+
+.wrapper::-webkit-scrollbar {
+  width: 0.5rem;
+}
+
+.wrapper::-webkit-scrollbar-thumb {
+  background: var(--color-accent2);
+  border-radius: 0.8rem;
+}
+
+.wrapper::-webkit-scrollbar-track {
+  background: var(--color-background2);
+}

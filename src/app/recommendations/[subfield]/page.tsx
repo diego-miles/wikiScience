@@ -3,11 +3,11 @@ import NavBar from './../components/navBar/NavBarContainer';
 import ContextSpace from './components/ContextSpace';
 import ArticleTitle from './components/ArticleTitle';
 import LocalContextLinks from './components/LocalContextLinks';
-import Summary from './components/Summary';
 import BookRecommendation from './components/BookRecommendation';
 import { cache } from "react";
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
+import styles from './page.module.css'
 
 interface SubFieldPageProps {
     params: {
@@ -27,21 +27,18 @@ const getSubFieldRecommendation = cache(async (subfield: string) => {
 });
 
 
-export async function generateMetadata(
-    {params:{subfield}}: SubFieldPageProps): Promise<Metadata>{
-        const subFieldData = await getSubFieldRecommendation(subfield);
-        return {
-            title: subFieldData?.slug,
-            description: subFieldData?.subFieldSummary,
-            // openGraph: {
-            //     images: [{url: subFieldData?.books[0].coverImage}]
-            // }
-        }
-    }
+// export async function generateMetadata(
+//     {params:{subfield}}: SubFieldPageProps): Promise<Metadata>{
+//         const subFieldData = await getSubFieldRecommendation(subfield);
+//         return {
+//             title: subFieldData?.slug,
+//             // openGraph: {
+//             //     images: [{url: subFieldData?.books[0].coverImage}]
+//             // }
+//         }
+//     }
 
-async function SubFieldRecommendationPage(
-    {params:{subfield}}: SubFieldPageProps,
-) {
+async function SubFieldRecommendationPage({params:{subfield}}: SubFieldPageProps) {
     const subFieldData = await getSubFieldRecommendation(subfield);
 
     const bookLinks = subFieldData?.books?.map(book => ({
@@ -49,21 +46,21 @@ async function SubFieldRecommendationPage(
         id: book.englishTitle.replace(/\s+/g, '-').toLowerCase()
     }));
 
-    const bookRecommendations = subFieldData?.books?.map((book) => 
-        <BookRecommendation key={book.englishTitle} book={book} />
+
+    const bookRecommendations = subFieldData?.books?.map((book, index) => 
+        <BookRecommendation key={book.englishTitle} book={book} priority={index === 0} />
     );
 
     return (
-        <div>
-            <NavBar title={subFieldData?.field} title2={subFieldData?.subField} domain="http://localhost:3000/" />
+        <div className={styles.wrapper}>
+            <NavBar title={subFieldData?.field} title2={subFieldData?.subField} domain="http://localhost:3000" />
             <main>
                 <ContextSpace />
                 <ArticleTitle topic={subFieldData?.subField} />
                 <LocalContextLinks links={bookLinks || []} />
-                <div className='globalSpace'></div>
-                <p className='max-width'>{subFieldData?.subFieldSummary} </p>
-                {/* <Summary summary={subFieldData?.subFieldSummary} />
-                {bookRecommendations} */}
+                {/* <div className='globalSpace'></div> */}
+                {/* <Summary summary={subFieldData?.subFieldSummary} /> */}
+                {bookRecommendations}
                 <div className='globalSpace'></div>
                 <div className='globalSpace'></div>
             </main>

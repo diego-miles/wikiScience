@@ -1,7 +1,7 @@
 :root {
   --color-title1: #2e4053;
   --color-title2: #2c3e50;
-  --color-title3: #2e4053;
+  --color-title3: #6a7c85;
   --color-title4: #2e4053;
   --color-title5: #B0B6B9;
   --color-title6: #B0B6B9;
@@ -23,11 +23,11 @@
   --font-family-nav-field: "Montserrat", sans-serif;
   --font-family-nav-branch: "Montserrat", sans-serif;
   --font-family-nav-subfield: "Montserrat", sans-serif;
-  --font-size-text: 1.9rem;
+  --font-size-text: 1.8rem;
     --font-size-title1: 2.5rem;
-    --font-size-title2: 2rem;
-    --font-size-title3: 1.6rem;
-    --font-size-title4: 1.4rem;
+    --font-size-title2: 1.8rem;
+    --font-size-title3: 1.5rem;
+    --font-size-title4: 1.9rem;
     --font-size-title5: 1.7rem;
     --font-size-title6: 1.3rem;
     --font-size-nav-item-menu-field: 1.5rem;
@@ -69,23 +69,38 @@
   margin: 0;
 }
 
-html {
-  font-size: 11px;
+html::-webkit-scrollbar {
+  width: 0.5rem;
 }
 
+html::-webkit-scrollbar-thumb {
+  background: var(--color-accent2);
+  border-radius: 0.5rem;
+}
+
+html::-webkit-scrollbar-track {
+  background: var(--color-background2);
+}
+html {
+  font-size: 9px;
+  /* overflow-y: auto; */
+}
+
+
 body {
-  overflow-y: scroll;
   overflow-x: hidden;
+  overflow-y: scroll;
   background-color: var(--color-background1);
   margin: 0 auto;
 }
 
 main {
-  max-width: 70rem;
+  min-height: 100vh;
+  max-width: 60rem;
   /* era 320px */
   width: auto;
   padding: 0rem 1.5rem;
-  /* era 0px 10px */
+  padding-top: 8rem;
   margin: 0 auto;
 }
 
@@ -96,8 +111,7 @@ a {
   font-family: var(--font-family-text);
   font-size: var(--font-size-title5);
   font-style: italic;
-  line-height: 1;
-  padding-bottom: 0.5rem;
+  line-height: 1.2;
 }
 
 p {
@@ -115,7 +129,7 @@ h1 {
   color: var(--color-title1);
   text-align: center;
   line-height: 1;
-  padding-bottom: 2.5rem;
+  padding-bottom: 2.8rem;
 }
 
 h2 {
@@ -130,15 +144,16 @@ h3 {
   font-family: var(--font-family-title1);
   font-size: var(--font-size-title3);
   color: var(--color-title3);
-  font-weight: 600;
-  padding-bottom: 0.5rem;
+  font-weight: 500;
+  padding-bottom: 1rem;
 }
 
 h4 {
-  font-family: var(--font-family-title1);
+  font-family: var(--font-family-text);
   font-size: var(--font-size-title4);
   color: var(--color-title4);
   font-weight: 400;
+  padding-bottom: 1rem;
 }
 
 h5 {
@@ -240,20 +255,24 @@ li {
 }
 
 
-html::-webkit-scrollbar {
+
+/* .no-scroll {
+  overflow: hidden;
+  height: 100%;
+}
+
+.menuWrapper::-webkit-scrollbar {
   width: 0.5rem;
 }
 
-html::-webkit-scrollbar-thumb {
+.menuWrapper::-webkit-scrollbar-thumb {
   background: var(--color-accent2);
-  border-radius: 0.5rem;
+  border-radius: 0.8rem;
 }
 
-html::-webkit-scrollbar-track {
+.menuWrapper::-webkit-scrollbar-track {
   background: var(--color-background2);
-}
-
-
+} */
 
 .active-color {
   transition: color 0.3s ease;
@@ -311,15 +330,21 @@ a:hover {
 
 
 /* Estilos para tabletas */
-@media only screen and (min-width: 481px) and (max-width: 768px) {
+@media only screen and (min-width: 481px) and (max-width: 767px) {
   html {
-    font-size: 13px;
+    font-size: 12px;
   }
 }
 
 /* Estilos para escritorio */
-@media only screen and (min-width: 769px) {
+@media only screen and (min-width: 768px) {
   html {
-    font-size: 16px;
+    font-size: 14px;
+  }
+  p {
+    font-size: 1.5rem;
+  }
+  h5 {
+    font-size: 1.5rem;
   }
 }

@@ -8,7 +8,6 @@
 .cover {
     position: relative;
     margin-bottom: 10rem;
-    /* era 100px */
 }
 
 .coverImg {
@@ -48,9 +47,9 @@
     gap: 1rem;
     /* era 10px */
     text-align: center;
-    padding-top: 1rem;
+    /* padding-top: 1rem; */
     /* era 10px */
-    padding-bottom: 2rem;
+    padding-bottom: 1rem;
     /* era 20px */
 }
 
@@ -60,6 +59,32 @@
 
 .title {
     position: relative;
-    padding-top: 2rem;
+    padding-top: 5rem;
 }
 
+/* Estilos para manejar el grid de contenido en pantallas anchas */
+.bookRecommendation .contentGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+/* 
+.bookRecommendation .leftColumn,
+.bookRecommendation .rightColumn {
+} */
+
+/* Media query para pantallas de al menos 768px de ancho */
+@media only screen and (min-width: 768px) {
+    .title {
+        padding-top: 5rem;
+    }
+    .bookRecommendation .contentGrid {
+        grid-template-columns: 1.1fr .9fr;
+    }
+    .leftColumn {
+        padding: 0 2rem;
+    }
+    .rightColumn {
+        padding-top: 2rem;
+    } 
+}

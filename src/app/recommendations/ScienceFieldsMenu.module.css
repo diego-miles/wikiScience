@@ -1,39 +1,71 @@
 .ScienceFieldsMenu__itemHeader {
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
-  /* width: 100%; */
-  /* Ensure itemHeader stretches across the full width */
+  width: 100%;
   cursor: pointer;
   position: relative;
+  border: none;
+  background-color: transparent;
+}
+
+.fieldItem {
+  padding: 0;
+}
+
+.fieldHeader {
+  /* display: flex; */
+  /* justify-content: flex-start; */
+  cursor: pointer;
+  position: relative;
+}
+.branchTitle {
+  /* padding: 1rem 0; */
+  padding: 1rem 0;
+  /* margin-bottom: 1rem; */
+  color: var(--color-accent2);
+}
+
+.subFieldTitle {
+  /* padding-left: 1rem; */
+  padding-bottom: 1rem;
+  margin: 0;
+  /* border-left: .3rem solid rgb(213, 213, 213); */
+}
+
+.topicTitle {
+  /* padding: 1rem 0; */
+  padding-bottom: 2rem;
 }
 
 .ScienceFieldsMenu__textIconWrapper {
   display: flex;
-  align-items: center;
+  /* align-items:flex-start; */
 }
 
 .ScienceFieldsMenu__menuIcon {
-  position: absolute;
+  position: relative;
   right: 0px;
-  top: 6px;
-  color: var(--color-background2);
+  /* top: .7rem; */
+  color: var(--color-accent2);
+  width: 1.5rem;
+  padding-top: 1rem;
 }
 
 .ScienceFieldsMenu__iconContainer {
   display: flex;
   align-items: flex-start;
-  margin-top: -20px;
-  margin-left: 2px;
+  /* margin-top: -1.3rem; */
+  /* padding: 1rem; */
 }
 
 .ScienceFieldsMenu__icon {
-  width: 11px;
-  height: 12px;
+  width: 1.2rem;
+  height: 1.2rem;
   cursor: pointer;
-  padding: 0px 1px;
-  color: var(--color-accent1);
-  border: 1.3px solid var(--color-accent1);
+  padding: .1rem;
+  color: var(--color-accent2);
+  border: .1rem solid var(--color-accent2);
   border-radius: 2px;
 }
 
@@ -58,8 +90,7 @@
 }
 
 .ScienceFieldsMenu__item {
-  margin-bottom: 0px;
-  margin-top: 0px;
+  padding: 0;
 }
 
 .ScienceFieldsMenu__linkItem {
