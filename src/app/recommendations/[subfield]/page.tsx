@@ -27,16 +27,16 @@ const getSubFieldRecommendation = cache(async (subfield: string) => {
 });
 
 
-// export async function generateMetadata(
-//     {params:{subfield}}: SubFieldPageProps): Promise<Metadata>{
-//         const subFieldData = await getSubFieldRecommendation(subfield);
-//         return {
-//             title: subFieldData?.slug,
-//             // openGraph: {
-//             //     images: [{url: subFieldData?.books[0].coverImage}]
-//             // }
-//         }
-//     }
+export async function generateMetadata(
+    {params:{subfield}}: SubFieldPageProps): Promise<Metadata>{
+        const subFieldData = await getSubFieldRecommendation(subfield);
+        return {
+            title: subFieldData?.slug,
+            // openGraph: {
+            //     images: [{url: subFieldData?.books[0].coverImage}]
+            // }
+        }
+    }
 
 async function SubFieldRecommendationPage({params:{subfield}}: SubFieldPageProps) {
     const subFieldData = await getSubFieldRecommendation(subfield);

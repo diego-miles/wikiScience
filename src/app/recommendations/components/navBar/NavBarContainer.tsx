@@ -1,7 +1,7 @@
 "use client"
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { useScrollDetection } from './useScrollDetection'; // Import custom hook
+// import { useScrollDetection } from './useScrollDetection';
 import styles from './NavbarContainer.module.css';
 import NavigationMenu from './NavigationMenu';
 
@@ -23,37 +23,34 @@ const generateLink = (domain: string | undefined, title: string | undefined, add
 
 const NavBarContainer: React.FC<NavbarProps> = ({ title, title2, title3, domain }) => {
   const [isMenuVisible, setIsMenuVisible] = useState(false);
-  const navbarVisible = useScrollDetection();
+  // const navbarVisible = useScrollDetection();
 
   const toggleMenu = () => {
     setIsMenuVisible(prevState => !prevState);
-    document.body.style.overflow = isMenuVisible ? 'scroll' : 'hidden';
+    // document.body.style.overflow = isMenuVisible ? 'hidden' : 'scroll';
+    document.body.style.paddingRight = isMenuVisible ? '0px' : '.0rem';
+    document.body.style.height = isMenuVisible ? 'auto' : '0rem';
   };
 
   // Adjust body scroll when menu visibility changes
   useEffect(() => {
-    document.body.style.overflow = isMenuVisible ? 'hidden' : 'scroll';
+    document.body.style.overflow = isMenuVisible ? 'scroll' : 'hidden';
   }, [isMenuVisible]);
 
-  const navbarStyle: React.CSSProperties = {
-    transform: navbarVisible || isMenuVisible ? 'translateY(0)' : 'translateY(-100%)',
-    transition: 'transform 0.3s ease-in-out',
-    position: 'fixed',
-    width: '100%',
-    top: 0,
-    zIndex: 100,
-    paddingRight: isMenuVisible ? '.5rem' : '0px',
-  };
+  // const navbarStyle: React.CSSProperties = {
+  //   right: isMenuVisible ? '.5rem' : '0rem',
+  // };
 
   const menuStyle: React.CSSProperties = {
     visibility: isMenuVisible ? 'visible' : 'hidden',
+    display: isMenuVisible ? 'block' : 'none',
     opacity: isMenuVisible ? 1 : 0,
     transition: 'opacity 0.3s ease-in-out, transform 0.3s ease-in-out',
   };
 
   return (
     <div className={styles.container}>
-      <div style={navbarStyle} className={styles.navbarContainer}>
+      <div className={styles.navbarContainer}>
         <div className={styles.contextualLinks}>
           <Link href={`${domain}/recommendations/`}>
             {title}

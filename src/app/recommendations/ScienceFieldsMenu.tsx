@@ -32,8 +32,8 @@ const ExpandableItem: FC<ExpandableItemProps> = ({ title, items }) => {
   return (
     <div className={styles.ScienceFieldsMenu__item}>
       <button onClick={toggleOpen} className={styles.ScienceFieldsMenu__itemHeader}>
-        <div className={styles.ScienceFieldsMenu__textIconWrapper}>
-          <h2 className={styles.branchTitle}>{title}</h2>
+        <div className={styles.ScienceFieldsMenu__textAndIconWrapper}>
+          <h2 className={styles.branchTitle}>{title.toUpperCase()}</h2>
           <div className={styles.ScienceFieldsMenu__iconContainer}>
             <ListIconWithOverlay title={title} />
           </div>
@@ -56,15 +56,26 @@ interface ExpandableSubItemProps {
 
 const ExpandableSubItem: FC<ExpandableSubItemProps> = ({ title, items }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [clickCount, setClickCount] = useState(0); // New state to track click count
   const toggleOpen = useCallback(() => {
     setIsOpen(prev => !prev);
   }, []);
 
+  const handleTitleClick = useCallback(() => {
+    setClickCount(prevCount => prevCount + 1);
+    if (clickCount === 1) {
+      // Navigate to a different URL on the second click
+      // Replace 'your-new-url' with the actual URL you want to navigate to
+      window.location.href = `/new-path/${title}`;
+    }
+  }, [clickCount, title]);
+
   return (
     <div className={styles.ScienceFieldsMenu__item}>
       <button onClick={toggleOpen} className={styles.ScienceFieldsMenu__itemHeader}>
-        <div className={styles.ScienceFieldsMenu__textIconWrapper}>
-          <h3 className={styles.subFieldTitle}>{title}</h3>
+        <div className={styles.ScienceFieldsMenu__textAndIconWrapper}>
+          {/* Modified to handle the new click behavior */}
+          <h3 className={styles.subFieldTitle} onClick={handleTitleClick}>{title}</h3>
           <div className={styles.ScienceFieldsMenu__iconContainer}>
             <ListIconWithOverlay title={title} />
           </div>
@@ -74,11 +85,15 @@ const ExpandableSubItem: FC<ExpandableSubItemProps> = ({ title, items }) => {
         </div>
       </button>
       {isOpen && items.map((item, index) => (
-        <LinkItem key={index} item={item} />
+        // Using Link for navigation
+        <Link key={index} href={`/articles/${item}`} className={styles.ScienceFieldsMenu__linkItem}>
+           {item}
+        </Link>
       ))}
     </div>
   );
 };
+
 
 interface LinkItemProps {
   item: string;
