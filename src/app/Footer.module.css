@@ -1,8 +1,9 @@
 .footer {
   background-color: var(--color-menu);
-  padding: 20px;
+  padding: 4rem 0;
   text-align: center;
   box-shadow: var(--shadow-effect);
+  margin-top: 5rem;
 }
 
 .footerMenu {
@@ -16,7 +17,8 @@
 }
 
 .footerMenu a {
-  color: var(--color-title6);
+  color: var(--color-title4);
+  font-size: 2rem;
   text-decoration: none;
   transition: color 0.3s ease;
 }
@@ -24,4 +26,10 @@
 .footerMenu a:hover {
   color: var(--color-accent1);
   text-decoration: underline;
+}
+
+
+.textFooter {
+  color: var(--color-background3);
+  font-size: 1.4rem;
 }

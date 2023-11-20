@@ -1,9 +1,10 @@
 .ScienceFieldsMenu__item {
   /* background-color: var(--color-accent2); */
-  border-radius: 1rem;
+  /* border-radius: 1rem; */
   /* padding-bottom: 1rem; */
   /* display: flex; */
-  margin-bottom: 2rem;
+  margin-bottom: .5rem;
+  padding-bottom: .7rem;
 }
 
 /* .redText {
@@ -24,6 +25,7 @@
   position: relative;
   border: none;
   background-color: transparent;
+  padding: .5rem 0;
 }
 
 .ScienceFieldsMenu__textAndIconWrapper {
@@ -42,51 +44,64 @@
   position: relative;
   border-radius: 15px;
 }
+
 .branchTitle {
   /* padding: 1rem 0; */
-  padding: 1rem 0;
-  margin-bottom: 0rem;
+  padding: .5rem 0;
+  margin-bottom: .3rem;
   /* color: white; */
   color: var(--color-accent2);
   font-family: var(--font-family-text);
-  font-size: 1.9rem;
+  font-size: 1.7rem;
+  box-sizing: content-box;
+  font-weight: 800;
 }
 
 .subFieldTitle {
-  /* padding-left: 1rem; */
+  padding-left: 1rem;
   /* padding-bottom: 1rem; */
   margin: 0;
-  color: var(--color-title2);
-  font-size: 1.6rem;
-  font-family: var(--font-family-title1);
+  color: var(--color-title3);
+  font-size: 1.8rem;
+  font-family: var(--font-family-text);
+  font-weight: 400;
   /* border-left: .3rem solid rgb(213, 213, 213); */
+  /* box-sizing: content-box; */
 }
 
 .topicTitle {
   /* padding: 1rem 0; */
-  padding: 1rem 0;
+  padding: .5rem 0;
   color: var(--color-title3);
-
+  /* font-size: 2rem; */
 }
+.ScienceFieldsMenu__linkItem {
+  font-size: 2rem;
+  padding: 1rem 0;
+  margin-left: 1.5rem;
+  display: flex;
+  align-items: center;
+}
+
 
 
 .ScienceFieldsMenu__menuIcon {
   color: var(--color-accent2);
   /* height: 100%; */
   /* width: 1.5rem; */
-  /* padding-top: 1rem; */
+  padding-top: .1rem;
 }
 
 .ScienceFieldsMenu__iconContainer {
   display: flex;
   align-items: flex-start;
   /* margin-top: -1.3rem; */
-  /* padding: 1rem; */
+  padding: .5rem;
 }
 
 .ScienceFieldsMenu__icon {
-  width: 1.2rem;
-  height: 1.2rem;
+  width: 1.3rem;
+  height: 1.3rem;
   cursor: pointer;
   padding: .1rem;
   color: var(--color-accent2);
@@ -114,11 +129,5 @@
   cursor: pointer;
 }
 
-
-.ScienceFieldsMenu__linkItem {
-  margin-left: 20px;
-  display: flex;
-  align-items: center;
-}
 
 

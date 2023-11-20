@@ -1,7 +1,6 @@
 "use client"
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-// import { useScrollDetection } from './useScrollDetection';
 import styles from './NavbarContainer.module.css';
 import NavigationMenu from './NavigationMenu';
 
@@ -10,6 +9,7 @@ interface NavbarProps {
   title2?: string;
   title3?: string;
   domain?: string;
+  active?: boolean;
 }
 
 const toSlug = (title: string) => {
@@ -21,25 +21,23 @@ const generateLink = (domain: string | undefined, title: string | undefined, add
   return `${domain}/recommendations/${toSlug(safeTitle)}${additionalPath}`;
 };
 
-const NavBarContainer: React.FC<NavbarProps> = ({ title, title2, title3, domain }) => {
+const NavBarContainer: React.FC<NavbarProps> = ({ title, title2, title3, domain, active }) => {
   const [isMenuVisible, setIsMenuVisible] = useState(false);
-  // const navbarVisible = useScrollDetection();
 
   const toggleMenu = () => {
     setIsMenuVisible(prevState => !prevState);
-    // document.body.style.overflow = isMenuVisible ? 'hidden' : 'scroll';
-    document.body.style.paddingRight = isMenuVisible ? '0px' : '.0rem';
-    document.body.style.height = isMenuVisible ? 'auto' : '0rem';
   };
 
-  // Adjust body scroll when menu visibility changes
   useEffect(() => {
-    document.body.style.overflow = isMenuVisible ? 'scroll' : 'hidden';
+    if (isMenuVisible) {
+      document.body.style.overflow = 'hidden';
+      document.body.style.height = '100vh'; // Set to full viewport height
+    } else {
+      document.body.style.overflow = 'auto';
+      document.body.style.height = 'auto'; // Reset to default
+    }
   }, [isMenuVisible]);
 
-  // const navbarStyle: React.CSSProperties = {
-  //   right: isMenuVisible ? '.5rem' : '0rem',
-  // };
 
   const menuStyle: React.CSSProperties = {
     visibility: isMenuVisible ? 'visible' : 'hidden',
@@ -52,21 +50,20 @@ const NavBarContainer: React.FC<NavbarProps> = ({ title, title2, title3, domain 
     <div className={styles.container}>
       <div className={styles.navbarContainer}>
         <div className={styles.contextualLinks}>
-          <Link href={`${domain}/recommendations/`}>
-            {title}
-          </Link>
+          <Link href={`${domain}/recommendations/`}>{title}</Link>
           {title2 && (
             <>
-              <h6 className={styles.padding}>{" > "}</h6>
-              <Link href={generateLink(domain, title2 ?? "")}>
+              <span className={styles.padding}>{" > "}</span>
+              <Link href={generateLink(domain, title2)}
+                    style={{ color: active ? 'var(--color-active-element)' : '' }}>
                 {title2}
               </Link>
             </>
           )}
           {title3 && (
             <>
-              <h6 className={styles.padding}>{">"}</h6>
-              <Link href={generateLink(domain, title2 ?? "", `/${toSlug(title3 ?? "")}`)} className={styles.active}>
+              <span className={styles.padding}>{">"}</span>
+              <Link href={generateLink(domain, title2, `/${toSlug(title3)}`)} className={styles.active}>
                 {title3}
               </Link>
             </>

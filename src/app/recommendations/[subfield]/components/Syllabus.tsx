@@ -29,7 +29,10 @@ interface ImageLimits {
 const imageLimits: ImageLimits = imageLimitsData;
 
 const formatTitleForURL = (title: string) => {
-  return title.replace(/[^a-zA-Z0-9 ]/g, "").replace(/ /g, "%20");
+  return title.replace(/[^a-zA-Z0-9 '-]/g, "").replace(/ /g, "%20");
+};
+const formatTitleToCompare = (title: string) => {
+  return title.replace(/[^a-zA-Z0-9 '-]/g, "")
 };
 
 const ImageNavigator = ({ currentImageIndex, navigateImage, limit, temarioImgs }: ImageNavigatorProps) => {
@@ -90,7 +93,7 @@ const Syllabus = ({ title, priority }: Props) => {
 
   const loadImages = useCallback(() => {
     const formattedTitle = formatTitleForURL(title);
-    const newLimit = imageLimits[formattedTitle] || 10;
+    const newLimit = imageLimits[formatTitleToCompare(title)] || 0;
     setLimit(newLimit);
     setTemarioImgs(Array.from({ length: newLimit }, (_, i) => `${formattedTitle}${i || ''}.png`));
   }, [title]);
@@ -125,7 +128,15 @@ const Syllabus = ({ title, priority }: Props) => {
       <div className={styles.layer}>
         <SyllabusButton onClick={handleSyllabusButtonClick} />
         <figure className={styles.layer0}>
-          <Image src={`${formatTitleForURL(title)}.png`} alt={title} fill style={{ objectFit: 'cover' }} priority={priority} quality={50} className={styles.layer0} sizes="(max-width: 200px)" />
+          <Image 
+          src={`${formatTitleForURL(title)}.png`} 
+          width={200}
+          height={250}
+          alt={title} style={{ objectFit: 'cover' }} 
+          priority={priority} 
+          quality={100} 
+          className={styles.layer0} 
+          sizes="(max-width: 200px)" />
         </figure>
         {/* Additional layers can be separate components if they have specific logic or styles */}
         <div className={styles.layer0}></div>

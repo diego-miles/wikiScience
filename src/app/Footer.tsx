@@ -6,19 +6,12 @@ const Footer = () => {
     <footer className={styles.footer}>
       <ul className={styles.footerMenu}>
         <li>
-          <Link href="/">Home</Link>
+          <p className={styles.textFooter}>--  WikiScience V0.0  --</p>
+          <p className={styles.textFooter}>2024</p>
+          <p className={styles.textFooter}>wikisciencemx@gmail.com</p>
         </li>
         <li>
-          <Link href="/courses">Courses</Link>
-        </li>
-        <li>
-          <Link href="/biographies">Biographies</Link>
-        </li>
-        <li>
-          <Link href="/best-books">Best Books</Link>
-        </li>
-        <li>
-          <Link href="/contact">Contact</Link>
+          <Link href="/recommendations">Best Science Books</Link>
         </li>
       </ul>
     </footer>

@@ -22,10 +22,6 @@ const BookRecommendation: React.FC<BookRecommendationProps> = ({ book, priority 
 
   const authorsFormatted = authors.join(', ');
 
-  const summaryParagraphs = summary.map((paragraph, index) => (
-    <p key={index} className={styles.summaryParagraph}>{paragraph}</p>
-  ));
-
 
   return (
     <div className={styles.bookRecommendation}>

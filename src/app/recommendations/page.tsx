@@ -17,8 +17,8 @@ const Page: React.FC = () => {
           <div className={styles.divContext}>
             <p className={styles.textContext}>Ranking</p>
           </div>
-          <h1>MEJORES LIBROS DE CIENCA</h1>
-          <p>Recomendaciones de libros para adquirir un conocimiento profundo clasificados por campo y nivel de especialización.</p>
+          <h1>Top Science Books</h1>
+          <p>Delve into our community-curated anthology of science literature, where every book is a portal to unraveling the mysteries of the universe. From foundational principles to cutting-edge theories, embark on a journey to master complex scientific concepts.</p>
           <ScienceFieldsMenu data={data}/>
       </main>
     </div>

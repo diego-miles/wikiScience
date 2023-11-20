@@ -16,7 +16,9 @@ interface SubFieldPageProps {
 }
 
 
-
+const formatTitleForURL = (title: string) => {
+  return title.replace(/[^a-zA-Z0-9 '-]/g, "").replace(/ /g, "%20");
+};
 
 const getSubFieldRecommendation = cache(async (subfield: string) => {
     const subFieldData = await prisma.subFieldRecommendation.findUnique({
@@ -30,11 +32,14 @@ const getSubFieldRecommendation = cache(async (subfield: string) => {
 export async function generateMetadata(
     {params:{subfield}}: SubFieldPageProps): Promise<Metadata>{
         const subFieldData = await getSubFieldRecommendation(subfield);
+        const images = subFieldData.books.map(book => ({
+            url: formatTitleForURL(book.englishTitle)
+        }));
         return {
             title: subFieldData?.slug,
-            // openGraph: {
-            //     images: [{url: subFieldData?.books[0].coverImage}]
-            // }
+            openGraph: {
+                images: images
+            }
         }
     }
 
@@ -53,7 +58,7 @@ async function SubFieldRecommendationPage({params:{subfield}}: SubFieldPageProps
 
     return (
         <div className={styles.wrapper}>
-            <NavBar title={subFieldData?.field} title2={subFieldData?.subField} domain="http://localhost:3000" />
+            <NavBar title={subFieldData?.field} title2={subFieldData?.subField} domain="http://localhost:3000" active={true}/>
             <main>
                 <ContextSpace />
                 <ArticleTitle topic={subFieldData?.subField} />

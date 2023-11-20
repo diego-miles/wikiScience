@@ -11,3 +11,4 @@ const ArticleTitle: React.FC<ArticleTitleProps> = ({ topic }) => (
 );
 
 export default ArticleTitle;
+

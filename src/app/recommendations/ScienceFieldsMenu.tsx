@@ -35,7 +35,7 @@ const ExpandableItem: FC<ExpandableItemProps> = ({ title, items }) => {
         <div className={styles.ScienceFieldsMenu__textAndIconWrapper}>
           <h2 className={styles.branchTitle}>{title.toUpperCase()}</h2>
           <div className={styles.ScienceFieldsMenu__iconContainer}>
-            <ListIconWithOverlay title={title} />
+            {/* <ListIconWithOverlay title={title} /> */}
           </div>
         </div>
         <div className={styles.ScienceFieldsMenu__menuIcon}>
@@ -54,6 +54,10 @@ interface ExpandableSubItemProps {
   items: string[];
 }
 
+const toSlug = (title: string) => {
+  return title.toLowerCase().replace(/\s+/g, '_');
+};
+
 const ExpandableSubItem: FC<ExpandableSubItemProps> = ({ title, items }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [clickCount, setClickCount] = useState(0); // New state to track click count
@@ -65,8 +69,7 @@ const ExpandableSubItem: FC<ExpandableSubItemProps> = ({ title, items }) => {
     setClickCount(prevCount => prevCount + 1);
     if (clickCount === 1) {
       // Navigate to a different URL on the second click
-      // Replace 'your-new-url' with the actual URL you want to navigate to
-      window.location.href = `/new-path/${title}`;
+      window.location.href = `recommendations/${toSlug(title)}`;
     }
   }, [clickCount, title]);
 
@@ -77,7 +80,7 @@ const ExpandableSubItem: FC<ExpandableSubItemProps> = ({ title, items }) => {
           {/* Modified to handle the new click behavior */}
           <h3 className={styles.subFieldTitle} onClick={handleTitleClick}>{title}</h3>
           <div className={styles.ScienceFieldsMenu__iconContainer}>
-            <ListIconWithOverlay title={title} />
+            {/* <ListIconWithOverlay title={title} /> */}
           </div>
         </div>
         <div className={styles.ScienceFieldsMenu__menuIcon}>
@@ -86,7 +89,7 @@ const ExpandableSubItem: FC<ExpandableSubItemProps> = ({ title, items }) => {
       </button>
       {isOpen && items.map((item, index) => (
         // Using Link for navigation
-        <Link key={index} href={`/articles/${item}`} className={styles.ScienceFieldsMenu__linkItem}>
+        <Link key={index} href={`/recommendations/${toSlug(title)}/${toSlug(item)}`} className={styles.ScienceFieldsMenu__linkItem}>
            {item}
         </Link>
       ))}
@@ -95,20 +98,20 @@ const ExpandableSubItem: FC<ExpandableSubItemProps> = ({ title, items }) => {
 };
 
 
-interface LinkItemProps {
-  item: string;
-}
+// interface LinkItemProps {
+//   item: string;
+// }
 
-const LinkItem: FC<LinkItemProps> = ({ item }) => (
-  <div className={styles.ScienceFieldsMenu__linkItem}>
-    <Link href={`/articles/${item}`}>
-      <h4 className={styles.topicTitle}>{item}</h4>
-    </Link>
-    <div className={styles.ScienceFieldsMenu__iconContainer}>
-      <ListIconWithOverlay title={item} />
-    </div>
-  </div>
-);
+// const LinkItem: FC<LinkItemProps> = ({ item }) => (
+//   <div className={styles.ScienceFieldsMenu__linkItem}>
+//     <Link href={`/recommendations/branch/${toSlug(item)}`}>
+//       <h4 className={styles.topicTitle}>{item}</h4>
+//     </Link>
+//     <div className={styles.ScienceFieldsMenu__iconContainer}>
+//       {/* <ListIconWithOverlay title={item} /> */}
+//     </div>
+//   </div>
+// );
 
 interface ListIconWithOverlayProps {
   title: string;
