@@ -1,8 +1,6 @@
 .container {
     padding-top: 2rem;
-    /* era 20px */
     padding-bottom: 1.5rem;
-    /* era 15px */
 }
 
 .cover {
@@ -45,12 +43,8 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 1rem;
-    /* era 10px */
     text-align: center;
-    /* padding-top: 1rem; */
-    /* era 10px */
     padding-bottom: 1rem;
-    /* era 20px */
 }
 
 .bookRecommendation .ratingsTitle {
@@ -68,10 +62,6 @@
     grid-template-columns: 1fr;
     gap: 1rem;
 }
-/* 
-.bookRecommendation .leftColumn,
-.bookRecommendation .rightColumn {
-} */
 
 /* Media query para pantallas de al menos 768px de ancho */
 @media only screen and (min-width: 768px) {
