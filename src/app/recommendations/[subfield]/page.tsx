@@ -60,7 +60,7 @@ async function SubFieldRecommendationPage({params:{subfield}}: SubFieldPageProps
 
     return (
         <div className={styles.wrapper}>
-            <NavBar title={subFieldData?.field} title2={subFieldData?.subField} domain="http://localhost:3000" active={true}/>
+            <NavBar title={subFieldData?.field} title2={subFieldData?.subField} domain="https://www.wiki-science.com/" active={true}/>
             <main>
                 <ContextSpace />
                 <ArticleTitle topic={subFieldData?.subField} />
