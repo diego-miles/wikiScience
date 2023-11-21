@@ -21,13 +21,13 @@ const formatTitleForURL = (title: string) => {
   return title.replace(/[^a-zA-Z0-9 '-]/g, "").replace(/ /g, "%20");
 };
 
-const getRecommendation = cache(async (slug: string) => {
-    const recommendations = await prisma.recommendation.findUnique({
-        where: { slug: slug }
-    });
-    if (!recommendations) notFound();
-    return recommendations;
-})
+// const getRecommendation = cache(async (slug: string) => {
+//     const recommendations = await prisma.recommendation.findUnique({
+//         where: { slug: slug }
+//     });
+//     if (!recommendations) notFound();
+//     return recommendations;
+// })
 
 
 // export async function generateMetadata(
@@ -50,10 +50,10 @@ async function RecommendationPage(
 ) {
     // const recommendations = await getRecommendation(slug);
 
-    // const recommendations = await prisma.recommendation.findUnique({
-    //     where : { slug : slug}
-    // })
-    const recommendations = await getRecommendation(slug);
+    const recommendations = await prisma.recommendation.findUnique({
+        where : { slug : slug}
+    })
+    // const recommendations = await getRecommendation(slug);
    
 
     const bookLinks = recommendations?.books?.map(book => ({
