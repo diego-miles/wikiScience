@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './BookRecommendation.module.css';
-import { Book } from '@prisma/client'; // Ajusta la ruta de importación según tu configuración
+import { Book } from '@prisma/client';
 import Syllabus from './Syllabus';
 
 type BookRecommendationProps = {
@@ -9,7 +9,6 @@ type BookRecommendationProps = {
 };
 
 const BookRecommendation: React.FC<BookRecommendationProps> = ({ book, priority }) => {
-    console.log('Priority in BookRecommendation:', priority);
   const {
     englishTitle,
     authors,
@@ -62,7 +61,6 @@ const BookRecommendation: React.FC<BookRecommendationProps> = ({ book, priority 
         </div>
 
         <div className={styles.rightColumn}>
-          {/* Generando párrafos para cada elemento del array summary */}
           {summary.map((paragraph, index) => (
             <p key={index} className={styles.summaryParagraph}>{paragraph}</p>
           ))}
