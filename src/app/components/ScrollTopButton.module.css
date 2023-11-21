@@ -1,8 +1,8 @@
 .scrollUp {
     position: fixed;
-    right: 1.5rem;
-    bottom: 1.5rem;
-    padding: 1rem 4rem;
+    right: 2rem;
+    bottom: 2rem;
+    padding: 1.5rem 5rem;
     background-color: #0099ff4b;
     color: white;
     border: none;
