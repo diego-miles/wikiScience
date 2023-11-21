@@ -139,6 +139,7 @@ p {
   color: var(--color-title1);
   padding-bottom: 0.7rem;
   line-height: 1.3;
+  text-wrap: balance;
 }
 
 h1 {
