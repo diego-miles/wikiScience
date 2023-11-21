@@ -28,14 +28,14 @@ const NavigationMenu: React.FC<NavigationMenuProps> = ({ className, style }) => 
                                     <ul key={sIdx}>
                                         <li className={styles.subField}>
                                             {/* Use toSlug to convert subField.title into a slug */}
-                                            <Link href={`http://localhost:3000/recommendations/${toSlug(subField.title)}`}>
+                                            <Link href={`/recommendations/${toSlug(subField.title)}`}>
                                                 {subField.title}
                                             </Link>
                                         </li>
                                         {subField.topics.map((topic, tIdx) => (
                                             <li className={styles.subTopic} key={tIdx}>
                                                 {/* Use toSlug for both subField.title and topic to create a nested slug */}
-                                                <Link href={`http://localhost:3000/recommendations/${toSlug(subField.title)}/${toSlug(topic)}`}>
+                                                <Link href={`/recommendations/${toSlug(subField.title)}/${toSlug(topic)}`}>
                                                     {topic}
                                                 </Link>
                                             </li>

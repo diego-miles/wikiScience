@@ -1,4 +1,4 @@
-import NavBarContainer from "@/NavBarContainer";
+import NavBarContainer from "@/app/recommendations/components/navBar/NavBarContainer";
 // import Link from "next/link";
 import styles from './page.module.css'
 

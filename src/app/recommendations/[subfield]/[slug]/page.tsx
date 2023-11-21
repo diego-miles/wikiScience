@@ -1,5 +1,5 @@
 import prisma from '@/lib/db/prisma'; 
-import NavBar from '../../../../components/NavBarContainer';
+import NavBar from '../../components/navBar/NavBarContainer';
 import ContextSpace from '../components/ContextSpace';
 import ArticleTitle from '../components/ArticleTitle';
 import LocalContextLinks from '../components/LocalContextLinks';
