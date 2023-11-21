@@ -33,3 +33,9 @@
   color: var(--color-background3);
   font-size: 1.4rem;
 }
+
+.goldText {
+  color: #9c812b;
+  padding: 0;
+  font-size: 1.3rem;
+}

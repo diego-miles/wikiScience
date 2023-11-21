@@ -3,6 +3,7 @@ import { useState, useEffect, useCallback, useMemo } from 'react';
 import Image from 'next/image';
 import styles from './Syllabus.module.css';
 import imageLimitsData from "@/syllabus_pages.json";
+import useImageNavigator from '@/app/hooks/useImageNavigator';
 
 type Props = {
   title: string;
@@ -38,6 +39,9 @@ const formatTitleToCompare = (title: string) => {
 const ImageNavigator = ({ currentImageIndex, navigateImage, limit, temarioImgs }: ImageNavigatorProps) => {
   const [erroredImages, setErroredImages] = useState<Set<number>>(new Set());
 
+  const { isZoomed, toggleZoom, handleMouseDown } = useImageNavigator();
+
+
   const handleImageError = (index: number) => {
     setErroredImages((prevErroredImages) => new Set(prevErroredImages).add(index));
     console.error(`Image at index ${index} not exist.`);
@@ -50,16 +54,28 @@ const ImageNavigator = ({ currentImageIndex, navigateImage, limit, temarioImgs }
           {/* Puedes colocar aquí un mensaje de error o una imagen de reserva */}
           <p>Image not available</p>
         </div>
+
       ) : (
-        <Image
+          <div 
+            onDoubleClick={toggleZoom}
+            onMouseDown={handleMouseDown as unknown as React.MouseEventHandler}
+            onTouchStart={handleMouseDown as unknown as React.TouchEventHandler}
+            style={{ cursor: isZoomed ? 'move' : 'default' }}
+            >
+          <Image
           src={temarioImgs[currentImageIndex]}
           alt={`temario ${currentImageIndex}`}
           fill
-          style={{ objectFit: 'contain' }}
-          priority={true}
+          style={{
+            objectFit: 'contain',
+            transform: isZoomed ? 'scale(2)' : 'scale(1)', // Ajusta el nivel de zoom según sea necesario
+            transition: 'transform 0.3s ease',
+            // Agrega estilos adicionales para manejar la posición de la imagen si es necesario
+          }}
+          priority={false}
           quality={100}
-          onError={() => handleImageError(currentImageIndex)}
-        />
+          onError={() => handleImageError(currentImageIndex)}/>
+        </div>
       )}
       {limit > 1 && (
         <div className={styles.navigationContainer}>

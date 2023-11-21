@@ -3,6 +3,7 @@ import { ScienceFieldsMenu } from './ScienceFieldsMenu';
 import data from '@/data';
 import NavBar from './components/navBar/NavBarContainer';
 import styles from './Recomendaciones.module.css';
+import ScrollTopButton from '@/ScrollTopButton'
 
 
 export const metadata = {
@@ -20,6 +21,8 @@ const Page: React.FC = () => {
           <h1>Top Science Books</h1>
           <p>Delve into our community-curated anthology of science literature, where every book is a portal to unraveling the mysteries of the universe. From foundational principles to cutting-edge theories, embark on a journey to master complex scientific concepts.</p>
           <ScienceFieldsMenu data={data}/>
+          <ScrollTopButton />
+          
       </main>
     </div>
   );

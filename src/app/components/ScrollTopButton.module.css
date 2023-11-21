@@ -1,0 +1,84 @@
+.scrollUp {
+    position: fixed;
+    right: 1.5rem;
+    bottom: 1.5rem;
+    padding: 1rem 4rem;
+    background-color: #0099ff4b;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: opacity 0.3s ease-in-out;
+    opacity: 0;
+    z-index: 1000;
+    /* font-family: var(--font-family-text); */
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-weight: 1000;
+    font-size: 1rem;
+}
+
+.scrollUpVisible {
+    opacity: 1;
+}
+
+
+@media only screen and (min-width: 768px) {
+.scrollUp {
+        position: fixed;
+        right: 3rem;
+        bottom: 2rem;
+        padding: 1rem 4rem;
+    }
+}
+
+/* @media only screen and (min-width: 769px) {
+.scrollUp {
+        position: fixed;
+        right: 8rem;
+        bottom: 2rem;
+        padding: 1rem 2rem;
+    }
+} */
+
+@media only screen and (min-width: 960px) {
+.scrollUp {
+        position: fixed;
+        right: 3rem;
+        bottom: 2rem;
+        padding: 1rem 5rem;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+.scrollUp {
+        position: fixed;
+        right: 5rem;
+        bottom: 3rem;
+        padding: 1rem 10rem;
+    }
+}
+@media only screen and (min-width: 1500px) {
+.scrollUp {
+        position: fixed;
+        /* right: 15rem; */
+        bottom: 4rem;
+        padding: 1rem 15rem;
+    }
+}
+@media only screen and (min-width: 1700px) {
+.scrollUp {
+        position: fixed;
+        right: 15rem;
+        bottom: 4rem;
+        padding: 1rem 15rem;
+    }
+}
+
+@media only screen and (min-width: 2000px) {
+.scrollUp {
+        position: fixed;
+        right: 23rem;
+        bottom: 4rem;
+        padding: 1rem 22rem;
+    }
+}
+
