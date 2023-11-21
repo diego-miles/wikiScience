@@ -1,13 +1,13 @@
 import NavBarContainer from "@/NavBarContainer";
 // import Link from "next/link";
+import styles from './page.module.css'
 
 export default function Home() {
   return (
-    <body>    
-        <NavBarContainer title="Home" menuLink="/" profileLink="/"/>
-      <main>
-        <h1>Best books on Science</h1>
+    <>    
+      <NavBarContainer />
+      <main className={styles.home}>
       </main>
-    </body>
+    </>
   )
 }
