@@ -31,19 +31,19 @@ const getSubFieldRecommendation = cache(async (subfield: string) => {
 });
 
 
-export async function generateMetadata(
-    {params:{subfield}}: SubFieldPageProps): Promise<Metadata>{
-        const subFieldData = await getSubFieldRecommendation(subfield);
-        const images = subFieldData.books.map(book => ({
-            url: formatTitleForURL(book.englishTitle)
-        }));
-        return {
-            title: subFieldData?.slug,
-            openGraph: {
-                images: images
-            }
-        }
-    }
+// export async function generateMetadata(
+//     {params:{subfield}}: SubFieldPageProps): Promise<Metadata>{
+//         const subFieldData = await getSubFieldRecommendation(subfield);
+//         const images = subFieldData.books.map(book => ({
+//             url: formatTitleForURL(book.englishTitle)
+//         }));
+//         return {
+//             title: subFieldData?.slug,
+//             openGraph: {
+//                 images: images
+//             }
+//         }
+//     }
 
 async function SubFieldRecommendationPage({params:{subfield}}: SubFieldPageProps) {
     const subFieldData = await getSubFieldRecommendation(subfield);

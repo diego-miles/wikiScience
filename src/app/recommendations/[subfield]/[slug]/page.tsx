@@ -22,7 +22,7 @@ const formatTitleForURL = (title: string) => {
 };
 
 const getRecommendation = cache(async (slug: string) => {
-    const recommendations = await prisma.recommendation.findUnique({ // Usar findFirst en lugar de findUniqued
+    const recommendations = await prisma.recommendation.findUnique({
         where: { slug: slug }
     });
     if (!recommendations) notFound();
@@ -30,20 +30,20 @@ const getRecommendation = cache(async (slug: string) => {
 })
 
 
-export async function generateMetadata(
-    {params:{slug}}: ProductPageProps): Promise<Metadata>{
-        const recommendations = await getRecommendation(slug);
-        const images = recommendations.books.map(book => ({
-            url: formatTitleForURL(book.englishTitle)
-        }));
-        return {
-            title: recommendations?.slug,
-            description: recommendations?.slug,
-            openGraph: {
-                images: images
-            }
-        }
-    }
+// export async function generateMetadata(
+//     {params:{slug}}: ProductPageProps): Promise<Metadata>{
+//         const recommendations = await getRecommendation(slug);
+//         const images = recommendations.books.map(book => ({
+//             url: formatTitleForURL(book.englishTitle)
+//         }));
+//         return {
+//             title: recommendations?.slug,
+//             description: recommendations?.slug,
+//             openGraph: {
+//                 images: images
+//             }
+//         }
+//     }
 
 async function RecommendationPage(
     {params:{slug}}: ProductPageProps,
