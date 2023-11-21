@@ -67,7 +67,7 @@ async function RecommendationPage(
 
     return (
         <div className={styles.scroll}>
-            <NavBar title={recommendations?.field} title2={recommendations?.subField} title3={recommendations?.topic} domain="https://www.wiki-science.com/" />
+            <NavBar title={recommendations?.field} title2={recommendations?.subField} title3={recommendations?.topic} domain="www.wiki-science.com/" />
             <main>
                 <ContextSpace />
                 <ArticleTitle topic={recommendations?.topic} />
