@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './BookRecommendation.module.css';
+import styles from './BookRecomm.module.css';
 import { Book } from '@prisma/client';
 import Syllabus from './Syllabus';
 

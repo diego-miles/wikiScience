@@ -68,13 +68,16 @@
     .title {
         padding-top: 5rem;
     }
+
     .bookRecommendation .contentGrid {
         grid-template-columns: 1.1fr .9fr;
     }
+
     .leftColumn {
         padding: 0 2rem;
     }
+
     .rightColumn {
         padding-top: 2rem;
-    } 
+    }
 }
