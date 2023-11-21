@@ -18,7 +18,7 @@ const toSlug = (title: string) => {
 
 const generateLink = (domain: string | undefined, title: string | undefined, additionalPath = '') => {
   const safeTitle = title ?? '';
-  return `${domain}/recommendations/${toSlug(safeTitle)}${additionalPath}`;
+  return `/recommendations/${toSlug(safeTitle)}${additionalPath}`;
 };
 
 const NavBarContainer: React.FC<NavbarProps> = ({ title, title2, title3, domain, active }) => {
@@ -50,7 +50,7 @@ const NavBarContainer: React.FC<NavbarProps> = ({ title, title2, title3, domain,
     <div className={styles.container}>
       <div className={styles.navbarContainer}>
         <div className={styles.contextualLinks}>
-          <Link href={`${domain}/recommendations/`}>{title}</Link>
+          <Link href={`/recommendations/`}>{title}</Link>
           {title2 && (
             <>
               <span className={styles.padding}>{" > "}</span>
