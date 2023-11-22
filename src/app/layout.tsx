@@ -5,7 +5,7 @@ import './Footer'
 import Footer from './Footer'
 import Analytics from './analytics'
 import { Suspense } from 'react'
-import { AnalyticsVercel } from '@vercel/analytics/react';
+import { Analytics as AnalyticsVercel } from '@vercel/analytics/react';
 
 
 const crimson_text = Crimson_Text({
