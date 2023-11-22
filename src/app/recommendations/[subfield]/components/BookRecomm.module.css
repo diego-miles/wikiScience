@@ -7,6 +7,12 @@
     padding-bottom: 1.5rem;
 }
 
+.summaryParagraph span {
+    /* color: var(--color-title1); */
+    color: rgb(0, 23, 41);
+    font-weight: 600;
+}
+
 .cover {
     position: relative;
     margin-bottom: 10rem;
@@ -68,13 +74,13 @@
 }
 
 /* Media query para pantallas de al menos 768px de ancho */
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 700px) {
     .title {
         padding-top: 5rem;
     }
 
     .bookRecommendation .contentGrid {
-        grid-template-columns: 1.1fr .9fr;
+        grid-template-columns: .9fr 1.1fr;
     }
 
     .leftColumn {

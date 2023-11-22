@@ -3,8 +3,8 @@ import { Crimson_Text, Montserrat } from 'next/font/google'
 import './globals.css'
 import './Footer'
 import Footer from './Footer'
-import GoogleAnalytics from '@/GoogleAnalytics'
-import ScrollTopButton from './components/ScrollTopButton';
+import Analytics from './analytics'
+import { Suspense } from 'react'
 
 
 const crimson_text = Crimson_Text({
@@ -36,9 +36,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${crimson_text.className} ${montserrat.className}`}>
-        {process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS ? (
-          <GoogleAnalytics/>
-        ) : null}
+        <Suspense>
+            <Analytics />
+        </Suspense>
         {children}
         {/* <ScrollTopButton /> */}
         <Footer />

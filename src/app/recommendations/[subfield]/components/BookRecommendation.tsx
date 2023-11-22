@@ -17,9 +17,26 @@ const BookRecommendation: React.FC<BookRecommendationProps> = ({ book, priority 
     publicationDate,
     ratings,
     summary,
+    keywords, // Ensure keywords are included in your Book type
   } = book;
 
   const authorsFormatted = authors.join(', ');
+
+  // Function to highlight keywords in summary
+  const highlightKeywords = (text: string) => {
+    return text.split(' ').map((word, index) => {
+      const keyWordIndex = keywords.findIndex(kw => kw.toLowerCase() === word.toLowerCase());
+      return (
+        <React.Fragment key={index}>
+          {keyWordIndex !== -1 
+            ? <span className={styles.keyword}>{word}</span>
+            : word}
+          {' '}
+        </React.Fragment>
+      );
+    });
+  };
+
 
 
   return (
@@ -61,8 +78,10 @@ const BookRecommendation: React.FC<BookRecommendationProps> = ({ book, priority 
         </div>
 
         <div className={styles.rightColumn}>
-          {summary.map((paragraph, index) => (
-            <p key={index} className={styles.summaryParagraph}>{paragraph}</p>
+        {summary.map((paragraph, index) => (
+          <p key={index} className={styles.summaryParagraph}>
+            {highlightKeywords(paragraph)}
+          </p>
           ))}
         </div>
       </div>

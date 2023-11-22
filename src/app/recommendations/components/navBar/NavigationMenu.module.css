@@ -114,7 +114,7 @@
 }
 
 
-@media (min-width: 1200px) {
+@media (min-width: 768px) {
   .navContainer {
       display: grid;
       grid-template-columns: 1fr 1fr;
