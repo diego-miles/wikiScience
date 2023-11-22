@@ -5,6 +5,7 @@ import './Footer'
 import Footer from './Footer'
 import Analytics from './analytics'
 import { Suspense } from 'react'
+import { AnalyticsVercel } from '@vercel/analytics/react';
 
 
 const crimson_text = Crimson_Text({
@@ -40,6 +41,7 @@ export default function RootLayout({
             <Analytics />
         </Suspense>
         {children}
+        <AnalyticsVercel/>
         {/* <ScrollTopButton /> */}
         <Footer />
       </body>
