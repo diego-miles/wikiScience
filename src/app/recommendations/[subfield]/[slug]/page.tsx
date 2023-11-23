@@ -34,10 +34,10 @@ export async function generateMetadata(
     {params:{slug}}: ProductPageProps): Promise<Metadata>{
         const recommendations = await getRecommendation(slug);
         const images = recommendations.books.map(book => ({
-            url: formatTitleForURL(book.englishTitle)
+            url: `${formatTitleForURL(book.englishTitle)}.png`
         }));
         return {
-            title: `${formatTitleForURL(recommendations?.topic)}.png`,
+            title: recommendations?.topic,
             description: recommendations?.slug,
             openGraph: {
                 images: images
