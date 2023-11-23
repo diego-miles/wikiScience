@@ -31,6 +31,7 @@ const getSubFieldRecommendation = cache(async (subfield: string) => {
 });
 
 
+
 export async function generateMetadata(
     {params:{subfield}}: SubFieldPageProps): Promise<Metadata>{
         const subFieldData = await getSubFieldRecommendation(subfield);
@@ -38,7 +39,7 @@ export async function generateMetadata(
             url: formatTitleForURL(book.englishTitle)
         }));
         return {
-            title: subFieldData?.slug,
+            title: `${formatTitleForURL(subFieldData?.subField)}.png`,
             openGraph: {
                 images: images
             }

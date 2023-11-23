@@ -120,8 +120,12 @@
 
 /* Estilos para escritorio */
 @media only screen and (min-width: 768px) {
+.navbarContainer {
+  padding: 1rem 2.5rem;
+  }
 .contextualLinks a {
     font-size: 1.5rem;
     padding: 0;
   }
+
 }

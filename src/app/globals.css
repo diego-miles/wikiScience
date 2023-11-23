@@ -23,12 +23,12 @@
   --font-family-nav-field: "Montserrat", sans-serif;
   --font-family-nav-branch: "Montserrat", sans-serif;
   --font-family-nav-subfield: "Montserrat", sans-serif;
-  --font-size-text: 1.8rem;
+  --font-size-text: 1.9rem;
   --font-size-title1: 3em;
   --font-size-title2: 2rem;
   --font-size-title3: 1.5rem;
   --font-size-title4: 1.9rem;
-  --font-size-title5: 1.7rem;
+  --font-size-title5: 1.8rem;
   --font-size-title6: 1.3rem;
   --font-size-nav-item-menu-field: 1.5rem;
   --font-size-nav-item-menu-branch: 1.5rem;
@@ -329,7 +329,7 @@ button {
   color: var(--color-active-element);
   border: 0.3rem solid var(--color-active-element);
   border-radius: 0.5rem;
-  padding: 0.5rem 0.5rem;
+  padding: 0rem 0rem;
 }
 
 input:focus,

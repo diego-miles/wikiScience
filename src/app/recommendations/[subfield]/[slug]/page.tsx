@@ -37,7 +37,7 @@ export async function generateMetadata(
             url: formatTitleForURL(book.englishTitle)
         }));
         return {
-            title: recommendations?.slug,
+            title: `${formatTitleForURL(recommendations?.topic)}.png`,
             description: recommendations?.slug,
             openGraph: {
                 images: images
