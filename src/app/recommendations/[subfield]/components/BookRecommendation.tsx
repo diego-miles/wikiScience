@@ -61,19 +61,19 @@ const highlightKeywords = (text: string) => {
           <div className={styles.ratingsGrid}>
             {ratings?.amazon && 
               <div>
-                <h5>Amazon</h5>
+                <h5 className='active-color'>Amazon</h5>
                 <p className='active-color'>{ratings.amazon.average}</p>
               </div>
             }
             {ratings?.goodreads && 
               <div>
-                <h5>Goodreads</h5>
+                <h5 className='active-color'>Goodreads</h5>
                 <p className='active-color'>{ratings.goodreads.average}</p>
               </div>
             }
             {ratings?.google && 
               <div>
-                <h5>Google</h5>
+                <h5 className='active-color'>Google</h5>
                 <p className='active-color'>{ratings.google.average}</p>
               </div>
             }
@@ -83,7 +83,8 @@ const highlightKeywords = (text: string) => {
         <div className={styles.rightColumn}>
         {summary.map((paragraph, index) => (
           <p key={index} className={styles.summaryParagraph}>
-            {highlightKeywords(paragraph)}
+            {/* {highlightKeywords(paragraph)} */}
+            {paragraph}
           </p>
           ))}
         </div>
