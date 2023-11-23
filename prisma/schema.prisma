@@ -19,10 +19,12 @@ type Ratings {
   google    RatingDetail
 }
 
+
 type Book {
   englishTitle      String
   spanishTitle      String?
   authors           String[]
+  difficulty        String[]
   keywords          String[]
   coverImage        String?
   syllabusImages    String[]
