@@ -12,6 +12,8 @@ interface NavbarProps {
   active?: boolean;
 }
 
+
+
 const toSlug = (title: string) => {
   return title.toLowerCase().replace(/\s+/g, '_');
 };
@@ -23,6 +25,9 @@ const generateLink = (domain: string | undefined, title: string | undefined, add
 
 const NavBarContainer: React.FC<NavbarProps> = ({ title, title2, title3, domain, active }) => {
   const [isMenuVisible, setIsMenuVisible] = useState(false);
+  const [lastScrollY, setLastScrollY] = useState(0);
+  const [showNavbar, setShowNavbar] = useState(true);
+
 
   const toggleMenu = () => {
     setIsMenuVisible(prevState => !prevState);
@@ -38,6 +43,27 @@ const NavBarContainer: React.FC<NavbarProps> = ({ title, title2, title3, domain,
     }
   }, [isMenuVisible]);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+
+      if (currentScrollY < lastScrollY) {
+        setShowNavbar(true);
+      } else {
+        // Scroll hacia abajo
+        setShowNavbar(false);
+      }
+
+      setLastScrollY(currentScrollY);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [lastScrollY]);
+
 
   const menuStyle: React.CSSProperties = {
     visibility: isMenuVisible ? 'visible' : 'hidden',
@@ -48,7 +74,7 @@ const NavBarContainer: React.FC<NavbarProps> = ({ title, title2, title3, domain,
 
   return (
     <div className={styles.container}>
-      <div className={styles.navbarContainer}>
+    <div className={`${styles.navbarContainer} ${showNavbar ? '' : styles.hidden}`}>
         <div className={styles.contextualLinks}>
           <Link href={`/recommendations/`}>{title}</Link>
           {title2 && (

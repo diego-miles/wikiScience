@@ -23,20 +23,23 @@ const BookRecommendation: React.FC<BookRecommendationProps> = ({ book, priority 
   const authorsFormatted = authors.join(', ');
 
   // Function to highlight keywords in summary
-  const highlightKeywords = (text: string) => {
-    return text.split(' ').map((word, index) => {
-      const keyWordIndex = keywords.findIndex(kw => kw.toLowerCase() === word.toLowerCase());
-      return (
-        <React.Fragment key={index}>
-          {keyWordIndex !== -1 
-            ? <span className={styles.keyword}>{word}</span>
-            : word}
-          {' '}
-        </React.Fragment>
-      );
-    });
-  };
+const highlightKeywords = (text: string) => {
+  // First, create a regex pattern from keywords to identify phrases in the text
+  const regexPattern = keywords.map(kw => kw.replace(/([\s,.;])/g, '\\$1')).join('|');
+  const regex = new RegExp(`\\b(${regexPattern})\\b`, 'gi');
 
+  // Split the text by the regex and keep the separators (keywords)
+  const splitText = text.split(regex);
+
+  return splitText.map((segment, index) => {
+    // Check if the segment is a keyword
+    if (keywords.some(kw => kw.toLowerCase() === segment.toLowerCase())) {
+      return <span key={index} className={styles.keyword}>{segment}</span>;
+    }
+    // If not a keyword, return the segment as is
+    return segment;
+  });
+};
 
 
   return (
