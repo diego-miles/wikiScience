@@ -36,13 +36,19 @@ export async function generateMetadata(
     {params:{subfield}}: SubFieldPageProps): Promise<Metadata>{
         const subFieldData = await getSubFieldRecommendation(subfield);
         const images = subFieldData.books.map(book => ({
-            url: `${formatTitleForURL(book.englishTitle)}.png` 
+            url: `https://storage.cloud.google.com/bestbooks/covers/${formatTitleForURL(book.englishTitle)}.png` 
         }));
+        const keywords = subFieldData.books.flatMap(book => book.keywords || []);
+        const uniqueKeywords = Array.from(new Set(keywords));
+        const description = `Dive into the internet curate, often updated, list of the top science books on ${subFieldData.subField}. From groundbreaking discoveries to the fundamentals of the universe, explore books that have shaped our understanding of science`
+
         return {
             title: subFieldData?.subField,
+            description: description,
             openGraph: {
                 images: images
-            }
+            },
+            keywords: uniqueKeywords.join(', ')
         }
     }
 
