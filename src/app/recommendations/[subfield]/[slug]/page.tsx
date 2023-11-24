@@ -9,6 +9,7 @@ import { cache } from 'react';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import ScrollTopButton from '@/ScrollTopButton'
+import { metadata } from '@/app/layout';
 
 
 interface ProductPageProps {
@@ -32,9 +33,10 @@ const getRecommendation = cache(async (slug: string) => {
 
 export async function generateMetadata(
     {params:{slug}}: ProductPageProps): Promise<Metadata>{
+        metadataBase: new URL('https://storage.cloud.google.com/bestbooks/covers/')
         const recommendations = await getRecommendation(slug);
         const images = recommendations.books.map(book => ({
-            url: `https://storage.cloud.google.com/bestbooks/covers/${formatTitleForURL(book.englishTitle)}.png`
+            url: `${formatTitleForURL(book.englishTitle)}.png`
         }));
         const keywords = recommendations.books.flatMap(book => book.keywords || []);
         const uniqueKeywords = Array.from(new Set(keywords));
