@@ -23,6 +23,7 @@ const montserrat = Montserrat({
 
 export { crimson_text, montserrat }
 export const metadata: Metadata = {
+  metadataBase: new URL('https://storage.cloud.google.com/bestbooks/covers/'),
   title: 'Wikiscience',
   description: 'Compendium of scientific human knowladge',
 }

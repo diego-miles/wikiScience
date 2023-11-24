@@ -33,7 +33,6 @@ const getRecommendation = cache(async (slug: string) => {
 
 export async function generateMetadata(
     {params:{slug}}: ProductPageProps): Promise<Metadata>{
-        metadataBase: new URL('https://storage.cloud.google.com/bestbooks/covers/')
         const recommendations = await getRecommendation(slug);
         const images = recommendations.books.map(book => ({
             url: `${formatTitleForURL(book.englishTitle)}.png`

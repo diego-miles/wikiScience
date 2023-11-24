@@ -34,7 +34,6 @@ const getSubFieldRecommendation = cache(async (subfield: string) => {
 // {`${formatTitleForURL(title)}.png`} 
 export async function generateMetadata(
     {params:{subfield}}: SubFieldPageProps): Promise<Metadata>{
-        metadataBase: new URL('https://storage.cloud.google.com/bestbooks/covers/')
         const subFieldData = await getSubFieldRecommendation(subfield);
         const images = subFieldData.books.map(book => ({
             url: `${formatTitleForURL(book.englishTitle)}.png` 
