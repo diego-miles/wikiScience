@@ -19,7 +19,7 @@ interface SubFieldPageProps {
 
 
 const formatTitleForURL = (title: string) => {
-  return title.replace(/[^a-zA-Z0-9 '-]/g, "").replace(/ /g, "%20");
+  return title.replace(/[^a-zA-Z0-9 ,'-]/g, "").replace(/ /g, "%20");
 };
 
 const getSubFieldRecommendation = cache(async (subfield: string) => {

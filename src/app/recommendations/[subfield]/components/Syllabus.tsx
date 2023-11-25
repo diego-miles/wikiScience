@@ -30,10 +30,10 @@ interface ImageLimits {
 const imageLimits: ImageLimits = imageLimitsData;
 
 const formatTitleForURL = (title: string) => {
-  return title.replace(/[^a-zA-Z0-9 '-]/g, "").replace(/ /g, "%20");
+  return title.replace(/[^a-zA-Z0-9 ,'-]/g, "").replace(/ /g, "%20");
 };
 const formatTitleToCompare = (title: string) => {
-  return title.replace(/[^a-zA-Z0-9 '-]/g, "")
+  return title.replace(/[^a-zA-Z0-9 ,'-]/g, "")
 };
 
 const ImageNavigator = ({ currentImageIndex, navigateImage, limit, temarioImgs }: ImageNavigatorProps) => {

@@ -6,6 +6,7 @@ import Footer from './Footer'
 import Analytics from './analytics'
 import { Suspense } from 'react'
 import { Analytics as AnalyticsVercel } from '@vercel/analytics/react';
+// import NavBarContainer from '@/components/NavBarContainer'
 
 
 const crimson_text = Crimson_Text({
@@ -38,6 +39,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${crimson_text.className} ${montserrat.className}`}>
+      {/* <NavBarContainer title="" profileLink='' menuLink=''/> */}
         <Suspense>
             <Analytics />
         </Suspense>
