@@ -53,31 +53,38 @@ const highlightKeywords = (text: string) => {
           <Syllabus title={englishTitle} priority={priority}/>
           <div className={styles.infoGrid}>
             {publicationDate && <div> <h5>Publication</h5> <p>{publicationDate}</p></div>}
+            {lastEditionYear && <div> <h5>Last Ed.</h5> <p>{lastEditionYear}</p></div>}
             {pages && <div><h5>Pages</h5> <p>{pages}</p></div>}
-            {lastEditionYear && <div> <h5>Last Edition</h5> <p>{lastEditionYear}</p></div>}
           </div>
 
           <p className={styles.ratingsTitle}>Ratings:</p>
-          <div className={styles.ratingsGrid}>
-            {ratings?.amazon && 
-              <div>
-                <h5 className='active-color'>Amazon</h5>
-                <p className='active-color'>{ratings.amazon.average}</p>
-              </div>
-            }
-            {ratings?.goodreads && 
-              <div>
-                <h5 className='active-color'>Goodreads</h5>
-                <p className='active-color'>{ratings.goodreads.average}</p>
-              </div>
-            }
-            {ratings?.google && 
-              <div>
-                <h5 className='active-color'>Google</h5>
-                <p className='active-color'>{ratings.google.average}</p>
-              </div>
-            }
+      <div className={styles.ratingsGrid}>
+        {ratings?.amazon && (
+          <div>
+            <a className='active-gold' href={ratings.amazon.link} target="_blank" rel="noopener noreferrer">Amazon</a>
+              <a href={ratings.amazon.link} target="_blank" rel="noopener noreferrer">
+                {ratings.amazon.average}
+              </a>
           </div>
+        )}
+        {ratings?.goodreads && (
+          <div>
+            <a className='active-gold'>Goodreads</a>
+              <a>
+                {ratings.goodreads.average}
+              </a>
+
+          </div>
+        )}
+        {ratings?.google && (
+          <div>
+            <a className='active-gold'>Google</a>
+            <a>
+                {ratings.google.average}
+            </a>
+          </div>
+        )}
+      </div>
         </div>
 
         <div className={styles.rightColumn}>

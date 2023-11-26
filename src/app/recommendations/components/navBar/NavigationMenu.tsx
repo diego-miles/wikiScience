@@ -13,6 +13,7 @@ const toSlug = (title: string) => {
 };
 
 const NavigationMenu: React.FC<NavigationMenuProps> = ({ className, style }) => {
+    
     return (
         <div className={`${styles.menuWrapper} ${className}`} style={style}>
             <div className={styles.menuMain}>

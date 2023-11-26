@@ -7,6 +7,7 @@
   --color-title6: #B0B6B9;
   --color-span: #B0B6B9;
   --color-active-element: #3498db;
+  --color-gold: #C49102;
   --color-background1: #f4f6f6;
   --color-background2: #d5dbdb;
   --color-background3: #B0B6B9;
@@ -20,20 +21,26 @@
   --font-family-text: "Crimson Text", serif;
   --font-family-title1: "Montserrat", sans-serif;
   --font-family-title2: "Montserrat", sans-serif;
+  --font-family-title3: "Montserrat", sans-serif;
+  --font-family-title4: "Montserrat", sans-serif;
+  --font-family-title5: "Montserrat", sans-serif;
   --font-family-nav-field: "Montserrat", sans-serif;
   --font-family-nav-branch: "Montserrat", sans-serif;
   --font-family-nav-subfield: "Montserrat", sans-serif;
   --font-size-text: 1.9rem;
   --font-size-title1: 3em;
-  --font-size-title2: 2rem;
+  --font-size-title2: 2.2rem;
   --font-size-title3: 1.5rem;
   --font-size-title4: 1.9rem;
-  --font-size-title5: 1.8rem;
+  --font-size-title5: 1.3rem;
+  --font-size-a: 1.8rem;
   --font-size-title6: 1.3rem;
   --font-size-nav-item-menu-field: 1.5rem;
   --font-size-nav-item-menu-branch: 1.5rem;
   --font-size-nav-item-menu: 1.3rem;
 }
+
+
 
 @keyframes spin {
   0% {
@@ -117,7 +124,7 @@ main {
   /* era 320px */
   width: auto;
   padding: 0rem 1.5rem;
-  padding-top: 8rem;
+  padding-top: 9rem;
   margin: 0 auto;
   position: static;
 }
@@ -127,7 +134,7 @@ a {
   text-decoration: none;
   display: block;
   font-family: var(--font-family-text);
-  font-size: var(--font-size-title5);
+  font-size: var(--font-size-a);
   font-style: italic;
   line-height: 1.1;
   padding: .4rem 0;
@@ -156,7 +163,7 @@ h2 {
   font-family: var(--font-family-title2);
   font-size: var(--font-size-title2);
   color: var(--color-title1);
-  font-weight:600;
+  font-weight:500;
   margin-bottom: 1.5rem;
   /* text-wrap: balance; */
 }
@@ -178,7 +185,7 @@ h4 {
 }
 
 h5 {
-  font-family: var(--font-family-text);
+  font-family: var(--font-family-title5);
   font-size: var(--font-size-title5);
   color: var(--color-title5);
   font-weight: 400;
@@ -360,7 +367,10 @@ h3:hover {
   padding-top: 9rem;
 } */
 
-
+.active-gold {
+  color: var(--color-gold);
+  text-decoration: underline;
+}
 
 /* Estilos para tabletas */
 @media only screen and (min-width: 481px) and (max-width: 767px) {
@@ -402,9 +412,9 @@ h3:hover {
     font-size: 1.5rem;
   } */
 
-  h5 {
+  /* h5 {
     font-size: 1.5rem;
-  }
+  } */
   main {
     padding: 0rem 3rem;
     padding-top: 8rem;

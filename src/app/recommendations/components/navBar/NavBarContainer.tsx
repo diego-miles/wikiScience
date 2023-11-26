@@ -76,6 +76,7 @@ const NavBarContainer: React.FC<NavbarProps> = ({ title, title2, title3, domain,
       }
 
       setLastScrollY(currentScrollY);
+      setShowNavbar(true);
     };
 
     window.addEventListener('scroll', handleScroll);

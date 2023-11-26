@@ -103,7 +103,7 @@ const SyllabusButton = ({ onClick }: any) => (
 
 const Syllabus = ({ title, priority }: Props) => {
   const [overlayVisible, setOverlayVisible] = useState(false);
-  const [currentImageIndex, setCurrentImageIndex] = useState(1);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [temarioImgs, setTemarioImgs] = useState<string[]>([]);
   const [limit, setLimit] = useState(3);
 
