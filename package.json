@@ -6,6 +6,7 @@
     "dev": "next dev",
     "postinstall": "prisma generate",
     "build": "prisma generate && next build",
+    "postbuild": "next-sitemap",
     "start": "next start",
     "lint": "next lint"
   },
@@ -14,6 +15,7 @@
     "@vercel/analytics": "^1.1.1",
     "firebase": "^10.6.0",
     "next": "14.0.0",
+    "next-sitemap": "^4.2.3",
     "react": "^18",
     "react-burger-menu": "^3.0.9",
     "react-dom": "^18",
