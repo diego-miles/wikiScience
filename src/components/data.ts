@@ -3,6 +3,13 @@ const scienceFields = [
     title: 'Technology and Engineering',
     subFields: [
       {
+        title: 'Agricultural Engineering',
+        topics: [
+          'Crops and Harvests',
+          'Agroecology'
+        ]
+      },
+      {
         title: 'Information and Communication Technologies (ICTs)',
         topics: [
           'Software Development',
