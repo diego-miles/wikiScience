@@ -61,16 +61,16 @@ const highlightKeywords = (text: string) => {
       <div className={styles.ratingsGrid}>
         {ratings?.amazon && (
           <div>
-            <a className='active-gold' href={ratings.amazon.link} target="_blank" rel="noopener noreferrer">Amazon</a>
-              <a href={ratings.amazon.link} target="_blank" rel="noopener noreferrer">
+            <a className='active-gold2' href={ratings.amazon.link} target="_blank" rel="noopener noreferrer">Amazon</a>
+              <a href={ratings.amazon.link} target="_blank" rel="noopener noreferrer" className='active-gold'>
                 {ratings.amazon.average}
               </a>
           </div>
         )}
         {ratings?.goodreads && (
           <div>
-            <a className='active-gold'>Goodreads</a>
-              <a>
+            <a className='active-gold2'>Goodreads</a>
+              <a className='active-gold'>
                 {ratings.goodreads.average}
               </a>
 
@@ -78,8 +78,8 @@ const highlightKeywords = (text: string) => {
         )}
         {ratings?.google && (
           <div>
-            <a className='active-gold'>Google</a>
-            <a>
+            <a className='active-gold2'>Google</a>
+            <a className='active-gold'>
                 {ratings.google.average}
             </a>
           </div>

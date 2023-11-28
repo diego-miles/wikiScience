@@ -369,8 +369,15 @@ h3:hover {
 
 .active-gold {
   color: var(--color-gold);
+  font-weight: 700;
+}
+.active-gold2 {
+  color: var(--color-gold);
   text-decoration: underline;
 }
+
+
+
 
 /* Estilos para tabletas */
 @media only screen and (min-width: 481px) and (max-width: 767px) {
