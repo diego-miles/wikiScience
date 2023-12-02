@@ -15,7 +15,7 @@ const toSlug = (title: string) => {
 const NavigationMenu: React.FC<NavigationMenuProps> = ({ className, style }) => {
     
     return (
-        <div className={`${styles.menuWrapper} ${className}`} style={style}>
+        <div tabIndex={0} className={`${styles.menuWrapper} ${className}`} style={style}>
             <div className={styles.menuMain}>
                 <div className={styles.header}>Best Books</div>
                 <div className={styles.navContainer}>

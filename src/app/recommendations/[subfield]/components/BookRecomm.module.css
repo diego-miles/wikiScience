@@ -7,10 +7,16 @@
     padding-bottom: 1.5rem;
 }
 
+
+/* .keyword {
+    color: rgb(0, 36, 64);
+    font-weight: 500;
+} */
+
 .summaryParagraph span {
     /* color: var(--color-title1); */
-    color: rgb(0, 23, 41);
-    font-weight: 600;
+    color: #001831;
+    font-weight: 500;
 }
 
 .cover {
@@ -48,13 +54,19 @@
     margin-bottom: 0.5rem;
 }
 
-.bookRecommendation .infoGrid,
-.bookRecommendation .ratingsGrid {
+.bookRecommendation .infoGrid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 1rem;
     text-align: center;
     padding-bottom: 1rem;
+}
+
+.ratingsGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    text-align: center;
+    padding: 0 5rem;
 }
 
 .bookRecommendation .ratingsTitle {

@@ -24,8 +24,9 @@ type Book {
   englishTitle      String
   spanishTitle      String?
   authors           String[]
-  difficulty        String[]
+  difficulty        String
   keywords          String[]
+  span              String[]
   coverImage        String?
   syllabusImages    String[]
   pages             Int?

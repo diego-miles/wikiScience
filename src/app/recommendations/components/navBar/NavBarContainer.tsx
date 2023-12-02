@@ -86,23 +86,33 @@ const NavBarContainer: React.FC<NavbarProps> = ({ title, title2, title3, domain,
     };
   }, [lastScrollY]);
 
-  useEffect(() => {
-    const handleLinkClick = () => {
-      setIsMenuVisible(false);
-    };
+  // useEffect(() => {
+  //   const handleLinkClick = () => {
+  //     setIsMenuVisible(false);
+  //   };
 
-    const menuLinks = document.querySelectorAll('.menu-link'); // Add a class 'menu-link' to your menu links
+  //   const menuLinks = document.querySelectorAll('.menu-link'); // Add a class 'menu-link' to your menu links
 
-    menuLinks.forEach(link => {
-      link.addEventListener('click', handleLinkClick);
-    });
+  //   menuLinks.forEach(link => {
+  //     link.addEventListener('click', handleLinkClick);
+  //   });
 
-    return () => {
-      menuLinks.forEach(link => {
-        link.removeEventListener('click', handleLinkClick);
-      });
-    };
-  }, []);
+  //   return () => {
+  //     menuLinks.forEach(link => {
+  //       link.removeEventListener('click', handleLinkClick);
+  //     });
+  //   };
+  // }, []);
+
+  function closeDropdown() {
+    const elem = document.activeElement as HTMLElement
+    if (elem) {
+      elem.blur()
+    }
+  }
+
+
+
 
   const menuStyle: React.CSSProperties = {
     visibility: isMenuVisible ? 'visible' : 'hidden',
@@ -114,12 +124,12 @@ const NavBarContainer: React.FC<NavbarProps> = ({ title, title2, title3, domain,
     <div className={styles.container}>
       <div className={`${styles.navbarContainer} ${showNavbar ? '' : styles.hidden}`}>
         <div className={styles.contextualLinks}>
-          <Link href={`/recommendations/`}>{title}</Link>
+          <Link href={`/recommendations/`}  onClick={closeDropdown}>{title}</Link>
           {title2 && (
             <>
               <span className={styles.padding}>{" > "}</span>
               <Link href={generateLink(domain, title2)}
-                style={{ color: active ? 'var(--color-active-element)' : '' }} className='menu-link'>
+                style={{ color: active ? 'var(--color-active-element)' : '' }} onClick={closeDropdown}>
                 {title2}
               </Link>
             </>
@@ -127,14 +137,14 @@ const NavBarContainer: React.FC<NavbarProps> = ({ title, title2, title3, domain,
           {title3 && (
             <>
               <span className={styles.padding}>{">"}</span>
-              <Link href={generateLink(domain, title2, `/${toSlug(title3)}`)} className={`${styles.active} 'menu-link'`}>
+              <Link href={generateLink(domain, title2, `/${toSlug(title3)}`)} className={`${styles.active} 'menu-link'`} onClick={closeDropdown}>
                 {title3}
               </Link>
             </>
           )}
         </div>
         <button className={styles.rightIcon} onClick={toggleMenu} aria-label="Toggle Menu">
-          <div className={`${styles.iconWrapper} ${styles.crossIcon} ${isMenuVisible ? styles.crossIconOpen : styles.crossIconClosed}`}></div>
+          <div tabIndex={0} className={`${styles.iconWrapper} ${styles.crossIcon} ${isMenuVisible ? styles.crossIconOpen : styles.crossIconClosed}`}></div>
         </button>
       </div>
       <NavigationMenu style={menuStyle} />
