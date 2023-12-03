@@ -54,12 +54,12 @@ export default function RootLayout({
         <AnalyticsVercel />
         {/* <ScrollTopButton /> */}
         <Footer />
-        {/* <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<div>Loading...</div>}>
           <Analytics />
         </Suspense>
           <Script
             async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6831545317289734"  strategy="afterInteractive" crossOrigin="anonymous"
-          /> */}
+          />
       </body>
     </html>
   )
