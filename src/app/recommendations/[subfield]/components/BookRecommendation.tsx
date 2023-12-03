@@ -70,8 +70,8 @@ const highlightKeywords = (text: string) => {
         )}
         {ratings?.goodreads && (
           <div>
-            <a className='active-gold2'>Goodreads</a>
-              <a className='active-gold'>
+            <a className='active-gold2' href={ratings.amazon.link} target="_blank" rel="noopener noreferrer">Goodreads</a>
+              <a className='active-gold' href={ratings.amazon.link} target="_blank" rel="noopener noreferrer">
                 {ratings.goodreads.average}
               </a>
 
