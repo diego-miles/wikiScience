@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './BookRecomm.module.css';
 import { Book } from '@prisma/client';
-import Syllabus from './Syllabus';
+import Syllabus from './syllabus/Syllabus';
 
 type BookRecommendationProps = {
   book: Book;
@@ -17,7 +17,6 @@ const BookRecommendation: React.FC<BookRecommendationProps> = ({ book, priority 
     publicationDate,
     ratings,
     summary,
-    keywords, // Ensure keywords are included in your Book type
     span,
   } = book;
 

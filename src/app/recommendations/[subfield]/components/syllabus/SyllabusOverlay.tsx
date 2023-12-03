@@ -1,6 +1,6 @@
 // components/SyllabusOverlay.js
 import React, { useState, useCallback } from 'react';
-import ImageLoader from './ImageLoder'; // Assuming ImageLoader is in the same directory
+import ImageLoader from '../ImageLoder'; // Assuming ImageLoader is in the same directory
 import styles from './Syllabus.module.css';
 
 type SyllabusOverlayProps = {
