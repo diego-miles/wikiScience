@@ -45,15 +45,15 @@ export default function RootLayout({
       {/* <NavBarContainer title="" profileLink='' menuLink=''/> */}
         <Suspense>
             <Analytics />
+            <Script 
+              async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6831545317289734" crossOrigin="anonymous"
+            />
         </Suspense>
         {children}
         <AnalyticsVercel/>
         {/* <ScrollTopButton /> */}
         <Footer />
       </body>
-      <Script 
-         async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6831545317289734" crossOrigin="anonymous"
-      />
     </html>
   )
 }
