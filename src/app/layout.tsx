@@ -22,9 +22,7 @@ const montserrat = Montserrat({
   subsets: ['latin']
 })
 
-const Analytics = dynamic(() => import('./analytics'), {
-  suspense: true,
-});
+const Analytics = dynamic(() => import('./analytics'), { suspense: true });
 
 
 
@@ -45,6 +43,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${crimson_text.className} ${montserrat.className}`}>
+        <iframe 
+            src="https://www.googletagmanager.com/ns.html?id=GTM-NTTWMW3Z"
+            height="0" 
+            width="0" 
+            style={{ display: 'none', visibility: 'hidden' }}
+        ></iframe>
         {/* <NavBarContainer title="" profileLink='' menuLink=''/> */}
         {children}
         <AnalyticsVercel />
