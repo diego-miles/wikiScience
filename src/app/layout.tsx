@@ -42,10 +42,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <Script 
-        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
-        strategy="afterInteractive"
-        crossOrigin="anonymous"
-        async
+         async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6831545317289734" crossOrigin="anonymous"
       />
       <body className={`${crimson_text.className} ${montserrat.className}`}>
       {/* <NavBarContainer title="" profileLink='' menuLink=''/> */}
