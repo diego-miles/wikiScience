@@ -41,9 +41,6 @@ export default function RootLayout({
 
   return (
     <html lang="en">
-      <Script 
-         async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6831545317289734" crossOrigin="anonymous"
-      />
       <body className={`${crimson_text.className} ${montserrat.className}`}>
       {/* <NavBarContainer title="" profileLink='' menuLink=''/> */}
         <Suspense>
@@ -54,6 +51,9 @@ export default function RootLayout({
         {/* <ScrollTopButton /> */}
         <Footer />
       </body>
+      <Script 
+         async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6831545317289734" crossOrigin="anonymous"
+      />
     </html>
   )
 }
