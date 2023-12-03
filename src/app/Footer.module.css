@@ -31,11 +31,12 @@
 
 .textFooter {
   color: var(--color-background3);
-  font-size: 1.4rem;
+  font-size: 1.5rem;
 }
 
 .goldText {
-  color: #9c812b;
+  color: #9e8123;
   padding: 0;
-  font-size: 1.3rem;
+  font-size: 1.5rem;
+  padding-bottom: .5rem;
 }
