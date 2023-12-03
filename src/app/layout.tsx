@@ -44,7 +44,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${crimson_text.className} ${montserrat.className}`}>
         <iframe 
-            src="https://www.googletagmanager.com/ns.html?id=GTM-NTTWMW3Z"
+            src="https://www.googletagmanager.com/ns.html?${GTM_ID}"
             height="0" 
             width="0" 
             style={{ display: 'none', visibility: 'hidden' }}
@@ -54,13 +54,13 @@ export default function RootLayout({
         <AnalyticsVercel />
         {/* <ScrollTopButton /> */}
         <Footer />
+        <Suspense fallback={<div>Loading...</div>}>
+          <Analytics />
+          <Script
+            async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6831545317289734"  strategy="afterInteractive" crossOrigin="anonymous"
+          />
+        </Suspense>
       </body>
-      <Suspense>
-        <Analytics />
-        <Script
-          async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6831545317289734"  strategy="afterInteractive" crossOrigin="anonymous"
-        />
-      </Suspense>
     </html>
   )
 }
