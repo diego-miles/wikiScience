@@ -3,10 +3,11 @@ import { Crimson_Text, Montserrat, Nunito_Sans } from 'next/font/google'
 import './globals.css'
 import './Footer'
 import Footer from './Footer'
-import Analytics from './analytics'
+// import Analytics from './analytics'
 import { Suspense } from 'react'
 import { Analytics as AnalyticsVercel } from '@vercel/analytics/react';
 import Script from 'next/script'
+import dynamic from 'next/dynamic'
 // import NavBarContainer from '@/components/NavBarContainer'
 
 
@@ -21,7 +22,9 @@ const montserrat = Montserrat({
   subsets: ['latin']
 })
 
-
+const Analytics = dynamic(() => import('./analytics'), {
+  suspense: true,
+});
 
 
 
@@ -51,7 +54,7 @@ export default function RootLayout({
       <Suspense>
         <Analytics />
         <Script
-          async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6831545317289734" crossOrigin="anonymous"
+          async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6831545317289734"  strategy="lazyOnload" crossOrigin="anonymous"
         />
       </Suspense>
     </html>
