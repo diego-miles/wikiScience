@@ -6,7 +6,7 @@ import Footer from './Footer'
 import Analytics from './analytics'
 import { Suspense } from 'react'
 import { Analytics as AnalyticsVercel } from '@vercel/analytics/react';
-import Head from 'next/head'
+import Script from 'next/script'
 // import NavBarContainer from '@/components/NavBarContainer'
 
 
@@ -41,9 +41,14 @@ export default function RootLayout({
 
   return (
     <html lang="en">
-      <Head>
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6831545317289734" crossOrigin="anonymous"></script>
-      </Head>    
+      <Script 
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+        strategy="afterInteractive"
+        onError={(e) => console.error('Error loading Google Adsense script', e)}
+        onLoad={() => console.log('Google Adsense script loaded successfully')}
+        crossOrigin="anonymous"
+        async
+      />
       <body className={`${crimson_text.className} ${montserrat.className}`}>
       {/* <NavBarContainer title="" profileLink='' menuLink=''/> */}
         <Suspense>
