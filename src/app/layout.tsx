@@ -54,7 +54,7 @@ export default function RootLayout({
       <Suspense>
         <Analytics />
         <Script
-          async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6831545317289734"  strategy="lazyOnload" crossOrigin="anonymous"
+          async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6831545317289734"  strategy="afterInteractive" crossOrigin="anonymous"
         />
       </Suspense>
     </html>
