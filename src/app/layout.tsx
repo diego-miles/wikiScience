@@ -44,8 +44,6 @@ export default function RootLayout({
       <Script 
         src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
         strategy="afterInteractive"
-        onError={(e) => console.error('Error loading Google Adsense script', e)}
-        onLoad={() => console.log('Google Adsense script loaded successfully')}
         crossOrigin="anonymous"
         async
       />
