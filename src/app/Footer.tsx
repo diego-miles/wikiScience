@@ -8,13 +8,11 @@ const Footer = () => {
         <li>
           <Link href="/recommendations">Top Science Books</Link>
         </li>
-        <div className='globalHeight'></div>
-        <li>
-          <p className={styles.goldText}>2024</p>
-          <p className={styles.textFooter}>--  WikiScience V0.0  --</p>
-          <p className={styles.textFooter}>wikisciencemx@gmail.com</p>
-        </li>
       </ul>
+        <div className='globalHeight'></div>
+        <p className={styles.goldText}>2024</p>
+        <p className={styles.textFooter}>--  WikiScience V0.0  --</p>
+        <p className={styles.textFooter}>wikisciencemx@gmail.com</p>
     </footer>
   );
 };
