@@ -2,11 +2,14 @@
     display: flex;
     flex-direction: column;
     padding: 0 0;
+    padding-bottom: 1rem;
     max-width: 30rem;
     margin: auto;
 }
 
 .localContextLinksContainer a {
+    text-decoration: underline;
+    text-decoration-color: var(--color-active-element);
     scroll-behavior: smooth;
 }
 

@@ -108,7 +108,9 @@
 }
 
 .subTopic a {
-  font-size: 1.7rem;
+  color: var(--color-active-element);
+  /* text-decoration: underline; */
+  font-size: 1.8rem;
 }
 
 @media (min-width: 768px) {
