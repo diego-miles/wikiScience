@@ -42,7 +42,7 @@
   font-style: normal;
   font-size: 1.4rem;
   padding: 0.1rem 0;
-  color: var(--color-title3);
+  /* color: var(--color-title3); */
 }
 
 .icon {
