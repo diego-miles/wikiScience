@@ -42,7 +42,7 @@
 }
 
 .menuWrapper::-webkit-scrollbar-thumb {
-  background: var(--color-accent2);
+  background: var(--color-active-element);
   border-radius: 0.5rem;
 }
 
@@ -57,7 +57,7 @@
 }
 
 .titleField {
-  color: var(--color-accent2);
+  color: var(--color-accent1);
   font-size: 1.8rem;
   /* padding: .5rem 0; */
   padding-bottom: 1rem;
@@ -108,8 +108,9 @@
 }
 
 .subTopic a {
-  color: var(--color-active-element);
+  color: var(--color-title3);
   /* text-decoration: underline; */
+  text-decoration-color: var(--color-accent2);
   font-size: 1.8rem;
 }
 

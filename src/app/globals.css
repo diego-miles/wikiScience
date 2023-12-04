@@ -1,23 +1,30 @@
 :root {
-  --color-title1: #2e4053;
-  --color-title2: #2c3e50;
+  --color-title1: #0073b0;
+  /* --color-title1: #006c9e; */
+  /* --color-title1: #006191; */
+  --color-title2: #243b48;
   --color-title3: #6a7c85;
   --color-title4: #2e4053;
-  --color-title5: #020202;
+  --color-title5: #0c0c0c;
+  --color-text: #243b48;
   /* --color-title5: #B0B6B9; */
-  --color-title6: rgb(50, 124, 120);
+  --color-title6: rgb(87, 111, 128);
   /* --color-title6: #B0B6B9; */
   --color-active-element: #3498db;
   --color-gold: #745600;
   /* --color-gold: #C49102; */
   --color-background1: #f4f6f6;
-  --color-background2: #d5dbdb;
+  --color-background2: #cfd3d3;
+  /* --color-background2: #d5dbdb; */
   --color-background3: #B0B6B9;
   --color-menu: #e9edef;
-  --color-span: #005884;
+  --color-span: #154d6a;
+  /* --color-span: #005884; */
   /* --color-span: #6a7c85; */
-  --color-accent1: #e74c3c;
+  --color-accent1: #cf4336;
+  /* --color-accent1: #e74c3c; */
   --color-accent2: #16a085;
+  /* --color-accent2: #16a085; */
   --color-dark: #2c3e50;
   --color-light: #e9edef;
   /* Tipografía */
@@ -147,7 +154,7 @@ a {
 p {
   font-family: var(--font-family-text);
   font-size: var(--font-size-text);
-  color: var(--color-title1);
+  color: var(--color-text);
   padding-bottom: 0.7rem;
   line-height: 1.4;
   /* text-wrap: pretty; */
