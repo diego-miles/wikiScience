@@ -3,6 +3,8 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import styles from './NavbarContainer.module.css';
 import NavigationMenu from './NavigationMenu';
+import { useScrollHandler } from './useScrollHandler';
+
 
 interface NavbarProps {
   title?: string;
@@ -22,10 +24,8 @@ const generateLink = (domain: string | undefined, title: string | undefined, add
 };
 
 const NavBarContainer: React.FC<NavbarProps> = ({ title, title2, title3, domain, active }) => {
+  const { showNavbar, scrollPosition, setScrollPosition } = useScrollHandler();
   const [isMenuVisible, setIsMenuVisible] = useState(false);
-  const [lastScrollY, setLastScrollY] = useState(0);
-  const [scrollPosition, setScrollPosition] = useState(0); // Guarda la posición del scroll
-  const [showNavbar, setShowNavbar] = useState(true);
 
   const toggleMenu = () => {
     setIsMenuVisible(prevState => {
@@ -65,44 +65,26 @@ const NavBarContainer: React.FC<NavbarProps> = ({ title, title2, title3, domain,
     }
   }, [isMenuVisible]);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-
-      if (currentScrollY < lastScrollY) {
-        setShowNavbar(true);
-      } else {
-        setShowNavbar(false);
-      }
-
-      setLastScrollY(currentScrollY);
-      setShowNavbar(true);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, [lastScrollY]);
-
   // useEffect(() => {
-  //   const handleLinkClick = () => {
-  //     setIsMenuVisible(false);
+  //   const handleScroll = () => {
+  //     const currentScrollY = window.scrollY;
+
+  //     if (currentScrollY < lastScrollY) {
+  //       setShowNavbar(true);
+  //     } else {
+  //       setShowNavbar(false);
+  //     }
+
+  //     setLastScrollY(currentScrollY);
+  //     setShowNavbar(true);
   //   };
 
-  //   const menuLinks = document.querySelectorAll('.menu-link'); // Add a class 'menu-link' to your menu links
-
-  //   menuLinks.forEach(link => {
-  //     link.addEventListener('click', handleLinkClick);
-  //   });
+  //   window.addEventListener('scroll', handleScroll);
 
   //   return () => {
-  //     menuLinks.forEach(link => {
-  //       link.removeEventListener('click', handleLinkClick);
-  //     });
+  //     window.removeEventListener('scroll', handleScroll);
   //   };
-  // }, []);
+  // }, [lastScrollY]);
 
   function closeDropdown() {
     const elem = document.activeElement as HTMLElement
@@ -153,3 +135,44 @@ const NavBarContainer: React.FC<NavbarProps> = ({ title, title2, title3, domain,
 };
 
 export default NavBarContainer;
+
+// "use client"
+// import React from 'react';
+// import styles from './NavbarContainer.module.css';
+// import { NavbarProps } from './NavbarProps';
+// import { NavigationLinks } from './NavigationLinks';
+// import { ButtonToggleMenu } from './ButtonToggleMenu';
+// import { useScrollHandler } from './useScrollHandler';
+// import NavigationMenu from './NavigationMenu';
+
+// const NavBarContainer: React.FC<NavbarProps> = ({ title, title2, title3, domain, active }) => {
+//   const showNavbar = useScrollHandler();
+//   const [menuVisible, setMenuVisible] = React.useState(false);
+
+//   const handleMenuToggle = (isMenuVisible: boolean) => {
+//     setMenuVisible(isMenuVisible);
+//   };
+//   const menuStyle: React.CSSProperties = {
+//     visibility: menuVisible ? 'visible' : 'hidden',
+//     display: menuVisible ? 'flex' : 'none',
+//     opacity: menuVisible ? 1 : 0,
+//     transition: 'opacity 0.3s ease-in-out, transform 0.3s ease-in-out',
+//   };
+
+
+//   return (
+//     <div className={styles.container}>
+//       <div className={`${styles.navbarContainer} ${showNavbar ? '' : styles.hidden}`}>
+//         <NavigationLinks title={title} title2={title2} title3={title3} domain={domain} active={active} closeDropdown={function (): void {
+//           throw new Error('Function not implemented.');
+//         } } />
+//         <ButtonToggleMenu onToggle={handleMenuToggle} />
+//       </div>
+//       <NavigationMenu style={menuStyle} />
+//     </div>
+//   );
+// };
+
+// export default NavBarContainer;
+
+

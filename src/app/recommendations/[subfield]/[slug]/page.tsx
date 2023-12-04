@@ -18,7 +18,10 @@ interface ProductPageProps {
 }
 
 const formatTitleForURL = (title: string) => {
-  return title.replace(/[^a-zA-Z0-9 ,'-]/g, "").replace(/ /g, "%20");
+  return title
+    .replace(/[^a-zA-Z0-9 ,'&-]/g, "")
+    .replace(/ /g, "%20")
+    .replace(/&/g, "%26");
 };
 
 const getRecommendation = cache(async (slug: string) => {

@@ -25,8 +25,12 @@ interface ImageLimits {
 const imageLimits: ImageLimits = imageLimitsData;
 
 const formatTitleForURL = (title: string) => {
-  return title.replace(/[^a-zA-Z0-9 ,'-]/g, "").replace(/ /g, "%20");
+  return title
+    .replace(/[^a-zA-Z0-9 ,'&-]/g, "") // Remove characters except alphanumerics, space, comma, single quote, and hyphen
+    .replace(/&/g, "%26") // Replace '&' with '%26'
+    .replace(/ /g, "%20") // Replace spaces with '%20'
 };
+
 const formatTitleToCompare = (title: string) => {
   return title.replace(/[^a-zA-Z0-9 ,'-]/g, "")
 };

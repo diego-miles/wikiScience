@@ -19,8 +19,12 @@ interface SubFieldPageProps {
 
 
 const formatTitleForURL = (title: string) => {
-  return title.replace(/[^a-zA-Z0-9 ,'-]/g, "").replace(/ /g, "%20");
+  return title
+    .replace(/&/g, "%26") // Replace '&' with '%26'
+    .replace(/[^a-zA-Z0-9 ,'&-]/g, "") // Remove characters except alphanumerics, space, comma, single quote, and hyphen
+    .replace(/ /g, "%20") // Replace spaces with '%20'
 };
+
 
 const getSubFieldRecommendation = cache(async (subfield: string) => {
     const subFieldData = await prisma.subFieldRecommendation.findUnique({

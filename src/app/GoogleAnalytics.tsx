@@ -21,7 +21,7 @@ export default function Analytics() {
 
   return (
     <>
-      {/* <noscript>
+      <noscript>
         <iframe
           src={`https://www.googletagmanager.com/ns.html?id=GTM-NTTWMW3Z`}
           height="0"
@@ -41,7 +41,7 @@ export default function Analytics() {
             })(window,document,'script','dataLayer','GTM-NTTWMW3Z');
           `,
         }}
-      /> */}
+      />
       <Script
         src="https://www.googletagmanager.com/gtag/js?id=G-9Z2NG5S0GC"
         strategy="worker"

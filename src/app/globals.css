@@ -3,9 +3,12 @@
   --color-title2: #2c3e50;
   --color-title3: #6a7c85;
   --color-title4: #2e4053;
-  --color-title5: #B0B6B9;
-  --color-title6: #B0B6B9;
-  --color-span: #B0B6B9;
+  --color-title5: #808080;
+  /* --color-title5: #B0B6B9; */
+  --color-title6: #908f8f;
+  /* --color-title6: #B0B6B9; */
+  --color-span: #858585;
+  /* --color-span: #B0B6B9; */
   --color-active-element: #3498db;
   --color-gold: #C49102;
   --color-background1: #f4f6f6;
