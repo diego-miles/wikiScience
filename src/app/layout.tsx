@@ -43,12 +43,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${crimson_text.className} ${montserrat.className}`}>
-        <iframe 
-            src="https://www.googletagmanager.com/ns.html?${GTM_ID}"
-            height="0" 
-            width="0" 
-            style={{ display: 'none', visibility: 'hidden' }}
-        ></iframe>
         {/* <NavBarContainer title="" profileLink='' menuLink=''/> */}
         {children}
         <AnalyticsVercel />
