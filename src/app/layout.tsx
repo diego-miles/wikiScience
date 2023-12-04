@@ -4,12 +4,12 @@ import './globals.css'
 import './Footer'
 import Footer from './Footer'
 // import Analytics from './analytics'
-import { Suspense } from 'react'
+// import { Suspense } from 'react'
 import { Analytics as AnalyticsVercel } from '@vercel/analytics/react';
 import Script from 'next/script'
-import dynamic from 'next/dynamic'
-// import NavBarContainer from '@/components/NavBarContainer'
-import GoogleAdsScript from './GoogleAdsScript';
+// import dynamic from 'next/dynamic'
+// // import NavBarContainer from '@/components/NavBarContainer'
+// import GoogleAdsScript from './GoogleAdsScript';
 
 const crimson_text = Crimson_Text({
   weight: ['400', '600', '700'],
@@ -22,7 +22,7 @@ const montserrat = Montserrat({
   subsets: ['latin']
 })
 
-const GoogleAnalytics = dynamic(() => import('./GoogleAnalytics'), { suspense: true });
+// const GoogleAnalytics = dynamic(() => import('./GoogleAnalytics'), { suspense: true });
 
 
 
@@ -58,11 +58,8 @@ export default function RootLayout({
         <AnalyticsVercel />
         {/* <ScrollTopButton /> */}
         <Footer />
-
-        <Suspense fallback={<div>Loading...</div>}>
-          <GoogleAnalytics />
-        </Suspense>
-        <GoogleAdsScript/>
+      <Script
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6831545317289734" strategy="worker" crossOrigin="anonymous"/>
       <Script
         id="gtm-script"
         strategy="worker"
