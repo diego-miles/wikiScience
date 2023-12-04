@@ -13,7 +13,7 @@
 }
 
 .footerMenu li {
- padding: 5px;
+ padding: 1rem 0;
 }
 
 .footerMenu a {
@@ -30,7 +30,7 @@
 
 
 .textFooter {
-  color: var(--color-background3);
+  color: var(--color-title5);
   font-size: 1.5rem;
 }
 
