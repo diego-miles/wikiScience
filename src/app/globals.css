@@ -5,12 +5,13 @@
   --color-title4: #2e4053;
   --color-title5: #808080;
   /* --color-title5: #B0B6B9; */
-  --color-title6: #908f8f;
+  --color-title6: #3498db;
   /* --color-title6: #B0B6B9; */
   --color-span: #858585;
   /* --color-span: #B0B6B9; */
-  --color-active-element: #3498db;
-  --color-gold: #C49102;
+  --color-active-element: #e74c3c;
+  --color-gold: #9e7400;
+  /* --color-gold: #C49102; */
   --color-background1: #f4f6f6;
   --color-background2: #d5dbdb;
   --color-background3: #B0B6B9;

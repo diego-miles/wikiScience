@@ -36,7 +36,7 @@ const NavigationMenu: React.FC<NavigationMenuProps> = ({ className, style }) => 
                                         {subField.topics.map((topic, tIdx) => (
                                             <li className={styles.subTopic} key={tIdx}>
                                                 {/* Use toSlug for both subField.title and topic to create a nested slug */}
-                                                <Link href={`/recommendations/${toSlug(subField.title)}/${toSlug(topic)}`} className='menu-link'>
+                                                <Link href={`/recommendations/${toSlug(subField.title)}/${toSlug(topic)}`} >
                                                     {topic}
                                                 </Link>
                                             </li>
