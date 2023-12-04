@@ -22,7 +22,7 @@ const montserrat = Montserrat({
   subsets: ['latin']
 })
 
-const Analytics = dynamic(() => import('./analytics'), { suspense: true });
+const GoogleAnalytics = dynamic(() => import('./GoogleAnalytics'), { suspense: true });
 
 
 
@@ -55,7 +55,7 @@ export default function RootLayout({
         {/* <ScrollTopButton /> */}
         <Footer />
         <Suspense fallback={<div>Loading...</div>}>
-          <Analytics />
+          <GoogleAnalytics />
         </Suspense>
           <GoogleAdsScript/>
       </body>
