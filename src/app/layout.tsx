@@ -9,7 +9,7 @@ import { Analytics as AnalyticsVercel } from '@vercel/analytics/react';
 import Script from 'next/script'
 import dynamic from 'next/dynamic'
 // import NavBarContainer from '@/components/NavBarContainer'
-
+import GoogleAdsScript from './GoogleAdsScript';
 
 const crimson_text = Crimson_Text({
   weight: ['400', '600', '700'],
@@ -57,9 +57,7 @@ export default function RootLayout({
         <Suspense fallback={<div>Loading...</div>}>
           <Analytics />
         </Suspense>
-          <Script
-            async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6831545317289734"  strategy="afterInteractive" crossOrigin="anonymous"
-          />
+          <GoogleAdsScript/>
       </body>
     </html>
   )
