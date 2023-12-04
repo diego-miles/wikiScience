@@ -4,4 +4,7 @@ module.exports = {
     loader: 'custom',
     loaderFile: './myImageLoader.js',
   },
+  experimental: {
+    nextScriptWorkers: true,
+  },
 };

@@ -44,12 +44,12 @@ export default function Analytics() {
       /> */}
       <Script
         src="https://www.googletagmanager.com/gtag/js?id=G-9Z2NG5S0GC"
-        strategy="afterInteractive"
+        strategy="worker"
         async
       />
       <Script
         id="google-analytics-script"
-        strategy="afterInteractive"
+        strategy="worker"
       >
         {`
           window.dataLayer = window.dataLayer || [];
