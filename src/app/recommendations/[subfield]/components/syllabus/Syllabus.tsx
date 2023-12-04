@@ -93,7 +93,7 @@ const Syllabus = ({ title, priority }: Props) => {
           height={250}
           alt={title} style={{ objectFit: 'cover' }} 
           priority={priority} 
-          quality={20} 
+          quality={50} 
           className={styles.layer0} 
           sizes="(max-width: 200px)" />
         </figure>

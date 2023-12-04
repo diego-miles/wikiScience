@@ -81,7 +81,7 @@
 }
 
 .active {
-  color: var(--color-active-element);
+  color: var(--color-title1);
 }
 
 .crossIcon {

@@ -160,6 +160,12 @@ p {
   /* text-wrap: pretty; */
 }
 
+.p2 {
+  font-weight: 600;
+  padding-bottom: 0rem;
+}
+
+
 h1 {
   font-family: var(--font-family-title1);
   font-size: var(--font-size-title1);
