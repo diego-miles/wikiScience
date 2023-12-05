@@ -12,24 +12,28 @@ export const useScrollHandler = (isMenuVisible: boolean): ScrollHandlerState => 
   const [showNavbar, setShowNavbar] = useState(true);
   const [scrollPosition, setScrollPosition] = useState(0);
 
-  // Manejar la visibilidad del menú y el estilo del cuerpo del documento
+  // Guardar la posición del scroll al abrir el menú
   useEffect(() => {
     if (isMenuVisible) {
+      setScrollPosition(window.scrollY);
       document.body.style.overflow = 'hidden';
       document.body.style.height = '100vh';
     } else {
       document.body.style.overflow = 'auto';
       document.body.style.height = 'auto';
+      // Restaurar la posición del scroll al cerrar el menú
+      window.scrollTo(0, scrollPosition);
     }
-  }, [isMenuVisible]);
+  }, [isMenuVisible, scrollPosition]);
 
   // Manejar el evento de scroll
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-      setShowNavbar(currentScrollY < lastScrollY);
-      setLastScrollY(currentScrollY);
-      setScrollPosition(currentScrollY);
+      if (!isMenuVisible) { // Asegurarse de que el scroll se maneje solo cuando el menú esté cerrado
+        setShowNavbar(currentScrollY < lastScrollY);
+        setLastScrollY(currentScrollY);
+      }
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -37,7 +41,7 @@ export const useScrollHandler = (isMenuVisible: boolean): ScrollHandlerState => 
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, [lastScrollY]);
+  }, [lastScrollY, isMenuVisible]);
 
   return { showNavbar, scrollPosition, setScrollPosition };
 };
