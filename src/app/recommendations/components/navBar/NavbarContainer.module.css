@@ -80,7 +80,7 @@
   font-family: var(--font-family-text);
 }
 
-.active {
+.active-element {
   color: var(--color-title1);
   font-weight: 500;
 }
