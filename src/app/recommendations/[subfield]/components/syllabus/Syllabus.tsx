@@ -88,12 +88,13 @@ const Syllabus = ({ title, priority }: Props) => {
         <SyllabusButton onClick={handleSyllabusButtonClick} />
         <figure className={styles.layer0}>
           <Image 
-          src={`${formatTitleForURL(title)}.png`} 
-          width={200}
-          height={250}
+          src={`${formatTitleForURL(title)}s.png`} 
+          // width={130}
+          // height={150}
+          fill
           alt={title} style={{ objectFit: 'cover' }} 
           priority={priority} 
-          quality={50} 
+          quality={100} 
           className={styles.layer0} 
           sizes="(max-width: 200px)" />
         </figure>

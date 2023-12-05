@@ -23,11 +23,10 @@ const NavBarContainer: React.FC<NavbarProps> = memo(({ title, title2, title3, do
     const [scrollPosition, setScrollPosition] = useState(0);
     const wasMenuVisible = useRef(isMenuVisible);
 
-    const generateLink = useCallback((_domain: string | undefined, title: string | undefined, additionalPath = '') => {
-        const safeTitle = title ?? '';
+    const generateLink = useCallback((_domain: string | undefined, _title: string | undefined, additionalPath = '') => {
+        const safeTitle = _title ?? '';
         return `/recommendations/${toSlug(safeTitle)}${additionalPath}`;
     }, []);
-
 
     const closeDropdown = useCallback(() => {
         const elem = document.activeElement as HTMLElement;
@@ -45,16 +44,23 @@ const NavBarContainer: React.FC<NavbarProps> = memo(({ title, title2, title3, do
         return () => window.removeEventListener('scroll', handleScroll);
     }, [lastScrollY]);
 
-
     useEffect(() => {
-        const bodyStyle = document.body.style;
-        if (isMenuVisible) {
-          bodyStyle.overflow = 'hidden';
-          bodyStyle.height = '100vh';
-        } else {
-          bodyStyle.overflow = 'auto';
-          bodyStyle.height = 'auto';
-        }
+        const updateBodyStyle = (menuVisible: boolean) => {
+            const bodyStyle = document.body.style;
+            if (menuVisible) {
+                bodyStyle.overflow = 'hidden';
+                bodyStyle.height = '100vh';
+            } else {
+                bodyStyle.overflow = 'auto';
+                bodyStyle.height = 'auto';
+            }
+        };
+
+        updateBodyStyle(isMenuVisible);
+
+        return () => {
+            updateBodyStyle(false);
+        };
     }, [isMenuVisible]);
 
     useEffect(() => {
@@ -63,7 +69,6 @@ const NavBarContainer: React.FC<NavbarProps> = memo(({ title, title2, title3, do
             setShowNavbar(true);
         }
     }, [isMenuVisible, scrollPosition]);
-
 
 
     const menuStyle: React.CSSProperties = {
