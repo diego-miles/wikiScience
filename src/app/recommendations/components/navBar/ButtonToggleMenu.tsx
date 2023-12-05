@@ -1,41 +1,28 @@
 "use client"
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import styles from './NavbarContainer.module.css';
 
-interface MenuToggleProps {
-  onToggle: (isMenuVisible: boolean) => void;
+interface ButtonToggleMenuProps {
+  setScrollPosition: (position: number) => void;
 }
 
-export const ButtonToggleMenu: React.FC<MenuToggleProps> = ({ onToggle }) => {
+const ButtonToggleMenu: React.FC<ButtonToggleMenuProps> = ({ setScrollPosition }) => {
   const [isMenuVisible, setIsMenuVisible] = useState(false);
 
   const toggleMenu = () => {
-    const newState = !isMenuVisible;
-    setIsMenuVisible(newState);
-    onToggle(newState);
+    setIsMenuVisible(prevState => {
+      if (!prevState) {
+        setScrollPosition(window.scrollY); // Guardar la posición del scroll al abrir el menú
+      }
+      return !prevState;
+    });
   };
-
-  useEffect(() => {
-    // Client-side effects related to menu visibility can go here
-    // For example, handling body scroll lock
-    if (isMenuVisible) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
-    }
-
-    return () => {
-      // Reset body style when the component unmounts
-      document.body.style.overflow = '';
-    };
-  }, [isMenuVisible]);
 
   return (
     <button className={styles.rightIcon} onClick={toggleMenu} aria-label="Toggle Menu">
-      {/* Icon or any other element representing the toggle state */}
-      <div className={isMenuVisible ? styles.menuOpen : styles.menuClosed}>
-        {/* Toggle Icon */}
-      </div>
+      <div tabIndex={0} className={`${styles.iconWrapper} ${styles.crossIcon} ${isMenuVisible ? styles.crossIconOpen : styles.crossIconClosed}`}></div>
     </button>
   );
 };
+
+export default ButtonToggleMenu;

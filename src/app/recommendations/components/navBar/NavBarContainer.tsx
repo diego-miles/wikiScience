@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import styles from './NavbarContainer.module.css';
-const NavigationMenu = lazy(() => import('./NavigationMenu'));
+import NavigationMenu from './NavigationMenu';
 import { useScrollHandler } from './useScrollHandler';
 import { Suspense, lazy } from 'react';
 
@@ -25,8 +25,8 @@ const generateLink = (domain: string | undefined, title: string | undefined, add
 };
 
 const NavBarContainer: React.FC<NavbarProps> = ({ title, title2, title3, domain, active }) => {
-  const { showNavbar, scrollPosition, setScrollPosition } = useScrollHandler();
   const [isMenuVisible, setIsMenuVisible] = useState(false);
+  const { showNavbar, scrollPosition, setScrollPosition } = useScrollHandler(isMenuVisible);
 
   const toggleMenu = () => {
     setIsMenuVisible(prevState => {
