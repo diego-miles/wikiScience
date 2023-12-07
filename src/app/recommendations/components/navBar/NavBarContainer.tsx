@@ -47,7 +47,7 @@ const NavigationLinks: FC<NavbarProps> = ({ title, title2, title3, domain, activ
             {title3 && (
                 <>
                     <span className={styles.padding}>{">"}</span>
-                    <LinkComponent title={title3} path={generateLink(domain, title2, `/${toSlug(title3)}`)} className={styles.active} />
+                    <LinkComponent title={title3} path={generateLink(domain, title2, `/${toSlug(title3)}`)} active={true} />
                 </>
             )}
         </div>

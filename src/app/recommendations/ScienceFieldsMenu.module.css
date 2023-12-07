@@ -50,7 +50,7 @@
   padding: .5rem 0;
   margin-bottom: .3rem;
   /* color: white; */
-  color: var(--color-accent2);
+  color: var(--color-title1);
   font-family: var(--font-family-text);
   font-size: 1.7rem;
   box-sizing: content-box;

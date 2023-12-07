@@ -19,7 +19,7 @@ const Page: React.FC = () => {
             <p className={styles.textContext}>Ranking</p>
           </div>
           <h1>Top Science Books</h1>
-          <p>Delve into our community-curated anthology of science literature, where every book is a portal to unraveling the mysteries of the universe. From foundational principles to cutting-edge theories, embark on a journey to master complex scientific concepts.</p>
+          <p>Delve into our community-curated anthology of science literature. From foundational principles to cutting-edge theories, embark on a journey to master complex scientific concepts.</p>
           <ScienceFieldsMenu data={data}/>
           <ScrollTopButton />
           
