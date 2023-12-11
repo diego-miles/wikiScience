@@ -1,0 +1,104 @@
+Active Components:
+
+Transistors:
+
+Bipolar Junction Transistors (BJTs):
+NPN and PNP configurations
+Small Signal and Power BJTs
+Darlington Transistors
+Phototransistors
+Field-Effect Transistors (FETs):
+Junction FETs (JFETs):
+N-channel and P-channel JFETs
+Depletion-mode and Enhancement-mode JFETs
+Metal-Semiconductor FETs (MESFETs)
+Metal-Oxide-Semiconductor FETs (MOSFETs):
+Enhancement-mode MOSFETs (NMOS and PMOS):
+Depletion-load NMOS
+Enhancement-load NMOS
+CMOS logic (NAND, NOR, AND, OR)
+Depletion-mode MOSFETs
+CMOS technology
+Other Transistor Types:
+Thyristors (SCRs, GTOs)
+Bidirectional Thyristors (TRIACs)
+Gate Turn-Off Thyristors (GTOs)
+Insulated-Gate Bipolar Transistors (IGBTs)
+Operational Amplifiers (Op-Amps):
+
+Inverting and Non-inverting Op-Amp configurations
+Instrumentation Amplifiers
+Differentiators and Integrators
+Voltage Comparators
+Active Filters
+Low-pass filters
+High-pass filters
+Band-pass filters
+Notch filters
+Operational Transconductance Amplifiers (OTAs)
+Integrated Circuits (ICs):
+
+Analog ICs:
+
+Voltage Regulators (Linear Regulators, Switching Regulators)
+Timers (555 Timer, Monostable and Astable configurations)
+Operational Amplifiers (Op-Amps)
+Analog-to-Digital Converters (ADCs):
+Successive Approximation ADCs (SAR ADCs)
+Flash ADCs
+Delta-Sigma ADCs
+Digital-to-Analog Converters (DACs):
+Voltage-Mode DACs
+Current-Mode DACs
+Digital ICs:
+
+Logic Gates (NAND, NOR, AND, OR, XOR, XNOR)
+Flip-Flops (SR, D, JK, T)
+Counters (Up/Down counters, Ring counters)
+Registers (Shift registers, Latches)
+Microprocessors and Microcontrollers (8-bit, 16-bit, 32-bit architectures)
+Memory Devices:
+RAM (SRAM, DRAM):
+Static RAM (SRAM)
+Asynchronous SRAM
+Synchronous SRAM
+Dynamic RAM (DRAM)
+Synchronous DRAM (SDRAM)
+Double Data Rate SDRAM (DDR SDRAM)
+ROM (PROM, EPROM, EEPROM):
+Programmable Read-Only Memory (PROM)
+Erasable PROM (EPROM)
+Electrically Erasable PROM (EEPROM)
+Flash Memory
+Microcontrollers:
+
+8-bit, 16-bit, 32-bit architectures
+Popular families (PIC, AVR, ARM, ESP8266, ESP32)
+Programming languages and development tools
+Sensors and Actuators:
+
+Sensors:
+
+Temperature Sensors (Thermistors, RTDs, thermocouples)
+Pressure Sensors (Piezoresistive, capacitive)
+Light Sensors (Photodiodes, phototransistors, LDRs)
+Position Sensors (Encoders, potentiometers)
+Motion Sensors (Accelerometers, gyroscopes, magnetometers)
+Chemical Sensors (Gas sensors, pH sensors)
+Other Sensors (Hall effect sensors, IR sensors, humidity sensors)
+Actuators:
+
+Motors (DC motors, AC motors, stepper motors, servo motors)
+Solenoids
+Piezoelectric actuators
+Shape memory alloys
+Other Active Components:
+
+LEDs (Standard LEDs, High-power LEDs)
+Displays (LCD, OLED, TFT)
+Oscillators (Crystal oscillators, RC oscillators)
+Voltage regulators
+Power supplies
+Audio amplifiers
+Radio Frequency (RF) amplifiers
+Data converters (ADC, DAC)

@@ -7,6 +7,8 @@ import Footer from './Footer'
 // import { Suspense } from 'react'
 import { Analytics as AnalyticsVercel } from '@vercel/analytics/react';
 import Script from 'next/script'
+import CookieConsent from './CookieConsent';
+
 // import dynamic from 'next/dynamic'
 // // import NavBarContainer from '@/components/NavBarContainer'
 // import GoogleAdsScript from './GoogleAdsScript';
@@ -58,6 +60,7 @@ export default function RootLayout({
         <AnalyticsVercel />
         {/* <ScrollTopButton /> */}
         <Footer />
+        <CookieConsent />
       <Script
       src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6831545317289734" strategy="worker" crossOrigin="anonymous"/>
       <Script

@@ -1,0 +1,201 @@
+{
+    "Category 1: Active Components": {
+        "1.1 Transistors": {
+            "Bipolar Junction Transistors (BJTs)": [
+                "NPN",
+                "PNP",
+                "Darlington transistors",
+                "Unijunction transistors",
+                "Power transistors",
+                "High-frequency transistors",
+                "Phototransistors"
+            ],
+            "Field-Effect Transistors (FETs)": {
+                "Junction Field-Effect Transistors (JFETs)": [],
+                "Metal-Oxide-Semiconductor Field-Effect Transistors (MOSFETs)": [
+                    "Enhancement mode MOSFETs",
+                    "Depletion mode MOSFETs"
+                ],
+                "Dual Gate MOSFETs": []
+            },
+            "Other Types of Transistors": [
+                "Insulated-gate bipolar transistors (IGBTs)",
+                "Light-activated thyristors (LATs)",
+                "Silicon-controlled rectifiers (SCRs)"
+            ]
+        },
+        "1.2 Diodes": {
+            "Rectifier diodes": [
+                "Schottky diodes",
+                "Silicon diodes",
+                "Germanium diodes"
+            ],
+            "Other types of diodes": [
+                "Zener diodes",
+                "Avalanche diodes",
+                "Constant current diodes",
+                "Light-emitting diodes (LEDs)",
+                "Photodiodes",
+                "Varistors",
+                "Tunnel diodes",
+                "PIN diodes",
+                "Laser diodes"
+            ]
+        },
+        "1.3 Integrated Circuits (ICs)": {
+            "Digital ICs": [
+                "Logic gates",
+                "Flip-flops",
+                "Counters",
+                "Registers",
+                "Microprocessors",
+                "Microcontrollers",
+                "Field-Programmable Gate Arrays (FPGAs)",
+                "Complex Programmable Logic Devices (CPLDs)",
+                "Memory chips (RAM, ROM, EEPROM)"
+            ],
+            "Analog ICs": [
+                "Operational amplifiers",
+                "Voltage regulators",
+                "Comparators",
+                "Timers",
+                "Filters",
+                "Audio amplifiers",
+                "Power management ICs",
+                "Radio Frequency (RF) ICs",
+                "Phase-locked loops (PLL)"
+            ],
+            "Mixed-Signal ICs": [
+                "A/D and D/A converters",
+                "Codecs",
+                "Sensors and actuators",
+                "Transceiver ICs"
+            ]
+        },
+        "1.4 Programmable Devices": {
+            "Programmable Logic Devices (PLDs)": [
+                "PALs",
+                "GALs",
+                "CPLDs",
+                "FPGAs"
+            ],
+            "Microcontrollers with programmable flash memory": []
+        },
+        "1.5 Optoelectronic Devices": {
+            "Optocouplers": [
+                "LEDs and phototransistors combined"
+            ],
+            "Optoisolators": [
+                "LEDs and photodiodes combined"
+            ],
+            "Optotriacs": [
+                "LEDs and SCRs combined"
+            ],
+            "Other optoelectronic devices": [
+                "Phototransistors",
+                "Photoresistors",
+                "Light-dependent resistors (LDRs)",
+                "Light-emitting diodes (LEDs)",
+                "Organic Light-Emitting Diodes (OLEDs)",
+                "Laser diodes",
+                "Optical fibers"
+            ]
+        }
+    },
+    "Category 2: Passive Components": {
+        "2.1 Resistors": {
+            "Fixed resistors": [
+                "Carbon composition resistors",
+                "Metal film resistors",
+                "Wire-wound resistors",
+                "Ceramic resistors",
+                "Thin-film resistors"
+            ],
+            "Variable resistors": [
+                "Potentiometers",
+                "Rheostats",
+                "Trimpots",
+                "Digital potentiometers"
+            ],
+            "Other types of resistors": [
+                "Photoresistors",
+                "Thermistors",
+                "Varistors"
+            ]
+        },
+        "2.2 Capacitors": {
+            "Fixed capacitors": [
+                "Ceramic capacitors",
+                "Film capacitors",
+                "Electrolytic capacitors",
+                "Tantalum capacitors",
+                "Polymer capacitors",
+                "Silver Mica Capacitors"
+            ],
+            "Variable capacitors": [
+                "Trimmers",
+                "Tuning capacitors"
+            ],
+            "Other types of capacitors": [
+                "Supercapacitors",
+                "Varactors"
+            ]
+        },
+        "2.3 Inductors": {
+            "Fixed inductors": [
+                "Air-core inductors",
+                "Iron-core inductors",
+                "Ferrite-core inductors",
+                "Toroidal inductors"
+            ],
+            "Variable inductors": [
+                "Adjustable cores"
+            ],
+            "Other types of inductors": [
+                "Transformers"
+            ]
+        },
+        "2.4 Magnetic (Inductive) Devices": {
+            "Transformers": [
+                "Air-core transformers",
+                "Iron-core transformers",
+                "Ferrite-core transformers",
+                "Autotransformers"
+            ],
+            "Chokes": [
+                "Inductors used for filtering purposes"
+            ],
+            "Other magnetic devices": [
+                "Relays",
+                "Solenoids",
+                "Motors",
+                "Hall effect sensors"
+            ]
+        },
+        "2.5 Memristors": [
+            "Emerging class of passive components exhibiting memory properties"
+        ],
+        "2.6 Networks": {
+            "Resistor networks": [],
+            "Capacitor networks": [],
+            "Inductor networks": [],
+            "Filters": [
+                "RC filters",
+                "LC filters",
+                "Active filters",
+                "RC networks"
+            ]
+        },
+        "2.7 Transducers, Sensors, Detectors": [
+            "Thermistors",
+            "Photoresistors",
+            "Piezoelectric devices",
+            "Pressure sensors",
+            "Accelerometers",
+            "Gyroscope sensors",
+            "Humidity sensors",
+            "Gas sensors",
+            "Ultrasonic sensors"
+        ]
+    }
+}
