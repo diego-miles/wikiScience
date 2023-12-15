@@ -2,6 +2,7 @@
 // components/CookieConsent.tsx
 import { useState, useEffect } from 'react';
 import Cookies from 'js-cookie';
+import Link from 'next/link';
 
 const CookieConsent: React.FC = () => {
     const [show, setShow] = useState<boolean>(false);
@@ -18,6 +19,12 @@ const CookieConsent: React.FC = () => {
         setShow(false);
     };
 
+    const handleReject = () => {
+        Cookies.set('cookie-consent', 'rejected', { expires: 365 });
+        setShow(false);
+        // Implementa la lógica para desactivar Google Analytics u otras cookies aquí
+    };
+
     if (!show) return null;
 
     return (
@@ -32,18 +39,32 @@ const CookieConsent: React.FC = () => {
             padding: '2rem 0',
             zIndex: 1000,
         }}>
-
-            <p style={{fontWeight: '500', color: '#0073b0',}}>Usamos cookies para mejorar tu experiencia :)</p>
+            <p style={{ fontWeight: '400', color: '#0073b0', fontSize: '1.7rem' }}>
+                We use 🍪🍪 to enhance your experience :)
+                <Link href="/privacy-policy" style={{ marginLeft: '10px', color: '#0073b0', textDecoration: 'underline' }}>
+                    Learn More
+                </Link>
+            </p>
             <button onClick={handleAccept} style={{
                 backgroundColor: '#3ea741',
                 color: 'white',
                 border: 'none',
                 padding: '.8rem 20px',
-                margin: '.5rem 0',
+                margin: '.5rem 1rem',
                 borderRadius: '5px',
                 cursor: 'pointer',
-                fontSize: '1.4rem',
-            }}>Aceptar</button>
+                fontSize: '1.2rem',
+            }}>Accept</button>
+            <button onClick={handleReject} style={{
+                backgroundColor: '#d9534f',
+                color: 'white',
+                border: 'none',
+                padding: '.8rem 20px',
+                margin: '.5rem 1rem',
+                borderRadius: '5px',
+                cursor: 'pointer',
+                fontSize: '1.2rem',
+            }}>Reject</button>
         </div>
     );
 }
