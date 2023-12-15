@@ -40,7 +40,7 @@ const CookieConsent: React.FC = () => {
             zIndex: 1000,
         }}>
             <p style={{ fontWeight: '400', color: '#0073b0', fontSize: '1.7rem' }}>
-                We use 🍪🍪 to enhance your experience :)
+                We use cookies for functionality, analytics, and personalized advertising to keep this alive :).
                 <Link href="/privacy-policy" style={{ marginLeft: '10px', color: '#0073b0', textDecoration: 'underline' }}>
                     Learn More
                 </Link>
