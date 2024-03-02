@@ -26,9 +26,9 @@
 }
 
 .arrow {
-    width: 0.7rem;
+    width: 0.8rem;
     /* 7px / 10px = 0.7rem */
-    height: 0.2rem;
+    height: 0.3rem;
     /* 2px / 10px = 0.2rem */
     background-color: #B0B6B9;
     margin-right: 0.7rem;

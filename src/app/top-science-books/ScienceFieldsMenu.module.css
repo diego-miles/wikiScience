@@ -46,22 +46,24 @@
 }
 
 .branchTitle {
-  /* padding: 1rem 0; */
+  margin-top: 3rem;
   /* padding: .5rem 0; */
-  margin-bottom: .3rem;
+  margin-bottom: .5rem;
   /* color: white; */
   /* color: var(--color-title1); */
   font-family: var(--font-family-text);
   font-size: 1.9rem;
   box-sizing: content-box;
   font-weight: 700;
+  /* border: 2px solid #dce5ee;
+  border-radius: .5rem; */
 }
 
 .subFieldTitle {
   /* padding-left: .5rem; */
-  padding-top: .2rem;
+  padding-top: 1rem;
   margin: 0;
-  /* color: var(--color-title3); */
+  color: var(--color-h2);
   font-size: 1.8rem;
   font-family: var(--font-family-text);
   font-weight: 400;
@@ -72,16 +74,19 @@
 .topicTitle {
   /* padding: 1rem 0; */
   /* padding: .5rem 0; */
-  padding-left: 1rem;
-  color: var(--color-title3);
-  font-size: 1.7rem;
+  /* padding-left: 1rem; */
+  /* color: var(--color-p); */
+  font-size: 1.9rem;
+  font-weight: 400;
 }
 .ScienceFieldsMenu__linkItem {
   /* font-size: 2rem; */
-  padding: .5rem 0;
+  color: var(--color-h3);
+  padding: 0rem 0;
   margin-left: 1rem;
   display: flex;
   align-items: center;
+  font-weight: 600;
 }
 
 

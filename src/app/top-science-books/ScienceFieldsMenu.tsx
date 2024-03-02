@@ -23,7 +23,7 @@ export const ScienceFieldsMenu: FC<ScienceFieldsMenuProps> = ({ data }) => {
                 <ul>
                   {item.topics.map((topic) => (
                     <li key={topic} className={styles.ScienceFieldsMenu__linkItem}>
-                      <Link href={`/top-science-books/${toSlug(item.title)}/${toSlug(topic)}`} className={styles.ScienceFieldsMenu__linkItem}>
+                      <Link href={`/top-science-books/${toSlug(item.title)}/${toSlug(topic)}`} >
                         <h4 className={styles.topicTitle}>{topic}</h4>
                       </Link>
                     </li>
