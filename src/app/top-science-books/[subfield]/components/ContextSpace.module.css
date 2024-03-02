@@ -6,8 +6,8 @@
 }
 
 .contextSpace {
-    width: 4.5rem;
-    height: 2.2rem;
+    width: 6rem;
+    height: 3rem;
     background-image: url('/booksContext.svg');
     background-size: contain;
     background-position: center;

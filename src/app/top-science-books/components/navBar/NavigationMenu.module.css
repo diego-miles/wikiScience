@@ -60,12 +60,11 @@
 .titleField {
   font-family: var(--font-family-h1);
   color: var(--color-accent2);
-  font-size: 2.1rem;
-  font-weight: 800;
+  font-size: 2rem;
+  font-weight: 600;
   /* padding: .5rem 0; */
   padding-bottom: 1rem;
-  padding-top: 1.7rem;
-  font-weight: 700;
+  padding-top: 1.9rem;
 }
 
 .branchContainer {
@@ -93,8 +92,8 @@
 
 .subField a {
   font-family: var(--font-family-h1);
-  font-size: 1.9rem;
-  font-weight: 600;
+  font-size: 1.7rem;
+  font-weight: 500;
   color: var(--color-h1);
   font-style: normal;
   padding-bottom: .5rem;
@@ -105,7 +104,7 @@
 
 .subTopic {
   font-weight: 300;
-  line-height: 110%;
+  /* line-height: 110%; */
   /* padding-bottom: 0.5rem; */
   border-left: 0.4rem solid #e2e7e7;
   padding-left: 0.3rem;
@@ -113,10 +112,11 @@
 
 .subTopic a {
   font-family: var(--font-family-h1);
-  color: var(--color-text);
+  color: var(--color-p);
   /* text-decoration: underline; */
   text-decoration-color: var(--color-accent1);
-  font-size: 1.9rem;
+  font-size: 1.7rem;
+  font-weight: 500;
 }
 
 @media (min-width: 768px) {

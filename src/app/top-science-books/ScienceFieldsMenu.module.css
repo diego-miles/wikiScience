@@ -47,38 +47,39 @@
 
 .branchTitle {
   /* padding: 1rem 0; */
-  padding: .5rem 0;
+  /* padding: .5rem 0; */
   margin-bottom: .3rem;
   /* color: white; */
-  color: var(--color-title1);
+  /* color: var(--color-title1); */
   font-family: var(--font-family-text);
-  font-size: 1.7rem;
+  font-size: 1.9rem;
   box-sizing: content-box;
-  font-weight: 800;
+  font-weight: 700;
 }
 
 .subFieldTitle {
-  padding-left: 1rem;
-  /* padding-bottom: 1rem; */
+  /* padding-left: .5rem; */
+  padding-top: .2rem;
   margin: 0;
-  color: var(--color-title3);
+  /* color: var(--color-title3); */
   font-size: 1.8rem;
   font-family: var(--font-family-text);
   font-weight: 400;
   /* border-left: .3rem solid rgb(213, 213, 213); */
   /* box-sizing: content-box; */
 }
-
+  
 .topicTitle {
   /* padding: 1rem 0; */
-  padding: .5rem 0;
+  /* padding: .5rem 0; */
+  padding-left: 1rem;
   color: var(--color-title3);
-  /* font-size: 2rem; */
+  font-size: 1.7rem;
 }
 .ScienceFieldsMenu__linkItem {
-  font-size: 2rem;
-  padding: 1rem 0;
-  margin-left: 1.5rem;
+  /* font-size: 2rem; */
+  padding: .5rem 0;
+  margin-left: 1rem;
   display: flex;
   align-items: center;
 }
