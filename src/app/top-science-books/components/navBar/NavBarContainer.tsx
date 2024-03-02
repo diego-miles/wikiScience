@@ -24,7 +24,7 @@ interface LinkProps {
     className?: string;  // Add this line
 }
 const LinkComponent: FC<LinkProps> = ({ title, path, active, onClick }) => (
-    <Link href={path} onClick={onClick} style={{ color: active ? 'var(--color-title1)' : '' }}>
+    <Link href={path} onClick={onClick} style={{ color: active ? 'var(--color-h1)' : '' }}>
         {title}
     </Link>
 );
@@ -32,12 +32,12 @@ const LinkComponent: FC<LinkProps> = ({ title, path, active, onClick }) => (
 const NavigationLinks: FC<NavbarProps> = ({ title, title2, title3, domain, active }) => {
     const generateLink = useCallback((_domain: string | undefined, _title: string | undefined, additionalPath: string = ''): string => {
         const safeTitle = _title ?? '';
-        return `/recommendations/${toSlug(safeTitle)}${additionalPath}`;
+        return `/top-science-books/${toSlug(safeTitle)}${additionalPath}`;
     }, []);
 
     return (
         <div className={styles.contextualLinks}>
-            <LinkComponent title={title} path="/recommendations/" />
+            <LinkComponent title={title} path="/top-science-books/" />
             {title2 && (
                 <>
                     <span className={styles.padding}>{" > "}</span>

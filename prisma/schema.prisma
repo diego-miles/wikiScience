@@ -1,3 +1,5 @@
+//🧩Don't Edit this file.✨Generated in Fri Mar 01 2024 21:48:38 GMT-0600 (Central Standard Time)✨
+
 generator client {
   provider = "prisma-client-js"
 }
@@ -7,39 +9,50 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+model Ratings {
+  englishTitle String       @id @map("_id")
+  amazon       RatingDetail
+  goodreads    RatingDetail
+  google       RatingDetail
+  Book         Book[]
+
+  @@map("ratings")
+}
+
 type RatingDetail {
   average Float
   number  Int
   link    String
 }
 
-type Ratings {
-  amazon    RatingDetail
-  goodreads RatingDetail
-  google    RatingDetail
+model Book {
+  id                         String                  @id @default(auto()) @map("_id") @db.ObjectId
+  englishTitle               String
+  spanishTitle               String?
+  authors                    String[]
+  difficulty                 String
+  keywords                   String[]
+  span                       String[]
+  coverImage                 String?
+  syllabusImages             String[]
+  pages                      Int
+  lastEditionYear            Int? // numero de edición
+  lastEditionNumber          Int? // año de edicion
+  publicationDate            Int?
+  originCountry              String?
+  spanishEdition             Boolean?
+  summary                    String[]
+  amazonLink                 String?
+  ratings                    Ratings?                @relation(fields: [englishTitle], references: [englishTitle])
+  topicRecommendation        topicRecommendation?    @relation(fields: [topicRecommendationSlug], references: [slug])
+  topicRecommendationSlug    String?
+  subFieldRecommendation     subFieldRecommendation? @relation(fields: [subFieldRecommendationSlug], references: [slug])
+  subFieldRecommendationSlug String?
+
+  @@map("book")
 }
 
-type Book {
-  englishTitle      String
-  spanishTitle      String?
-  authors           String[]
-  difficulty        String
-  keywords          String[]
-  span              String[]
-  coverImage        String?
-  syllabusImages    String[]
-  pages             Int?
-  lastEditionYear   Int? //numero de edición
-  lastEditionNumber Int? // año de edicion
-  publicationDate   Int?
-  originCountry     String?
-  spanishEdition    Boolean?
-  ratings           Ratings?
-  summary           String[]
-  amazonLink        String?
-}
-
-model Recommendation {
+model topicRecommendation {
   id           String @id @default(auto()) @map("_id") @db.ObjectId
   field        String
   subField     String
@@ -58,288 +71,148 @@ model subFieldRecommendation {
   slug     String @unique
   books    Book[]
 
-  @@map("subfieldRecommendations")
+  @@map("subfieldsRecommendation")
 }
 
-
-
-
-
-// AQUI VIENE LA ELECTRONICA
-
-
-// Electronic component model definition
+// Model for the Electronic Component
 model ElectronicComponent {
-  // Unique identifier
-  id String @id @default(auto()) @map("_id") @db.ObjectId
-  category  String        // Category of the component (e.g., amplifier, sensor)
-  type     String       // Active, Passie, specialized
-  subtype  String       //  sub-category
-  name      String        @unique // Unique name of the component
-  manufacturers String[]     // Component manufacturers
-  description String     // Detailed description of the component
+  id                      String   @id @default(auto()) @map("_id") @db.ObjectId
+  name                    String   @unique
+  category                String
+  type                    String
+  subtype                 String
+  manufacturer            String
+  description             String
+  lifeSpan                String
+  history                 String
+  Glossary                String[]
+  functionDiagram         String?
+  operationDiagram        String?
+  applicationDiagram      String?
+  availability            Boolean
+  // eolDate               DateTime
+  pricing                 Float
+  // packageType           String
+  footprint               String
+  standardsAndRegulations String[]
+  relatedDocuments        String[]
+  createdAt               DateTime @default(now()) @map("createdAt")
+  updatedAt               DateTime @updatedAt @map("updatedAt")
 
-  // New fields added in previous requests
-  availability Boolean // Whether the component is available for purchase
-  eolDate      DateTime // End-of-life date for the component (can be a date or a datetime)
-  pricing     Float       // Price of the component
-  packageType String     // Physical package type of the component
-  footprint   String// Footprint of the component (can be a string or an image URL)
-  compliance  String[]   // List of compliance standards or regulations met by the component
-
-  // History and glossary
-  history        String       //  historical information about the component
-  glossary       String[]       // List of relevant glossary terms associated with the component
-  variants       ElectronicComponentVariant[] // Array of different versions or configurations of the component
-  function       ElectronicComponentFunction[] // Detailed explanation of the component's function
-  functionDiagram String //  URL to a diagram illustrating the component's function
-  operation      ElectronicComponentOperation // detailed explanation of the component's internal workings
-  operationDiagram String //  URL to a diagram illustrating the component's operation
-  applications    ElectronicComponentApplication[] // Array of fields where the component is used and related information
-  applicationDiagram String //  URL to a diagram illustrating a typical application of the component
-  technicalSpecs ElectronicComponentTechnicalSpecifications //  detailed technical specifications of the component
-  thermalSpecs  ElectronicComponentThermalSpecifications //  detailed thermal specifications of the component
-  datasheets     ElectronicComponentDatasheet[] // Array of available datasheets for the component
-  additionalResources ElectronicComponentAdditionalResource[] // Array of additional resources related to the component
-  relatedDocuments String[] // Array of links to other relevant documents
-  
-  // Metadata
-  createdAt DateTime @default(now()) // Date and time the entry was created (automatically set to current time)
-  updatedAt DateTime @updatedAt      // Date and time the entry was last updated
-
-  // Relationships with other models
-  relatedComponents   String[] // Array of related components
-  substitutes        String[] // Array of components that can be used as substitutes
-  manufacturerWebsite String                 // URL of the manufacturer's website
-
-  // Glossary terms
-  glossaryTerms  String[] // Array of glossary terms related to the component
+  // Relationships
+  variants              ElectronicComponentVariant[]
+  function              ElectronicComponentFunction?
+  operation             ElectronicComponentOperation?
+  applications          ElectronicComponentApplication[]
+  technicalSpecs        ElectronicComponentTechnicalSpecifications?
+  thermalSpecifications ElectronicComponentThermalSpecifications?
+  datasheets            ElectronicComponentDatasheet[]
+  additionalResources   ElectronicComponentAdditionalResource[]
 }
 
-
-// Tipos
-
-type ElectronicComponentVariant {
-  name String
-  description String
-  diagram String
-  variantType String
+// Model for Electronic Component Variants
+model ElectronicComponentVariant {
+  id                      String              @id @default(auto()) @map("_id") @db.ObjectId
+  name                    String
+  description             String
+  diagram                 String?
+  electronicComponent     ElectronicComponent @relation(fields: [electronicComponentName], references: [name])
+  electronicComponentName String
 }
 
-type ElectronicComponentFunction {
-  primaryFunction String
-  physicalPrinciples String
-  comparisons String[]
-  capabilities String[]
-  limitations String[]
+// Model for Electronic Component Functions
+model ElectronicComponentFunction {
+  id                      String               @id @default(auto()) @map("_id") @db.ObjectId
+  primaryFunction         String
+  physicalPrinciples      String
+  chemistryPrinciples     String?
+  comparisons             String[]
+  capabilities            String[]
+  limitations             String[]
+  diagrams                String?
+  electronicComponent     ElectronicComponent? @relation(fields: [electronicComponentName], references: [name])
+  electronicComponentName String               @unique
 }
 
-type ElectronicComponentOperation {
-  internalStructure String
-  operatingMechanisms String
-  keySpecifications String[]
+// Model for Electronic Component Operations
+model ElectronicComponentOperation {
+  id                         String                            @id @default(auto()) @map("_id") @db.ObjectId
+  internalStructure          String
+  operatingMechanisms        String
+  keyParameters              ElectronicComponentKeyParameter[]
   inputOutputCharacteristics String
-  functionalRelationships String
-  equations String[]
-  diagrams String[]
+  functionalRelationships    String
+  equations                  String?
+  diagrams                   String?
+  electronicComponent        ElectronicComponent?              @relation(fields: [electronicComponentName], references: [name])
+  electronicComponentName    String                            @unique
 }
 
-type ElectronicComponentKeyParameter {
-  name String
-  description String
+// Model for Key Parameters of Electronic Components
+model ElectronicComponentKeyParameter {
+  id                      String                       @id @default(auto()) @map("_id") @db.ObjectId
+  name                    String
+  description             String
+  operation               ElectronicComponentOperation @relation(fields: [electronicComponentName], references: [electronicComponentName])
+  electronicComponentName String
 }
 
-type ElectronicComponentApplication {
-  field String
-  examples String[]
-  designConsiderations String
-  challenges String[]
-  applicationDiagram String
+// Model for Electronic Component Applications
+model ElectronicComponentApplication {
+  id                      String              @id @default(auto()) @map("_id") @db.ObjectId
+  field                   String
+  examples                String[]
+  designConsiderations    String
+  challenges              String[]
+  electronicComponent     ElectronicComponent @relation(fields: [electronicComponentName], references: [name])
+  electronicComponentName String
 }
 
-type ElectronicComponentTechnicalSpecifications {
-  operatingVoltage String
-  operatingCurrent String
-  powerRatings String
-  frequencyResponse String
-  gainAmplification String
-  impedanceResistance String
-  toleranceAccuracy String
-  environmentalConsiderations String
-  equations String[]
-}
-
-type ElectronicComponentThermalSpecifications {
-  thermalResistanceJunctionToCase String
+// Model for Thermal Specifications of Electronic Components
+model ElectronicComponentThermalSpecifications {
+  id                                 String               @id @default(auto()) @map("_id") @db.ObjectId
+  thermalResistanceJunctionToCase    String
   thermalResistanceJunctionToAmbient String
-  maximumOperatingTemperature String
-  minimumOperatingTemperature String
+  maximumOperatingTemperature        String
+  minimumOperatingTemperature        String
+  electronicComponent                ElectronicComponent? @relation(fields: [electronicComponentName], references: [name])
+  electronicComponentName            String               @unique
 }
 
-type ElectronicComponentDatasheet {
-  name String
-  description String
-  url String
+// Model for Technical Specifications of Electronic Components
+model ElectronicComponentTechnicalSpecifications {
+  id                          String                         @id @default(auto()) @map("_id") @db.ObjectId
+  operatingVoltage            String
+  operatingCurrent            String
+  powerRatings                String
+  frequencyResponse           String
+  gainAmplification           String
+  impedanceResistance         String
+  toleranceAccuracy           String
+  environmentalConsiderations String
+  datasheets                  ElectronicComponentDatasheet[]
+  electronicComponent         ElectronicComponent            @relation(fields: [electronicComponentName], references: [name])
+  electronicComponentName     String                         @unique
 }
 
-type ElectronicComponentAdditionalResource {
-  type String
-  description String
-  link String
-  tags String[]
+// Model for Additional Resources of Electronic Components
+model ElectronicComponentAdditionalResource {
+  id                      String              @id @default(auto()) @map("_id") @db.ObjectId
+  type                    String
+  description             String
+  link                    String
+  electronicComponent     ElectronicComponent @relation(fields: [electronicComponentName], references: [name])
+  electronicComponentName String
 }
 
-type ElectronicComponentCategory {
-  name String
-  description String
-  parentCategory String
+// Model for Datasheets of Electronic Components
+model ElectronicComponentDatasheet {
+  id                                           String                                      @id @default(auto()) @map("_id") @db.ObjectId
+  name                                         String
+  description                                  String
+  url                                          String
+  electronicComponentTechnicalSpecifications   ElectronicComponentTechnicalSpecifications? @relation(fields: [electronicComponentTechnicalSpecificationsId], references: [electronicComponentName])
+  electronicComponentTechnicalSpecificationsId String?
+  electronicComponent                          ElectronicComponent?                        @relation(fields: [electronicComponentName], references: [name])
+  electronicComponentName                      String?
 }
-
-// Glossary:
-
-type ElectronicComponentGlossary {
-  name String
-  description String
-  termType String
-}
-
-
-
-// Modelos
-
-// model ElectronicComponent {
-//   id                  String                                      @id @default(auto()) @map("_id") @db.ObjectId
-//   type                String
-//   subtype             String?
-//   name                String                                      @unique
-//   description         String
-//   variants            ElectronicComponentVariant[]
-//   function            ElectronicComponentFunction?
-//   operation           ElectronicComponentOperation?
-//   applications        ElectronicComponentApplication[]
-//   technicalSpecs      ElectronicComponentTechnicalSpecifications?
-//   additionalResources ElectronicComponentAdditionalResource[]
-//   createdAt           DateTime                                    @default(now())
-//   updatedAt           DateTime                                    @updatedAt
-// }
-
-// model ElectronicComponentVariant {
-//   id                    String              @id @default(auto()) @map("_id") @db.ObjectId
-//   name                  String
-//   description           String
-//   diagram               String?
-//   electronicComponent   ElectronicComponent @relation(fields: [electronicComponentId], references: [id])
-//   electronicComponentId String              @db.ObjectId
-// }
-
-// model ElectronicComponentFunction {
-//   id                    String               @id @default(auto()) @map("_id") @db.ObjectId
-//   primaryFunction       String
-//   physicalPrinciples    String
-//   comparisons           String[]
-//   capabilities          String[]
-//   limitations           String[]
-//   electronicComponent   ElectronicComponent? @relation(fields: [electronicComponentId], references: [id])
-//   electronicComponentId String               @unique @db.ObjectId
-// }
-
-// model ElectronicComponentOperation {
-//   id                         String                            @id @default(auto()) @map("_id") @db.ObjectId
-//   internalStructure          String
-//   operatingMechanisms        String
-//   keyParameters              ElectronicComponentKeyParameter[]
-//   inputOutputCharacteristics String
-//   functionalRelationships    String
-//   equations                  String[]
-//   diagrams                   String[]
-//   electronicComponent        ElectronicComponent?              @relation(fields: [electronicComponentId], references: [id])
-//   electronicComponentId      String                            @unique @db.ObjectId
-// }
-
-// model ElectronicComponentKeyParameter {
-//   id          String                       @id @default(auto()) @map("_id") @db.ObjectId
-//   name        String
-//   description String
-//   operation   ElectronicComponentOperation @relation(fields: [operationId], references: [id])
-//   operationId String                       @db.ObjectId
-// }
-
-// model ElectronicComponentApplication {
-//   id                    String              @id @default(auto()) @map("_id") @db.ObjectId
-//   field                 String
-//   examples              String[]
-//   designConsiderations  String
-//   challenges            String[]
-//   electronicComponent   ElectronicComponent @relation(fields: [electronicComponentId], references: [id])
-//   electronicComponentId String              @db.ObjectId
-// }
-
-// model ElectronicComponentTechnicalSpecifications {
-//   id                          String              @id @default(auto()) @map("_id") @db.ObjectId
-//   operatingVoltage            String
-//   operatingCurrent            String
-//   powerRatings                String
-//   frequencyResponse           String
-//   gainAmplification           String
-//   impedanceResistance         String
-//   toleranceAccuracy           String
-//   environmentalConsiderations String
-//   datasheets                  Datasheet[]
-//   electronicComponent         ElectronicComponent @relation(fields: [electronicComponentId], references: [id])
-//   electronicComponentId       String              @unique @db.ObjectId
-// }
-
-// model ElectronicComponentAdditionalResource {
-//   id                    String              @id @default(auto()) @map("_id") @db.ObjectId
-//   type                  String
-//   description           String
-//   link                  String
-//   electronicComponent   ElectronicComponent @relation(fields: [electronicComponentId], references: [id])
-//   electronicComponentId String              @unique @db.ObjectId
-// }
-
-// // Modelo Datasheet
-
-// model Datasheet {
-//   id                                           String                                      @id @default(auto()) @map("_id") @db.ObjectId
-//   name                                         String
-//   description                                  String
-//   url                                          String
-//   ElectronicComponentTechnicalSpecifications   ElectronicComponentTechnicalSpecifications? @relation(fields: [electronicComponentTechnicalSpecificationsId], references: [id])
-//   electronicComponentTechnicalSpecificationsId String?                                     @db.ObjectId
-// }
-
-
-
-
-
-
-
-
-// Modelo ElectronicComponent
-
-// model ElectronicComponent {
-//   id String @id @default(auto()) @map("_id") @db.ObjectId
-//   category String
-//   subtype String
-//   name String @unique
-//   manufacturer String
-//   description String
-//   history String
-//   Category String
-//   Glossary String[]
-//   variants ElectronicComponentVariant[]
-//   function ElectronicComponentFunction?
-//   functionDiagram String?
-//   operation ElectronicComponentOperation?
-//   operationDiagram String?
-//   applications ElectronicComponentApplication[]
-//   applicationDiagram String?
-//   technicalSpecs ElectronicComponentTechnicalSpecifications?
-//   thermalSpecifications ElectronicComponentThermalSpecifications?
-//   datasheets ElectronicComponentDatasheet[]
-//   additionalResources ElectronicComponentAdditionalResource[]
-//   relatedDocuments String[]
-//   createdAt DateTime @default(now())
-//   updatedAt DateTime @updatedAt
-// }

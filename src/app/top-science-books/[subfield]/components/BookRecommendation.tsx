@@ -1,10 +1,10 @@
 import React from 'react';
 import styles from './BookRecomm.module.css';
-import { Book } from '@prisma/client';
+import { Book, Ratings } from '@prisma/client'; // Import Ratings from Prisma schema
 import Syllabus from './syllabus/Syllabus';
 
 type BookRecommendationProps = {
-  book: Book;
+  book: Book & { ratings: Ratings | null }; // Type assertion to include ratings property
   priority: boolean;
 };
 
@@ -18,6 +18,7 @@ const BookRecommendation: React.FC<BookRecommendationProps> = ({ book, priority 
     ratings,
     summary,
     span,
+    
   } = book;
 
   const authorsFormatted = authors.join(', ');
@@ -89,7 +90,7 @@ const highlightKeywords = (text: string) => {
 
         <div className={styles.rightColumn}>
         {summary.map((paragraph, index) => (
-          <p key={index} className={styles.summaryParagraph}>
+          <p key={index} className={styles.summaryParagraph} >
             {/* {highlightKeywords(paragraph)} */}
             {paragraph}
           </p>

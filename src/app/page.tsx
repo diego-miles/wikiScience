@@ -1,5 +1,4 @@
-import NavBarContainer from "@/app/recommendations/components/navBar/NavBarContainer";
-// import Link from "next/link";
+import NavBar from './top-science-books/components/navBar/NavBarContainer';// import Link from "next/link";
 import styles from './page.module.css'
 import Head from 'next/head';
 
@@ -11,7 +10,7 @@ export default function Home() {
     <Head>
           <meta name="google-site-verification" content="WKav3lHrz5lYXdW6XkvigG4CQArrzKtObiBAdGOzNj0" />
       </Head>    
-      <NavBarContainer />
+      <NavBar />
       <main className={styles.home}>
       </main>
     </>

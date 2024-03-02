@@ -12,7 +12,7 @@ export const NavigationLinks: React.FC<NavigationLinksProps> = ({ title, title2,
   return (
     <div className={styles.contextualLinks}>
       {title && (
-        <Link href={`/recommendations/`} onClick={closeDropdown}>
+        <Link href={`/top-science-books/`} onClick={closeDropdown}>
           {title}
         </Link>
       )}

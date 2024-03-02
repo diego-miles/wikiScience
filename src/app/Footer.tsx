@@ -6,7 +6,7 @@ const Footer = () => {
     <footer className={styles.footer}>
       <ul className={styles.footerMenu}>
         <li>
-          <Link href="/recommendations">Top Science Books</Link>
+          <Link href="/top-science-books">Top Science Books</Link>
         </li>
       </ul>
         <div className='globalHeight'></div>

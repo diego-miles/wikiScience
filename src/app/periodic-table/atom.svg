@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="240" height="240">
+    <!-- Fondo blanco -->
+    <rect width="100%" height="100%" fill="white" />
+
+    <!-- Núcleo (Protón) -->
+    <text x="40" y="54" font-family="Arial" font-size="8" fill="black" text-anchor="middle" dominant-baseline="middle">+</text>
+    <circle cx="40" cy="50" r="10" fill="#e5e5e5" stroke="black" stroke-width="1" />
+
+    <!-- Núcleo (Neutrón) -->
+    <text x="60" y="54" font-family="Arial" font-size="8" fill="black" text-anchor="middle" dominant-baseline="middle">±</text>
+    <circle cx="60" cy="50" r="10" fill="#e5e5e5" stroke="black" stroke-width="1" />
+
+    <!-- Órbita del electrón -->
+    <circle cx="60" cy="50" r="30" fill="transparent" stroke="#66ccff" stroke-dasharray="2" />
+
+    <!-- Círculo azul (Electrón) -->
+    <circle cx="60" cy="50" r="5" fill="#66ccff" stroke="black" stroke-width="1" />
+
+    <!-- Brillo del electrón -->
+    <circle cx="60" cy="50" r="2" fill="white" />
+
+    <!-- Electrón -->
+    <text x="60" y="54" font-family="Arial" font-size="8" fill="black" text-anchor="middle" dominant-baseline="middle">-</text>
+</svg>
+
+

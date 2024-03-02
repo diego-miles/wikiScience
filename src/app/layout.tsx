@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Crimson_Text, Montserrat, Nunito_Sans } from 'next/font/google'
+import { Crimson_Text, Montserrat, Noto_Sans_Georgian, Noto_Serif_Georgian, Nunito_Sans } from 'next/font/google'
 import './globals.css'
 import './Footer'
 import Footer from './Footer'
@@ -13,22 +13,33 @@ import CookieConsent from './CookieConsent';
 // // import NavBarContainer from '@/components/NavBarContainer'
 // import GoogleAdsScript from './GoogleAdsScript';
 
-const crimson_text = Crimson_Text({
-  weight: ['400', '600', '700'],
+// const crimson_text = Crimson_Text({
+//   weight: ['400', '600', '700'],
+//   // style: 'italic',
+//   subsets: ['latin']
+// })
+export const noto_sans_georgian = Noto_Sans_Georgian({
+  weight: ['400','500', '600', '700', '800'],
+  variable: '--font-noto-sans-georgian',
+  // style: 'italic',
+  subsets: ['latin'],
+  display: 'swap'
+})
+export const noto_serif_georgian = Noto_Serif_Georgian({
+  weight: ['400','500', '600', '700', '800', '900'],
+  variable: '--font-noto-serif-georgian',
   // style: 'italic',
   subsets: ['latin']
 })
 
-const montserrat = Montserrat({
-  weight: ['300', '400', '500', '600', '700', '800', '900'],
-  subsets: ['latin']
-})
+// const montserrat = Montserrat({
+//   weight: ['300', '400', '500', '600', '700', '800', '900'],
+//   subsets: ['latin']
+// })
 
 // const GoogleAnalytics = dynamic(() => import('./GoogleAnalytics'), { suspense: true });
 
-
-
-export { crimson_text, montserrat }
+// export { noto_sans_georgian, noto_serif_georgian }
 export const metadata: Metadata = {
   metadataBase: new URL('https://storage.cloud.google.com/bestbooks/covers/'),
   title: 'Wikiscience',
@@ -46,7 +57,7 @@ export default function RootLayout({
 
   return (
     <html lang="en">
-      <body className={`${crimson_text.className} ${montserrat.className}`}>
+      <body className={` ${noto_sans_georgian.className} ${noto_serif_georgian.variable} `}>
       <noscript>
         <iframe
           src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}

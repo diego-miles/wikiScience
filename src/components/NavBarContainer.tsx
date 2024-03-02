@@ -11,9 +11,9 @@ interface NavbarProps {
 const NavBarContainer: React.FC<NavbarProps> = ({ title, profileLink, menuLink }) => {
   return (
     <div className={styles.navbarContainer}>
-      <Link href={profileLink} className={styles.leftIcon} passHref>
+      {/* <Link href={profileLink} className={styles.leftIcon} passHref>
         <span className={styles.iconWrapper}></span>
-      </Link>
+      </Link> */}
       <h6 className={styles.title}>{title}</h6>
       <Link href={menuLink} className={styles.rightIcon} passHref>
         <span className={styles.iconWrapper}></span>

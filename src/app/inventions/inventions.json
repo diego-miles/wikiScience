@@ -1,0 +1,241 @@
+{
+    "Transportation and Vehicles": {
+        "Land": [
+            "Automobiles",
+            "Bicycles",
+            "Trains"
+        ],
+        "Air": [
+            "Airplanes",
+            "Helicopters",
+            "Hot Air Balloons"
+        ],
+        "Water": [
+            "Ships",
+            "Submarines",
+            "Boats"
+        ],
+        "Space": [
+            "Rockets",
+            "Space Shuttles"
+        ]
+    },
+    "Communication and Information": {
+        "Writing and Printing": [
+            "Printing Press",
+            "Typewriter"
+        ],
+        "Telecommunication": [
+            "Telegraph",
+            "Telephone"
+        ],
+        "Broadcasting": [
+            "Radio",
+            "Television"
+        ],
+        "Digital Communication": [
+            "Internet",
+            "Email",
+            "Social Media"
+        ]
+    },
+    "Computing and Electronics": {
+        "Computers": [
+            "Personal Computers",
+            "Laptops",
+            "Mainframes"
+        ],
+        "Consumer Electronics": [
+            "Smartphones",
+            "Cameras"
+        ],
+        "Semiconductors and Components": [
+            "Transistors",
+            "Integrated Circuits"
+        ],
+        "Robotics and Automation": [
+            "Industrial Robots",
+            "Drones"
+        ]
+    },
+    "Energy and Power": {
+        "Generation": [
+            "Steam Engine",
+            "Nuclear Reactor",
+            "Wind Turbine"
+        ],
+        "Storage": [
+            "Battery",
+            "Fuel Cell"
+        ],
+        "Transmission": [
+            "Electric Grid"
+        ],
+        "Renewable Energy Technologies": [
+            "Solar Panels"
+        ]
+    },
+    "Medicine and Healthcare": {
+        "Diagnostic Tools": [
+            "X-ray Machine",
+            "MRI"
+        ],
+        "Treatment and Surgery": [
+            "Surgical Instruments",
+            "Laser Surgery"
+        ],
+        "Pharmaceuticals": [
+            "Vaccines",
+            "Antibiotics"
+        ],
+        "Biomedical Devices": [
+            "Pacemakers",
+            "Prosthetics"
+        ]
+    },
+    "Science and Research": {
+        "Measurement Instruments": [
+            "Thermometer",
+            "Barometer"
+        ],
+        "Microscopy": [
+            "Microscopes"
+        ],
+        "Space Exploration": [
+            "Telescopes",
+            "Satellites"
+        ],
+        "Laboratory Equipment": [
+            "Centrifuges",
+            "Spectrometers"
+        ]
+    },
+    "Domestic and Consumer Goods": {
+        "Appliances": [
+            "Refrigerator",
+            "Washing Machine"
+        ],
+        "Cooking Devices": [
+            "Microwave Oven",
+            "Stove"
+        ],
+        "Personal Care": [
+            "Electric Toothbrush",
+            "Hair Dryer"
+        ],
+        "Furniture and Design Innovations": []
+    },
+    "Agriculture and Food Production": {
+        "Farm Machinery": [
+            "Tractor",
+            "Combine Harvester"
+        ],
+        "Food Processing": [
+            "Pasteurization",
+            "Refrigeration"
+        ],
+        "Irrigation Systems": [
+            "Drip Irrigation"
+        ],
+        "Genetic and Biotechnology Advances in Agriculture": []
+    },
+    "Construction and Building": {
+        "Structural Elements": [
+            "Concrete",
+            "Steel"
+        ],
+        "Machinery and Tools": [
+            "Cranes",
+            "Power Tools"
+        ],
+        "Architectural Innovations": [
+            "Skyscrapers",
+            "Suspension Bridges"
+        ],
+        "Home and Commercial Building Technologies": []
+    },
+    "Textiles and Clothing": {
+        "Production Techniques": [
+            "Spinning Jenny",
+            "Loom"
+        ],
+        "Materials": [
+            "Nylon",
+            "Polyester"
+        ],
+        "Clothing Innovations": [
+            "Zippers",
+            "Velcro"
+        ],
+        "Footwear Technologies": []
+    },
+    "Entertainment and Media": {
+        "Film and Photography": [
+            "Camera",
+            "Projector"
+        ],
+        "Music": [
+            "Record Player",
+            "Synthesizers"
+        ],
+        "Video Games": [
+            "Consoles",
+            "Virtual Reality"
+        ],
+        "Media Storage": [
+            "Vinyl Records",
+            "CDs",
+            "DVDs"
+        ]
+    },
+    "Military and Defense": {
+        "Weaponry": [
+            "Gunpowder",
+            "Firearms"
+        ],
+        "Vehicles": [
+            "Tanks",
+            "Fighter Jets"
+        ],
+        "Communication and Intelligence": [
+            "Radar",
+            "Encryption"
+        ],
+        "Protective Gear": [
+            "Body Armor",
+            "Gas Masks"
+        ]
+    },
+    "Environmental and Sustainability Technologies": {
+        "Pollution Control": [
+            "Catalytic Converters",
+            "Filters"
+        ],
+        "Waste Management": [
+            "Recycling Techniques"
+        ],
+        "Water Purification": [
+            "Desalination",
+            "Filtration"
+        ],
+        "Eco-Friendly Materials and Practices": []
+    },
+    "Art, Culture, and Recreation": {
+        "Artistic Tools and Materials": [
+            "Paints",
+            "Brushes"
+        ],
+        "Cultural Innovations": [
+            "Musical Instruments",
+            "Theatrical Equipment"
+        ],
+        "Sports and Recreation": [
+            "Bicycles",
+            "Skis"
+        ],
+        "Hobby and Craft Tools": [
+            "3D Printers",
+            "Sewing Machines"
+        ]
+    }
+}

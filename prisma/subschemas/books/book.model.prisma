@@ -1,0 +1,62 @@
+model Ratings {
+  englishTitle String       @id @map("_id")
+  amazon    RatingDetail
+  goodreads RatingDetail
+  google    RatingDetail
+  Book      Book[]
+  @@map("ratings")
+}
+
+
+
+type RatingDetail {
+  average Float
+  number  Int
+  link    String
+}
+
+model Book {
+  id                       String                  @id @default(auto()) @map("_id") @db.ObjectId
+  englishTitle             String  
+  spanishTitle             String?
+  authors                  String[]
+  difficulty               String
+  keywords                 String[]
+  span                     String[]
+  coverImage               String?
+  syllabusImages           String[]
+  pages                    Int
+  lastEditionYear          Int? // numero de edición
+  lastEditionNumber        Int? // año de edicion
+  publicationDate          Int?
+  originCountry            String?
+  spanishEdition           Boolean?
+  summary                  String[]
+  amazonLink               String?
+  ratings                  Ratings?                @relation(fields: [englishTitle], references: [englishTitle])
+  topicRecommendation    topicRecommendation?         @relation(fields: [topicRecommendationSlug], references: [slug])
+  topicRecommendationSlug String?
+  subFieldRecommendation   subFieldRecommendation? @relation(fields: [subFieldRecommendationSlug], references: [slug])
+  subFieldRecommendationSlug String?
+  @@map("book")
+}
+
+model topicRecommendation {
+  id           String @id @default(auto()) @map("_id") @db.ObjectId
+  field        String
+  subField     String
+  topic        String @unique
+  topicSummary String
+  slug         String @unique
+  books        Book[]
+  @@map("topicsRecommendation")
+}
+
+model subFieldRecommendation {
+  id       String @id @default(auto()) @map("_id") @db.ObjectId
+  field    String
+  subField String
+  slug     String @unique
+  books    Book[]
+  @@map("subfieldsRecommendation")
+}

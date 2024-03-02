@@ -1,16 +1,15 @@
 :root {
-  --color-title1: #0073b0;
-  /* --color-title1: #006c9e; */
-  /* --color-title1: #006191; */
-  --color-title2: #243b48;
-  --color-title3: #6a7c85;
-  --color-title4: #2e4053;
-  --color-title5: #0c0c0c;
-  --color-text: #243b48;
-  /* --color-title5: #B0B6B9; */
-  --color-title6: #576f80;
-  /* --color-title6: #B0B6B9; */
-  --color-active-element: #3498db;
+  --color-h1: #00659A;
+  --color-h2: #00518f;
+  /* --color-h2: #004D75; */
+  --color-h3: #003D5C;
+  --color-h4: #24433F;
+  --color-h5: #2E4053;
+  --color-p: #243b48;
+  --color-a: #576f80;
+  --color-accent1: #3498db;
+  --color-accent2: #cf4336;
+  --color-accent3: #16a085;
   --color-gold: #745600;
   /* --color-gold: #C49102; */
   --color-background1: #f4f6f6;
@@ -18,36 +17,23 @@
   /* --color-background2: #d5dbdb; */
   --color-background3: #B0B6B9;
   --color-menu: #e9edef;
-  --color-span: #154d6a;
-  /* --color-span: #005884; */
-  /* --color-span: #6a7c85; */
-  --color-accent1: #cf4336;
-  /* --color-accent1: #e74c3c; */
-  --color-accent2: #16a085;
-  /* --color-accent2: #16a085; */
+  --color-span: #003D5C;
   --color-dark: #2c3e50;
   --color-light: #e9edef;
   /* Tipografía */
-  --font-family-text: "Crimson Text", serif;
-  --font-family-title1: "Montserrat", sans-serif;
-  --font-family-title2: "Montserrat", sans-serif;
-  --font-family-title3: "Montserrat", sans-serif;
-  --font-family-title4: "Montserrat", sans-serif;
-  --font-family-title5: "Montserrat", sans-serif;
-  --font-family-nav-field: "Montserrat", sans-serif;
-  --font-family-nav-branch: "Montserrat", sans-serif;
-  --font-family-nav-subfield: "Montserrat", sans-serif;
-  --font-size-text: 1.9rem;
-  --font-size-title1: 3em;
-  --font-size-title2: 2.2rem;
-  --font-size-title3: 1.5rem;
-  --font-size-title4: 1.9rem;
-  --font-size-title5: 1.3rem;
-  --font-size-a: 2rem;
-  --font-size-title6: 1.3rem;
+  --font-size-p: 1.9rem;
+  --font-size-h1: 3.8rem;
+  --font-size-h2: 2.3rem;
+  --font-size-h3: 1.5rem;
+  --font-size-h4: 1.5rem;
+  --font-size-h5: 1.3rem;
+  --font-size-a: 1.9rem;
+  --font-size-h6: 1.3rem;
   --font-size-nav-item-menu-field: 1.5rem;
   --font-size-nav-item-menu-branch: 1.5rem;
   --font-size-nav-item-menu: 1.3rem;
+  /* --color-accent1: #e74c3c; */
+  /* --color-accent2: #16a085; */
 }
 
 
@@ -140,21 +126,21 @@ main {
 }
 
 a {
-  color: var(--color-title6);
+  color: var(--color-a);
   /* text-decoration-color: var(--color-active-element); */
   text-decoration: none;
   display: block;
-  font-family: var(--font-family-text);
+  font-family: var(--font-noto-sans-georgian);
   font-size: var(--font-size-a);
-  font-style: italic;
+  /* font-style: italic; */
   line-height: 1.1;
   padding: .4rem 0;
 }
 
 p {
-  font-family: var(--font-family-text);
-  font-size: var(--font-size-text);
-  color: var(--color-text);
+  font-family: var(--font-noto-sans-georgian);
+  font-size: var(--font-size-p);
+  color: var(--color-p);
   padding-bottom: 0.7rem;
   line-height: 1.4;
   /* text-wrap: pretty; */
@@ -167,52 +153,52 @@ p {
 
 
 h1 {
-  font-family: var(--font-family-title1);
-  font-size: var(--font-size-title1);
+  font-family: var(--font-noto-serif-georgian);
+  font-size: var(--font-size-h1);
   font-weight: 900;
-  color: var(--color-title1);
+  color: var(--color-h1);
   text-align: center;
   line-height: 1;
-  padding-bottom: 2.8rem;
+  padding-bottom: 3rem;
 }
 
 h2 {
-  font-family: var(--font-family-title2);
-  font-size: var(--font-size-title2);
-  color: var(--color-title1);
-  font-weight:500;
+  /* font-family: var(--font-noto-serif-georgian); */
+  font-size: var(--font-size-h2);
+  color: var(--color-h2);
+  font-weight:600;
   margin-bottom: 1.5rem;
   /* text-wrap: balance; */
 }
 
 h3 {
-  font-family: var(--font-family-title1);
-  font-size: var(--font-size-title3);
-  color: var(--color-title3);
+  font-family: var(--font-noto-serif-georgian);
+  font-size: var(--font-size-h3);
+  color: var(--color-h3);
   font-weight: 400;
   margin-bottom: 1rem;
 }
 
 h4 {
-  font-family: var(--font-family-text);
-  font-size: var(--font-size-title4);
-  color: var(--color-title4);
+  font-family: var(--font-noto-serif-georgian);
+  font-size: var(--font-size-h4);
+  color: var(--color-h4);
   font-weight: 400;
   padding-bottom: 1rem;
 }
 
 h5 {
-  font-family: var(--font-family-title5);
-  font-size: var(--font-size-title5);
-  color: var(--color-title5);
+  font-family: var(--font-noto-serif-georgian);
+  font-size: var(--font-size-h5);
+  color: var(--color-h5);
   font-weight: 400;
 }
 
 h6 {
-  font-family: var(--font-family-text);
-  font-size: var(--font-size-title6);
+  font-family: var(--font-noto-serif-georgian);
+  font-size: var(--font-size-h6);
   font-weight: 400;
-  color: var(--color-title6);
+  color: var(--color-h6);
 }
 
 li {
@@ -281,7 +267,7 @@ svg,
 span,
 h6,
 .animate {
-  animation: fadeUp .5s ease forwards;
+  animation: fadeUp .9s ease forwards;
   opacity: 0;
   transform: translateY(10px);
   animation-delay: calc(var(--animation-order) * 100ms);

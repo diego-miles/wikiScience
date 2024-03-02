@@ -6,9 +6,10 @@
   width: 100%;
   /* height: 100vh; */
   z-index: 100;
-  padding: 1rem;
+  /* padding: .2rem; */
   padding-top: 9rem;
-  overflow-y: auto
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .menuMain {
@@ -27,12 +28,12 @@
 .header {
   color: var(--color-background3);
   text-align: center;
-  border: solid 0.1rem var(--color-background3);
-  max-width: 130rem;
+  border: solid 0.1rem var(--color-background2);
   border-radius: 0.5rem;
   /* margin: 0 4rem; */
   margin: 0 auto;
-  font-size: 1.3rem;
+  max-width: 35rem;
+  font-size: 1.7rem;
   padding: .5rem;
   margin-bottom: 1.5rem;
 }
@@ -57,12 +58,14 @@
 }
 
 .titleField {
-  color: var(--color-accent1);
-  font-size: 1.8rem;
+  font-family: var(--font-family-h1);
+  color: var(--color-accent2);
+  font-size: 2.1rem;
+  font-weight: 800;
   /* padding: .5rem 0; */
   padding-bottom: 1rem;
-  padding-top: 1.5rem;
-  font-weight: 600;
+  padding-top: 1.7rem;
+  font-weight: 700;
 }
 
 .branchContainer {
@@ -89,9 +92,10 @@
 }
 
 .subField a {
-  font-family: var(--font-family-title1);
-  font-size: 1.3rem;
-  color: var(--color-title1);
+  font-family: var(--font-family-h1);
+  font-size: 1.9rem;
+  font-weight: 600;
+  color: var(--color-h1);
   font-style: normal;
   padding-bottom: .5rem;
   /* color: var(--color-span); */
@@ -103,15 +107,16 @@
   font-weight: 300;
   line-height: 110%;
   /* padding-bottom: 0.5rem; */
-  border-left: 0.3rem solid #d5dbdb;
+  border-left: 0.4rem solid #e2e7e7;
   padding-left: 0.3rem;
 }
 
 .subTopic a {
-  color: var(--color-title3);
+  font-family: var(--font-family-h1);
+  color: var(--color-text);
   /* text-decoration: underline; */
-  text-decoration-color: var(--color-accent2);
-  font-size: 1.8rem;
+  text-decoration-color: var(--color-accent1);
+  font-size: 1.9rem;
 }
 
 @media (min-width: 768px) {

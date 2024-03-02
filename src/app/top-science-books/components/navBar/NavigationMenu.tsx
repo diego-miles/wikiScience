@@ -17,7 +17,7 @@ const NavigationMenu: React.FC<NavigationMenuProps> = ({ className, style }) => 
     return (
         <div tabIndex={0} className={`${styles.menuWrapper} ${className}`} style={style}>
             <div className={styles.menuMain}>
-                <div className={styles.header}>Best Books</div>
+                <div className={styles.header}>Top Science Books</div>
                 <div className={styles.navContainer}>
                     {data.map((field, idx) => (
                         <div className={styles.branchContainer} key={idx}>
@@ -29,14 +29,14 @@ const NavigationMenu: React.FC<NavigationMenuProps> = ({ className, style }) => 
                                     <ul key={sIdx}>
                                         <li className={styles.subField}>
                                             {/* Use toSlug to convert subField.title into a slug */}
-                                            <Link href={`/recommendations/${toSlug(subField.title)}`} className='menu-link'>
+                                            <Link href={`/top-science-books/${toSlug(subField.title)}`} className='menu-link'>
                                                 {subField.title}
                                             </Link>
                                         </li>
                                         {subField.topics.map((topic, tIdx) => (
                                             <li className={styles.subTopic} key={tIdx}>
                                                 {/* Use toSlug for both subField.title and topic to create a nested slug */}
-                                                <Link href={`/recommendations/${toSlug(subField.title)}/${toSlug(topic)}`} >
+                                                <Link href={`/top-science-books/${toSlug(subField.title)}/${toSlug(topic)}`} >
                                                     {topic}
                                                 </Link>
                                             </li>

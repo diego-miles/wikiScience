@@ -39,7 +39,7 @@ const CookieConsent: React.FC = () => {
             padding: '2rem 0',
             zIndex: 1000,
         }}>
-            <p style={{ fontWeight: '400', color: '#0073b0', fontSize: '1.7rem' }}>
+            <p style={{ fontWeight: '400', color: '#0073b0', fontSize: '1.6rem' }}>
                 We use cookies for functionality, analytics, and personalized advertising to keep this alive :).
                 <Link href="/privacy-policy" style={{ marginLeft: '10px', color: '#0073b0', textDecoration: 'underline' }}>
                     Learn More

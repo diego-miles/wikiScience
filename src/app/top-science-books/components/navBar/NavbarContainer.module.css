@@ -46,7 +46,7 @@
 }
 
 .active {
-  color: var(--color-title1);
+  color: var(--color-h1);
   font-weight: 600;
 }
 
