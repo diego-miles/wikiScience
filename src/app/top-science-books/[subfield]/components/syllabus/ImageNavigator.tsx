@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import styles from './Syllabus.module.css';
-import useImageNavigator from '@/app/hooks/useImageNavigator';
+import useImageNavigator from '@/hooks/useImageNavigator';
 
 
 type ImageNavigatorProps = {
