@@ -1,5 +1,5 @@
 import { MetadataRoute } from 'next';
-import data from '@/data'; // Asegúrate de que la ruta de importación sea correcta
+import data from '@/components/ScienceFieldsData'; // Asegúrate de que la ruta de importación sea correcta
 
 const baseUrl = 'https://wiki-science.com/recommendations';
 
