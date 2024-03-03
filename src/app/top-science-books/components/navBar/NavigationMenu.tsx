@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './NavigationMenu.module.css';
-import data from '@/data';
+import data from '@/components/data';
 import Link from 'next/link';
 
 interface NavigationMenuProps {
