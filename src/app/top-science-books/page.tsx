@@ -1,9 +1,9 @@
 import React from 'react';
 import { ScienceFieldsMenu } from './ScienceFieldsMenu';
-import data from '@/data';
-import NavBar from './components/navBar/NavBarContainer';
+import data from '@/components/data';
+import NavBar from '@/components/NavbarContainer';
 import styles from './Recomendaciones.module.css';
-import ScrollTopButton from '@/ScrollTopButton'
+import ScrollTopButton from '@/components/ScrollTopButton'
 
 
 export const metadata = {
@@ -13,7 +13,7 @@ export const metadata = {
 const Page: React.FC = () => {
   return (
     <div>
-      <NavBar/>
+      <NavBar menuPath='./NavigationMenu'/>
       <main className={styles.animatedElement}>
           <div className={styles.divContext}>
             <p className={styles.textContext}>Ranking</p>

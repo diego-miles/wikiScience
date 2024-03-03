@@ -1,5 +1,5 @@
-import prisma from '@/lib/db/prisma';
-import NavBar from '../components/navBar/NavBarContainer';
+import { PrismaClient } from '@prisma/client';
+import NavBar from '@/components/NavbarContainer';
 import ContextSpace from './components/ContextSpace';
 import ArticleTitle from './components/ArticleTitle';
 import LocalContextLinks from './components/LocalContextLinks';
@@ -8,13 +8,16 @@ import { cache } from "react";
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import styles from './page.module.css'
-import ScrollTopButton from '@/ScrollTopButton'
+import ScrollTopButton from '@/components/ScrollTopButton'
 
 interface SubFieldPageProps {
     params: {
         subfield: string;
     }
 }
+
+const prisma = new PrismaClient();
+
 
 const formatTitleForURL = (title: string) => {
     return title
@@ -75,7 +78,7 @@ async function SubFieldRecommendationPage({ params: { subfield } }: SubFieldPage
 
     return (
         <div className={styles.wrapper}>
-            <NavBar title={subFieldData?.field} title2={subFieldData?.subField} domain="www.wiki-science.com/" active={true} />
+            <NavBar title={subFieldData?.field} title2={subFieldData?.subField} domain="www.wiki-science.com/" active={true} menuPath='./NavigationMenu'/>
             <main>
                 <ContextSpace />
                 <ArticleTitle topic={subFieldData?.subField} />

@@ -1,8 +1,8 @@
 import React from 'react';
 import { PrismaClient } from '@prisma/client';
 import { cache } from 'react';
-import NavBar from '@/NavBarContainer';
-import ScrollTopButton from '@/ScrollTopButton';
+import NavBar from '@/components/NavbarContainer';
+import ScrollTopButton from '@/components/ScrollTopButton';
 
 const prisma = new PrismaClient();
 
@@ -69,8 +69,7 @@ async function ElectronicComponentPage({ params: { slug } }: ProductPageProps) {
 
   return (
     <div>
-      <NavBar title={''} profileLink={''} menuLink={''} />
-      <main>
+        <NavBar domain="www.wiki-science.com/" menuPath='./NavigationMenu' />      <main>
         {/* Display electronic component information */}
         <h1>{electronicComponent.name}</h1>
         <p>Description: {electronicComponent.description}</p>

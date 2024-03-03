@@ -1,0 +1,138 @@
+.container {
+  /* background-color: var(--color-menu); */
+  position: absolute;
+  width: 100vw;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  /* bottom: 0; */
+  /* height: 190rem; */
+  /* overflow-y: auto */
+  }
+.navbarContainer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  width: 100vw;
+  max-width: 130rem;
+  margin: 0 auto;
+  padding: 0.7rem 1rem;
+  background-color: #f5f5f5;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 0.2rem 0.4rem #1c63871e;
+}
+
+.hidden {
+  display: none;
+}
+
+.contextualLinks {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  padding-right: 1rem;
+  padding-top: 0.5rem;
+}
+
+.contextualLinks a {
+  font-style: normal;
+  font-size: 1.4rem;
+  padding: 0.1rem 0;
+  /* color: var(--color-title3); */
+}
+
+.active {
+  color: var(--color-h1);
+  font-weight: 600;
+}
+
+.icon {
+  background-size: cover;
+  cursor: pointer;
+}
+
+.leftIcon {
+  width: 3rem;
+  height: 4rem;
+  background-image: url('/iconmonkey-blue.svg');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.rightIcon {
+  width: 3.8rem;
+  /* era 40px */
+  height: 4rem;
+  /* era 50px */
+  background-image: url('/microscope.svg');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  cursor: pointer;
+  border: none;
+  padding-right: .5rem;
+}
+
+.padding {
+  padding: 0 0.5rem;
+  padding-bottom: 0.2rem;
+  font-family: var(--font-family-text);
+  font-weight: 900;
+}
+
+
+.crossIcon {
+  width: 4rem;
+  height: 3rem;
+  position: relative;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease, visibility 0.2s ease;
+}
+
+.crossIconOpen {
+  opacity: 1;
+  visibility: visible;
+}
+
+.crossIcon::before,
+.crossIcon::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 3rem;
+  height: 0.5rem;
+  background-color: var(--color-accent1);
+  border-radius: 0.5rem;
+  transition: transform 0.3s ease;
+  transform: translate(-50%, -50%) rotate(0);
+}
+
+.crossIconOpen::before {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.crossIconOpen::after {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+
+/* Estilos para escritorio */
+@media only screen and (min-width: 768px) {
+.navbarContainer {
+  padding: 1rem 2.5rem;
+  }
+.contextualLinks a {
+    font-size: 1.5rem;
+    padding: 0;
+  }
+
+}

@@ -19,7 +19,7 @@
       }
     ],
     "paths": {
-      "@/*": ["./src/*", "./public/*", "./src/components/*", "./types/*", "./src/app/components/*"]
+      "@/*": ["./src/app/*", "./public/*", "./types/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/recommendations/[subfield]/components/syllabus/SyllabusButton.js"],

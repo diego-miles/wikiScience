@@ -1,6 +1,6 @@
 :root {
   --color-h1: #00659A;
-  --color-h2: #00518f;
+  --color-h2: #004385;
   /* --color-h2: #004D75; */
   --color-h3: #003D5C;
   --color-h4: #24433F;
@@ -20,6 +20,9 @@
   --color-span: #003D5C;
   --color-dark: #2c3e50;
   --color-light: #e9edef;
+  --color-active: #00A40B;
+  --color-green-text: #197D4F;
+  --color-darkgreen-text: #005D50;
   /* Tipografía */
   --font-size-p: 1.9rem;
   --font-size-h1: 3.9rem;

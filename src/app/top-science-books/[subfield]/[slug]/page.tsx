@@ -1,5 +1,5 @@
 import { PrismaClient } from '@prisma/client';
-import NavBar from '../../components/navBar/NavBarContainer';
+import NavBar from '@/components/NavbarContainer';
 import ContextSpace from '../components/ContextSpace';
 import ArticleTitle from '../components/ArticleTitle';
 import LocalContextLinks from '../components/LocalContextLinks';
@@ -8,7 +8,7 @@ import styles from './page.module.css';
 import { cache } from 'react';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import ScrollTopButton from '@/ScrollTopButton';
+import ScrollTopButton from '@/components/ScrollTopButton';
 
 
 type OGImage = {
@@ -89,7 +89,7 @@ async function RecommendationPage({
 
     return (
         <div className={styles.scroll}>
-            <NavBar title={recommendations?.field} title2={recommendations?.subField} title3={recommendations?.topic} domain="www.wiki-science.com/" />
+            <NavBar title={recommendations?.field} title2={recommendations?.subField} title3={recommendations?.topic} domain="www.wiki-science.com/" menuPath='./NavigationMenu' />
             <main>
                 <ContextSpace />
                 <ArticleTitle topic={recommendations?.topic} />
