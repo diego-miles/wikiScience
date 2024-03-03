@@ -5,7 +5,7 @@ model ElectronicComponent {
   category              String
   type                  String
   subtype               String
-  manufacturers          String[]
+  manufacturers          String
   description           String
   lifeSpan              String
   history               String
