@@ -8,7 +8,9 @@
     "build": "prisma generate && next build",
     "postbuild": "next-sitemap",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "dependencies": {
     "@prisma/client": "^5.5.2",
@@ -27,6 +29,14 @@
   },
   "devDependencies": {
     "@builder.io/partytown": "^0.8.1",
+    "@storybook/addon-essentials": "^7.6.17",
+    "@storybook/addon-interactions": "^7.6.17",
+    "@storybook/addon-links": "^7.6.17",
+    "@storybook/addon-onboarding": "^1.0.11",
+    "@storybook/blocks": "^7.6.17",
+    "@storybook/nextjs": "^7.6.17",
+    "@storybook/react": "^7.6.17",
+    "@storybook/test": "^7.6.17",
     "@types/js-cookie": "^3.0.6",
     "@types/node": "^20",
     "@types/react": "^18",
@@ -34,7 +44,9 @@
     "@types/react-dom": "^18",
     "eslint": "^8",
     "eslint-config-next": "14.0.0",
+    "eslint-plugin-storybook": "^0.8.0",
     "prisma": "^5.5.2",
+    "storybook": "^7.6.17",
     "typescript": "^5"
   }
 }
