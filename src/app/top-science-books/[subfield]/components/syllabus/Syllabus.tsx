@@ -2,7 +2,7 @@
 import { useState, useEffect, useCallback, useMemo } from 'react';
 import Image from 'next/image';
 import styles from './Syllabus.module.css';
-import imageLimitsData from "@/syllabus_pages.json";
+import imageLimitsData from "@/components/syllabus_pages.json";
 import SyllabusButton from './SyllabusButton';
 import ImageNavigator from './ImageNavigator';
 
