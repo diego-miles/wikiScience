@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next';
 import data from '@/components/ScienceFieldsData'; // Asegúrate de que la ruta de importación sea correcta
 
-const baseUrl = 'https://wiki-science.com/recommendations';
+const baseUrl = 'https://wiki-science.com/top-science-books';
 
 const toSlug = (title: string) => {
   return title.replace(/[^a-zA-Z0-9 ,'-]/g, "").replace(/ /g, "%20");
