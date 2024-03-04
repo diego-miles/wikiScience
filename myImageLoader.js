@@ -1,3 +1,3 @@
 export default function myImageLoader({ src, width, quality }) {
-  return `https://storage.cloud.google.com/bestbooks/covers/${src}?w=${width}&q=${quality || 50}`;
+  return `http://acs.amazonaws.com/groups/global/AllUsers/bestbooks/covers/${src}?w=${width}&q=${quality || 50}`;
 }
