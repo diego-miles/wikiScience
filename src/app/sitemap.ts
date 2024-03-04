@@ -4,7 +4,7 @@ import data from '@/components/ScienceFieldsData'; // Asegúrate de que la ruta 
 const baseUrl = 'https://wiki-science.com/top-science-books';
 
 const toSlug = (title: string) => {
-  return title.replace(/[^a-zA-Z0-9 ,'-]/g, "").replace(/ /g, "_");
+  return title.replace(/[^a-zA-Z0-9 ,'-]/g, "").replace(/ /g, "_").toLowerCase;
 };
 
 export default function sitemap(): MetadataRoute.Sitemap {
