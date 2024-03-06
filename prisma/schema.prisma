@@ -1,4 +1,4 @@
-//🧩Don't Edit this file.✨Generated in Fri Mar 01 2024 21:48:38 GMT-0600 (Central Standard Time)✨
+//🧩Don't Edit this file.✨Generated in Wed Mar 06 2024 12:29:03 GMT-0600 (Central Standard Time)✨
 
 generator client {
   provider = "prisma-client-js"
@@ -76,15 +76,16 @@ model subFieldRecommendation {
 
 // Model for the Electronic Component
 model ElectronicComponent {
-  id                      String   @id @default(auto()) @map("_id") @db.ObjectId
-  name                    String   @unique
+  id                      String                                    @id @default(auto()) @map("_id") @db.ObjectId
+  name                    String                                    @unique
+  slug                    String                                    @unique
   category                String
   type                    String
   subtype                 String
-  manufacturer            String
+  manufacturers           String[]
   description             String
   lifeSpan                String
-  history                 String
+  history                 Json
   Glossary                String[]
   functionDiagram         String?
   operationDiagram        String?
@@ -96,19 +97,24 @@ model ElectronicComponent {
   footprint               String
   standardsAndRegulations String[]
   relatedDocuments        String[]
-  createdAt               DateTime @default(now()) @map("createdAt")
-  updatedAt               DateTime @updatedAt @map("updatedAt")
-
+  createdAt               DateTime                                  @default(now()) @map("createdAt")
+  updatedAt               DateTime                                  @updatedAt @map("updatedAt")
   // Relationships
-  variants              ElectronicComponentVariant[]
-  function              ElectronicComponentFunction?
-  operation             ElectronicComponentOperation?
-  applications          ElectronicComponentApplication[]
-  technicalSpecs        ElectronicComponentTechnicalSpecifications?
-  thermalSpecifications ElectronicComponentThermalSpecifications?
-  datasheets            ElectronicComponentDatasheet[]
-  additionalResources   ElectronicComponentAdditionalResource[]
+  variants                ElectronicComponentVariant[]
+  Measurements            ElectronicComponentMeasurements[]
+  function                ElectronicComponentFunction?
+  operation               ElectronicComponentOperation?
+  applications            ElectronicComponentApplication[]
+  // technicalSpecs                  ElectronicComponentTechnicalSpecifications?
+  thermalSpecifications   ElectronicComponentThermalSpecifications?
+  datasheets              ElectronicComponentDatasheet[]
+  additionalResources     ElectronicComponentAdditionalResource[]
 }
+
+// type History {
+//   year String
+//   event String
+// }
 
 // Model for Electronic Component Variants
 model ElectronicComponentVariant {
@@ -120,12 +126,35 @@ model ElectronicComponentVariant {
   electronicComponentName String
 }
 
+// Model for Measurements in Science about Electronic Components
+model ElectronicComponentMeasurements {
+  id                      String              @id @default(auto()) @map("_id") @db.ObjectId
+  electronicComponent     ElectronicComponent @relation(fields: [electronicComponentName], references: [name])
+  electronicComponentName String
+  temperature             String
+  voltage                 String
+  current                 String
+  resistance              String
+  capacitance             String
+  inductance              String
+  frequency               String
+  power                   String
+  signalToNoiseRatio      String
+  impedance               String
+  gain                    String
+  distortion              String
+  bandwidth               String
+  efficiency              String
+  otherVariables          String
+  toleranceAccuracy       String
+}
+
 // Model for Electronic Component Functions
 model ElectronicComponentFunction {
   id                      String               @id @default(auto()) @map("_id") @db.ObjectId
   primaryFunction         String
-  physicalPrinciples      String
-  chemistryPrinciples     String?
+  physicalPrinciples      Json
+  chemistryPrinciples     String[]
   comparisons             String[]
   capabilities            String[]
   limitations             String[]
@@ -179,21 +208,21 @@ model ElectronicComponentThermalSpecifications {
   electronicComponentName            String               @unique
 }
 
-// Model for Technical Specifications of Electronic Components
-model ElectronicComponentTechnicalSpecifications {
-  id                          String                         @id @default(auto()) @map("_id") @db.ObjectId
-  operatingVoltage            String
-  operatingCurrent            String
-  powerRatings                String
-  frequencyResponse           String
-  gainAmplification           String
-  impedanceResistance         String
-  toleranceAccuracy           String
-  environmentalConsiderations String
-  datasheets                  ElectronicComponentDatasheet[]
-  electronicComponent         ElectronicComponent            @relation(fields: [electronicComponentName], references: [name])
-  electronicComponentName     String                         @unique
-}
+// // Model for Technical Specifications of Electronic Components
+// model ElectronicComponentTechnicalSpecifications {
+//   id                          String                         @id @default(auto()) @map("_id") @db.ObjectId
+//   operatingVoltage            String
+//   operatingCurrent            String
+//   powerRatings                String
+//   frequencyResponse           String
+//   gainAmplification           String
+//   impedanceResistance         String
+//   toleranceAccuracy           String
+//   environmentalConsiderations String
+//   datasheets                  ElectronicComponentDatasheet[]
+//   electronicComponent         ElectronicComponent            @relation(fields: [electronicComponentName], references: [name])
+//   electronicComponentName     String                         @unique
+// }
 
 // Model for Additional Resources of Electronic Components
 model ElectronicComponentAdditionalResource {
@@ -207,12 +236,229 @@ model ElectronicComponentAdditionalResource {
 
 // Model for Datasheets of Electronic Components
 model ElectronicComponentDatasheet {
-  id                                           String                                      @id @default(auto()) @map("_id") @db.ObjectId
-  name                                         String
-  description                                  String
-  url                                          String
-  electronicComponentTechnicalSpecifications   ElectronicComponentTechnicalSpecifications? @relation(fields: [electronicComponentTechnicalSpecificationsId], references: [electronicComponentName])
-  electronicComponentTechnicalSpecificationsId String?
-  electronicComponent                          ElectronicComponent?                        @relation(fields: [electronicComponentName], references: [name])
-  electronicComponentName                      String?
+  id                      String               @id @default(auto()) @map("_id") @db.ObjectId
+  name                    String
+  description             String
+  url                     String
+  // electronicComponentTechnicalSpecifications   ElectronicComponentTechnicalSpecifications? @relation(fields: [electronicComponentTechnicalSpecificationsId], references: [electronicComponentName])
+  // electronicComponentTechnicalSpecificationsId String?
+  electronicComponent     ElectronicComponent? @relation(fields: [electronicComponentName], references: [name])
+  electronicComponentName String?
+}
+
+// Define the Element model to store basic information about each element
+model Element {
+  symbol                String                  @id @map("_id")
+  name                  String                  @unique
+  atomicNumber          Int
+  atomicWeight          Float
+  description           String
+  discoveryYear         Int
+  meltingPoint          Float?
+  boilingPoint          Float?
+  density               Float?
+  appearance            String?
+  classification        ElementClassification[]
+  atomicStructure       AtomicStructure?
+  properties            ElementProperties?
+  isotopes              Isotope[]
+  compounds             Compound[]
+  history               ElementHistory[]
+  abundances            IsotopeAbundance[]
+  crystalStructures     CrystalStructure[]
+  allotropes            Allotrope[]
+  electronConfig        ElectronConfiguration?
+  oxidationStates       OxidationState?
+  physicalProperties    PhysicalProperties?
+  chemicalProperties    ChemicalProperties?
+  environmentalSafety   EnvironmentalSafety?
+  practicalApplications PracticalApplication[]
+}
+
+// Define the classification of each element (e.g., metal, non-metal, metalloid)
+model ElementClassification {
+  id             String  @id @default(auto()) @map("_id") @db.ObjectId
+  classification String
+  description    String?
+
+  // Relationships
+  element       Element @relation(fields: [elementSymbol], references: [symbol])
+  elementSymbol String  @unique
+}
+
+// Define the atomic structure of each element
+model AtomicStructure {
+  id               String @id @default(auto()) @map("_id") @db.ObjectId
+  electrons        Int
+  protons          Int
+  neutrons         Int
+  ionizationEnergy Float?
+  electronAffinity Float?
+  atomicRadius     Float?
+  // Add other atomic structure-related properties
+
+  // Relationships
+  element       Element @relation(fields: [elementSymbol], references: [symbol])
+  elementSymbol String  @unique
+}
+
+// Define various properties of each element (e.g., melting point, boiling point)
+model ElementProperties {
+  id             String @id @default(auto()) @map("_id") @db.ObjectId
+  meltingPoint   Float?
+  boilingPoint   Float?
+  density        Float?
+  atomicRadius   Float?
+  atomicVolume   Float?
+  covalentRadius Float?
+  // Add other properties as needed
+
+  // Relationships
+  element       Element @relation(fields: [elementSymbol], references: [symbol])
+  elementSymbol String  @unique
+}
+
+// Define isotopes for each element
+model Isotope {
+  id            String  @id @default(auto()) @map("_id") @db.ObjectId
+  isotopeNumber Int
+  abundance     Float?
+  halfLife      Float?
+  decayMode     String?
+  // Add other isotope-related properties
+
+  // Relationships
+  element       Element            @relation(fields: [elementSymbol], references: [symbol])
+  elementSymbol String             @unique
+  abundances    IsotopeAbundance[]
+}
+
+// Define isotope abundance for each element
+model IsotopeAbundance {
+  id            String  @id @default(auto()) @map("_id") @db.ObjectId
+  isotope       Isotope @relation(fields: [elementSymbol], references: [elementSymbol])
+  isotopeId     String
+  abundance     Float
+  // Relationships
+  element       Element @relation(fields: [elementSymbol], references: [symbol])
+  elementSymbol String
+}
+
+// Define the history of each element
+model ElementHistory {
+  id          String  @id @default(auto()) @map("_id") @db.ObjectId
+  event       String
+  year        Int
+  description String?
+  // Add other history-related properties
+
+  // Relationships
+  element       Element @relation(fields: [elementSymbol], references: [symbol])
+  elementSymbol String
+}
+
+// Define crystal structures for each element
+model CrystalStructure {
+  id          String @id @default(auto()) @map("_id") @db.ObjectId
+  type        String
+  temperature Float?
+  // Add other crystal structure-related properties
+
+  // Relationships
+  element       Element @relation(fields: [elementSymbol], references: [symbol])
+  elementSymbol String
+}
+
+// Define allotropes for each element
+model Allotrope {
+  id   String @id @default(auto()) @map("_id") @db.ObjectId
+  name String
+  // Add other allotrope-related properties
+
+  // Relationships
+  element       Element @relation(fields: [elementSymbol], references: [symbol])
+  elementSymbol String  @unique
+}
+
+// Define electron configuration for each element
+model ElectronConfiguration {
+  id            String @id @default(auto()) @map("_id") @db.ObjectId
+  configuration String
+  // Add other electron configuration-related properties
+
+  // Relationships
+  element       Element @relation(fields: [elementSymbol], references: [symbol])
+  elementSymbol String  @unique
+}
+
+// Define oxidation states for each element
+model OxidationState {
+  id    String @id @default(auto()) @map("_id") @db.ObjectId
+  state Int
+  // Add other oxidation state-related properties
+
+  // Relationships
+  element       Element @relation(fields: [elementSymbol], references: [symbol])
+  elementSymbol String  @unique
+}
+
+// Define physical properties for each element
+model PhysicalProperties {
+  id                  String @id @default(auto()) @map("_id") @db.ObjectId
+  molarHeat           Float?
+  thermalConductivity Float?
+  // Add other physical property-related properties
+
+  // Relationships
+  element       Element @relation(fields: [elementSymbol], references: [symbol])
+  elementSymbol String  @unique
+}
+
+// Define chemical properties for each element
+model ChemicalProperties {
+  id                  String @id @default(auto()) @map("_id") @db.ObjectId
+  electronegativity   Float?
+  ionizationPotential Float?
+  // Add other chemical property-related properties
+
+  // Relationships
+  element       Element @relation(fields: [elementSymbol], references: [symbol])
+  elementSymbol String  @unique
+}
+
+// Define environmental and safety information for each element
+model EnvironmentalSafety {
+  id                String  @id @default(auto()) @map("_id") @db.ObjectId
+  healthHazards     String?
+  safetyPrecautions String?
+  // Add other environmental safety-related properties
+
+  // Relationships
+  element       Element @relation(fields: [elementSymbol], references: [symbol])
+  elementSymbol String  @unique
+}
+
+// Define practical applications for each element
+model PracticalApplication {
+  id          String  @id @default(auto()) @map("_id") @db.ObjectId
+  application String
+  description String?
+  // Add other practical application-related properties
+
+  // Relationships
+  element       Element @relation(fields: [elementSymbol], references: [symbol])
+  elementSymbol String
+}
+
+// Define compounds related to each element
+model Compound {
+  id          String  @id @default(auto()) @map("_id") @db.ObjectId
+  name        String
+  formula     String
+  description String?
+  // Add other compound-related properties
+
+  // Relationships
+  element       Element @relation(fields: [elementSymbol], references: [symbol])
+  elementSymbol String
 }

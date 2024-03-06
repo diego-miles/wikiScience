@@ -1,3 +1,5 @@
 export default function myImageLoader({ src, width, quality }) {
-  return `http://acs.amazonaws.com/groups/global/AllUsers/bestbooks/covers/${src}?w=${width}&q=${quality || 50}`;
+  return `
+https://bestbooks.s3.us-east-2.amazonaws.com/${src}?w=${width}&q=${quality || 50}`;
 }
+// https://bestbooks.s3.us-east-2.amazonaws.com/A+Classical+Introduction+to+Modern+Number+Theory.png

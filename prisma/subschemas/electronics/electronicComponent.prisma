@@ -1,60 +1,90 @@
 // Model for the Electronic Component
 model ElectronicComponent {
-  id                    String              @id @default(auto()) @map("_id") @db.ObjectId
-  name                  String              @unique
-  category              String
-  type                  String
-  subtype               String
-  manufacturers          String
-  description           String
-  lifeSpan              String
-  history               String
-  Glossary              String[]
-  functionDiagram       String?
-  operationDiagram      String?
-  applicationDiagram    String?
-  availability          Boolean
+  id                              String                                      @id @default(auto()) @map("_id") @db.ObjectId
+  name                            String                      @unique           
+  slug                            String                      @unique
+  category                        String
+  type                            String
+  subtype                         String
+  manufacturers                   String[]
+  description                     String
+  lifeSpan                        String
+  history                         Json
+  Glossary                        String[]
+  functionDiagram                 String?
+  operationDiagram                String?
+  applicationDiagram              String?
+  availability                    Boolean
   // eolDate               DateTime
-  pricing               Float
+  pricing                         Float
   // packageType           String
-  footprint             String
-  standardsAndRegulations String[]
-  relatedDocuments      String[]
-  createdAt               DateTime                                    @default(now()) @map("createdAt")
-  updatedAt               DateTime                                    @updatedAt @map("updatedAt")
+  footprint                       String
+  standardsAndRegulations         String[]
+  relatedDocuments                String[]
+  createdAt                       DateTime                                    @default(now()) @map("createdAt")
+  updatedAt                       DateTime                                    @updatedAt @map("updatedAt")
   // Relationships
-  variants              ElectronicComponentVariant[]
-  function              ElectronicComponentFunction?
-  operation             ElectronicComponentOperation?
-  applications          ElectronicComponentApplication[]
-  technicalSpecs        ElectronicComponentTechnicalSpecifications?
-  thermalSpecifications ElectronicComponentThermalSpecifications?
-  datasheets            ElectronicComponentDatasheet[]
-  additionalResources   ElectronicComponentAdditionalResource[]
+  variants                        ElectronicComponentVariant[]
+  Measurements ElectronicComponentMeasurements[]
+  function                        ElectronicComponentFunction?
+  operation                       ElectronicComponentOperation?
+  applications                    ElectronicComponentApplication[]
+  // technicalSpecs                  ElectronicComponentTechnicalSpecifications?
+  thermalSpecifications           ElectronicComponentThermalSpecifications?
+  datasheets                      ElectronicComponentDatasheet[]
+  additionalResources             ElectronicComponentAdditionalResource[]
 }
+
+// type History {
+//   year String
+//   event String
+// }
 
 // Model for Electronic Component Variants
 model ElectronicComponentVariant {
-  id                    String              @id @default(auto()) @map("_id") @db.ObjectId
-  name                  String
-  description           String
-  diagram               String?
-  electronicComponent   ElectronicComponent @relation(fields: [electronicComponentName], references: [name])
+  id                      String              @id @default(auto()) @map("_id") @db.ObjectId
+  name                    String
+  description             String
+  diagram                 String?
+  electronicComponent     ElectronicComponent @relation(fields: [electronicComponentName], references: [name])
   electronicComponentName String
+}
+
+// Model for Measurements in Science about Electronic Components
+model ElectronicComponentMeasurements {
+  id                      String              @id @default(auto()) @map("_id") @db.ObjectId
+  electronicComponent     ElectronicComponent @relation(fields: [electronicComponentName], references: [name])
+  electronicComponentName String
+  temperature             String
+  voltage                 String
+  current                 String
+  resistance              String
+  capacitance             String
+  inductance              String
+  frequency               String
+  power                   String
+  signalToNoiseRatio      String
+  impedance               String
+  gain                    String
+  distortion              String
+  bandwidth               String
+  efficiency              String
+  otherVariables          String
+  toleranceAccuracy       String
 }
 
 // Model for Electronic Component Functions
 model ElectronicComponentFunction {
-  id                    String               @id @default(auto()) @map("_id") @db.ObjectId
-  primaryFunction       String
-  physicalPrinciples    String
-  chemistryPrinciples   String?
-  comparisons           String[]
-  capabilities          String[]
-  limitations           String[]
-  diagrams              String?
-  electronicComponent        ElectronicComponent? @relation(fields: [electronicComponentName], references: [name])
-  electronicComponentName    String               @unique
+  id                      String               @id @default(auto()) @map("_id") @db.ObjectId
+  primaryFunction         String
+  physicalPrinciples      Json
+  chemistryPrinciples     String[]
+  comparisons             String[]
+  capabilities            String[]
+  limitations             String[]
+  diagrams                String?
+  electronicComponent     ElectronicComponent? @relation(fields: [electronicComponentName], references: [name])
+  electronicComponentName String               @unique
 }
 
 // Model for Electronic Component Operations
@@ -73,59 +103,58 @@ model ElectronicComponentOperation {
 
 // Model for Key Parameters of Electronic Components
 model ElectronicComponentKeyParameter {
-  id          String                       @id @default(auto()) @map("_id") @db.ObjectId
-  name        String
-  description String
-  operation   ElectronicComponentOperation @relation(fields: [electronicComponentName], references: [electronicComponentName])
+  id                      String                       @id @default(auto()) @map("_id") @db.ObjectId
+  name                    String
+  description             String
+  operation               ElectronicComponentOperation @relation(fields: [electronicComponentName], references: [electronicComponentName])
   electronicComponentName String
 }
 
-
 // Model for Electronic Component Applications
 model ElectronicComponentApplication {
-  id                    String              @id @default(auto()) @map("_id") @db.ObjectId
-  field                 String
-  examples              String[]
-  designConsiderations  String
-  challenges            String[]
-  electronicComponent   ElectronicComponent @relation(fields: [electronicComponentName], references: [name])
+  id                      String              @id @default(auto()) @map("_id") @db.ObjectId
+  field                   String
+  examples                String[]
+  designConsiderations    String
+  challenges              String[]
+  electronicComponent     ElectronicComponent @relation(fields: [electronicComponentName], references: [name])
   electronicComponentName String
 }
 
 // Model for Thermal Specifications of Electronic Components
 model ElectronicComponentThermalSpecifications {
-  id                                 String              @id @default(auto()) @map("_id") @db.ObjectId
+  id                                 String               @id @default(auto()) @map("_id") @db.ObjectId
   thermalResistanceJunctionToCase    String
   thermalResistanceJunctionToAmbient String
   maximumOperatingTemperature        String
   minimumOperatingTemperature        String
-  electronicComponent        ElectronicComponent? @relation(fields: [electronicComponentName], references: [name])
-  electronicComponentName    String               @unique
+  electronicComponent                ElectronicComponent? @relation(fields: [electronicComponentName], references: [name])
+  electronicComponentName            String               @unique
 }
 
-// Model for Technical Specifications of Electronic Components
-model ElectronicComponentTechnicalSpecifications {
-  id                          String                         @id @default(auto()) @map("_id") @db.ObjectId
-  operatingVoltage            String
-  operatingCurrent            String
-  powerRatings                String
-  frequencyResponse           String
-  gainAmplification           String
-  impedanceResistance         String
-  toleranceAccuracy           String
-  environmentalConsiderations String
-  datasheets                  ElectronicComponentDatasheet[]
-  electronicComponent         ElectronicComponent            @relation(fields: [electronicComponentName], references: [name])
-  electronicComponentName       String                         @unique
-}
+// // Model for Technical Specifications of Electronic Components
+// model ElectronicComponentTechnicalSpecifications {
+//   id                          String                         @id @default(auto()) @map("_id") @db.ObjectId
+//   operatingVoltage            String
+//   operatingCurrent            String
+//   powerRatings                String
+//   frequencyResponse           String
+//   gainAmplification           String
+//   impedanceResistance         String
+//   toleranceAccuracy           String
+//   environmentalConsiderations String
+//   datasheets                  ElectronicComponentDatasheet[]
+//   electronicComponent         ElectronicComponent            @relation(fields: [electronicComponentName], references: [name])
+//   electronicComponentName     String                         @unique
+// }
 
 // Model for Additional Resources of Electronic Components
 model ElectronicComponentAdditionalResource {
-  id                    String              @id @default(auto()) @map("_id") @db.ObjectId
-  type                  String
-  description           String
-  link                  String
-  electronicComponent   ElectronicComponent @relation(fields: [electronicComponentName], references: [name])
+  id                      String              @id @default(auto()) @map("_id") @db.ObjectId
+  type                    String
+  description             String
+  link                    String
+  electronicComponent     ElectronicComponent @relation(fields: [electronicComponentName], references: [name])
   electronicComponentName String
 }
 
@@ -135,8 +164,8 @@ model ElectronicComponentDatasheet {
   name                                         String
   description                                  String
   url                                          String
-  electronicComponentTechnicalSpecifications   ElectronicComponentTechnicalSpecifications? @relation(fields: [electronicComponentTechnicalSpecificationsId], references: [electronicComponentName])
-  electronicComponentTechnicalSpecificationsId String?
+  // electronicComponentTechnicalSpecifications   ElectronicComponentTechnicalSpecifications? @relation(fields: [electronicComponentTechnicalSpecificationsId], references: [electronicComponentName])
+  // electronicComponentTechnicalSpecificationsId String?
   electronicComponent                          ElectronicComponent?                        @relation(fields: [electronicComponentName], references: [name])
-  electronicComponentName                        String?
+  electronicComponentName                      String?
 }

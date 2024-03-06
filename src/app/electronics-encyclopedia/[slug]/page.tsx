@@ -12,25 +12,25 @@ interface ProductPageProps {
   };
 }
 
-// Generate the formatted name from the slug
-const formatSlugForName = (slug: string) => {
-  return slug
-    .split('-')
-    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-    .join(' ');
-};
+// // Generate the formatted name from the slug
+// const formatSlugForName = (slug: string) => {
+//   return slug
+//     .split('-')
+//     .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+//     .join(' ');
+// };
 
 // Cache function to get electronic component data
-const getElectronicComponent = cache(async (formattedName: string) => {
+const getElectronicComponent = cache(async (slug: string) => {
   const electronicComponent = await prisma.electronicComponent.findUnique({
-    where: { name: formattedName },
+    where: { slug: slug },
     include: {
       variants: true,
       function: true,
       operation: true,
       applications: true,
-      technicalSpecs: true,
-      // thermalSpecifications: true,
+      // technicalSpecs: true,
+      // thermalSpecificat|ions: true,
       // datasheets: true,
       // additionalResources: true,
     },
@@ -45,8 +45,8 @@ const getElectronicComponent = cache(async (formattedName: string) => {
 export async function generateMetadata({
   params: { slug },
 }: ProductPageProps) {
-  const formattedName = formatSlugForName(slug);
-  const electronicComponent = await getElectronicComponent(formattedName);
+  // const formattedName = formatSlugForName(slug);
+  const electronicComponent = await getElectronicComponent(slug);
 
   // Logic to generate metadata
   // ...
@@ -59,8 +59,9 @@ export async function generateMetadata({
 
 // Display electronic component details on the page
 async function ElectronicComponentPage({ params: { slug } }: ProductPageProps) {
-  const formattedName = formatSlugForName(slug);
-  const electronicComponent = await getElectronicComponent(formattedName);
+  // const formattedName = formatSlugForName(slug);
+  console.log(slug)
+  const electronicComponent = await getElectronicComponent(slug);
 
   if (!electronicComponent) {
     console.error('Electronic component not found');

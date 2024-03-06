@@ -1,7 +1,7 @@
 import Image from "next/image";
 
 async function fetchImages(title) {
-    const cleanTitle = title.replace(/[^a-zA-Z0-9 ]/g, "").replace(/ /g, "%20");
+    const cleanTitle = title.replace(/[^a-zA-Z0-9 ]/g, "").replace(/ /g, "+");
     const images = [];
     for (let i = 0; i < 25; i++) {
         try {
