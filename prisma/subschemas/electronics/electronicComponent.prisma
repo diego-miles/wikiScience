@@ -132,22 +132,6 @@ model ElectronicComponentThermalSpecifications {
   electronicComponentName            String               @unique
 }
 
-// // Model for Technical Specifications of Electronic Components
-// model ElectronicComponentTechnicalSpecifications {
-//   id                          String                         @id @default(auto()) @map("_id") @db.ObjectId
-//   operatingVoltage            String
-//   operatingCurrent            String
-//   powerRatings                String
-//   frequencyResponse           String
-//   gainAmplification           String
-//   impedanceResistance         String
-//   toleranceAccuracy           String
-//   environmentalConsiderations String
-//   datasheets                  ElectronicComponentDatasheet[]
-//   electronicComponent         ElectronicComponent            @relation(fields: [electronicComponentName], references: [name])
-//   electronicComponentName     String                         @unique
-// }
-
 // Model for Additional Resources of Electronic Components
 model ElectronicComponentAdditionalResource {
   id                      String              @id @default(auto()) @map("_id") @db.ObjectId
