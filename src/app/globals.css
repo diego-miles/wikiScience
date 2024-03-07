@@ -24,8 +24,8 @@
   --color-green-text: #197D4F;
   --color-darkgreen-text: #005D50;
   /* Tipografía */
-  --font-size-p: 1.7rem;
-  --font-size-h1: 3.8rem;
+  --font-size-p: 1.6rem;
+  --font-size-h1: 3.7rem;
   --font-size-h2: 2.1rem;
   --font-size-h3: 1.8rem;
   --font-size-h4: 1.8rem;
@@ -122,7 +122,7 @@ main {
   max-width: 75rem;
   /* era 320px */
   width: auto;
-  padding: 0rem 1.5rem;
+  padding: 0rem 1.6rem;
   padding-top: 9rem;
   margin: 0 auto;
   position: static;
