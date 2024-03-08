@@ -7,6 +7,7 @@
   --color-h5: #2E4053;
   --color-p: #243b48;
   --color-a: #576f80;
+  --color-a2: #006397;
   --color-accent1: #3498db;
   --color-accent2: #cf4336;
   --color-accent3: #16a085;
@@ -21,6 +22,8 @@
   --color-dark: #2c3e50;
   --color-light: #e9edef;
   --color-active: #00A40B;
+  --color-soft-blue: #95D5FF;
+  --color-soft-green: #BAE9D2;
   --color-green-text: #197D4F;
   --color-darkgreen-text: #005D50;
   /* Tipografía */
@@ -144,7 +147,7 @@ p {
   font-family: var(--font-noto-sans-georgian);
   font-size: var(--font-size-p);
   color: var(--color-p);
-  padding-bottom: 0.7rem;
+  padding-bottom: 0.9rem;
   line-height: 1.4;
   /* text-wrap: pretty; */
 }
