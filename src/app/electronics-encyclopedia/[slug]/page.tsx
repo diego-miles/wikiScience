@@ -3,6 +3,8 @@ import { PrismaClient } from '@prisma/client';
 import { cache } from 'react';
 import NavBar from '@/components/NavbarContainer';
 import ScrollTopButton from '@/components/ScrollTopButton';
+import { notFound } from 'next/navigation';
+
 
 const prisma = new PrismaClient();
 
@@ -11,14 +13,6 @@ interface ProductPageProps {
     slug: string;
   };
 }
-
-// // Generate the formatted name from the slug
-// const formatSlugForName = (slug: string) => {
-//   return slug
-//     .split('-')
-//     .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-//     .join(' ');
-// };
 
 // Cache function to get electronic component data
 const getElectronicComponent = cache(async (slug: string) => {
@@ -36,7 +30,7 @@ const getElectronicComponent = cache(async (slug: string) => {
     },
   });
 
-  if (!electronicComponent) throw new Error('Electronic component not found');
+    if (!electronicComponent) notFound();
 
   return electronicComponent;
 });

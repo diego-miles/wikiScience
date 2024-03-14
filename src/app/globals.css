@@ -28,7 +28,7 @@
   --color-darkgreen-text: #005D50;
   /* Tipografía */
   --font-size-p: 1.7rem;
-  --font-size-h1: 3rem;
+  --font-size-h1: 3.1rem;
   --font-size-h2: 2.1rem;
   --font-size-h3: 1.8rem;
   --font-size-h4: 1.8rem;
@@ -126,7 +126,7 @@ main {
   /* era 320px */
   width: auto;
   padding: 0rem 1.6rem;
-  padding-top: 9rem;
+  padding-top: 11rem;
   margin: 0 auto;
   position: static;
 }
@@ -173,7 +173,8 @@ h2 {
   font-size: var(--font-size-h2);
   color: var(--color-h2);
   font-weight:600;
-  margin-bottom: 1.5rem;
+  margin-top: 1.7rem;
+  margin-bottom: 1rem;
   /* text-wrap: balance; */
 }
 
@@ -393,11 +394,6 @@ h3:hover {
   html {
     font-size: 11px;
   }
-  main {
-    padding: 0rem 3rem;
-    padding-top: 8rem;
-    margin: 0 auto;
-  }
 }
 
 @media only screen and (min-width: 768px) {
@@ -414,7 +410,7 @@ h3:hover {
   }
   main {
     padding: 0rem 3rem;
-    padding-top: 8rem;
+    padding-top: 11rem;
     margin: 0 auto;
   }
 }
@@ -433,7 +429,8 @@ h3:hover {
   } */
   main {
     padding: 0rem 3rem;
-    padding-top: 8rem;
+    padding-top: 12rem;
     margin: 0 auto;
   }
 }
+
