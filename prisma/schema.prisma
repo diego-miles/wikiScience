@@ -1,4 +1,4 @@
-//🧩Don't Edit this file.✨Generated in Sat Mar 16 2024 23:20:40 GMT-0600 (Central Standard Time)✨
+//🧩Don't Edit this file.✨Generated in Sat Mar 16 2024 23:36:54 GMT-0600 (Central Standard Time)✨
 
 generator client {
   provider = "prisma-client-js"
@@ -150,18 +150,22 @@ model ElectronicComponentMeasurements {
 }
 
 // Model for Electronic Component Functions
-type ElectronicComponentFunction {
-  primaryFunction     String
-  physicalPrinciples  Json
-  chemistryPrinciples String[]
-  comparisons         String[]
-  capabilities        String[]
-  limitations         String[]
-  diagrams            String?
+model ElectronicComponentFunction {
+  id                      String               @id @default(auto()) @map("_id") @db.ObjectId
+  primaryFunction         String
+  physicalPrinciples      Json
+  chemistryPrinciples     String[]
+  comparisons             String[]
+  capabilities            String[]
+  limitations             String[]
+  diagrams                String?
+  electronicComponent     ElectronicComponent? @relation(fields: [electronicComponentName], references: [name])
+  electronicComponentName String               @unique
 }
 
 // Model for Electronic Component Operations
-type ElectronicComponentOperation {
+model ElectronicComponentOperation {
+  id                         String                            @id @default(auto()) @map("_id") @db.ObjectId
   internalStructure          String
   operatingMechanisms        String
   keyParameters              ElectronicComponentKeyParameter[]
@@ -169,12 +173,16 @@ type ElectronicComponentOperation {
   functionalRelationships    String
   equations                  String?
   diagrams                   String?
+  electronicComponent        ElectronicComponent?              @relation(fields: [electronicComponentName], references: [name])
+  electronicComponentName    String                            @unique
 }
 
 // Model for Key Parameters of Electronic Components
-type ElectronicComponentKeyParameter {
+model ElectronicComponentKeyParameter {
+  id                      String                       @id @default(auto()) @map("_id") @db.ObjectId
   name                    String
   description             String
+  operation               ElectronicComponentOperation @relation(fields: [electronicComponentName], references: [electronicComponentName])
   electronicComponentName String
 }
 
@@ -201,19 +209,25 @@ model ElectronicComponentThermalSpecifications {
 }
 
 // Model for Additional Resources of Electronic Components
-type ElectronicComponentAdditionalResource {
-  type        String
-  description String
-  link        String
+model ElectronicComponentAdditionalResource {
+  id                      String              @id @default(auto()) @map("_id") @db.ObjectId
+  type                    String
+  description             String
+  link                    String
+  electronicComponent     ElectronicComponent @relation(fields: [electronicComponentName], references: [name])
+  electronicComponentName String
 }
 
 // Model for Datasheets of Electronic Components
-type ElectronicComponentDatasheet {
-  name        String
-  description String
-  url         String
+model ElectronicComponentDatasheet {
+  id                      String               @id @default(auto()) @map("_id") @db.ObjectId
+  name                    String
+  description             String
+  url                     String
   // electronicComponentTechnicalSpecifications   ElectronicComponentTechnicalSpecifications? @relation(fields: [electronicComponentTechnicalSpecificationsId], references: [electronicComponentName])
   // electronicComponentTechnicalSpecificationsId String?
+  electronicComponent     ElectronicComponent? @relation(fields: [electronicComponentName], references: [name])
+  electronicComponentName String?
 }
 
 model ChemicalElement {
