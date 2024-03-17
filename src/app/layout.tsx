@@ -54,7 +54,7 @@ const CookieConsent = dynamic(() => import('./CookieConsent'), { ssr: false });
 
     <html lang="en">
       <body className={` ${noto_sans_georgian.className} ${noto_serif_georgian.variable} `}>
-      <ConsentProvider>
+      {/* <ConsentProvider> */}
           <noscript>
             <iframe
               src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
@@ -106,7 +106,7 @@ const CookieConsent = dynamic(() => import('./CookieConsent'), { ssr: false });
             `}
           </Script> */}
 
-      </ConsentProvider>
+      {/* </ConsentProvider> */}
           </body>
     </html>
 
