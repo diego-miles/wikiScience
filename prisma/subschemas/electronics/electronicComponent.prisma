@@ -74,8 +74,7 @@ model ElectronicComponentMeasurements {
 }
 
 // Model for Electronic Component Functions
-model ElectronicComponentFunction {
-  id                      String               @id @default(auto()) @map("_id") @db.ObjectId
+type ElectronicComponentFunction {
   primaryFunction         String
   physicalPrinciples      Json
   chemistryPrinciples     String[]
@@ -83,13 +82,11 @@ model ElectronicComponentFunction {
   capabilities            String[]
   limitations             String[]
   diagrams                String?
-  electronicComponent     ElectronicComponent? @relation(fields: [electronicComponentName], references: [name])
-  electronicComponentName String               @unique
 }
 
 // Model for Electronic Component Operations
-model ElectronicComponentOperation {
-  id                         String                            @id @default(auto()) @map("_id") @db.ObjectId
+type ElectronicComponentOperation {
+
   internalStructure          String
   operatingMechanisms        String
   keyParameters              ElectronicComponentKeyParameter[]
@@ -97,16 +94,12 @@ model ElectronicComponentOperation {
   functionalRelationships    String
   equations                  String?
   diagrams                   String?
-  electronicComponent        ElectronicComponent?              @relation(fields: [electronicComponentName], references: [name])
-  electronicComponentName    String                            @unique
 }
 
 // Model for Key Parameters of Electronic Components
-model ElectronicComponentKeyParameter {
-  id                      String                       @id @default(auto()) @map("_id") @db.ObjectId
+type ElectronicComponentKeyParameter {
   name                    String
   description             String
-  operation               ElectronicComponentOperation @relation(fields: [electronicComponentName], references: [electronicComponentName])
   electronicComponentName String
 }
 
@@ -133,23 +126,18 @@ model ElectronicComponentThermalSpecifications {
 }
 
 // Model for Additional Resources of Electronic Components
-model ElectronicComponentAdditionalResource {
-  id                      String              @id @default(auto()) @map("_id") @db.ObjectId
+type ElectronicComponentAdditionalResource {
   type                    String
   description             String
   link                    String
-  electronicComponent     ElectronicComponent @relation(fields: [electronicComponentName], references: [name])
-  electronicComponentName String
+
 }
 
 // Model for Datasheets of Electronic Components
-model ElectronicComponentDatasheet {
-  id                                           String                                      @id @default(auto()) @map("_id") @db.ObjectId
+type ElectronicComponentDatasheet {
   name                                         String
   description                                  String
   url                                          String
   // electronicComponentTechnicalSpecifications   ElectronicComponentTechnicalSpecifications? @relation(fields: [electronicComponentTechnicalSpecificationsId], references: [electronicComponentName])
   // electronicComponentTechnicalSpecificationsId String?
-  electronicComponent                          ElectronicComponent?                        @relation(fields: [electronicComponentName], references: [name])
-  electronicComponentName                      String?
 }

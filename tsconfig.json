@@ -22,7 +22,7 @@
       "@/*": ["./src/app/*", "./public/*", "./types/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/recommendations/[subfield]/components/syllabus/SyllabusButton.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/recommendations/[subfield]/components/syllabus/SyllabusButton.js", "src/contexts/ConsentContext.tsx"],
   "exclude": ["node_modules"]
 }
  

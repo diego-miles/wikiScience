@@ -1,4 +1,4 @@
-//🧩Don't Edit this file.✨Generated in Tue Mar 12 2024 08:40:06 GMT-0600 (Central Standard Time)✨
+//🧩Don't Edit this file.✨Generated in Thu Mar 14 2024 20:44:05 GMT-0600 (Central Standard Time)✨
 
 generator client {
   provider = "prisma-client-js"
@@ -231,10 +231,10 @@ model ElectronicComponentDatasheet {
 }
 
 model ChemicalElement {
-  id                           String                               @id @default(auto()) @map("_id") @db.ObjectId
-  symbol                       String                               @unique
-  name                         String                               @unique
-  slug                         String                               @unique
+  id                           String  @id @default(auto()) @map("_id") @db.ObjectId
+  symbol                       String  @unique
+  name                         String  @unique
+  slug                         String  @unique
   atomicNumber                 Int
   atomicWeight                 Float
   description                  String
@@ -243,318 +243,35 @@ model ChemicalElement {
   boilingPoint                 Float?
   density                      Float?
   appearance                   String?
-  classifications              ChemicalElementClassification[]
-  atomicStructure              ElementAtomicStructure?
-  isotopes                     ElementIsotope[]
-  compounds                    ElementCompound[]
-  history                      ChemicalElementHistory[]
-  abundances                   ElementIsotopeAbundance[]
-  crystalStructures            ElementCrystalStructure[]
-  allotropes                   ElementAllotrope[]
-  electronConfig               ElementElectronConfiguration?
-  oxidationStates              ElementOxidationState[]
-  physicalProperties           ElementPhysicalProperties?
-  chemicalProperties           ElementChemicalProperties?
-  environmentalSafety          ElementEnvironmentalSafety?
-  practicalApplications        ElementPracticalApplication[]
-  spectralLines                ElementSpectralLine[]
-  naturalOccurrence            ElementNaturalOccurrence?
-  biologicalRole               ElementBiologicalRole?
-  economicData                 ElementEconomicData?
-  imageGallery                 ElementImageGallery[]
-  futurePredictions            ElementFuturePrediction[]
-  userInteractions             ElementUserInteraction[]
-  externalResources            ElementExternalResource[]
-  magneticElectricalProperties ElementMagneticElectricalProperties?
-  opticalProperties            ElementOpticalProperties?
-  quantumProperties            ElementQuantumProperties?
-  synthesisProduction          ElementSynthesisProduction?
-  safetyDataSheet              ElementSafetyDataSheet?
-  legalStatus                  ElementLegalStatus?
-  interdisciplinaryConnections ElementInterdisciplinaryConnection?
+  classifications              Json // Array de ChemicalElementClassification
+  atomicStructure              Json // ElementAtomicStructure
+  isotopes                     Json // Array de ElementIsotope
+  compounds                    Json // Array de ElementCompound
+  history                      Json // Array de ChemicalElementHistory
+  abundances                   Json // Array de ElementIsotopeAbundance
+  crystalStructures            Json // Array de ElementCrystalStructure
+  allotropes                   Json // Array de ElementAllotrope
+  electronConfig               Json // ElementElectronConfiguration
+  oxidationStates              Json // Array de ElementOxidationState
+  physicalProperties           Json // ElementPhysicalProperties
+  chemicalProperties           Json // ElementChemicalProperties
+  environmentalSafety          Json // ElementEnvironmentalSafety
+  practicalApplications        Json // Array de ElementPracticalApplication
+  spectralLines                Json // Array de ElementSpectralLine
+  naturalOccurrence            Json // ElementNaturalOccurrence
+  biologicalRole               Json // ElementBiologicalRole
+  economicData                 Json // ElementEconomicData
+  imageGallery                 Json // Array de ElementImageGallery
+  // futurePredictions        Json        // Array de ElementFuturePrediction
+  userInteractions             Json // Array de ElementUserInteraction
+  externalResources            Json // Array de ElementExternalResource
+  magneticElectricalProperties Json // ElementMagneticElectricalProperties
+  opticalProperties            Json // ElementOpticalProperties
+  quantumProperties            Json // ElementQuantumProperties
+  synthesisProduction          Json // ElementSynthesisProduction
+  safetyDataSheet              Json // ElementSafetyDataSheet
+  legalStatus                  Json // ElementLegalStatus
+  interdisciplinaryConnections Json // Array de ElementInterdisciplinaryConnection
 }
 
-model ChemicalElementClassification {
-  id             String          @id @default(auto()) @map("_id") @db.ObjectId
-  classification String
-  description    String?
-  element        ChemicalElement @relation(fields: [elementSymbol], references: [symbol])
-  elementSymbol  String          @unique
-}
-
-model ElementAtomicStructure {
-  id                       String          @id @default(auto()) @map("_id") @db.ObjectId
-  electrons                Int
-  protons                  Int
-  neutrons                 Int
-  ionizationEnergy         Float?
-  electronAffinity         Float?
-  atomicRadius             Float?
-  atomicPolarization       String?
-  electronegativity        Float?
-  firstIonizationPotential Float?
-  element                  ChemicalElement @relation(fields: [elementSymbol], references: [symbol])
-  elementSymbol            String          @unique
-}
-
-model ElementIsotope {
-  id                  String                    @id @default(auto()) @map("_id") @db.ObjectId
-  isotopeNumber       Int
-  abundance           Float?
-  halfLife            Float?
-  decayMode           String?
-  abundances          ElementIsotopeAbundance[]
-  spin                Float?
-  magneticMoment      Float?
-  neutronCrossSection Float?
-  element             ChemicalElement           @relation(fields: [elementSymbol], references: [symbol])
-  elementSymbol       String                    @unique
-}
-
-model ElementIsotopeAbundance {
-  id            String          @id @default(auto()) @map("_id") @db.ObjectId
-  isotope       ElementIsotope  @relation(fields: [elementSymbol], references: [elementSymbol])
-  abundance     Float
-  element       ChemicalElement @relation(fields: [elementSymbol], references: [symbol])
-  elementSymbol String
-}
-
-model ChemicalElementHistory {
-  id                   String          @id @default(auto()) @map("_id") @db.ObjectId
-  event                String
-  year                 Int
-  description          String?
-  discoverer           String?
-  placeOfDiscovery     String?
-  context              String?
-  etymology            String?
-  historicalImportance String?
-  element              ChemicalElement @relation(fields: [elementSymbol], references: [symbol])
-  elementSymbol        String
-}
-
-model ElementCrystalStructure {
-  id            String          @id @default(auto()) @map("_id") @db.ObjectId
-  type          String
-  temperature   Float?
-  element       ChemicalElement @relation(fields: [elementSymbol], references: [symbol])
-  elementSymbol String
-}
-
-model ElementAllotrope {
-  id            String          @id @default(auto()) @map("_id") @db.ObjectId
-  name          String
-  description   String?
-  element       ChemicalElement @relation(fields: [elementSymbol], references: [symbol])
-  elementSymbol String          @unique
-}
-
-model ElementElectronConfiguration {
-  id                   String          @id @default(auto()) @map("_id") @db.ObjectId
-  configuration        String
-  energyLevels         String[]
-  sublevels            Json?
-  electronsPerSublevel Json?
-  element              ChemicalElement @relation(fields: [elementSymbol], references: [symbol])
-  elementSymbol        String          @unique
-}
-
-model ElementOxidationState {
-  id            String          @id @default(auto()) @map("_id") @db.ObjectId
-  state         Int
-  element       ChemicalElement @relation(fields: [elementSymbol], references: [symbol])
-  elementSymbol String          @unique
-}
-
-model ElementPhysicalProperties {
-  id                          String          @id @default(auto()) @map("_id") @db.ObjectId
-  meltingPoint                Float?
-  boilingPoint                Float?
-  density                     Float?
-  atomicRadius                Float?
-  atomicVolume                Float?
-  covalentRadius              Float?
-  molarHeat                   String?
-  thermalConductivity         Float?
-  soundVelocity               String?
-  mohsHardness                String?
-  brinellHardness             String?
-  specificHeatCapacity        String?
-  thermalExpansionCoefficient String?
-  phaseTransitionTemperatures String?
-  element                     ChemicalElement @relation(fields: [elementSymbol], references: [symbol])
-  elementSymbol               String          @unique
-}
-
-model ElementChemicalProperties {
-  id                         String          @id @default(auto()) @map("_id") @db.ObjectId
-  electronegativity          Float?
-  ionizationPotential        Float?
-  reactivity                 String?
-  commonOxidationStates      String?
-  standardReductionPotential Float?
-  element                    ChemicalElement @relation(fields: [elementSymbol], references: [symbol])
-  elementSymbol              String          @unique
-}
-
-model ElementPracticalApplication {
-  id            String          @id @default(auto()) @map("_id") @db.ObjectId
-  application   String
-  description   String?
-  element       ChemicalElement @relation(fields: [elementSymbol], references: [symbol])
-  elementSymbol String
-}
-
-model ElementCompound {
-  id            String          @id @default(auto()) @map("_id") @db.ObjectId
-  name          String
-  formula       String
-  description   String?
-  element       ChemicalElement @relation(fields: [elementSymbol], references: [symbol])
-  elementSymbol String
-}
-
-model ElementSpectralLine {
-  id            String          @id @default(auto()) @map("_id") @db.ObjectId
-  wavelength    Float
-  intensity     String
-  lineType      String
-  series        String?
-  transition    String?
-  element       ChemicalElement @relation(fields: [elementSymbol], references: [symbol])
-  elementSymbol String
-}
-
-model ElementNaturalOccurrence {
-  id             String          @id @default(auto()) @map("_id") @db.ObjectId
-  occurrenceType String
-  location       String?
-  element        ChemicalElement @relation(fields: [elementSymbol], references: [symbol])
-  elementSymbol  String          @unique
-}
-
-model ElementBiologicalRole {
-  id            String          @id @default(auto()) @map("_id") @db.ObjectId
-  role          String
-  description   String?
-  element       ChemicalElement @relation(fields: [elementSymbol], references: [symbol])
-  elementSymbol String          @unique
-}
-
-model ElementEconomicData {
-  id                   String          @id @default(auto()) @map("_id") @db.ObjectId
-  marketPrice          String?
-  producingCountries   String?
-  industrialUse        String?
-  reserves             Float?
-  productionQuantities Float?
-  element              ChemicalElement @relation(fields: [elementSymbol], references: [symbol])
-  elementSymbol        String          @unique
-}
-
-model ElementImageGallery {
-  id                          String          @id @default(auto()) @map("_id") @db.ObjectId
-  imageUrl                    String
-  description                 String?
-  interactiveVisualizationUrl String?
-  element                     ChemicalElement @relation(fields: [elementSymbol], references: [symbol])
-  elementSymbol               String
-}
-
-model ElementEnvironmentalSafety {
-  id                    String          @id @default(auto()) @map("_id") @db.ObjectId
-  environmentalImpact   String?
-  ecosystemImpact       String?
-  healthImpact          String
-  safetyPrecautions     String?
-  biosphereAccumulation String?
-  element               ChemicalElement @relation(fields: [elementSymbol], references: [symbol])
-  elementSymbol         String          @unique
-}
-
-model ElementFuturePrediction {
-  id            String          @id @default(auto()) @map("_id") @db.ObjectId
-  prediction    String
-  description   String?
-  element       ChemicalElement @relation(fields: [elementSymbol], references: [symbol])
-  elementSymbol String
-}
-
-model ElementUserInteraction {
-  id            String          @id @default(auto()) @map("_id") @db.ObjectId
-  contribution  String
-  question      String?
-  discussion    String?
-  element       ChemicalElement @relation(fields: [elementSymbol], references: [symbol])
-  elementSymbol String
-}
-
-model ElementExternalResource {
-  id            String          @id @default(auto()) @map("_id") @db.ObjectId
-  url           String
-  resourceType  String
-  description   String?
-  references    Json
-  element       ChemicalElement @relation(fields: [elementSymbol], references: [symbol])
-  elementSymbol String
-}
-
-model ElementMagneticElectricalProperties {
-  id                     String          @id @default(auto()) @map("_id") @db.ObjectId
-  magneticSusceptibility String?
-  electricalResistivity  String?
-  hallCoefficient        String?
-  element                ChemicalElement @relation(fields: [elementSymbol], references: [symbol])
-  elementSymbol          String          @unique
-}
-
-model ElementOpticalProperties {
-  id                 String          @id @default(auto()) @map("_id") @db.ObjectId
-  refractiveIndex    String?
-  reflectivity       String?
-  absorptionSpectrum Json
-  element            ChemicalElement @relation(fields: [elementSymbol], references: [symbol])
-  elementSymbol      String          @unique
-}
-
-model ElementQuantumProperties {
-  id                 String          @id @default(auto()) @map("_id") @db.ObjectId
-  quantumNumbers     Json
-  electronShellModel Json
-  energyLevels       String[]
-  element            ChemicalElement @relation(fields: [elementSymbol], references: [symbol])
-  elementSymbol      String          @unique
-}
-
-model ElementSynthesisProduction {
-  id                String          @id @default(auto()) @map("_id") @db.ObjectId
-  synthesisMethods  String
-  extractionMethods String
-  globalProduction  String?
-  element           ChemicalElement @relation(fields: [elementSymbol], references: [symbol])
-  elementSymbol     String          @unique
-}
-
-model ElementSafetyDataSheet {
-  id               String          @id @default(auto()) @map("_id") @db.ObjectId
-  handling         String
-  storage          String
-  firstAidMeasures String
-  element          ChemicalElement @relation(fields: [elementSymbol], references: [symbol])
-  elementSymbol    String          @unique
-}
-
-model ElementLegalStatus {
-  id                String          @id @default(auto()) @map("_id") @db.ObjectId
-  regulations       Json
-  legalRestrictions String
-  element           ChemicalElement @relation(fields: [elementSymbol], references: [symbol])
-  elementSymbol     String          @unique
-}
-
-model ElementInterdisciplinaryConnection {
-  id                String          @id @default(auto()) @map("_id") @db.ObjectId
-  connectionDetails Json
-  element           ChemicalElement @relation(fields: [elementSymbol], references: [symbol])
-  elementSymbol     String          @unique
-}
+// Los modelos específicos como ElementAtomicStructure, ElementChemicalProperties, etc., ya no son necesarios de forma independiente, ya que sus campos se integran como objetos JSON en el modelo ChemicalElement.
