@@ -17,14 +17,14 @@ import React, { Suspense, useContext } from 'react';
 const CookieConsent = dynamic(() => import('./CookieConsent'), { suspense: true });
 // const GoogleAnalytics = dynamic(() => import('./GoogleAnalytics'), { suspense: true });
 
-export const noto_sans_georgian = Noto_Sans_Georgian({
+const noto_sans_georgian = Noto_Sans_Georgian({
   weight: ['400','500', '600', '700', '800'],
   // variable: '--font-noto-sans-georgian',
   // style: 'italic',
   subsets: ['latin'],
-  display: 'swap'
+  // display: 'swap'
 })
-export const noto_serif_georgian = Noto_Serif_Georgian({
+const noto_serif_georgian = Noto_Serif_Georgian({
   weight: ['400','500', '600', '700', '800', '900'],
   variable: '--font-noto-serif-georgian',
   // style: 'italic',

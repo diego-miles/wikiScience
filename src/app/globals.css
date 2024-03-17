@@ -160,7 +160,7 @@ p {
 
 
 h1 {
-  /* font-family: var(--font-noto-serif-georgian); */
+  font-family: var(--font-noto-serif-georgian);
   font-size: var(--font-size-h1);
   font-weight: 900;
   color: var(--color-h1);
