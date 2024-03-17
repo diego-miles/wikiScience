@@ -137,7 +137,7 @@ a {
   /* text-decoration-color: var(--color-active-element); */
   text-decoration: none;
   display: block;
-  font-family: var(--font-noto-sans-georgian);
+  /* font-family: var(--font-noto-sans-georgian); */
   font-size: var(--font-size-a);
   /* font-style: italic; */
   line-height: 1.1;
@@ -145,7 +145,7 @@ a {
 }
 
 p {
-  font-family: var(--font-noto-sans-georgian);
+  /* font-family: var(--font-noto-sans-georgian); */
   font-size: var(--font-size-p);
   color: var(--color-p);
   padding-bottom: 0.9rem;
@@ -160,7 +160,7 @@ p {
 
 
 h1 {
-  font-family: var(--font-noto-serif-georgian);
+  /* font-family: var(--font-noto-serif-georgian); */
   font-size: var(--font-size-h1);
   font-weight: 900;
   color: var(--color-h1);
@@ -197,14 +197,14 @@ h4 {
 }
 
 h5 {
-  font-family: var(--font-noto-serif-georgian);
+  /* font-family: var(--font-noto-serif-georgian); */
   font-size: var(--font-size-h5);
   color: var(--color-h5);
   font-weight: 400;
 }
 
 h6 {
-  font-family: var(--font-noto-serif-georgian);
+  /* font-family: var(--font-noto-serif-georgian); */
   font-size: var(--font-size-h6);
   font-weight: 400;
   color: var(--color-h6);

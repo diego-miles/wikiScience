@@ -1,21 +1,16 @@
 
 import type { Metadata } from 'next'
-import { Crimson_Text, Montserrat, Noto_Sans_Georgian, Noto_Serif_Georgian, Nunito_Sans } from 'next/font/google'
+import { Noto_Sans_Georgian, Noto_Serif_Georgian, Nunito_Sans } from 'next/font/google'
 import './globals.css'
 import './Footer'
 import Footer from './Footer'
-// import Analytics from './analytics'
-// import { Suspense } from 'react'
 import { Analytics as AnalyticsVercel } from '@vercel/analytics/react';
 import Script from 'next/script'
 import { ConsentProvider } from '../contexts/ConsentContext';
-// import CookieConsent from './CookieConsent';
 import Analytics from './GoogleAnalytics'
 import dynamic from 'next/dynamic';
-// import { Suspense } from 'react';
 import GoogleAdsScript from './GoogleAdsScript.js'
 import React, { Suspense, useContext } from 'react';
-
 
 
 
@@ -24,7 +19,7 @@ const CookieConsent = dynamic(() => import('./CookieConsent'), { suspense: true 
 
 export const noto_sans_georgian = Noto_Sans_Georgian({
   weight: ['400','500', '600', '700', '800'],
-  variable: '--font-noto-sans-georgian',
+  // variable: '--font-noto-sans-georgian',
   // style: 'italic',
   subsets: ['latin'],
   display: 'swap'
