@@ -53,8 +53,8 @@ export default function RootLayout({
   return (
 
     <html lang="en">
-      <ConsentProvider>
       <body className={` ${noto_sans_georgian.className} ${noto_serif_georgian.variable} `}>
+      <ConsentProvider>
           <noscript>
             <iframe
               src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
@@ -106,8 +106,8 @@ export default function RootLayout({
             `}
           </Script> */}
 
-          </body>
       </ConsentProvider>
+          </body>
     </html>
 
   )
