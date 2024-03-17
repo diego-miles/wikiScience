@@ -6,9 +6,9 @@ import './Footer'
 import Footer from './Footer'
 import { Analytics as AnalyticsVercel } from '@vercel/analytics/react';
 import Script from 'next/script'
-import { ConsentProvider } from '../contexts/ConsentContext';
+// import { ConsentProvider } from '../contexts/ConsentContext';
 import Analytics from './GoogleAnalytics'
-import dynamic from 'next/dynamic';
+// import dynamic from 'next/dynamic';
 import GoogleAdsScript from './GoogleAdsScript.js'
 import React, { Suspense } from 'react';
 
@@ -47,7 +47,7 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
-const CookieConsent = dynamic(() => import('./CookieConsent'), { ssr: false });
+// const CookieConsent = dynamic(() => import('./CookieConsent'), { ssr: false });
 // const GoogleAnalytics = dynamic(() => import('./GoogleAnalytics'), { suspense: true });
 
   return (
@@ -68,9 +68,9 @@ const CookieConsent = dynamic(() => import('./CookieConsent'), { ssr: false });
             <AnalyticsVercel />
             {/* <ScrollTopButton /> */}
             <Footer />
-            <Suspense fallback={<div>Loading...</div>}>
+            {/* <Suspense fallback={<div>Loading...</div>}>
               <CookieConsent />
-            </Suspense>
+            </Suspense> */}
             <Analytics />
             <GoogleAdsScript />
             
