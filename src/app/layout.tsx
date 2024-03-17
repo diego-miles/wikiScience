@@ -17,14 +17,16 @@ import React, { Suspense, useContext } from 'react';
 const CookieConsent = dynamic(() => import('./CookieConsent'), { suspense: true });
 // const GoogleAnalytics = dynamic(() => import('./GoogleAnalytics'), { suspense: true });
 
-const noto_sans_georgian = Noto_Sans_Georgian({
+export const noto_sans_georgian = Noto_Sans_Georgian({
   weight: ['400','500', '600', '700', '800'],
-  // variable: '--font-noto-sans-georgian',
+  variable: '--font-noto-sans-georgian',
   // style: 'italic',
   subsets: ['latin'],
-  // display: 'swap'
+  display: 'swap'
 })
-const noto_serif_georgian = Noto_Serif_Georgian({
+
+
+export const noto_serif_georgian = Noto_Serif_Georgian({
   weight: ['400','500', '600', '700', '800', '900'],
   variable: '--font-noto-serif-georgian',
   // style: 'italic',
@@ -52,7 +54,7 @@ export default function RootLayout({
 
     <html lang="en">
       <ConsentProvider>
-          <body className={` ${noto_sans_georgian.className} ${noto_serif_georgian.variable} `}>
+      <body className={` ${noto_sans_georgian.className} ${noto_serif_georgian.variable} `}>
           <noscript>
             <iframe
               src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
