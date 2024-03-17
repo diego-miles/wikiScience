@@ -1,44 +1,46 @@
 "use client"
-import React, { createContext, useState, useContext, useEffect } from 'react';
+import React, { createContext, useState, useEffect, useContext } from 'react';
 import Cookies from 'js-cookie';
 
 interface ConsentContextType {
-  consent: string | undefined;
+  consent: string | null;
   updateConsent: (newConsent: string) => void;
   isCookieConsentVisible: boolean;
   setCookieConsentVisible: (isVisible: boolean) => void;
 }
 
-const defaultConsentValue: ConsentContextType = {
-  consent: Cookies.get('cookie-consent'),
+const ConsentContext = createContext<ConsentContextType>({
+  consent: null,
   updateConsent: () => {},
-  isCookieConsentVisible: !Cookies.get('cookie-consent'),
+  isCookieConsentVisible: true,
   setCookieConsentVisible: () => {}
-};
-
-export const ConsentContext = createContext<ConsentContextType>(defaultConsentValue);
+});
 
 export const useConsent = () => useContext(ConsentContext);
 
 export const ConsentProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [consent, setConsent] = useState<string | undefined>(Cookies.get('cookie-consent'));
-  // Show the consent UI if the cookie hasn't been set
+  const initialConsent = Cookies.get('cookie-consent') ?? null;
+  const [consent, setConsent] = useState<string | null>(initialConsent);
   const [isCookieConsentVisible, setCookieConsentVisible] = useState<boolean>(!consent);
 
-
   useEffect(() => {
-    setCookieConsentVisible(!consent);
-  }, [consent]);
+    const existingConsent = Cookies.get('cookie-consent') ?? null;
+    if (existingConsent !== null) {
+      setConsent(existingConsent);
+      setCookieConsentVisible(false);
+    }
+  }, []);
 
   const updateConsent = (newConsent: string) => {
-    setConsent(newConsent);
     Cookies.set('cookie-consent', newConsent, {
       expires: 365,
-      sameSite: 'None',
+      sameSite: 'Lax',
       secure: true
     });
+    setConsent(newConsent);
     setCookieConsentVisible(false);
   };
+
 
   return (
     <ConsentContext.Provider value={{ consent, updateConsent, isCookieConsentVisible, setCookieConsentVisible }}>
@@ -47,3 +49,4 @@ export const ConsentProvider: React.FC<{ children: React.ReactNode }> = ({ child
   );
 };
 
+export default ConsentContext;

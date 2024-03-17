@@ -18,16 +18,15 @@ declare global {
 }
 
 const CookieConsentClient = () => {
-  const { updateConsent, setCookieConsentVisible } = useConsent();
-  const [isVisible, setIsVisible] = useState(true); // Nuevo estado para controlar la visibilidad
+  const { consent, updateConsent, isCookieConsentVisible, setCookieConsentVisible } = useConsent();
 
   const handleConsentChange = (consent: 'accepted' | 'rejected') => {
     console.log(`${consent} clicked`);
     updateConsent(consent);
-    setCookieConsentVisible(false);
-    setIsVisible(false); // Ocultar el contenido
+    setCookieConsentVisible(false); // This will update the state in the context
     updateAdSettings(consent === 'accepted');
   };
+
 
   const updateAdSettings = (consentGiven: boolean) => {
     window.adsbygoogle = window.adsbygoogle || [];
@@ -55,7 +54,7 @@ const CookieConsentClient = () => {
     }
 };
 
-  if (!isVisible) return null; // No renderizar el contenido si isVisible es false
+  if (!isCookieConsentVisible) return null; // Use the state from context instead of local state
 
   return (
     <div className={styles.cookieConsentContainer}>
