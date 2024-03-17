@@ -24,7 +24,7 @@ const noto_sans_georgian = Noto_Sans_Georgian({
 })
 
 
-export const noto_serif_georgian = Noto_Serif_Georgian({
+const noto_serif_georgian = Noto_Serif_Georgian({
   weight: ['400','500', '600', '700', '800', '900'],
   variable: '--font-noto-serif-georgian',
   // style: 'italic',
