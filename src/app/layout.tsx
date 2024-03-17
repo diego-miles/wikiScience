@@ -6,18 +6,18 @@ import './Footer'
 import Footer from './Footer'
 import { Analytics as AnalyticsVercel } from '@vercel/analytics/react';
 import Script from 'next/script'
-// import { ConsentProvider } from '../contexts/ConsentContext';
+import { ConsentProvider } from '../contexts/ConsentContext';
 import Analytics from './GoogleAnalytics'
-// import dynamic from 'next/dynamic';
+import dynamic from 'next/dynamic';
 import GoogleAdsScript from './GoogleAdsScript.js'
 import React, { Suspense } from 'react';
 
 
 
 
-export const noto_sans_georgian = Noto_Sans_Georgian({
-  weight: ['400','500', '600', '700', '800'],
-  variable: '--font-noto-sans-georgian',
+const noto_sans_georgian = Noto_Sans_Georgian({
+  // weight: ['400','500', '600', '700', '800'],
+  // variable: '--font-noto-sans-georgian',
   // style: 'italic',
   subsets: ['latin'],
   display: 'swap'
@@ -47,14 +47,14 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
-// const CookieConsent = dynamic(() => import('./CookieConsent'), { ssr: false });
-// const GoogleAnalytics = dynamic(() => import('./GoogleAnalytics'), { suspense: true });
 
+const CookieConsent = dynamic(() => import('./CookieConsent'), { ssr: false });
+// const GoogleAnalytics = dynamic(() => import('./GoogleAnalytics'), { suspense: true });
   return (
 
     <html lang="en">
       <body className={` ${noto_sans_georgian.className} ${noto_serif_georgian.variable} `}>
-      {/* <ConsentProvider> */}
+      <ConsentProvider>
           <noscript>
             <iframe
               src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
@@ -68,9 +68,9 @@ export default function RootLayout({
             <AnalyticsVercel />
             {/* <ScrollTopButton /> */}
             <Footer />
-            {/* <Suspense fallback={<div>Loading...</div>}>
+            <Suspense fallback={<div>Loading...</div>}>
               <CookieConsent />
-            </Suspense> */}
+            </Suspense>
             <Analytics />
             <GoogleAdsScript />
             
@@ -106,7 +106,7 @@ export default function RootLayout({
             `}
           </Script> */}
 
-      {/* </ConsentProvider> */}
+      </ConsentProvider>
           </body>
     </html>
 
