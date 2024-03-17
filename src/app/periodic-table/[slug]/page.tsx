@@ -82,7 +82,7 @@ const renderField = (label:any, value:any, isSubField = false) => {
     },
     "Economic Data and Future Predictions": {
       "Economic Data": element.economicData,
-      "Future Predictions": element.futurePredictions
+      "Future Predictions": element?.futurePredictions
     },
     "Environmental Safety and Health Impact": element.environmentalSafety,
     "Atomic and Chemical Properties": {

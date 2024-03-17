@@ -1,4 +1,4 @@
-//🧩Don't Edit this file.✨Generated in Thu Mar 14 2024 20:44:05 GMT-0600 (Central Standard Time)✨
+//🧩Don't Edit this file.✨Generated in Sat Mar 16 2024 23:20:40 GMT-0600 (Central Standard Time)✨
 
 generator client {
   provider = "prisma-client-js"
@@ -150,22 +150,18 @@ model ElectronicComponentMeasurements {
 }
 
 // Model for Electronic Component Functions
-model ElectronicComponentFunction {
-  id                      String               @id @default(auto()) @map("_id") @db.ObjectId
-  primaryFunction         String
-  physicalPrinciples      Json
-  chemistryPrinciples     String[]
-  comparisons             String[]
-  capabilities            String[]
-  limitations             String[]
-  diagrams                String?
-  electronicComponent     ElectronicComponent? @relation(fields: [electronicComponentName], references: [name])
-  electronicComponentName String               @unique
+type ElectronicComponentFunction {
+  primaryFunction     String
+  physicalPrinciples  Json
+  chemistryPrinciples String[]
+  comparisons         String[]
+  capabilities        String[]
+  limitations         String[]
+  diagrams            String?
 }
 
 // Model for Electronic Component Operations
-model ElectronicComponentOperation {
-  id                         String                            @id @default(auto()) @map("_id") @db.ObjectId
+type ElectronicComponentOperation {
   internalStructure          String
   operatingMechanisms        String
   keyParameters              ElectronicComponentKeyParameter[]
@@ -173,16 +169,12 @@ model ElectronicComponentOperation {
   functionalRelationships    String
   equations                  String?
   diagrams                   String?
-  electronicComponent        ElectronicComponent?              @relation(fields: [electronicComponentName], references: [name])
-  electronicComponentName    String                            @unique
 }
 
 // Model for Key Parameters of Electronic Components
-model ElectronicComponentKeyParameter {
-  id                      String                       @id @default(auto()) @map("_id") @db.ObjectId
+type ElectronicComponentKeyParameter {
   name                    String
   description             String
-  operation               ElectronicComponentOperation @relation(fields: [electronicComponentName], references: [electronicComponentName])
   electronicComponentName String
 }
 
@@ -209,25 +201,19 @@ model ElectronicComponentThermalSpecifications {
 }
 
 // Model for Additional Resources of Electronic Components
-model ElectronicComponentAdditionalResource {
-  id                      String              @id @default(auto()) @map("_id") @db.ObjectId
-  type                    String
-  description             String
-  link                    String
-  electronicComponent     ElectronicComponent @relation(fields: [electronicComponentName], references: [name])
-  electronicComponentName String
+type ElectronicComponentAdditionalResource {
+  type        String
+  description String
+  link        String
 }
 
 // Model for Datasheets of Electronic Components
-model ElectronicComponentDatasheet {
-  id                      String               @id @default(auto()) @map("_id") @db.ObjectId
-  name                    String
-  description             String
-  url                     String
+type ElectronicComponentDatasheet {
+  name        String
+  description String
+  url         String
   // electronicComponentTechnicalSpecifications   ElectronicComponentTechnicalSpecifications? @relation(fields: [electronicComponentTechnicalSpecificationsId], references: [electronicComponentName])
   // electronicComponentTechnicalSpecificationsId String?
-  electronicComponent     ElectronicComponent? @relation(fields: [electronicComponentName], references: [name])
-  electronicComponentName String?
 }
 
 model ChemicalElement {
@@ -262,7 +248,7 @@ model ChemicalElement {
   biologicalRole               Json // ElementBiologicalRole
   economicData                 Json // ElementEconomicData
   imageGallery                 Json // Array de ElementImageGallery
-  // futurePredictions        Json        // Array de ElementFuturePrediction
+  futurePredictions            Json // Array de ElementFuturePrediction
   userInteractions             Json // Array de ElementUserInteraction
   externalResources            Json // Array de ElementExternalResource
   magneticElectricalProperties Json // ElementMagneticElectricalProperties

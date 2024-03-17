@@ -30,7 +30,7 @@ model ChemicalElement {
     biologicalRole           Json        // ElementBiologicalRole
     economicData             Json        // ElementEconomicData
     imageGallery             Json        // Array de ElementImageGallery
-    // futurePredictions        Json        // Array de ElementFuturePrediction
+    futurePredictions        Json        // Array de ElementFuturePrediction
     userInteractions         Json        // Array de ElementUserInteraction
     externalResources        Json        // Array de ElementExternalResource
     magneticElectricalProperties Json    // ElementMagneticElectricalProperties
