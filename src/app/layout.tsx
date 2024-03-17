@@ -10,11 +10,11 @@ import { ConsentProvider } from '../contexts/ConsentContext';
 import Analytics from './GoogleAnalytics'
 import dynamic from 'next/dynamic';
 import GoogleAdsScript from './GoogleAdsScript.js'
-import React, { Suspense, useContext } from 'react';
+import React, { Suspense } from 'react';
 
 
 
-const CookieConsent = dynamic(() => import('./CookieConsent'), { suspense: true });
+const CookieConsent = dynamic(() => import('./CookieConsent'), { ssr: false });
 // const GoogleAnalytics = dynamic(() => import('./GoogleAnalytics'), { suspense: true });
 
 export const noto_sans_georgian = Noto_Sans_Georgian({
