@@ -14,8 +14,6 @@ import React, { Suspense } from 'react';
 
 
 
-const CookieConsent = dynamic(() => import('./CookieConsent'), { ssr: false });
-// const GoogleAnalytics = dynamic(() => import('./GoogleAnalytics'), { suspense: true });
 
 export const noto_sans_georgian = Noto_Sans_Georgian({
   weight: ['400','500', '600', '700', '800'],
@@ -49,6 +47,8 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+const CookieConsent = dynamic(() => import('./CookieConsent'), { ssr: false });
+// const GoogleAnalytics = dynamic(() => import('./GoogleAnalytics'), { suspense: true });
 
   return (
 
