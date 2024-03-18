@@ -4,6 +4,7 @@ import { cache } from 'react';
 import NavBar from '@/components/NavbarContainer';
 import ScrollTopButton from '@/components/ScrollTopButton';
 import { notFound } from 'next/navigation';
+import LocalContextLinks from '@/components/LocalContextLinks';
 
 
 const prisma = new PrismaClient();
@@ -52,10 +53,15 @@ export async function generateMetadata({
 }
 
 // Display electronic component details on the page
-async function ElectronicComponentPage({ params: { slug } }: ProductPageProps) {
-  // const formattedName = formatSlugForName(slug);
-  console.log(slug)
+const ElectronicComponentPage: React.FC<ProductPageProps> = async ({ params: { slug } }) => {
   const electronicComponent = await getElectronicComponent(slug);
+
+  // Define the links for smooth scrolling
+  const contextLinks = [
+    { text: 'Variants', id: 'variants-section' },
+    { text: 'Functions', id: 'functions-section' },
+    // Add other sections as needed
+  ];
 
   if (!electronicComponent) {
     console.error('Electronic component not found');
@@ -64,50 +70,29 @@ async function ElectronicComponentPage({ params: { slug } }: ProductPageProps) {
 
   return (
     <div>
-        <NavBar domain="www.wiki-science.com/" menuPath='./NavigationMenu' />      <main>
-        {/* Display electronic component information */}
+      <NavBar domain="www.wiki-science.com/" menuPath='./NavigationMenu' />
+
+      <main>
         <h1>{electronicComponent.name}</h1>
+        <LocalContextLinks links={contextLinks} />
         <p>Description: {electronicComponent.description}</p>
 
-        {/* Variants */}
-        {electronicComponent.variants && (
-          <div>
-            <h2>Variants</h2>
-            {electronicComponent.variants.map((variant) => (
-              <p key={variant.id}>{variant.name}: {variant.description}</p>
-            ))}
-          </div>
-        )}
+        <div id="variants-section">
+          <h2>Variants</h2>
+          {electronicComponent.variants && electronicComponent.variants.map((variant) => (
+            <p key={variant.id}>{variant.name}: {variant.description}</p>
+          ))}
+        </div>
 
-        {/* Functions */}
-        {Array.isArray(electronicComponent.function) && electronicComponent.function.length > 0 && (
-          <div>
-            <h2>Functions</h2>
-            {electronicComponent.function.map((func) => (
-              <p key={func.id}>{func.primaryFunction}: {func.physicalPrinciples}</p>
-            ))}
-          </div>
-        )}
-
-        {/* Operations */}
-        {electronicComponent.operation && (
-          <div>
-            <h2>Operations</h2>
-            {/* Add the necessary code to display operations */}
-          </div>
-        )}
-
-        {/* Applications */}
-        {electronicComponent.applications && (
-          <div>
-            <h2>Applications</h2>
-            {/* Add the necessary code to display applications */}
-          </div>
-        )}
+        <div id="functions-section">
+          <h2>Functions</h2>
+          {Array.isArray(electronicComponent.function) && electronicComponent.function.map((func) => (
+            <p key={func.id}>{func.primaryFunction}: {func.physicalPrinciples}</p>
+          ))}
+        </div>
 
         {/* Repeat the pattern for other sections... */}
 
-        <div className='globalSpace'></div>
         <ScrollTopButton />
       </main>
     </div>

@@ -1,4 +1,4 @@
-//🧩Don't Edit this file.✨Generated in Sat Mar 16 2024 23:36:54 GMT-0600 (Central Standard Time)✨
+//🧩Don't Edit this file.✨Generated in Sun Mar 17 2024 19:39:17 GMT-0600 (Central Standard Time)✨
 
 generator client {
   provider = "prisma-client-js"
@@ -262,16 +262,16 @@ model ChemicalElement {
   biologicalRole               Json // ElementBiologicalRole
   economicData                 Json // ElementEconomicData
   imageGallery                 Json // Array de ElementImageGallery
-  futurePredictions            Json // Array de ElementFuturePrediction
-  userInteractions             Json // Array de ElementUserInteraction
-  externalResources            Json // Array de ElementExternalResource
-  magneticElectricalProperties Json // ElementMagneticElectricalProperties
-  opticalProperties            Json // ElementOpticalProperties
-  quantumProperties            Json // ElementQuantumProperties
-  synthesisProduction          Json // ElementSynthesisProduction
-  safetyDataSheet              Json // ElementSafetyDataSheet
-  legalStatus                  Json // ElementLegalStatus
-  interdisciplinaryConnections Json // Array de ElementInterdisciplinaryConnection
+  futurePredictions            Json? // Array de ElementFuturePrediction
+  userInteractions             Json? // Array de ElementUserInteraction
+  externalResources            Json? // Array de ElementExternalResource
+  magneticElectricalProperties Json? // ElementMagneticElectricalProperties
+  opticalProperties            Json? // ElementOpticalProperties
+  quantumProperties            Json? // ElementQuantumProperties
+  synthesisProduction          Json? // ElementSynthesisProduction
+  safetyDataSheet              Json? // ElementSafetyDataSheet
+  legalStatus                  Json? // ElementLegalStatus
+  interdisciplinaryConnections Json? // Array de ElementInterdisciplinaryConnection
 }
 
 // Los modelos específicos como ElementAtomicStructure, ElementChemicalProperties, etc., ya no son necesarios de forma independiente, ya que sus campos se integran como objetos JSON en el modelo ChemicalElement.

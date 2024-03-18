@@ -4,6 +4,8 @@ import { cache } from 'react';
 import NavBar from '@/components/NavbarContainer';
 import ScrollTopButton from '@/components/ScrollTopButton';
 import { notFound } from 'next/navigation';
+import LocalContextLinks from '@/components/LocalContextLinks'; // Import the component
+
 
 const prisma = new PrismaClient();
 
@@ -50,7 +52,7 @@ const renderField = (label:any, value:any, isSubField = false) => {
   }
 
   if (typeof value === 'object' && !React.isValidElement(value)) {
-    const HeadingTag = isSubField ? 'h4' : 'h3'; // Adjusted heading levels for semantics
+    const HeadingTag = isSubField ? 'h2' : 'h2'; // Adjusted heading levels for semantics
     return (
       <div>
         <HeadingTag>{label}:</HeadingTag>
@@ -66,24 +68,26 @@ const renderField = (label:any, value:any, isSubField = false) => {
 
 
 
+
+
     // Estructura personalizada según tu jerarquía
   const structuredElement = {
     // "Element": element.name,
     // "Symbol": element.symbol,
     // "Name": element.name,
-    "Atomic Number": element.atomicNumber,
-    "Atomic Weight": element.atomicWeight,
-    "Appearance": element.appearance,
-    "General Description": element.description,
+    // "Atomic Number": element.atomicNumber,
+    // "Atomic Weight": element.atomicWeight,
+    // "Appearance": element.appearance,
+    // "General Description": element.description,
     "Discovery and History": element.history,
-    "Natural Occurrence and Biological Role": {
+    // "Natural Occurrence and Biological Role": {
       "Occurrence": element.naturalOccurrence,
-      "Biological Role": element.biologicalRole
-    },
-    "Economic Data and Future Predictions": {
+      "Biological Role": element.biologicalRole,
+    // },
+    // "Economic Data and Future Predictions": {
       "Economic Data": element.economicData,
-      "Future Predictions": element?.futurePredictions
-    },
+      // "Future Predictions": element?.futurePredictions
+    // },
     "Environmental Safety and Health Impact": element.environmentalSafety,
     "Atomic and Chemical Properties": {
       "Classifications": element.classifications,
@@ -93,32 +97,39 @@ const renderField = (label:any, value:any, isSubField = false) => {
       "Electron Configuration": element.electronConfig
     },
     "Physical Properties": element.physicalProperties,
-    "Quantum, Magnetic, and Optical Properties": {
+    // "Quantum, Magnetic, and Optical Properties": {
       "Quantum Properties": element.quantumProperties,
       "Magnetic and Electrical Properties": element.magneticElectricalProperties,
-      "Optical Properties": element.opticalProperties
-    },
-    "Compounds, Isotopes, and Crystal Structures": {
+      "Optical Properties": element.opticalProperties,
+    // },
+    // "Compounds, Isotopes, and Crystal Structures": {
       "Compounds": element.compounds,
       "Isotopes": element.isotopes,
-      "Crystal Structures": element.crystalStructures
-    },
-    "Practical Applications and Synthesis": {
+      "Crystal Structures": element.crystalStructures,
+    // },
+    // "Practical Applications and Synthesis": {
       "Practical Applications": element.practicalApplications,
-      "Synthesis and Production": element.synthesisProduction
-    },
-    "Safety, Legal Status, and Interdisciplinary Connections": {
+      "Synthesis and Production": element.synthesisProduction,
+    // },
+    // "Safety, Legal Status, and Interdisciplinary Connections": {
       "Safety Data Sheet": element.safetyDataSheet,
       "Legal Status": element.legalStatus,
-      "Interdisciplinary Connections": element.interdisciplinaryConnections
-    },
-    "Additional Information": {
-      "Image Gallery": element.imageGallery,
-      "User Interactions": element.userInteractions
-    }
+      "Interdisciplinary Connections": element.interdisciplinaryConnections,
+    // },
+    // "Additional Information": {
+      // "Image Gallery": element.imageGallery,
+      "User Interactions": element.userInteractions,
+    // }
   };
 
-  // Rendering logic remains the same.
+  // Function to transform title into a suitable ID format
+  const titleToId = (title: string) => {
+    return title.toLowerCase().replace(/ /g, '-').replace(/[^a-z0-9-]/g, '');
+  };
+  const links = Object.keys(structuredElement).map(title => ({
+    text: title,
+    id: titleToId(title)
+  }));
 
 
   return (
@@ -126,13 +137,23 @@ const renderField = (label:any, value:any, isSubField = false) => {
       <NavBar domain="www.wiki-science.com/" menuPath='./NavigationMenu' />
       <main>
         <h1>{element.name} ({element.symbol})</h1>
-        {Object.entries(structuredElement).map(([label, value]) => renderField(label, value))}
+        <LocalContextLinks links={links} />
+        
+        <p><strong>Atomic Number:</strong> {element.atomicNumber}</p>
+        <p><strong>Atomic Weight:</strong> {element.atomicWeight}</p>
+        <p><strong>Appearance:</strong> {element.appearance}</p>
+        <p><strong>General Description:</strong> {element.description}</p>
+
+        {Object.entries(structuredElement).map(([label, value], index) => (
+          <section key={label + index} id={titleToId(label)}>
+            {renderField(label, value)}
+          </section>
+        ))}
         <ScrollTopButton />
       </main>
     </div>
   );
+
 }
-
-
 
 export default ElementPage;

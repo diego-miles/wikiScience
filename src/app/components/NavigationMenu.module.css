@@ -35,7 +35,7 @@
   max-width: 35rem;
   font-size: 1.7rem;
   padding: .5rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 0.5rem;
 }
 
 .menuWrapper::-webkit-scrollbar {
@@ -58,13 +58,14 @@
 }
 
 .titleField {
-  font-family: var(--font-family-h1);
-  color: var(--color-accent2);
-  font-size: 2rem;
-  font-weight: 600;
+  /* font-family: var(--font-family-h1); */
+  color: var(--color-darkgreen-text);
+  font-size: 2.1rem;
+  font-weight: 500;
   /* padding: .5rem 0; */
-  padding-bottom: 1rem;
-  padding-top: 1.9rem;
+  padding-bottom: 1.2rem;
+  padding-top: 2rem;
+  text-align: center;
 }
 
 .branchContainer {
@@ -106,8 +107,8 @@
   font-weight: 300;
   /* line-height: 110%; */
   /* padding-bottom: 0.5rem; */
-  border-left: 0.4rem solid #e2e7e7;
-  padding-left: 0.3rem;
+  border-left: 0.4rem solid var(--color-light);
+  padding-left: 0.4rem;
 }
 
 .subTopic a {
@@ -117,6 +118,9 @@
   text-decoration-color: var(--color-accent1);
   font-size: 1.7rem;
   font-weight: 500;
+  /* padding-left: .2rem; */
+  padding-bottom: .5rem;
+  /* line-height: 1; */
 }
 
 @media (min-width: 768px) {

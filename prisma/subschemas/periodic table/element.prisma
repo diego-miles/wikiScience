@@ -30,16 +30,16 @@ model ChemicalElement {
     biologicalRole           Json        // ElementBiologicalRole
     economicData             Json        // ElementEconomicData
     imageGallery             Json        // Array de ElementImageGallery
-    futurePredictions        Json        // Array de ElementFuturePrediction
-    userInteractions         Json        // Array de ElementUserInteraction
-    externalResources        Json        // Array de ElementExternalResource
-    magneticElectricalProperties Json    // ElementMagneticElectricalProperties
-    opticalProperties        Json        // ElementOpticalProperties
-    quantumProperties        Json        // ElementQuantumProperties
-    synthesisProduction      Json        // ElementSynthesisProduction
-    safetyDataSheet          Json        // ElementSafetyDataSheet
-    legalStatus              Json        // ElementLegalStatus
-    interdisciplinaryConnections Json    // Array de ElementInterdisciplinaryConnection
+    futurePredictions        Json?        // Array de ElementFuturePrediction
+    userInteractions         Json?        // Array de ElementUserInteraction
+    externalResources        Json?        // Array de ElementExternalResource
+    magneticElectricalProperties Json?    // ElementMagneticElectricalProperties
+    opticalProperties        Json?        // ElementOpticalProperties
+    quantumProperties        Json?        // ElementQuantumProperties
+    synthesisProduction      Json?        // ElementSynthesisProduction
+    safetyDataSheet          Json?        // ElementSafetyDataSheet
+    legalStatus              Json?        // ElementLegalStatus
+    interdisciplinaryConnections Json?    // Array de ElementInterdisciplinaryConnection
 }
 
 // Los modelos específicos como ElementAtomicStructure, ElementChemicalProperties, etc., ya no son necesarios de forma independiente, ya que sus campos se integran como objetos JSON en el modelo ChemicalElement.
