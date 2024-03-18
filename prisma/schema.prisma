@@ -1,4 +1,4 @@
-//🧩Don't Edit this file.✨Generated in Sun Mar 17 2024 19:39:17 GMT-0600 (Central Standard Time)✨
+//🧩Don't Edit this file.✨Generated in Mon Mar 18 2024 12:27:06 GMT-0600 (Central Standard Time)✨
 
 generator client {
   provider = "prisma-client-js"
@@ -231,10 +231,10 @@ model ElectronicComponentDatasheet {
 }
 
 model ChemicalElement {
-  id                           String  @id @default(auto()) @map("_id") @db.ObjectId
-  symbol                       String  @unique
-  name                         String  @unique
-  slug                         String  @unique
+  id                           String         @id @default(auto()) @map("_id") @db.ObjectId
+  symbol                       String         @unique
+  name                         String         @unique
+  slug                         String         @unique
   atomicNumber                 Int
   atomicWeight                 Float
   description                  String
@@ -261,7 +261,7 @@ model ChemicalElement {
   naturalOccurrence            Json // ElementNaturalOccurrence
   biologicalRole               Json // ElementBiologicalRole
   economicData                 Json // ElementEconomicData
-  imageGallery                 Json // Array de ElementImageGallery
+  imageGallery                 imageGallery[] // Array de ElementImageGallery
   futurePredictions            Json? // Array de ElementFuturePrediction
   userInteractions             Json? // Array de ElementUserInteraction
   externalResources            Json? // Array de ElementExternalResource
@@ -275,3 +275,8 @@ model ChemicalElement {
 }
 
 // Los modelos específicos como ElementAtomicStructure, ElementChemicalProperties, etc., ya no son necesarios de forma independiente, ya que sus campos se integran como objetos JSON en el modelo ChemicalElement.
+
+type imageGallery {
+  imageUrl    String
+  description String
+}

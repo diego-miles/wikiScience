@@ -5,7 +5,13 @@ import NavBar from '@/components/NavbarContainer';
 import ScrollTopButton from '@/components/ScrollTopButton';
 import { notFound } from 'next/navigation';
 import LocalContextLinks from '@/components/LocalContextLinks'; // Import the component
+import ImageCarousel from '@/components/ImageCarousel'; // Ajusta la ruta según tu estructura de proyecto
 
+
+interface ImageGalleryItem {
+  imageUrl: string;
+  description: string;
+}
 
 const prisma = new PrismaClient();
 
@@ -88,7 +94,7 @@ const renderField = (label:any, value:any, isSubField = false) => {
       "Economic Data": element.economicData,
       // "Future Predictions": element?.futurePredictions
     // },
-    "Environmental Safety and Health Impact": element.environmentalSafety,
+    "Safety and Health Impact": element.environmentalSafety,
     "Atomic and Chemical Properties": {
       "Classifications": element.classifications,
       "Atomic Structure": element.atomicStructure,
@@ -131,14 +137,25 @@ const renderField = (label:any, value:any, isSubField = false) => {
     id: titleToId(title)
   }));
 
+function isImageGalleryItem(item: any): item is ImageGalleryItem {
+  return item && typeof item === 'object' && 'imageUrl' in item && 'description' in item;
+}
 
+  // Check and map over the gallery only if it's an array of the expected type
+  const images = element.imageGallery.map((img: ImageGalleryItem) => ({
+    URL: img.imageUrl,
+    Description: img.description
+  }));
+
+
+  
   return (
-    <div>
+    <>
       <NavBar domain="www.wiki-science.com/" menuPath='./NavigationMenu' />
       <main>
         <h1>{element.name} ({element.symbol})</h1>
         <LocalContextLinks links={links} />
-        
+            {images.length > 0 && <ImageCarousel images={images} />}
         <p><strong>Atomic Number:</strong> {element.atomicNumber}</p>
         <p><strong>Atomic Weight:</strong> {element.atomicWeight}</p>
         <p><strong>Appearance:</strong> {element.appearance}</p>
@@ -151,7 +168,7 @@ const renderField = (label:any, value:any, isSubField = false) => {
         ))}
         <ScrollTopButton />
       </main>
-    </div>
+    </>
   );
 
 }

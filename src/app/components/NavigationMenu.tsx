@@ -16,7 +16,7 @@ const NavigationMenu: React.FC<NavigationMenuProps> = ({ className, style }) => 
     
     return (
         <div tabIndex={0} className={`${styles.menuWrapper} ${className}`} style={style}>
-            <div className={styles.menuMain}>
+            <div className={styles.menuMain}> 
                 <div className={styles.header}>Top Science Books</div>
                 <div className={styles.navContainer}>
                     {data.map((field, idx) => (

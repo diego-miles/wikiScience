@@ -29,7 +29,7 @@ model ChemicalElement {
     naturalOccurrence        Json        // ElementNaturalOccurrence
     biologicalRole           Json        // ElementBiologicalRole
     economicData             Json        // ElementEconomicData
-    imageGallery             Json        // Array de ElementImageGallery
+    imageGallery             imageGallery[]        // Array de ElementImageGallery
     futurePredictions        Json?        // Array de ElementFuturePrediction
     userInteractions         Json?        // Array de ElementUserInteraction
     externalResources        Json?        // Array de ElementExternalResource
@@ -43,3 +43,8 @@ model ChemicalElement {
 }
 
 // Los modelos específicos como ElementAtomicStructure, ElementChemicalProperties, etc., ya no son necesarios de forma independiente, ya que sus campos se integran como objetos JSON en el modelo ChemicalElement.
+
+type imageGallery {
+    imageUrl String
+    description String
+}
