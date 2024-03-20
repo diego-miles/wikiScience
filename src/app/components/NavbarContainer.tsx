@@ -3,6 +3,8 @@ import React, { useState, useEffect, useCallback, memo, useRef, FC, CSSPropertie
 import Link from 'next/link';
 import styles from './NavbarContainer.module.css';
 import { Suspense, lazy } from 'react';
+import CrossIcon from './CrossIcon'; // Import the new CrossIcon component
+
 
 const toSlug = (title: string): string => title.toLowerCase().replace(/\s+/g, '_');
 
@@ -126,9 +128,11 @@ const NavBarContainer: FC<NavbarProps> = memo(({ title, title2, title3, domain, 
             <Suspense fallback={<div>Loading menu...</div>}>
                 <NavigationMenu style={menuStyle} />
             </Suspense>
+            <CrossIcon isOpen={isMenuVisible} onClick={toggleMenu} />
         </div>
     );
 });
+
 
 NavBarContainer.displayName = 'NavBarContainer';
 

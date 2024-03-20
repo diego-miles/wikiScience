@@ -1,0 +1,78 @@
+.localContextLinksContainer {
+    display: flex;
+    overflow-x: auto;
+    /* Permite el desplazamiento horizontal */
+    align-items: center;
+    position: fixed;
+    /* Fija el contenedor en la parte superior */
+    top: 5rem;
+    /* Distancia desde la parte superior */
+    left: 0;
+    right: 0;
+    gap: 0.8rem;
+    padding:0 1rem;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    background-color: var(--color-background1);
+    /* O el color de fondo deseado */
+    z-index: 10;
+    /* Asegura que esté sobre otros elementos */
+    padding-left: 1rem;
+    /* Espaciado inicial para los links */
+    white-space: nowrap;
+        /* Evita el ajuste automático del texto */
+}
+
+.linkText {
+    font-family: var(--font-noto-serif-georgian);
+    background-color: var(--color-button);
+    color: var(--color-a2);
+    border: 1px solid var(--color-border);
+    border-radius: 1rem;
+    padding: .8rem 0.8rem;
+    /* Updated padding */
+    /* font-size: 1.7rem; */
+    /* Text size */
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    text-align: center;
+}
+
+.link {
+    color: inherit;
+    /* Ensure link text inherits the color */
+    text-decoration: none;
+}
+
+/* Optional: if you want to remove underline on hover */
+.link:hover {
+    text-decoration: none;
+}
+
+
+.localContextLinksContainer.dropdown {
+    flex-direction: column;
+    /* Cambia la dirección de los items a vertical */
+}
+
+.watchEverything {
+    /* Estilos para el botón 'Watch everything' */
+    font-family: var(--font-noto-serif-georgian);
+    color: var(--color-accent1);
+    /* background-color: var(--color-button-alt); */
+    font-style: italic;
+    /* color: white; */
+    padding: 0.8rem;
+    border-radius: 1rem;
+    /* text-align: center; */
+    cursor: pointer;
+    position: fixed;
+    top: 12rem;
+    right: .5rem;
+    font-size: 1.4rem;
+    font-weight: 500;
+}
+

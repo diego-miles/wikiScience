@@ -4,7 +4,7 @@
     /* Changed to row for horizontal layout */
     align-items: center;
     justify-content: center;
-    padding-bottom: 5rem;
+    padding-bottom: 3rem;
 }
 
 .imageArea {
@@ -19,27 +19,34 @@
     height: 25rem;
     position: relative;
     margin: 0 2rem;
-    /* Adjust margin for side spacing */
+    border-radius: .5rem;
+    /* Add border-radius here */
+    overflow: hidden;
+    /* This makes sure the border-radius affects the image */
 }
+
+/* ... other styles remain the same ... */
 
 .description {
     font-family: var(--font-noto-serif-georgian);
     text-align: center;
-    padding-top: 1.8rem;
+    padding-top: 1.5rem;
     font-size: 1.6rem;
+    font-weight: 500;
     /* Center the text */
 }
 
 .image {
     width: 25rem;
     height: 25rem;
-    object-fit: cover;
+    border-radius: 1rem;
+    /* object-fit: cover; */
 }
 
 .arrow {
     cursor: pointer;
     color: var(--color-soft-blue);
-    font-size: 3.2rem;
+    font-size: 3.4rem;
     font-weight: 900;
     user-select: none;
     /* Add flex to center vertically */

@@ -4,7 +4,7 @@ import { cache } from 'react';
 import NavBar from '@/components/NavbarContainer';
 import ScrollTopButton from '@/components/ScrollTopButton';
 import { notFound } from 'next/navigation';
-import LocalContextLinks from '@/components/LocalContextLinks'; // Import the component
+import LocalContextLinks from '@/components/LocalContextLinksTop'; // Import the component
 import ImageCarousel from '@/components/ImageCarousel'; // Ajusta la ruta según tu estructura de proyecto
 
 
@@ -152,10 +152,10 @@ function isImageGalleryItem(item: any): item is ImageGalleryItem {
   return (
     <>
       <NavBar domain="www.wiki-science.com/" menuPath='./NavigationMenu' />
-      <main>
+      <main style={{ marginTop: '5rem' }}>
         <h1>{element.name} ({element.symbol})</h1>
-        <LocalContextLinks links={links} />
             {images.length > 0 && <ImageCarousel images={images} />}
+        <LocalContextLinks links={links} />
         <p><strong>Atomic Number:</strong> {element.atomicNumber}</p>
         <p><strong>Atomic Weight:</strong> {element.atomicWeight}</p>
         <p><strong>Appearance:</strong> {element.appearance}</p>

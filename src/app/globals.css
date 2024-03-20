@@ -31,7 +31,7 @@
   --color-darkgreen-text: #005D50;
   /* Tipografía */
   --font-size-p: 1.7rem;
-  --font-size-h1: 3.1rem;
+  --font-size-h1: 3.3rem;
   --font-size-h2: 2.1rem;
   --font-size-h3: 1.9rem;
   --font-size-h4: 1.7rem;
@@ -134,7 +134,7 @@ main {
   /* era 320px */
   width: auto;
   padding: 0rem 1.6rem;
-  padding-top: 11rem;
+  padding-top: 14rem;
   margin: 0 auto;
   position: static;
 }
