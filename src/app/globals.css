@@ -1,6 +1,7 @@
 :root {
   --color-h1: #00659A;
-  --color-h2: #004385;
+  --color-h2: #003385;
+  /* --color-h2: #004385; */
   /* --color-h2: #004D75; */
   /* --color-h3: #003D5C; */
   --color-h3: #005347;
@@ -32,7 +33,7 @@
   /* Tipografía */
   --font-size-p: 1.7rem;
   --font-size-h1: 3.3rem;
-  --font-size-h2: 2.1rem;
+  --font-size-h2: 2rem;
   --font-size-h3: 1.9rem;
   --font-size-h4: 1.7rem;
   --font-size-h5: 1.3rem;
@@ -180,8 +181,8 @@ h2 {
   /* font-family: var(--font-noto-serif-georgian); */
   font-size: var(--font-size-h2);
   color: var(--color-h2);
-  font-weight:600;
-  margin-top: 3.5rem;
+  font-weight:700;
+  padding-top: 3.5rem;
   margin-bottom: 1rem;
   line-height: 1.2;
   /* text-wrap: balance; */
@@ -233,6 +234,8 @@ span {
 
 strong {
   font-size: var(--font-size-p);
+  color: var(--color-p);
+  font-weight: 600;
 }
 
 .globalHeight {
