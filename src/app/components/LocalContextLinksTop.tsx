@@ -15,32 +15,32 @@ const LocalContextLinks: React.FC<LocalContextLinksProps> = ({ links }) => {
   const linkRefs = useRef<(HTMLAnchorElement | null)[]>([]);
   const [isVisible, setIsVisible] = useState(true);
   const [dropdownActive, setDropdownActive] = useState(false);
+  const [lastScrollPosition, setLastScrollPosition] = useState(0);
 
   useEffect(() => {
     let lastScrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
     const onScroll = () => {
-      const currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
-
-      if (currentScrollTop > lastScrollTop) {
-        setIsVisible(false);
-      } else {
-        setIsVisible(true);
+      if (!dropdownActive) {
+        const currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        setIsVisible(currentScrollTop < lastScrollTop);
+        lastScrollTop = currentScrollTop <= 0 ? 0 : currentScrollTop;
       }
-      lastScrollTop = currentScrollTop <= 0 ? 0 : currentScrollTop;
     };
 
     window.addEventListener('scroll', onScroll);
     return () => window.removeEventListener('scroll', onScroll);
-  }, []);
+  }, [dropdownActive]);
 
   useEffect(() => {
     if (dropdownActive) {
+      setLastScrollPosition(window.pageYOffset);
       document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = '';
+      window.scrollTo(0, lastScrollPosition);
     }
-  }, [dropdownActive]);
+  }, [dropdownActive, lastScrollPosition]);
 
   const toggleDropdown = () => {
     setDropdownActive(!dropdownActive);
