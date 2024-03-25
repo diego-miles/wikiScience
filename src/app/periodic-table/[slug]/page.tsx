@@ -6,6 +6,8 @@ import ScrollTopButton from '@/components/ScrollTopButton';
 import { notFound } from 'next/navigation';
 import LocalContextLinks from '@/components/LocalContextLinksTop'; // Import the component
 import ImageCarousel from '@/components/ImageCarousel'; // Ajusta la ruta según tu estructura de proyecto
+import History from '@/components/tables/hystoryTable'; // Ajusta la ruta de importación según tu estructura de proyecto
+
 
 
 interface ImageGalleryItem {
@@ -37,109 +39,33 @@ async function ElementPage({ params: { slug } }: ElementPageProps) {
     return <div>Error fetching element data</div>;
   }
 
-const renderField = (label:any, value:any, isSubField = false) => {
-  if (value === null || value === undefined) {
-    return null; // Omit fields with null or undefined
-  }
+  const sectionTitles = [
+    'Discovery and History',
+    'Atomic Structure',
+    'Practical Applications',
+    'Oxidation States',
+    'Environmental Safety',
+    'Natural Occurrence',
+    'Magnetic and Electrical Properties',
+    'Optical Properties',
+    'Quantum Properties',
+    'Synthesis and Production',
+    'Safety Data Sheet',
+    'Legal Status',
+    'External Resources',
+    'Spectral Lines',
+    'Economic Data',
+    'Biological Role',
+    'Future Predictions',
+    'User Interactions',
+    // Agrega otros títulos si se añaden más secciones
+  ];
 
-  if (Array.isArray(value)) {
-    return (
-      <div>
-        <h3>{label}:</h3>
-        {value.map((item, idx) => (
-          <div key={idx}> {/* Changed from <p> to <div> */}
-            {typeof item === 'object' ? 
-              Object.entries(item).map(([key, val]) => <div key={key}>{renderField(key, val, true)}</div>) : <p>{item.toString()}</p> // Changed from .toString() to <span>
-            }
-          </div>
-        ))}
-      </div>
-    );
-  }
-
-  if (typeof value === 'object' && !React.isValidElement(value)) {
-    const HeadingTag = isSubField ? 'h2' : 'h2'; // Adjusted heading levels for semantics
-    return (
-      <div>
-        <HeadingTag>{label}:</HeadingTag>
-        <div style={{ paddingLeft: '10px' }}>
-          {Object.entries(value).map(([key, val]) => renderField(key, val, true))}
-        </div>
-      </div>
-    );
-  }
-
-  return <div><strong>{label}:</strong> <p>{value.toString()}</p></div>; // Changed from <p> to <div>
-};
-
-
-
-
-
-    // Estructura personalizada según tu jerarquía
-  const structuredElement = {
-    // "Element": element.name,
-    // "Symbol": element.symbol,
-    // "Name": element.name,
-    // "Atomic Number": element.atomicNumber,
-    // "Atomic Weight": element.atomicWeight,
-    // "Appearance": element.appearance,
-    // "General Description": element.description,
-    "Discovery and History": element.history,
-    // "Natural Occurrence and Biological Role": {
-      "Occurrence": element.naturalOccurrence,
-      "Biological Role": element.biologicalRole,
-    // },
-    // "Economic Data and Future Predictions": {
-      "Economic Data": element.economicData,
-      // "Future Predictions": element?.futurePredictions
-    // },
-    "Safety and Health Impact": element.environmentalSafety,
-    "Atomic and Chemical Properties": {
-      "Classifications": element.classifications,
-      "Atomic Structure": element.atomicStructure,
-      "Chemical Properties": element.chemicalProperties,
-      "Oxidation States": element.oxidationStates,
-      "Electron Configuration": element.electronConfig
-    },
-    "Physical Properties": element.physicalProperties,
-    // "Quantum, Magnetic, and Optical Properties": {
-      "Quantum Properties": element.quantumProperties,
-      "Magnetic and Electrical Properties": element.magneticElectricalProperties,
-      "Optical Properties": element.opticalProperties,
-    // },
-    // "Compounds, Isotopes, and Crystal Structures": {
-      "Compounds": element.compounds,
-      "Isotopes": element.isotopes,
-      "Crystal Structures": element.crystalStructures,
-    // },
-    // "Practical Applications and Synthesis": {
-      "Practical Applications": element.practicalApplications,
-      "Synthesis and Production": element.synthesisProduction,
-    // },
-    // "Safety, Legal Status, and Interdisciplinary Connections": {
-      "Safety Data Sheet": element.safetyDataSheet,
-      "Legal Status": element.legalStatus,
-      "Interdisciplinary Connections": element.interdisciplinaryConnections,
-    // },
-    // "Additional Information": {
-      // "Image Gallery": element.imageGallery,
-      "User Interactions": element.userInteractions,
-    // }
-  };
-
-  // Function to transform title into a suitable ID format
-  const titleToId = (title: string) => {
-    return title.toLowerCase().replace(/ /g, '-').replace(/[^a-z0-9-]/g, '');
-  };
-  const links = Object.keys(structuredElement).map(title => ({
+  // Crear enlaces a partir de los títulos de sección
+  const links = sectionTitles.map(title => ({
     text: title,
-    id: titleToId(title)
+    id: title.toLowerCase().replace(/ /g, '-').replace(/[^a-z0-9-]/g, '')
   }));
-
-function isImageGalleryItem(item: any): item is ImageGalleryItem {
-  return item && typeof item === 'object' && 'imageUrl' in item && 'description' in item;
-}
 
   // Check and map over the gallery only if it's an array of the expected type
   const images = element.imageGallery.map((img: ImageGalleryItem) => ({
@@ -148,29 +74,70 @@ function isImageGalleryItem(item: any): item is ImageGalleryItem {
   }));
 
 
-  
   return (
     <>
       <NavBar domain="www.wiki-science.com/" menuPath='./NavigationMenu' />
-      <main style={{ marginTop: '5rem' }}>
+      <main style={{ marginTop: '9rem' }}>
         <h1>{element.name} ({element.symbol})</h1>
-            {images.length > 0 && <ImageCarousel images={images} />}
+        {images.length > 0 && <ImageCarousel images={images} />}
         <LocalContextLinks links={links} />
         <p><strong>Atomic Number:</strong> {element.atomicNumber}</p>
         <p><strong>Atomic Weight:</strong> {element.atomicWeight}</p>
         <p><strong>Appearance:</strong> {element.appearance}</p>
         <p><strong>General Description:</strong> {element.description}</p>
 
-        {Object.entries(structuredElement).map(([label, value], index) => (
-          <section key={label + index} id={titleToId(label)}>
-            {renderField(label, value)}
+        {/* Discovery and History */}
+        {/* Already implemented */}
+
+        {/* Atomic Structure */}
+        <section id="atomic-structure">
+          <h2>Atomic Structure</h2>
+          <p><strong>Electrons:</strong> {element.atomicStructure.electrons}</p>
+          <p><strong>Protons:</strong> {element.atomicStructure.protons}</p>
+          <p><strong>Neutrons:</strong> {element.atomicStructure.neutrons}</p>
+          <p><strong>Ionization Energy:</strong> {element.atomicStructure.ionizationEnergy} eV</p>
+          <p><strong>Electron Affinity:</strong> {element.atomicStructure.electronAffinity} eV</p>
+        </section>
+
+        {/* Practical Applications */}
+        <section id="practical-applications">
+          <h2>Practical Applications</h2>
+          {element.practicalApplications.map(app => (
+            <div key={app.application}>
+              <p><strong>Application:</strong> {app.application}</p>
+              <p><strong>Description:</strong> {app.description}</p>
+            </div>
+          ))}
+        </section>
+
+        {/* Oxidation States */}
+        <section id="oxidation-states">
+          <h2>Oxidation States</h2>
+          {element.oxidationStates.map(state => (
+            <p key={state.state}>{state.state}: {state.description}</p>
+          ))}
+        </section>
+
+        {/* Magnetic and Electrical Properties */}
+        {element.magneticElectricalProperties && (
+          <section id="magnetic-and-electrical-properties">
+            <h2>Magnetic and Electrical Properties</h2>
+            <p><strong>Magnetic Susceptibility:</strong> {element.magneticElectricalProperties.magneticSusceptibility}</p>
+            <p><strong>Electrical Resistivity:</strong> {element.magneticElectricalProperties.electricalResistivity}</p>
+            <p><strong>Hall Coefficient:</strong> {element.magneticElectricalProperties.hallCoefficient}</p>
           </section>
-        ))}
+        )}
+
+        {/* Additional sections like "Optical Properties", "Quantum Properties", etc. will be added following a similar pattern */}
+
+        {/* Other sections... */}
+        {/* Following the provided schema, you can continue adding other necessary sections, ensuring each gets a unique ID as per the 'links' mapping. */}
+
         <ScrollTopButton />
       </main>
     </>
   );
 
-}
+};
 
 export default ElementPage;

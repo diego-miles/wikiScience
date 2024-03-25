@@ -1,4 +1,4 @@
-//🧩Don't Edit this file.✨Generated in Mon Mar 18 2024 12:27:06 GMT-0600 (Central Standard Time)✨
+//🧩Don't Edit this file.✨Generated in Sun Mar 24 2024 01:58:59 GMT-0600 (Central Standard Time)✨
 
 generator client {
   provider = "prisma-client-js"
@@ -9,14 +9,19 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Ratings {
-  englishTitle String       @id @map("_id")
-  amazon       RatingDetail
-  goodreads    RatingDetail
-  google       RatingDetail
-  Book         Book[]
+model Syllabus {
+  id      String @id @default(auto()) @map("_id") @db.ObjectId
+  content Json
+  book    Book?
+  slug    String @unique
 
-  @@map("ratings")
+  @@map("syllabus")
+}
+
+type Ratings {
+  amazon    RatingDetail
+  goodreads RatingDetail
+  google    RatingDetail
 }
 
 type RatingDetail {
@@ -43,11 +48,13 @@ model Book {
   spanishEdition             Boolean?
   summary                    String[]
   amazonLink                 String?
-  ratings                    Ratings?                @relation(fields: [englishTitle], references: [englishTitle])
+  ratings                    Ratings
   topicRecommendation        topicRecommendation?    @relation(fields: [topicRecommendationSlug], references: [slug])
   topicRecommendationSlug    String?
   subFieldRecommendation     subFieldRecommendation? @relation(fields: [subFieldRecommendationSlug], references: [slug])
   subFieldRecommendationSlug String?
+  syllabus                   Syllabus?               @relation(fields: [slug], references: [slug])
+  slug                       String                  @unique
 
   @@map("book")
 }
@@ -231,52 +238,235 @@ model ElectronicComponentDatasheet {
 }
 
 model ChemicalElement {
-  id                           String         @id @default(auto()) @map("_id") @db.ObjectId
-  symbol                       String         @unique
-  name                         String         @unique
-  slug                         String         @unique
+  id                           String                               @id @default(auto()) @map("_id") @db.ObjectId
+  symbol                       String                               @unique
+  name                         String                               @unique
+  slug                         String                               @unique
   atomicNumber                 Int
   atomicWeight                 Float
   description                  String
+  history                      History[]
   discoveryYear                Int
   meltingPoint                 Float?
   boilingPoint                 Float?
   density                      Float?
   appearance                   String?
-  classifications              Json // Array de ChemicalElementClassification
-  atomicStructure              Json // ElementAtomicStructure
-  isotopes                     Json // Array de ElementIsotope
-  compounds                    Json // Array de ElementCompound
-  history                      Json // Array de ChemicalElementHistory
-  abundances                   Json // Array de ElementIsotopeAbundance
-  crystalStructures            Json // Array de ElementCrystalStructure
-  allotropes                   Json // Array de ElementAllotrope
-  electronConfig               Json // ElementElectronConfiguration
-  oxidationStates              Json // Array de ElementOxidationState
-  physicalProperties           Json // ElementPhysicalProperties
-  chemicalProperties           Json // ElementChemicalProperties
-  environmentalSafety          Json // ElementEnvironmentalSafety
-  practicalApplications        Json // Array de ElementPracticalApplication
-  spectralLines                Json // Array de ElementSpectralLine
-  naturalOccurrence            Json // ElementNaturalOccurrence
-  biologicalRole               Json // ElementBiologicalRole
-  economicData                 Json // ElementEconomicData
-  imageGallery                 imageGallery[] // Array de ElementImageGallery
-  futurePredictions            Json? // Array de ElementFuturePrediction
-  userInteractions             Json? // Array de ElementUserInteraction
-  externalResources            Json? // Array de ElementExternalResource
-  magneticElectricalProperties Json? // ElementMagneticElectricalProperties
-  opticalProperties            Json? // ElementOpticalProperties
-  quantumProperties            Json? // ElementQuantumProperties
-  synthesisProduction          Json? // ElementSynthesisProduction
-  safetyDataSheet              Json? // ElementSafetyDataSheet
-  legalStatus                  Json? // ElementLegalStatus
-  interdisciplinaryConnections Json? // Array de ElementInterdisciplinaryConnection
+  classifications              ChemicalElementClassification[]
+  atomicStructure              ElementAtomicStructure
+  isotopes                     ElementIsotope[]
+  compounds                    ElementCompound[]
+  abundances                   ElementIsotopeAbundance[]
+  crystalStructures            ElementCrystalStructure[]
+  allotropes                   ElementAllotrope[]
+  electronConfig               ElementElectronConfiguration // ElementElectronConfiguration
+  oxidationStates              ElementOxidationState[]
+  physicalProperties           ElementPhysicalProperties
+  chemicalProperties           ElementChemicalProperties
+  environmentalSafety          ElementEnvironmentalSafety
+  practicalApplications        ElementPracticalApplication[] // Array of ElementPracticalApplication
+  spectralLines                ElementSpectralLine[]
+  naturalOccurrence            ElementNaturalOccurrence
+  biologicalRole               ElementBiologicalRole
+  economicData                 ElementEconomicData
+  imageGallery                 ImageGallery[]
+  healthEnvironmentalImpact    ElementHealthEnvironmentalImpact
+  futurePredictions            ElementFuturePrediction[]
+  userInteractions             ElementUserInteraction[]
+  externalResources            ElementExternalResource[]
+  magneticElectricalProperties ElementMagneticElectricalProperties?
+  opticalProperties            ElementOpticalProperties?
+  quantumProperties            ElementQuantumProperties?
+  synthesisProduction          ElementSynthesisProduction?
+  safetyDataSheet              ElementSafetyDataSheet?
+  legalStatus                  ElementLegalStatus?
+  interdisciplinaryConnections Json
 }
 
-// Los modelos específicos como ElementAtomicStructure, ElementChemicalProperties, etc., ya no son necesarios de forma independiente, ya que sus campos se integran como objetos JSON en el modelo ChemicalElement.
+type ElementPracticalApplication {
+  application String
+  description String
+}
 
-type imageGallery {
+type ElementElectronConfiguration {
+  configuration String
+  description   String
+}
+
+// type ElementInterdisciplinaryConnection {
+//     connectionDetails String
+// }
+
+type ElementLegalStatus {
+  regulations       String
+  legalRestrictions String
+}
+
+type ElementSafetyDataSheet {
+  handling         String
+  storage          String
+  firstAidMeasures String
+}
+
+type ElementSynthesisProduction {
+  synthesisMethods  String
+  extractionMethods String
+  globalProduction  String
+}
+
+type ElementQuantumProperties {
+  quantumNumbers     Json
+  electronShellModel Json
+  energyLevels       Json
+}
+
+type ElementOpticalProperties {
+  refractiveIndex    String
+  reflectivity       String
+  absorptionSpectrum String
+}
+
+type ElementMagneticElectricalProperties {
+  magneticSusceptibility String
+  electricalResistivity  String
+  hallCoefficient        String
+}
+
+type ElementExternalResource {
+  resourceType String
+  link         String
+  description  String
+}
+
+type ElementFuturePrediction {
+  prediction  String
+  description String
+}
+
+type ElementIsotopeAbundance {
+  isotopeNumber Int
+  abundance     Float
+  halfLife      String
+  decayMode     String
+}
+
+type ElementHealthEnvironmentalImpact {
+  healthImpact        String
+  environmentalImpact String
+}
+
+type ChemicalElementClassification {
+  classification String
+  description    String
+}
+
+type ElementAtomicStructure {
+  electrons                Int?
+  protons                  Int?
+  neutrons                 Int?
+  ionizationEnergy         Float?
+  electronAffinity         Float?
+  atomicRadius             Int?
+  atomicPolarization       String
+  electronegativity        Float
+  firstIonizationPotential Float
+}
+
+type ElementIsotope {
+  isotopeNumber Int
+  abundance     Float
+  halfLife      String
+  decayMode     String
+}
+
+type ElementCompound {
+  name        String
+  formula     String
+  description String
+}
+
+type History {
+  event       String
+  year        Int
+  description String
+}
+
+type ElementCrystalStructure {
+  type        String
+  temperature Float
+  description String
+}
+
+type ElementAllotrope {
+  name        String
+  description String
+}
+
+type ElementOxidationState {
+  state       Int
+  description String
+}
+
+type ElementPhysicalProperties {
+  meltingPoint                Float
+  boilingPoint                Float
+  density                     Float
+  atomicRadius                Int
+  atomicVolume                Float
+  covalentRadius              Int
+  molarHeat                   String
+  thermalConductivity         Float
+  soundVelocity               String
+  mohsHardness                String
+  brinellHardness             String
+  specificHeatCapacity        String
+  thermalExpansionCoefficient String
+  phaseTransitionTemperatures String
+}
+
+type ElementChemicalProperties {
+  electronegativity          Float
+  ionizationPotential        Float
+  reactivity                 String
+  commonOxidationStates      String
+  standardReductionPotential Float
+  description                String
+}
+
+type ElementEnvironmentalSafety {
+  healthHazards     String
+  safetyPrecautions String
+}
+
+type ImageGallery {
   imageUrl    String
   description String
+}
+
+type ElementSpectralLine {
+  wavelength Float
+  intensity  String
+  lineType   String
+}
+
+type ElementNaturalOccurrence {
+  occurrenceType String
+  description    String
+}
+
+type ElementBiologicalRole {
+  role        String
+  description String
+}
+
+type ElementEconomicData {
+  marketPrice        String
+  producingCountries String
+  industrialUse      String
+  description        String
+}
+
+type ElementUserInteraction {
+  contribution String
+  question     String
+  discussion   String
 }

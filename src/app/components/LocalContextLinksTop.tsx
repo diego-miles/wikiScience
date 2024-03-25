@@ -1,4 +1,66 @@
 "use client"
+// // LocalContextLinks.tsx
+// import React, { useState, useEffect } from 'react';
+// // import { LocalContextLink } from './types';
+// import LinkContainer from './LinkContainer';
+// import styles from './localContextLinkTop.module.css';
+
+
+// // types.ts
+// export type LocalContextLink = {
+//   text: string;
+//   id: string;
+// };
+
+
+// type LocalContextLinksProps = {
+//   links: LocalContextLink[];
+// };
+
+// const LocalContextLinks: React.FC<LocalContextLinksProps> = ({ links }) => {
+//   // const [isVisible, setIsVisible] = useState(true);
+//   const [dropdownActive, setDropdownActive] = useState(false);
+//   const [lastScrollPosition, setLastScrollPosition] = useState(0);
+
+//   useEffect(() => {
+//     const onScroll = () => {
+//       if (!dropdownActive) {
+//         const currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
+//         // setIsVisible(currentScrollTop < lastScrollPosition);
+//         setLastScrollPosition(currentScrollTop <= 0 ? 0 : currentScrollTop);
+//       }
+//     };
+
+//     window.addEventListener('scroll', onScroll);
+//     return () => window.removeEventListener('scroll', onScroll);
+//   }, [dropdownActive, lastScrollPosition]);
+
+//   useEffect(() => {
+//     if (dropdownActive) {
+//       setLastScrollPosition(window.pageYOffset);
+//       document.body.style.overflow = 'hidden';
+//     } else {
+//       document.body.style.overflow = '';
+//       window.scrollTo(0, lastScrollPosition);
+//     }
+//   }, [dropdownActive, lastScrollPosition]);
+
+//   const toggleDropdown = () => {
+//     setDropdownActive(!dropdownActive);
+//   };
+
+//   return (
+//     <LinkContainer
+//       links={links}
+//       // isVisible={isVisible}
+//       dropdownActive={dropdownActive}
+//       toggleDropdown={toggleDropdown}
+//     />
+//   );
+// };
+
+// export default LocalContextLinks;
+
 import React, { useRef, useEffect, useState } from 'react';
 import styles from './localContextLinkTop.module.css';
 
@@ -135,3 +197,5 @@ const LocalContextLinks: React.FC<LocalContextLinksProps> = ({ links }) => {
 };
 
 export default LocalContextLinks;
+
+

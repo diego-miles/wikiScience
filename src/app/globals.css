@@ -1,6 +1,7 @@
 :root {
   --color-h1: #00659A;
-  --color-h2: #003385;
+  --color-h2: #00635c;
+  /* --color-h2: #002b71; */
   /* --color-h2: #004385; */
   /* --color-h2: #004D75; */
   /* --color-h3: #003D5C; */
@@ -22,17 +23,19 @@
   --color-border: #BAD1DD;
   --color-button: #EAF0F3;
   --color-menu: #e9edef;
-  --color-span: #003D5C;
+  --color-span: #004c6f;
   --color-dark: #2c3e50;
   --color-light: #e9edef;
   --color-active: #00A40B;
   --color-soft-blue: #95D5FF;
   --color-soft-green: #BAE9D2;
   --color-green-text: #197D4F;
-  --color-darkgreen-text: #005D50;
+  --color-darkgreen-text: #7eaba8;
+  /* --color-darkgreen-text: #005D50; */
   /* Tipografía */
   --font-size-p: 1.7rem;
-  --font-size-h1: 3.3rem;
+  --font-size-small-p: 1.5rem;
+  --font-size-h1: 3.7rem;
   --font-size-h2: 2rem;
   --font-size-h3: 1.9rem;
   --font-size-h4: 1.7rem;
@@ -135,7 +138,7 @@ main {
   /* era 320px */
   width: auto;
   padding: 0rem 1.6rem;
-  padding-top: 14rem;
+  padding-top: 10rem;
   margin: 0 auto;
   position: static;
 }
@@ -173,7 +176,7 @@ h1 {
   font-weight: 900;
   color: var(--color-h1);
   text-align: center;
-  line-height: 1;
+  line-height: .9;
   padding-bottom: 4rem;
 }
 
@@ -183,7 +186,7 @@ h2 {
   color: var(--color-h2);
   font-weight:700;
   padding-top: 3.5rem;
-  margin-bottom: 1rem;
+  margin-bottom: 1.3rem;
   line-height: 1.2;
   /* text-wrap: balance; */
 }
@@ -200,7 +203,7 @@ h4 {
   /* font-family: var(--font-noto-serif-georgian); */
   font-size: var(--font-size-h4);
   color: var(--color-h4);
-  font-weight: 400;
+  font-weight: 600;
   /* padding-bottom: .5rem; */
 }
 

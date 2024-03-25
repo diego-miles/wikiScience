@@ -31,9 +31,7 @@ const getSubFieldRecommendation = cache(async (subfield: string) => {
         where: { slug: subfield },
         include: {
             books: {
-                include: {
-                    ratings: true
-                }
+                
             }
         }
     });

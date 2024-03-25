@@ -1,14 +1,16 @@
 import React from 'react';
 import styles from './BookRecomm.module.css';
-import { Book, Ratings } from '@prisma/client'; // Import Ratings from Prisma schema
-import Syllabus from './syllabus/Syllabus';
+import { Book, Syllabus } from '@prisma/client'; // Import Ratings from Prisma schema
+import SyllabusComponet from './syllabus/Syllabus';
+import { JsonValue } from '@prisma/client/runtime/library';
 
 type BookRecommendationProps = {
-  book: Book & { ratings: Ratings | null }; // Type assertion to include ratings property
+  book: Book; // Type assertion to include ratings property
   priority: boolean;
+  syllabus: JsonValue ;
 };
 
-const BookRecommendation: React.FC<BookRecommendationProps> = ({ book, priority }) => {
+const BookRecommendation: React.FC<BookRecommendationProps> = ({ book, priority, syllabus }) => {
   const {
     englishTitle,
     authors,
@@ -18,7 +20,6 @@ const BookRecommendation: React.FC<BookRecommendationProps> = ({ book, priority 
     ratings,
     summary,
     span,
-    
   } = book;
 
   const authorsFormatted = authors.join(', ');
@@ -51,7 +52,7 @@ const highlightKeywords = (text: string) => {
       </h2>
       <div className={styles.contentGrid}>
         <div className={styles.leftColumn}>
-          <Syllabus title={englishTitle} priority={priority}/>
+          <SyllabusComponet title={englishTitle} priority={priority} syllabusData={syllabus}/>
           <div className={styles.infoGrid}>
             {publicationDate && <div> <p className='p2'>Publication</p> <p>{publicationDate}</p></div>}
             {lastEditionYear && <div> <p className='p2'>Last Ed.</p> <p>{lastEditionYear}</p></div>}

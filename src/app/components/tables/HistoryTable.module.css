@@ -1,0 +1,32 @@
+/* HistoryTable.module.css */
+
+.table {
+    border-collapse: separate;
+    border-spacing: 0;
+    width: 100%;
+    border: 1px solid #ddd;
+    border-radius: .5rem;
+    overflow: hidden;
+}
+
+.header {
+    background-color: #f4f4f4;
+    font-size: var(--font-size-small-p);
+
+}
+.headerCell {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.row {
+    font-size: var(--font-size-small-p);
+    background-color: #f9f9f9;
+    
+}
+
+.cell {
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+}

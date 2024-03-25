@@ -1,13 +1,17 @@
-model Ratings {
-  englishTitle String       @id @map("_id")
-  amazon    RatingDetail
-  goodreads RatingDetail
-  google    RatingDetail
-  Book      Book[]
-  @@map("ratings")
+model Syllabus {
+  id           String @id @default(auto()) @map("_id") @db.ObjectId
+  content Json
+  book         Book?
+  slug         String @unique
+  @@map("syllabus")
 }
 
 
+type Ratings {
+  amazon    RatingDetail
+  goodreads RatingDetail
+  google    RatingDetail
+}
 
 type RatingDetail {
   average Float
@@ -17,7 +21,7 @@ type RatingDetail {
 
 model Book {
   id                       String                  @id @default(auto()) @map("_id") @db.ObjectId
-  englishTitle             String  
+  englishTitle             String   
   spanishTitle             String?
   authors                  String[]
   difficulty               String
@@ -33,11 +37,13 @@ model Book {
   spanishEdition           Boolean?
   summary                  String[]
   amazonLink               String?
-  ratings                  Ratings?                @relation(fields: [englishTitle], references: [englishTitle])
+  ratings Ratings
   topicRecommendation    topicRecommendation?         @relation(fields: [topicRecommendationSlug], references: [slug])
   topicRecommendationSlug String?
   subFieldRecommendation   subFieldRecommendation? @relation(fields: [subFieldRecommendationSlug], references: [slug])
   subFieldRecommendationSlug String?
+  syllabus Syllabus? @relation(fields: [slug], references: [slug])
+  slug String @unique
   @@map("book")
 }
 

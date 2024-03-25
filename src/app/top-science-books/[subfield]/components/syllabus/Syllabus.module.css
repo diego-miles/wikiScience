@@ -1,3 +1,4 @@
+
 .temarioContainer {
     padding-bottom: 3rem;
     display: flex;
@@ -72,24 +73,8 @@
     border: 0.3rem solid var(--color-background3);
 }
 
-.background {
-    position: fixed;
-    width: 100vw;
-    height: 100vh;
-    top: 0;
-    background: rgba(0, 27, 47, 0.956);
-}
 
-.overlayContainer {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    margin: 20vh 0;
-    padding: 2rem 0;
-    z-index: 100;
-    background: black;
-}
+
 
 .overlayContainer figure {
     margin: auto;
@@ -141,42 +126,5 @@
     font-size: 3.5rem;
     font-weight: 900;
 }
-
-
-
-.navigateButtonClose {
-    position: absolute;
-    top: -3.5rem;
-    right: .7rem;
-    width: 4rem;
-    height: 3rem;
-    cursor: pointer;
-    background: none;
-    border: none;
-}
-
-.navigateButtonClose::before,
-.navigateButtonClose::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 2.7rem;
-    height: 0.5rem;
-    background-color: var(--color-active-element);
-    border-radius: 0.3rem;
-    transition: transform 0.3s ease;
-    transform: translate(-50%, -50%) rotate(0);
-}
-
-.navigateButtonCloseOpen::before {
-    transform: translate(-50%, -50%) rotate(45deg);
-}
-
-.navigateButtonCloseOpen::after {
-    transform: translate(-50%, -50%) rotate(-45deg);
-}
-
-
 
 

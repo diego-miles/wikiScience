@@ -128,7 +128,6 @@ const NavBarContainer: FC<NavbarProps> = memo(({ title, title2, title3, domain, 
             <Suspense fallback={<div>Loading menu...</div>}>
                 <NavigationMenu style={menuStyle} />
             </Suspense>
-            <CrossIcon isOpen={isMenuVisible} onClick={toggleMenu} />
         </div>
     );
 });
