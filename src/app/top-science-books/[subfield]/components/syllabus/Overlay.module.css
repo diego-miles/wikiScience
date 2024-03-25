@@ -5,10 +5,10 @@
     top: 0;
     bottom: 0;
     /* margin: 20vh 0; */
-    padding: 4rem 1.5rem;
+    padding: 3rem 1.5rem;
     /* padding-top: 7rem; */
-    z-index: 100;
-    background-color: rgba(179, 200, 218, 0.759);
+    z-index: 10000;
+    background-color: rgba(13, 28, 42, 0.827);
     overflow-y: scroll;
     /* Permite el desplazamiento vertical si es necesario */    
 }
@@ -19,25 +19,21 @@
     width: 100vw;
     height: 100vh;
     top: 0;
-    background-color: var(--color-background2);
+    /* background-color: var(--color-background2); */
 }
 
 .syllabusContent {
     padding: 2rem 2rem;
-    background-color: var(--color-background1);
+    background-color: var(--color-background2);
 }
-
-
-
-
 
 
 
 .crossIcon {
     width: 4rem;
     height: 3rem;
-    top: 7rem;
-    right: 1rem;
+    top: 4rem;
+    right: 2rem;
     position: fixed;
     cursor: pointer;
     opacity: 0;

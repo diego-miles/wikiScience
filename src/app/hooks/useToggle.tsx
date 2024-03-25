@@ -21,4 +21,3 @@ const useToggle = (initialState = false) => {
 };
 
 export default useToggle;
-a
