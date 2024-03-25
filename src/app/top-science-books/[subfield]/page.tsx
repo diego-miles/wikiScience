@@ -31,7 +31,9 @@ const getSubFieldRecommendation = cache(async (subfield: string) => {
         where: { slug: subfield },
         include: {
             books: {
-                
+                include: {
+                    syllabus:true
+                }
             }
         }
     });
@@ -71,7 +73,7 @@ async function SubFieldRecommendationPage({ params: { subfield } }: SubFieldPage
     }));
 
     const bookRecommendations = subFieldData?.books?.map((book, index) =>
-        <BookRecommendation key={book.englishTitle} book={book} priority={index === 0} />
+        <BookRecommendation key={book.englishTitle} book={book} priority={index === 0} syllabus={book.syllabus} />
     );
 
     return (
