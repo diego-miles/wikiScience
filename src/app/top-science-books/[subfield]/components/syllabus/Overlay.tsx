@@ -1,3 +1,4 @@
+"use client"
 import React, { useEffect } from 'react';
 import styles from './Overlay.module.css';
 import CrossIcon from '@/components/CrossIcon2';
@@ -11,9 +12,18 @@ type OverlayProps = {
 
 const Overlay: React.FC<OverlayProps> = ({ isVisible, closeOverlay, syllabusData }) => {
   useEffect(() => {
-    // Change the body style based on the overlay's visibility
-    document.body.style.overflow = isVisible ? 'hidden' : '';
+    if (isVisible) {
+      // Disable scrolling on the main document
+      document.body.style.overflow = 'hidden';
+    } else {
+      // Re-enable scrolling on the main document
+      document.body.style.overflow = '';
+    }
   }, [isVisible]);
+
+  const handleClose = () => {
+    closeOverlay();
+  };
 
 const renderDynamicContent = (data: any, depth: number = 0): React.ReactNode => {
   if (Array.isArray(data)) {
@@ -44,16 +54,12 @@ const renderDynamicContent = (data: any, depth: number = 0): React.ReactNode => 
     return renderDynamicContent(syllabusData);
   };
 
-  const handleClose = () => {
-    closeOverlay();
-  };
-
   return isVisible ? (
-    <div className={styles.overlayContainer}>
+    <div className={styles.overlayContainer} style={{ overflowY: 'auto' }}>
       <div className={styles.syllabusContent}>
         {renderSyllabusContent()}
       </div>
-      <div tabIndex={0} className={`${styles.iconWrapper} ${styles.crossIcon} ${ styles.crossIconOpen}`} onClick={handleClose}></div>
+      <div tabIndex={0} className={`${styles.iconWrapper} ${styles.crossIcon} ${ styles.crossIconOpen}`}  onClick={handleClose}></div>
 
    </div>
   ) : null;

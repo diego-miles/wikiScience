@@ -1,11 +1,12 @@
 .overlayContainer {
-    position: absolute;
+    position: fixed;
     left: 0;
     right: 0;
     top: 0;
+    bottom: 0;
     /* margin: 20vh 0; */
-    padding: 2rem 0;
-    padding-top: 7rem;
+    padding: 4rem 1.5rem;
+    /* padding-top: 7rem; */
     z-index: 100;
     background-color: rgba(179, 200, 218, 0.759);
     overflow-y: scroll;
@@ -22,7 +23,7 @@
 }
 
 .syllabusContent {
-    padding: 0 2rem;
+    padding: 2rem 2rem;
     background-color: var(--color-background1);
 }
 
