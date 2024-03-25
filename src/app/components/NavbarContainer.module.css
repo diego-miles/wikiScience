@@ -40,8 +40,8 @@
 
 .contextualLinks a {
   font-style: normal;
-  font-size: 1.4rem;
-  padding: 0.1rem 0;
+  font-size: 1.5rem;
+  padding: 0.2rem 0;
   font-weight: 500;
   /* color: var(--color-title3); */
 }
@@ -82,9 +82,10 @@
 
 .padding {
   padding: 0 0.5rem;
-  padding-bottom: 0.2rem;
-  font-family: var(--font-family-text);
+  padding-bottom: 0rem;
+  /* font-family: var(--font-family-text); */
   font-weight: 900;
+  font-size: 1.5rem;
 }
 
 

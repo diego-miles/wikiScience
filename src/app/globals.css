@@ -34,14 +34,14 @@
   --color-darkgreen-text: #7eaba8;
   /* --color-darkgreen-text: #005D50; */
   /* Tipografía */
-  --font-size-p: 1.7rem;
+  --font-size-p: 1.8rem;
   --font-size-small-p: 1.5rem;
   --font-size-h1: 3.7rem;
-  --font-size-h2: 2rem;
+  --font-size-h2: 2.2rem;
   --font-size-h3: 1.9rem;
   --font-size-h4: 1.9rem;
   --font-size-h5: 1.3rem;
-  --font-size-a: 1.7rem;
+  --font-size-a: 1.8rem;
   --font-size-h6: 1.3rem;
   --font-size-nav-item-menu-field: 1.5rem;
   --font-size-nav-item-menu-branch: 1.5rem;
@@ -178,7 +178,7 @@ h1 {
   color: var(--color-h1);
   text-align: center;
   line-height: .9;
-  padding-bottom: 4rem;
+  padding-bottom: 5rem;
 }
 
 h2 {
