@@ -1,5 +1,5 @@
 .overlayContainer {
-    position: relative;
+    position: absolute;
     left: 0;
     right: 0;
     top: 0;
@@ -8,6 +8,7 @@
     padding-top: 7rem;
     z-index: 100;
     background-color: rgba(179, 200, 218, 0.759);
+    overflow-y: scroll;
     /* Permite el desplazamiento vertical si es necesario */    
 }
 
@@ -36,7 +37,7 @@
     height: 3rem;
     top: 7rem;
     right: 1rem;
-    position: absolute;
+    position: fixed;
     cursor: pointer;
     opacity: 0;
     visibility: hidden;

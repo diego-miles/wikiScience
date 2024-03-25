@@ -11,15 +11,9 @@ type OverlayProps = {
 
 const Overlay: React.FC<OverlayProps> = ({ isVisible, closeOverlay, syllabusData }) => {
   useEffect(() => {
-    if (isVisible) {
-      // Desactivar el desplazamiento del cuerpo del documento
-      document.body.style.overflow = 'hidden';
-    } else {
-      // Re-activar el desplazamiento del cuerpo del documento
-      document.body.style.overflow = '';
-    }
+    // Change the body style based on the overlay's visibility
+    document.body.style.overflow = isVisible ? 'hidden' : '';
   }, [isVisible]);
-
 
 const renderDynamicContent = (data: any, depth: number = 0): React.ReactNode => {
   if (Array.isArray(data)) {
