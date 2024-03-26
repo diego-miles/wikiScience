@@ -35,9 +35,7 @@ const getRecommendation = cache(async (slug: string) => {
         where: { slug: slug },
         include: {
             books: {
-                include: {
-                    syllabus: true
-                }
+
             } 
         },
     });
@@ -83,7 +81,7 @@ async function RecommendationPage({
     })) || [];
 
     const bookRecommendations = recommendations?.books?.map((book, index) => (
-        <BookRecommendation key={book.englishTitle} book={book} syllabus={book.syllabus?.content || {}} priority={index === 0} />
+        <BookRecommendation key={book.englishTitle} book={book} syllabus={book.syllabus || {}} priority={index === 0} />
     )) || [];
 
     return (

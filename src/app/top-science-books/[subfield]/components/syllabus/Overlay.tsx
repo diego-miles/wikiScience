@@ -27,22 +27,32 @@ const Overlay: React.FC<OverlayProps> = ({ isVisible, closeOverlay, syllabusData
 
 const renderDynamicContent = (data: any, depth: number = 0): React.ReactNode => {
   if (Array.isArray(data)) {
+    // Incrementa la profundidad sin renderizar en los primeros dos niveles
     return data.map((item, index) => (
       <React.Fragment key={index}>{renderDynamicContent(item, depth + 1)}</React.Fragment>
     ));
   } else if (typeof data === 'object' && data !== null) {
+    // Incrementa la profundidad sin renderizar en los primeros dos niveles
     return (
-      <p style={{ marginLeft: `${depth * 5}px` }}>
-        {Object.entries(data).map(([key, value], index) => (
-          <p key={index}>
-            <h4>{key}</h4>
+      <div style={{ marginLeft: `${depth * 5}px` }}>
+        {Object.values(data).map((value, index) => (
+          <div key={index}>
             {renderDynamicContent(value, depth + 1)}
-          </p>
+          </div>
         ))}
-      </p>
+      </div>
     );
   } else {
-    return <div>{data}</div>;
+    if (depth <= 3) {
+      // Omitir renderizado para los dos primeros niveles
+      return null;
+    } else if (depth <= 5) {
+      // Tercer nivel: utilizar <strong>
+      return <strong>{data}</strong>;
+    } else {
+      // Cuarto nivel y más: utilizar <p>
+      return <p>{data}</p>;
+    }
   }
 };
 
