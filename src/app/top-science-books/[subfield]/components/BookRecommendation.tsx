@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './BookRecomm.module.css';
-import { Book, Syllabus } from '@prisma/client'; // Import Ratings from Prisma schema
+import { Book } from '@prisma/client'; // Import Ratings from Prisma schema
 import SyllabusComponet from './syllabus/Syllabus';
 import { JsonValue } from '@prisma/client/runtime/library';
 
