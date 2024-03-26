@@ -2,15 +2,17 @@
 import React, { useEffect } from 'react';
 import styles from './Overlay.module.css';
 import CrossIcon from '@/components/CrossIcon2';
+import Image from 'next/image';
 
 
 type OverlayProps = {
   isVisible: boolean;
   closeOverlay: () => void;
   syllabusData: any;
+  title : string
 };
 
-const Overlay: React.FC<OverlayProps> = ({ isVisible, closeOverlay, syllabusData }) => {
+const Overlay: React.FC<OverlayProps> = ({ isVisible, closeOverlay, syllabusData, title }) => {
   useEffect(() => {
     if (isVisible) {
       // Disable scrolling on the main document
@@ -57,6 +59,15 @@ const renderDynamicContent = (data: any, depth: number = 0): React.ReactNode => 
 };
 
 
+
+const formatTitleForURL = (title: string) => {
+  return title
+    .replace(/[^a-zA-Z0-9 ,'&-]/g, "")
+    .replace(/&/g, "%26")
+    .replace(/ /g, "+");
+};
+
+
   const renderSyllabusContent = (): React.ReactNode => {
     if (!syllabusData) {
       return <div className={styles.noContent}>No syllabus content available.</div>;
@@ -67,6 +78,19 @@ const renderDynamicContent = (data: any, depth: number = 0): React.ReactNode => 
   return isVisible ? (
     <div className={styles.overlayContainer} style={{ overflowY: 'auto' }}>
       <div className={styles.syllabusContent}>
+
+          <figure className={styles.figureOverlay}>
+            <Image
+              src={`${formatTitleForURL(title)}.png`}
+              fill
+              alt={title}
+              style={{ objectFit: 'cover' }}
+              priority={false}
+              quality={100}
+              // className={styles.layer0}
+              sizes="(max-width: 150px)"
+            />
+          </figure>
         {renderSyllabusContent()}
       </div>
       <div tabIndex={0} className={`${styles.iconWrapper} ${styles.crossIcon} ${ styles.crossIconOpen}`}  onClick={handleClose}></div>

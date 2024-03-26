@@ -41,14 +41,14 @@ const Syllabus = ({ title, priority, syllabusData }: Props) => {
             style={{ objectFit: 'cover' }}
             priority={priority}
             quality={100}
-            className={styles.layer0}
+            // className={styles.layer0}
             sizes="(max-width: 200px)"
           />
         </figure>
         {/* Otros elementos del layout aquí, si es necesario */}
       </div>
       {overlayVisible && (
-        <Overlay syllabusData={syllabusData}  isVisible={overlayVisible} closeOverlay={() => setOverlayVisible(false)} />
+        <Overlay syllabusData={syllabusData}  isVisible={overlayVisible} closeOverlay={() => setOverlayVisible(false)} title={title} />
       )}
     </div>
   );
