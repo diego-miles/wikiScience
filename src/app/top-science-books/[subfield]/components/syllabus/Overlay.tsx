@@ -36,7 +36,7 @@ const renderDynamicContent = (data: any, depth: number = 0): React.ReactNode => 
   } else if (typeof data === 'object' && data !== null) {
     // Incrementa la profundidad sin renderizar en los primeros dos niveles
     return (
-      <div style={{ marginLeft: `${depth * 5}px` }}>
+      <div style={{ marginLeft: `${depth * 0}px` }}>
         {Object.values(data).map((value, index) => (
           <div key={index}>
             {renderDynamicContent(value, depth + 1)}
@@ -50,7 +50,7 @@ const renderDynamicContent = (data: any, depth: number = 0): React.ReactNode => 
       return null;
     } else if (depth <= 5) {
       // Tercer nivel: utilizar <strong>
-      return <strong>{data}</strong>;
+      return <h4>{data}</h4>;
     } else {
       // Cuarto nivel y más: utilizar <p>
       return <p>{data}</p>;
