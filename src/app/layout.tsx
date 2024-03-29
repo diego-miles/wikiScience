@@ -9,8 +9,8 @@ import Script from 'next/script'
 import { ConsentProvider } from '../contexts/ConsentContext';
 // import Analytics from './GoogleAnalytics'
 import dynamic from 'next/dynamic';
-import GoogleAdsScript from './GoogleAdsScript.js'
-import React, { Suspense } from 'react';
+// import GoogleAdsScript from './GoogleAdsScript.js'
+// import React, { Suspense } from 'react';
 
 
 
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
 }
 
 const GTM_ID = process.env.GTM_ID;
-const GTM_ID_ANA = process.env.GTM_ID_ANA;
+// const GTM_ID_ANA = process.env.GTM_ID_ANA;
 
 export default function RootLayout({
   children,
@@ -44,6 +44,7 @@ export default function RootLayout({
 }) {
 
 const CookieConsent = dynamic(() => import('./CookieConsent'), { ssr: false });
+const GoogleAdsScript = dynamic(() => import('./GoogleAdsScript'), { ssr: false });
   return (
 
     <html lang="en">
@@ -74,7 +75,7 @@ const CookieConsent = dynamic(() => import('./CookieConsent'), { ssr: false });
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6831545317289734" strategy="worker" crossOrigin="anonymous"/> */}
           <Script
             id="gtm-script"
-            strategy="afterInteractive"
+            strategy="worker"
             dangerouslySetInnerHTML={{
               __html: `
                 (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
