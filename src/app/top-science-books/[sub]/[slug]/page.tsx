@@ -1,9 +1,9 @@
 import { PrismaClient } from '@prisma/client';
 import NavBar from '@/components/NavbarContainer';
-import ContextSpace from '../../[subfield]/components/ContextSpace';
-import ArticleTitle from '../../[subfield]/components/ArticleTitle';
-import LocalContextLinks from '../../[subfield]/components/LocalContextLinks';
-import BookRecommendation from '../../[subfield]/components/BookRecommendation';
+import ContextSpace from '../../[sub]/components/ContextSpace';
+import ArticleTitle from '../../[sub]/components/ArticleTitle';
+import LocalContextLinks from '../../[sub]/components/LocalContextLinks';
+import BookRecommendation from '../../[sub]/components/BookRecommendation';
 import styles from './page.module.css';
 import { cache } from 'react';
 import { Metadata } from 'next';
