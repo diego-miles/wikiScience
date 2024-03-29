@@ -43,8 +43,8 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
 
-const CookieConsent = dynamic(() => import('./CookieConsent'), { ssr: false });
 const GoogleAdsScript = dynamic(() => import('./GoogleAdsScript'), { ssr: false });
+const CookieConsent = dynamic(() => import('./CookieConsent'), { ssr: false });
   return (
 
     <html lang="en">
@@ -75,7 +75,7 @@ const GoogleAdsScript = dynamic(() => import('./GoogleAdsScript'), { ssr: false 
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6831545317289734" strategy="worker" crossOrigin="anonymous"/> */}
           <Script
             id="gtm-script"
-            strategy="worker"
+            strategy="afterInteractive"
             dangerouslySetInnerHTML={{
               __html: `
                 (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
