@@ -1,4 +1,4 @@
-"use client"
+// "use client"
 import React, { useState, useCallback } from 'react';
 import Image from 'next/image';
 // import Overlay from './Overlay'; // Asegúrate de que esta importación sea correcta
@@ -20,16 +20,16 @@ const formatTitleForURL = (title: string) => {
 };
 
 const Syllabus = ({ title, priority, syllabusData }: Props) => {
-  const [overlayVisible, setOverlayVisible] = useState(false);
+  // const [overlayVisible, setOverlayVisible] = useState(false);
 
-  const handleSyllabusButtonClick = () => {
-    setOverlayVisible(true);
-  };
+  // const handleSyllabusButtonClick = () => {
+  //   setOverlayVisible(true);
+  // };
 
   return (
     <div className={styles.temarioContainer}>
       <div className={styles.layer}>
-        <SyllabusButton onClick={handleSyllabusButtonClick} />
+        {/* <SyllabusButton onClick={handleSyllabusButtonClick} /> */}
         <figure className={styles.layer0}>
         <div className={styles.layer0}></div>
         <div className={styles.layer2}></div>
