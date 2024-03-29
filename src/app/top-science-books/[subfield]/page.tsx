@@ -74,6 +74,7 @@ async function SubFieldRecommendationPage({ params: { subfield } }: SubFieldPage
 
     return (
         <div className={styles.wrapper}>
+            
             <NavBar title={subFieldData?.field} title2={subFieldData?.subField} domain="www.wiki-science.com/" active={true} menuPath='./NavigationMenu'/>
             <main>
                 <ContextSpace />
