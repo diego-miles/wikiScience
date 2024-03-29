@@ -16,7 +16,7 @@ import React, { Suspense } from 'react';
 
 
 const noto_sans_georgian = Noto_Sans_Georgian({
-  // weight: ['400','500', '600', '700', '800'],
+  weight: ['400','500', '600', '700', '800'],
   // variable: '--font-noto-sans-georgian',
   // style: 'italic',
   subsets: ['latin'],
