@@ -73,9 +73,9 @@ const CookieConsent = dynamic(() => import('./CookieConsent'), { ssr: false });
             
           {/* <Script
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6831545317289734" strategy="worker" crossOrigin="anonymous"/> */}
-          {/* <Script
+          <Script
             id="gtm-script"
-            strategy="afterInteractive"
+            strategy="worker"
             dangerouslySetInnerHTML={{
               __html: `
                 (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -85,7 +85,7 @@ const CookieConsent = dynamic(() => import('./CookieConsent'), { ssr: false });
                 })(window,document,'script','dataLayer','${GTM_ID}');
               `,
             }}
-          /> */}
+          />
           {/* <Script
             src={`https://www.googletagmanager.com/gtag/js?id=${GTM_ID_ANA}`}
             strategy="afterInteractive"
