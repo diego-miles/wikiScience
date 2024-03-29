@@ -1,7 +1,7 @@
 "use client"
 import React, { useState, useCallback } from 'react';
 import Image from 'next/image';
-import Overlay from './Overlay'; // Asegúrate de que esta importación sea correcta
+// import Overlay from './Overlay'; // Asegúrate de que esta importación sea correcta
 import SyllabusButton from './SyllabusButton';
 import styles from './Syllabus.module.css';
 import { JsonValue } from '@prisma/client/runtime/library';
@@ -47,9 +47,9 @@ const Syllabus = ({ title, priority, syllabusData }: Props) => {
         </figure>
         {/* Otros elementos del layout aquí, si es necesario */}
       </div>
-      {overlayVisible && (
+      {/* {overlayVisible && (
         <Overlay syllabusData={syllabusData}  isVisible={overlayVisible} closeOverlay={() => setOverlayVisible(false)} title={title} />
-      )}
+      )} */}
     </div>
   );
 };
