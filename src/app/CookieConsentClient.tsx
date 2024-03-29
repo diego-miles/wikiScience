@@ -30,29 +30,26 @@ const CookieConsentClient = () => {
 
   const updateAdSettings = (consentGiven: boolean) => {
     window.adsbygoogle = window.adsbygoogle || [];
-    if (consentGiven) {
-        window.adsbygoogle.requestNonPersonalizedAds = 0;
-    } else {
-        window.adsbygoogle.requestNonPersonalizedAds = 1;
-    }
+    window.adsbygoogle.requestNonPersonalizedAds = consentGiven ? 0 : 1;
+
+    // Refresh or load new ads
     const adElements = document.querySelectorAll('.adsbygoogle');
     adElements.forEach(el => {
-        if (el.innerHTML.trim() === '') {
-            // The ad slot is empty, push a new ad
-            window['adsbygoogle'].push({});
-        }
-        // Else: Do nothing if the slot already contains an ad
+      if (el.innerHTML.trim() === '') {
+        window['adsbygoogle'].push({});
+      }
     });
 
-    if (!window['googleAdsInitialized']) {
-        const script = document.createElement('script');
-        script.src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6831545317289734";
-        script.async = true;
-        script.crossOrigin = 'anonymous';
-        document.body.appendChild(script);
-        window['googleAdsInitialized'] = true;
+    if (!window.googleAdsInitialized) {
+      const script = document.createElement('script');
+      script.src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6831545317289734";
+      script.async = true;
+      script.crossOrigin = 'anonymous';
+      document.body.appendChild(script);
+      window.googleAdsInitialized = true;
     }
-};
+  };
+
 
   if (!isCookieConsentVisible) return null; // Use the state from context instead of local state
 

@@ -16,9 +16,6 @@ import React, { Suspense } from 'react';
 
 
 const noto_sans_georgian = Noto_Sans_Georgian({
-  // weight: ['400','500', '600', '700', '800'],
-  // variable: '--font-noto-sans-georgian',
-  // style: 'italic',
   subsets: ['latin'],
   display: 'swap'
 })
@@ -27,12 +24,10 @@ const noto_sans_georgian = Noto_Sans_Georgian({
 const noto_serif_georgian = Noto_Serif_Georgian({
   weight: ['400','500', '600', '700', '800', '900'],
   variable: '--font-noto-serif-georgian',
-  // style: 'italic',
   subsets: ['latin']
 })
 
 
-// export { noto_sans_georgian, noto_serif_georgian }
 export const metadata: Metadata = {
   metadataBase: new URL('https://storage.cloud.google.com/bestbooks/covers/'),
   title: 'Wikiscience',
@@ -77,9 +72,9 @@ const CookieConsent = dynamic(() => import('./CookieConsent'), { ssr: false });
             
           {/* <Script
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6831545317289734" strategy="worker" crossOrigin="anonymous"/> */}
-          {/* <Script
+          <Script
             id="gtm-script"
-            strategy="worker"
+            strategy="afterInteractive"
             dangerouslySetInnerHTML={{
               __html: `
                 (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -89,7 +84,7 @@ const CookieConsent = dynamic(() => import('./CookieConsent'), { ssr: false });
                 })(window,document,'script','dataLayer','${GTM_ID}');
               `,
             }}
-          /> */}
+          />
           <Script
             src={`https://www.googletagmanager.com/gtag/js?id=${GTM_ID_ANA}`}
             strategy="afterInteractive"
