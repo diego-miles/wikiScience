@@ -7,7 +7,7 @@ import Footer from './Footer'
 import { Analytics as AnalyticsVercel } from '@vercel/analytics/react';
 import Script from 'next/script'
 import { ConsentProvider } from '../contexts/ConsentContext';
-import Analytics from './GoogleAnalytics'
+// import Analytics from './GoogleAnalytics'
 import dynamic from 'next/dynamic';
 import GoogleAdsScript from './GoogleAdsScript.js'
 import React, { Suspense } from 'react';
@@ -68,7 +68,7 @@ const CookieConsent = dynamic(() => import('./CookieConsent'), { ssr: false });
             <Suspense fallback={<div>Loading...</div>}>
               <CookieConsent />
             </Suspense>
-            <Analytics />
+            {/* <Analytics /> */}
             <GoogleAdsScript />
             
           {/* <Script

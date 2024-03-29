@@ -69,7 +69,7 @@ async function SubFieldRecommendationPage({ params: { subfield } }: SubFieldPage
     }));
 
     const bookRecommendations = subFieldData?.books?.map((book, index) =>
-        <BookRecommendation key={book.englishTitle} book={book} priority={index === 0} syllabus={book.syllabus} />
+        <BookRecommendation key={book.englishTitle} book={book} syllabus={book.syllabus} priority={index === 0}  />
     );
 
     return (
