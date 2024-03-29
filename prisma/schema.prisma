@@ -1,4 +1,4 @@
-//🧩Don't Edit this file.✨Generated in Mon Mar 25 2024 21:08:05 GMT-0600 (Central Standard Time)✨
+//🧩Don't Edit this file.✨Generated in Fri Mar 29 2024 14:40:55 GMT-0600 (Central Standard Time)✨
 
 generator client {
   provider = "prisma-client-js"
@@ -31,7 +31,7 @@ model Book {
   span                       String[]
   coverImage                 String?
   syllabusImages             String[]
-  pages                      Int
+  pages                      Int?
   lastEditionYear            Int? // numero de edición
   lastEditionNumber          Int? // año de edicion
   publicationDate            Int?

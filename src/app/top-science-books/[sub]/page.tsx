@@ -12,7 +12,7 @@ import ScrollTopButton from '@/components/ScrollTopButton'
 
 interface SubFieldPageProps {
     params: {
-        subfield: string;
+        sub: string;
     }
 }
 
@@ -26,9 +26,9 @@ const formatTitleForURL = (title: string) => {
         .replace(/ /g, "+"); // Replace spaces with '%20'
 };
 
-const getSubFieldRecommendation = cache(async (subfield: string) => {
+const getSubFieldRecommendation = cache(async (sub: string) => {
     const subFieldData = await prisma.subFieldRecommendation.findUnique({
-        where: { slug: subfield },
+        where: { slug: sub },
         include: {
             books: {
 
@@ -62,8 +62,8 @@ const getSubFieldRecommendation = cache(async (subfield: string) => {
 //     };
 // }
 
-async function SubFieldRecommendationPage({ params: { subfield } }: SubFieldPageProps) {
-    const subFieldData = await getSubFieldRecommendation(subfield);
+async function SubFieldRecommendationPage({ params: { sub } }: SubFieldPageProps) {
+    const subFieldData = await getSubFieldRecommendation(sub);
 
     const bookLinks = subFieldData?.books?.map(book => ({
         text: book.englishTitle,

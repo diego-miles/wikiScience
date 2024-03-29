@@ -22,7 +22,7 @@ model Book {
   span                     String[]
   coverImage               String?
   syllabusImages           String[]
-  pages                    Int
+  pages                    Int?
   lastEditionYear          Int? // numero de edición
   lastEditionNumber        Int? // año de edicion
   publicationDate          Int?
