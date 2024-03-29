@@ -46,14 +46,14 @@ export default function RootLayout({
 
 const GoogleAdsScript = dynamic(() => import('./GoogleAdsScript'), { ssr: false });
 const CookieConsent = dynamic(() => import('./CookieConsent'), { ssr: false });
-// const ConsentProvider = dynamic(() => import('../contexts/ClientSideWrapper'), { ssr: false });
+const ConsentProvider = dynamic(() => import('../contexts/ClientSideWrapper'), { ssr: false });
   return (
 
     <html lang="en">
       
       <meta name="google-adsense-account" content="ca-pub-6831545317289734"></meta>
       <body className={` ${noto_sans_georgian.className} ${noto_serif_georgian.variable} `}>
-      {/* <ConsentProvider> */}
+      <ConsentProvider>
           <CookieConsent />
           <noscript>
             <iframe
@@ -105,7 +105,7 @@ const CookieConsent = dynamic(() => import('./CookieConsent'), { ssr: false });
             `}
           </Script> */}
 
-      {/* </ConsentProvider> */}
+      </ConsentProvider>
           </body>
     </html>
 
