@@ -7,10 +7,10 @@ import { JsonValue } from '@prisma/client/runtime/library';
 type BookRecommendationProps = {
   book: Book; // Type assertion to include ratings property
   priority: boolean;
-  syllabus: JsonValue ;
+  syllabus?: JsonValue ;
 };
 
-const BookRecommendation: React.FC<BookRecommendationProps> = ({ book, priority, syllabus }) => {
+const BookRecommendation: React.FC<BookRecommendationProps> = ({ book, priority,  }) => {
   const {
     englishTitle,
     authors,
