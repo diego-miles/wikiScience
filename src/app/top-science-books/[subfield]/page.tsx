@@ -30,9 +30,7 @@ const getSubFieldRecommendation = cache(async (subfield: string) => {
     const subFieldData = await prisma.subFieldRecommendation.findUnique({
         where: { slug: subfield },
         include: {
-            books: {
-
-            }
+            books: true
         }
     });
 

@@ -34,9 +34,7 @@ const getRecommendation = cache(async (slug: string) => {
     const recommendations = await prisma.topicRecommendation.findUnique({
         where: { slug: slug },
         include: {
-            books: {
-
-            } 
+            books: true
         },
     });
 
