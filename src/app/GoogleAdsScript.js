@@ -1,5 +1,5 @@
 "use client"
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useConsent } from '../contexts/ConsentContext';
 
 const GoogleAdsScript = () => {
@@ -8,21 +8,23 @@ const GoogleAdsScript = () => {
   useEffect(() => {
     const scriptId = 'google-ads-script';
 
-    if (consent === 'accepted' && !window.googleAdsInitialized) {
-      const script = document.createElement('script');
-      script.id = scriptId;
-      script.src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6831545317289734";
-      script.async = true;
-      script.crossOrigin = 'anonymous';
-      document.body.appendChild(script);
-      window.googleAdsInitialized = true;
-    } else if (consent !== 'accepted' && window.googleAdsInitialized) {
+    const manageScript = () => {
       const existingScript = document.getElementById(scriptId);
-      if (existingScript) {
+      if (consent === 'accepted' && !existingScript) {
+        const script = document.createElement('script');
+        script.id = scriptId;
+        script.src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6831545317289734";
+        script.async = true;
+        script.crossOrigin = 'anonymous';
+        document.body.appendChild(script);
+        window.googleAdsInitialized = true;
+      } else if (existingScript) {
         document.body.removeChild(existingScript);
+        window.googleAdsInitialized = false;
       }
-      window.googleAdsInitialized = false;
-    }
+    };
+
+    manageScript();
 
     return () => {
       const existingScript = document.getElementById(scriptId);

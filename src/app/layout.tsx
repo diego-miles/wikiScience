@@ -85,11 +85,11 @@ const CookieConsent = dynamic(() => import('./CookieConsent'), { ssr: false });
               `,
             }}
           />
-          <Script
+          {/* <Script
             src={`https://www.googletagmanager.com/gtag/js?id=${GTM_ID_ANA}`}
             strategy="afterInteractive"
             async
-          />
+          /> */}
           {/* <Script
             id="google-analytics-script"
             strategy="afterInteractive"
