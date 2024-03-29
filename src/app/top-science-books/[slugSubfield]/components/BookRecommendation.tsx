@@ -64,16 +64,16 @@ const highlightKeywords = (text: string) => {
         {ratings?.amazon && (
           <div>
             <a className='active-gold2' href={ratings.amazon.link} target="_blank" rel="noopener noreferrer">Amazon</a>
-              <a href={ratings.amazon.link} target="_blank" rel="noopener noreferrer" className='active-gold'>
-                {ratings.amazon.average}
+              <a href={ratings.amazon?.link} target="_blank" rel="noopener noreferrer" className='active-gold'>
+                {ratings.amazon?.average}
               </a>
           </div>
         )}
         {ratings?.goodreads && (
           <div>
-            <a className='active-gold2' href={ratings.amazon.link} target="_blank" rel="noopener noreferrer">Goodreads</a>
-              <a className='active-gold' href={ratings.amazon.link} target="_blank" rel="noopener noreferrer">
-                {ratings.goodreads.average}
+            <a className='active-gold2' href={ratings.amazon?.link} target="_blank" rel="noopener noreferrer">Goodreads</a>
+              <a className='active-gold' href={ratings.amazon?.link} target="_blank" rel="noopener noreferrer">
+                {ratings?.goodreads.average}
               </a>
 
           </div>
@@ -90,7 +90,7 @@ const highlightKeywords = (text: string) => {
         </div>
 
         <div className={styles.rightColumn}>
-        {summary.map((paragraph, index) => (
+        {summary?.map((paragraph, index) => (
           <p key={index} className={styles.summaryParagraph} >
             {/* {highlightKeywords(paragraph)} */}
             {paragraph}
