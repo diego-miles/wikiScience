@@ -1,5 +1,4 @@
-// components/ClientSideWrapper.tsx
-"use client";
+// "use client";
 // components/ClientSideWrapper.tsx
 import React, { ReactNode } from 'react';
 import { ConsentProvider } from '../contexts/ConsentContext';

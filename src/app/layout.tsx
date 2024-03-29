@@ -6,7 +6,8 @@ import './Footer'
 import Footer from './Footer'
 import { Analytics as AnalyticsVercel } from '@vercel/analytics/react';
 import Script from 'next/script'
-import { ConsentProvider } from '../contexts/ConsentContext';
+// import { ConsentProvider } from '../contexts/ConsentContext';
+import ConsentProvider  from '../contexts/ClientSideWrapper';
 // import Analytics from './GoogleAnalytics'
 import dynamic from 'next/dynamic';
 // import GoogleAdsScript from './GoogleAdsScript.js'
@@ -66,10 +67,10 @@ const CookieConsent = dynamic(() => import('./CookieConsent'), { ssr: false });
             {/* <ScrollTopButton /> */}
             <Footer />
             {/* <Suspense fallback={<div>Loading...</div>}> */}
-              {/* <CookieConsent /> */}
+              <CookieConsent />
             {/* </Suspense> */}
             {/* <Analytics /> */}
-            {/* <GoogleAdsScript /> */}
+            <GoogleAdsScript />
             
           {/* <Script
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6831545317289734" strategy="worker" crossOrigin="anonymous"/> */}
