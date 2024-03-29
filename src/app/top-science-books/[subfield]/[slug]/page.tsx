@@ -88,7 +88,7 @@ async function RecommendationPage({
             <main>
                 <ContextSpace />
                 <ArticleTitle topic={recommendations?.topic} />
-                <LocalContextLinks links={bookLinks} />
+                <LocalContextLinks  links={bookLinks || []}/>
                 {bookRecommendations}
                 <div className='globalSpace'></div>
                 <div className='globalSpace'></div>

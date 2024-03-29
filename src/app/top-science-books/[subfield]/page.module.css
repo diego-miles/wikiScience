@@ -22,7 +22,7 @@
   padding-top: .5rem;
 }
 
-.wrapper::-webkit-scrollbar {
+/* .wrapper::-webkit-scrollbar {
   width: 0.5rem;
 }
 
@@ -33,4 +33,4 @@
 
 .wrapper::-webkit-scrollbar-track {
   background: var(--color-background2);
-}
+} */
