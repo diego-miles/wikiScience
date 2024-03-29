@@ -43,8 +43,8 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
 
-// const GoogleAdsScript = dynamic(() => import('./GoogleAdsScript'), { ssr: false });
-// const CookieConsent = dynamic(() => import('./CookieConsent'), { ssr: false });
+const GoogleAdsScript = dynamic(() => import('./GoogleAdsScript'), { ssr: false });
+const CookieConsent = dynamic(() => import('./CookieConsent'), { ssr: false });
   return (
 
     <html lang="en">
