@@ -11,7 +11,7 @@ import ScrollTopButton from '@/components/ScrollTopButton';
 
 interface SubFieldPageProps {
     params: {
-        slug: string;
+        slugSubfield: string;
     }
 }
 
@@ -25,9 +25,9 @@ const formatTitleForURL = (title: string) => {
         .replace(/ /g, "+");
 };
 
-const getSubFieldRecommendation = cache(async (slug: string) => {
+const getSubFieldRecommendation = cache(async (slugSubfield: string) => {
     const subFieldData = await prisma.subFieldRecommendation.findUnique({
-        where: { slug: slug },
+        where: { slug: slugSubfield },
         include: {
             books: true
         }
@@ -58,8 +58,8 @@ const getSubFieldRecommendation = cache(async (slug: string) => {
 //     };
 // }
 
-async function SubFieldRecommendationPage({ params: { slug } }: SubFieldPageProps) {
-    const subFieldData = await getSubFieldRecommendation(slug);
+async function SubFieldRecommendationPage({ params: { slugSubfield } }: SubFieldPageProps) {
+    const subFieldData = await getSubFieldRecommendation(slugSubfield);
 
     const bookLinks = subFieldData?.books?.map(book => ({
         text: book.englishTitle,
