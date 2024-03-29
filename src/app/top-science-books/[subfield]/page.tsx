@@ -40,27 +40,27 @@ const getSubFieldRecommendation = cache(async (subfield: string) => {
     return subFieldData;
 });
 
-export async function generateMetadata(
-    { params: { subfield } }: SubFieldPageProps): Promise<Metadata> {
-    const subFieldData = await getSubFieldRecommendation(subfield);
+// export async function generateMetadata(
+//     { params: { subfield } }: SubFieldPageProps): Promise<Metadata> {
+//     const subFieldData = await getSubFieldRecommendation(subfield);
 
-    const images = subFieldData.books.map(book => ({
-        url: `${formatTitleForURL(book.englishTitle)}.png`
-    }));
+//     const images = subFieldData.books.map(book => ({
+//         url: `${formatTitleForURL(book.englishTitle)}.png`
+//     }));
 
-    const keywords = subFieldData.books.flatMap(book => book.keywords || []);
-    const uniqueKeywords = Array.from(new Set(keywords));
-    const description = `Dive into the internet curated, often updated, list of the top science books on ${subFieldData.subField}. From groundbreaking discoveries to the fundamentals of the universe, explore books that have shaped our understanding of science`;
+//     const keywords = subFieldData.books.flatMap(book => book.keywords || []);
+//     const uniqueKeywords = Array.from(new Set(keywords));
+//     const description = `Dive into the internet curated, often updated, list of the top science books on ${subFieldData.subField}. From groundbreaking discoveries to the fundamentals of the universe, explore books that have shaped our understanding of science`;
 
-    return {
-        title: subFieldData?.subField,
-        description: description,
-        openGraph: {
-            images: images
-        },
-        keywords: uniqueKeywords.join(', ')
-    };
-}
+//     return {
+//         title: subFieldData?.subField,
+//         description: description,
+//         openGraph: {
+//             images: images
+//         },
+//         keywords: uniqueKeywords.join(', ')
+//     };
+// }
 
 async function SubFieldRecommendationPage({ params: { subfield } }: SubFieldPageProps) {
     const subFieldData = await getSubFieldRecommendation(subfield);
@@ -81,7 +81,7 @@ async function SubFieldRecommendationPage({ params: { subfield } }: SubFieldPage
                 <ContextSpace />
                 <ArticleTitle topic={subFieldData?.subField} />
                 <LocalContextLinks links={bookLinks || []} />
-                {/* {bookRecommendations} */}
+                {bookRecommendations}
                 <div className='globalSpace'></div>
                 <div className='globalSpace'></div>
                 <ScrollTopButton />
