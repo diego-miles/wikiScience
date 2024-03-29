@@ -44,7 +44,6 @@ export default function RootLayout({
 }) {
 
 const CookieConsent = dynamic(() => import('./CookieConsent'), { ssr: false });
-// const GoogleAnalytics = dynamic(() => import('./GoogleAnalytics'), { suspense: true });
   return (
 
     <html lang="en">
@@ -65,9 +64,9 @@ const CookieConsent = dynamic(() => import('./CookieConsent'), { ssr: false });
             <AnalyticsVercel />
             {/* <ScrollTopButton /> */}
             <Footer />
-            <Suspense fallback={<div>Loading...</div>}>
+            {/* <Suspense fallback={<div>Loading...</div>}> */}
               <CookieConsent />
-            </Suspense>
+            {/* </Suspense> */}
             {/* <Analytics /> */}
             <GoogleAdsScript />
             
