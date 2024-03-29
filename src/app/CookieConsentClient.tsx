@@ -19,17 +19,8 @@ const CookieConsentClient = () => {
         console.log(`${newConsent} clicked`);
         updateConsent(newConsent);
         setCookieConsentVisible(false);
-        updateAdSettings(newConsent === 'accepted');
     };
 
-    const updateAdSettings = (consentGiven: boolean) => {
-        if (typeof window !== 'undefined') {
-            window.adsbygoogle = window.adsbygoogle || [];
-            window.adsbygoogle.forEach(adObject => {
-                adObject.requestNonPersonalizedAds = consentGiven ? 0 : 1;
-            });
-        }
-    };
 
     if (!isCookieConsentVisible) return null;
 

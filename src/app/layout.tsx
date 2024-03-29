@@ -6,8 +6,8 @@ import './Footer'
 import Footer from './Footer'
 import { Analytics as AnalyticsVercel } from '@vercel/analytics/react';
 import Script from 'next/script'
-// import { ConsentProvider } from '../contexts/ConsentContext';
-import ConsentProvider  from '../contexts/ClientSideWrapper';
+import { ConsentProvider } from '../contexts/ConsentContext';
+// import ConsentProvider  from '../contexts/ClientSideWrapper';
 // import Analytics from './GoogleAnalytics'
 import dynamic from 'next/dynamic';
 // import GoogleAdsScript from './GoogleAdsScript.js'
@@ -46,13 +46,15 @@ export default function RootLayout({
 
 const GoogleAdsScript = dynamic(() => import('./GoogleAdsScript'), { ssr: false });
 const CookieConsent = dynamic(() => import('./CookieConsent'), { ssr: false });
+// const ConsentProvider = dynamic(() => import('../contexts/ClientSideWrapper'), { ssr: false });
   return (
 
     <html lang="en">
       
       <meta name="google-adsense-account" content="ca-pub-6831545317289734"></meta>
       <body className={` ${noto_sans_georgian.className} ${noto_serif_georgian.variable} `}>
-      <ConsentProvider>
+      {/* <ConsentProvider> */}
+          <CookieConsent />
           <noscript>
             <iframe
               src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
@@ -67,7 +69,6 @@ const CookieConsent = dynamic(() => import('./CookieConsent'), { ssr: false });
             {/* <ScrollTopButton /> */}
             <Footer />
             {/* <Suspense fallback={<div>Loading...</div>}> */}
-              <CookieConsent />
             {/* </Suspense> */}
             {/* <Analytics /> */}
             <GoogleAdsScript />
@@ -104,7 +105,7 @@ const CookieConsent = dynamic(() => import('./CookieConsent'), { ssr: false });
             `}
           </Script> */}
 
-      </ConsentProvider>
+      {/* </ConsentProvider> */}
           </body>
     </html>
 
