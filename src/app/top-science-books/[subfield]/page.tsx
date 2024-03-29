@@ -21,9 +21,9 @@ const prisma = new PrismaClient();
 
 const formatTitleForURL = (title: string) => {
     return title
-        .replace(/&/g, "%26") // Replace '&' with '%26'
-        .replace(/[^a-zA-Z0-9 ,'&-]/g, "") // Remove characters except alphanumerics, space, comma, single quote, and hyphen
-        .replace(/ /g, "+"); // Replace spaces with '%20'
+        .replace(/&/g, "%26")
+        .replace(/[^a-zA-Z0-9 ,'&-]/g, "")
+        .replace(/ /g, "+");
 };
 
 const getSubFieldRecommendation = cache(async (subfield: string) => {
@@ -46,7 +46,7 @@ export async function generateMetadata(
     //     url: `${formatTitleForURL(book.englishTitle)}.png`
     // }));
 
-    const keywords = subFieldData.books.flatMap(book => book.keywords || []);
+    const keywords = subFieldData?.books?.flatMap(book => book.keywords || []);
     const uniqueKeywords = Array.from(new Set(keywords));
     const description = `Dive into the internet curated, often updated, list of the top science books on ${subFieldData.subField}. From groundbreaking discoveries to the fundamentals of the universe, explore books that have shaped our understanding of science`;
 
@@ -65,12 +65,12 @@ async function SubFieldRecommendationPage({ params: { subfield } }: SubFieldPage
 
     const bookLinks = subFieldData?.books?.map(book => ({
         text: book.englishTitle,
-        id: book.englishTitle.replace(/\s+/g, '-').toLowerCase()
-    }));
+        id: book.englishTitle.replace(/\s+/g, '-').toLowerCase(),
+    })) || [];
 
-    const bookRecommendations = subFieldData?.books?.map((book, index) =>
-        <BookRecommendation key={book.englishTitle} book={book} syllabus={book.syllabus || {}} priority={index === 0}  />
-    );
+    const bookRecommendations = subFieldData?.books?.map((book, index) => (
+        <BookRecommendation key={book.englishTitle} book={book} syllabus={book.syllabus || {}} priority={index === 0} />
+    )) || [];
 
     return (
         <div className={styles.wrapper}>
