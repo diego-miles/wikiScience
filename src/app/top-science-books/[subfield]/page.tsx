@@ -81,7 +81,7 @@ async function SubFieldRecommendationPage({ params: { subfield } }: SubFieldPage
                 <ContextSpace />
                 <ArticleTitle topic={subFieldData?.subField} />
                 <LocalContextLinks links={bookLinks || []} />
-                {bookRecommendations}
+                {/* {bookRecommendations} */}
                 <div className='globalSpace'></div>
                 <div className='globalSpace'></div>
                 <ScrollTopButton />
