@@ -42,9 +42,9 @@ export async function generateMetadata(
     { params: { subfield } }: SubFieldPageProps): Promise<Metadata> {
     const subFieldData = await getSubFieldRecommendation(subfield);
 
-    const images = subFieldData.books.map(book => ({
-        url: `${formatTitleForURL(book.englishTitle)}.png`
-    }));
+    // const images = subFieldData.books.map(book => ({
+    //     url: `${formatTitleForURL(book.englishTitle)}.png`
+    // }));
 
     const keywords = subFieldData.books.flatMap(book => book.keywords || []);
     const uniqueKeywords = Array.from(new Set(keywords));
@@ -54,7 +54,7 @@ export async function generateMetadata(
         title: subFieldData?.subField,
         description: description,
         openGraph: {
-            images: images
+            // images: images
         },
         keywords: uniqueKeywords.join(', ')
     };

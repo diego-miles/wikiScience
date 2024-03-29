@@ -49,9 +49,9 @@ export async function generateMetadata({
 }: ProductPageProps): Promise<Metadata> {
     const recommendations = await getRecommendation(slug);
 
-    const images = (recommendations?.books?.map((book) => ({
-        url: formatTitleForURL(book.englishTitle) || '' 
-    })) || []).filter(image => image.url !== null) as OGImage[];
+    // const images = (recommendations?.books?.map((book) => ({
+    //     url: formatTitleForURL(book.englishTitle) || '' 
+    // })) || []).filter(image => image.url !== null) as OGImage[];
 
     const keywords = recommendations?.books?.flatMap((book) => book.keywords || []) || [];
     const uniqueKeywords = Array.from(new Set(keywords));
@@ -61,7 +61,7 @@ export async function generateMetadata({
         title: recommendations?.topic,
         description: description,
         openGraph: {
-            images: images,
+            // images: images,
         },
         keywords: uniqueKeywords.join(', '),
     };
