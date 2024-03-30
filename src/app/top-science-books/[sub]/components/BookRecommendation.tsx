@@ -52,7 +52,7 @@ const highlightKeywords = (text: string) => {
       </h2>
       <div className={styles.contentGrid}>
         <div className={styles.leftColumn}>
-          {/* <SyllabusComponet title={englishTitle} priority={priority} syllabusData={syllabus}/> */}
+          <SyllabusComponet title={englishTitle} priority={priority} syllabusData={syllabus}/>
           <div className={styles.infoGrid}>
             {publicationDate && <div> <p className='p2'>Publication</p> <p>{publicationDate}</p></div>}
             {lastEditionYear && <div> <p className='p2'>Last Ed.</p> <p>{lastEditionYear}</p></div>}
