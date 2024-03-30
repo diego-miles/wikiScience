@@ -4,7 +4,7 @@ import { Noto_Sans_Georgian, Noto_Serif_Georgian, Nunito_Sans } from 'next/font/
 import './globals.css'
 import './Footer'
 import Footer from './Footer'
-import { Analytics as AnalyticsVercel } from '@vercel/analytics/react';
+// import { Analytics as AnalyticsVercel } from '@vercel/analytics/react';
 import Script from 'next/script'
 // import { ConsentProvider } from '../contexts/ConsentContext';
 // import ConsentProvider  from '../contexts/ClientSideWrapper';
@@ -17,7 +17,7 @@ import Script from 'next/script'
 
 
 const noto_sans_georgian = Noto_Sans_Georgian({
-  weight: ['400','500', '600', '700', '800', '900'],
+  // weight: ['400','500', '600', '700', '800', '900'],
   subsets: ['latin'],
   display: 'swap'
 })
@@ -31,12 +31,12 @@ const noto_serif_georgian = Noto_Serif_Georgian({
 
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://storage.cloud.google.com/bestbooks/covers/'),
+  // metadataBase: new URL('https://storage.cloud.google.com/bestbooks/covers/'),
   title: 'Wikiscience',
   description: 'Compendium of scientific human knowladge',
 }
 
-const GTM_ID = process.env.GTM_ID;
+// const GTM_ID = process.env.GTM_ID;
 // const GTM_ID_ANA = process.env.GTM_ID_ANA;
 
 export default function RootLayout({
@@ -66,7 +66,7 @@ export default function RootLayout({
           </noscript> */}
             {/* <NavBarContainer title="" profileLink='' menuLink=''/> */}
             {children}
-            <AnalyticsVercel />
+            {/* <AnalyticsVercel /> */}
             {/* <ScrollTopButton /> */}
             <Footer />
             {/* <Suspense fallback={<div>Loading...</div>}> */}
