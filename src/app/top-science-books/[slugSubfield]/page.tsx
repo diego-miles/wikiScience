@@ -2,12 +2,12 @@ import { PrismaClient } from '@prisma/client';
 import NavBar from '@/components/NavbarContainer';
 import ContextSpace from './components/ContextSpace';
 import ArticleTitle from './components/ArticleTitle';
-import LocalContextLinks from './components/LocalContextLinks';
+// import LocalContextLinks from './components/LocalContextLinks';
 import BookRecommendation from './components/BookRecommendation';
 import { cache } from "react";
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import ScrollTopButton from '@/components/ScrollTopButton';
+// import ScrollTopButton from '@/components/ScrollTopButton';
 
 interface SubFieldPageProps {
     params: {
@@ -26,7 +26,7 @@ const formatTitleForURL = (title: string) => {
 };
 
 const getSubFieldRecommendation = cache(async (slugSubfield: string) => {
-    const subFieldData = await prisma.subFieldRecommendation.findUnique({
+    const subFieldData = await prisma.subFieldRecommendation?.findUnique({
         where: { slug: slugSubfield },
         include: {
             books: true
@@ -73,11 +73,11 @@ async function SubFieldRecommendationPage({ params: { slugSubfield } }: SubField
     return (
         <div>
             
-            <NavBar title={subFieldData?.field} title2={subFieldData?.subField} domain="www.wiki-science.com/" active={true} menuPath='./NavigationMenu'/>
+            {/* <NavBar title={subFieldData?.field} title2={subFieldData?.subField} domain="www.wiki-science.com/" active={true} menuPath='./NavigationMenu'/> */}
             <main>
                 <ContextSpace />
                 <ArticleTitle topic={subFieldData?.subField} />
-                <LocalContextLinks links={bookLinks || []} />
+                {/* <LocalContextLinks links={bookLinks || []} /> */}
                 {bookRecommendations}
                 <div className='globalSpace'></div>
                 <div className='globalSpace'></div>

@@ -63,7 +63,7 @@ const highlightKeywords = (text: string) => {
       <div className={styles.ratingsGrid}>
         {ratings?.amazon && (
           <div>
-            <a className='active-gold2' href={ratings.amazon.link} target="_blank" rel="noopener noreferrer">Amazon</a>
+            <a className='active-gold2' href={ratings.amazon?.link} target="_blank" rel="noopener noreferrer">Amazon</a>
               <a href={ratings.amazon?.link} target="_blank" rel="noopener noreferrer" className='active-gold'>
                 {ratings.amazon?.average}
               </a>
