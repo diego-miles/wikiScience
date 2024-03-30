@@ -2,12 +2,12 @@ import React from 'react';
 import styles from './BookRecomm.module.css';
 import { Book } from '@prisma/client'; // Import Ratings from Prisma schema
 // import SyllabusComponet from './syllabus/Syllabus';
-import { JsonValue } from '@prisma/client/runtime/library';
+// import { JsonValue } from '@prisma/client/runtime/library';
 
 type BookRecommendationProps = {
   book: Book; // Type assertion to include ratings property
   priority: boolean;
-  syllabus?: JsonValue ;
+  syllabus?: any ;
 };
 
 const BookRecommendation: React.FC<BookRecommendationProps> = ({ book, priority,  }) => {
