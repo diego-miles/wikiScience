@@ -12,15 +12,13 @@
 }
 
 .localContextLinkCenter {
-  /* flex-grow: 1; */
   display: flex;
-  /* flex-direction: column; */
-  /* align-items: center; */
 }
 
 .localContextLinkItem {
   padding-top: .5rem;
 }
+
 /* 
 .wrapper::-webkit-scrollbar {
   width: 0.5rem;

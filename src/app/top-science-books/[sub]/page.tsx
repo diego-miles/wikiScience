@@ -7,6 +7,7 @@ import BookRecommendation from './components/BookRecommendation';
 import styles from './page.module.css'
 import ScrollTopButton from '@/components/ScrollTopButton'
 import { notFound } from 'next/navigation';
+import { cache } from 'react';
 
 
 interface SubFieldPageProps {
@@ -17,24 +18,34 @@ interface SubFieldPageProps {
 
 const prisma = new PrismaClient();
 
-const formatTitleForURL = (title: string) => {
-    return title
-        .replace(/&/g, "%26") // Replace '&' with '%26'
-        .replace(/[^a-zA-Z0-9 ,'&-]/g, "") // Remove characters except alphanumerics, space, comma, single quote, and hyphen
-        .replace(/ /g, "+"); // Replace spaces with '%20'
-};
 
-const getSubFieldRecommendation = async (sub: string) => {
-    const subFieldData = await prisma.subFieldRecommendation.findUnique({
+const getSubFieldRecommendation = cache(async (sub: string) => {
+    const recommendations = await prisma.subFieldRecommendation.findUnique({
         where: { slug: sub },
         include: {
-            books: true
-        }
+            books: {
+
+            } 
+        },
     });
 
-    if (!subFieldData) notFound();
-    return subFieldData;
-};
+    if (!recommendations) notFound();
+
+    return recommendations;
+});
+
+
+// const getSubFieldRecommendation = async (sub: string) => {
+//     const subFieldData = await prisma.subFieldRecommendation.findUnique({
+//         where: { slug: sub },
+//         include: {
+//             books: true
+//         }
+//     });
+
+//     if (!subFieldData) notFound();
+//     return subFieldData;
+// };
 
 
 // const ScrollTopButton = dynamic(() => import('@/components/ScrollTopButton'), { ssr: false });
