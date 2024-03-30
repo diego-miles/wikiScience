@@ -45,10 +45,10 @@ const renderDynamicContent = (data: any, depth: number = 0): React.ReactNode => 
       </div>
     );
   } else {
-    if (depth <= 3) {
+    if (depth <= 1) {
       // Omitir renderizado para los dos primeros niveles
       return null;
-    } else if (depth <= 5) {
+    } else if (depth <= 3) {
       // Tercer nivel: utilizar <strong>
       return <h4>{data}</h4>;
     } else {

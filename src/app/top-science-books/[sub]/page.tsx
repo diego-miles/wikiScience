@@ -1,3 +1,4 @@
+
 import { PrismaClient } from '@prisma/client';
 import NavBar from '@/components/NavbarContainer';
 import ContextSpace from './components/ContextSpace';
@@ -26,9 +27,7 @@ const getSubFieldRecommendation = async (sub: string) => {
     const subFieldData = await prisma.subFieldRecommendation.findUnique({
         where: { slug: sub },
         include: {
-            books: {
-
-            }
+            books: true
         }
     });
 

@@ -6,17 +6,17 @@ import './Footer'
 import Footer from './Footer'
 import { Analytics as AnalyticsVercel } from '@vercel/analytics/react';
 import Script from 'next/script'
-import { ConsentProvider } from '../contexts/ConsentContext';
-import Analytics from './GoogleAnalytics'
-import dynamic from 'next/dynamic';
-import GoogleAdsScript from './GoogleAdsScript.js'
+// import { ConsentProvider } from '../contexts/ConsentContext';
+// import Analytics from './GoogleAnalytics'
+// import dynamic from 'next/dynamic';
+// import GoogleAdsScript from './GoogleAdsScript.js'
 import React, { Suspense } from 'react';
 
 
 
 
 const noto_sans_georgian = Noto_Sans_Georgian({
-  weight: ['400','500', '600', '700', '800'],
+  // weight: ['400','500', '600', '700', '800'],
   // variable: '--font-noto-sans-georgian',
   // style: 'italic',
   subsets: ['latin'],
@@ -39,8 +39,8 @@ export const metadata: Metadata = {
   description: 'Compendium of scientific human knowladge',
 }
 
-const GTM_ID = process.env.GTM_ID;
-const GTM_ID_ANA = process.env.GTM_ID_ANA;
+const GTM_ID = 'GTM-NTTWMW3Z';
+// const GTM_ID_ANA = process.env.GTM_ID_ANA;
 
 export default function RootLayout({
   children,
@@ -48,14 +48,14 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
 
-const CookieConsent = dynamic(() => import('./CookieConsent'), { ssr: false });
+// const CookieConsent = dynamic(() => import('./CookieConsent'), { ssr: false });
 // const GoogleAnalytics = dynamic(() => import('./GoogleAnalytics'), { suspense: true });
   return (
 
     <html lang="en">
       <meta name="google-adsense-account" content="ca-pub-6831545317289734"></meta>
       <body className={` ${noto_sans_georgian.className} ${noto_serif_georgian.variable} `}>
-      <ConsentProvider>
+      {/* <ConsentProvider> */}
           <noscript>
             <iframe
               src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
@@ -69,11 +69,11 @@ const CookieConsent = dynamic(() => import('./CookieConsent'), { ssr: false });
             <AnalyticsVercel />
             {/* <ScrollTopButton /> */}
             <Footer />
-            <Suspense fallback={<div>Loading...</div>}>
+            {/* <Suspense fallback={<div>Loading...</div>}>
               <CookieConsent />
-            </Suspense>
-            <Analytics />
-            <GoogleAdsScript />
+            </Suspense> */}
+            {/* <Analytics /> */}
+            {/* <GoogleAdsScript /> */}
             
           {/* <Script
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6831545317289734" strategy="worker" crossOrigin="anonymous"/> */}
@@ -90,11 +90,11 @@ const CookieConsent = dynamic(() => import('./CookieConsent'), { ssr: false });
               `,
             }}
           />
-          <Script
+          {/* <Script
             src={`https://www.googletagmanager.com/gtag/js?id=${GTM_ID_ANA}`}
             strategy="afterInteractive"
             async
-          />
+          /> */}
           {/* <Script
             id="google-analytics-script"
             strategy="afterInteractive"
@@ -107,7 +107,7 @@ const CookieConsent = dynamic(() => import('./CookieConsent'), { ssr: false });
             `}
           </Script> */}
 
-      </ConsentProvider>
+      {/* </ConsentProvider> */}
           </body>
     </html>
 
