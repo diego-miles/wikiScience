@@ -8,7 +8,7 @@ import BookRecommendation from './components/BookRecommendation';
 import styles from './page.module.css'
 import ScrollTopButton from '@/components/ScrollTopButton'
 import { notFound } from 'next/navigation';
-// import dynamic from 'next/dynamic';
+
 
 interface SubFieldPageProps {
     params: {

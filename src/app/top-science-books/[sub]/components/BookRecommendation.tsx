@@ -1,7 +1,8 @@
 import React from 'react';
 import styles from './BookRecomm.module.css';
-import { Book } from '@prisma/client'; // Import Ratings from Prisma schema
-import SyllabusComponet from './syllabus/Syllabus';
+import { Book } from '@prisma/client';
+import dynamic from 'next/dynamic';
+// import SyllabusComponet from './syllabus/Syllabus';
 // import { JsonValue } from '@prisma/client/runtime/library';
 
 type BookRecommendationProps = {
@@ -42,6 +43,10 @@ const highlightKeywords = (text: string) => {
     return segment;
   });
 };
+
+
+const SyllabusComponet = dynamic(() => import('./syllabus/Syllabus'), { ssr: false });
+
 
 
   return (
