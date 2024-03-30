@@ -7,6 +7,7 @@ import LocalContextLinks from './components/LocalContextLinks';
 import BookRecommendation from './components/BookRecommendation';
 import styles from './page.module.css'
 import ScrollTopButton from '@/components/ScrollTopButton'
+import { notFound } from 'next/navigation';
 // import dynamic from 'next/dynamic';
 
 interface SubFieldPageProps {
@@ -32,7 +33,7 @@ const getSubFieldRecommendation = async (sub: string) => {
         }
     });
 
-    if (!subFieldData) throw new Error('SubField data not found');
+    if (!subFieldData) notFound();
     return subFieldData;
 };
 
@@ -43,23 +44,18 @@ const getSubFieldRecommendation = async (sub: string) => {
 
 
 async function SubFieldRecommendationPage({ params: { sub } }: SubFieldPageProps) {
-    let subFieldData;
-    try {
-        subFieldData = await getSubFieldRecommendation(sub);
-    } catch (error) {
-        // Handle the error (e.g., display a message or redirect)
-        console.error(error);
-        return <div>Error loading subfield data</div>;
-    }
 
-    const bookLinks = subFieldData.books.map(book => ({
+    const subFieldData = await getSubFieldRecommendation(sub);
+
+
+    const bookLinks = subFieldData?.books?.map((book) => ({
         text: book.englishTitle,
-        id: book.englishTitle.replace(/\s+/g, '-').toLowerCase()
-    }));
+        id: book.englishTitle.replace(/\s+/g, '-').toLowerCase(),
+    })) || [];
 
-    const bookRecommendations = subFieldData.books.map((book, index) =>
-        <BookRecommendation key={book.englishTitle} book={book} priority={index === 0} syllabus={book.syllabus} />
-    );
+    const bookRecommendations = subFieldData.books.map((book, index) => (
+        <BookRecommendation key={book.englishTitle} book={book} syllabus={book.syllabus || {}} priority={index === 0} />
+    )) || [];
 
     return (
         <div className={styles.wrapper}>
