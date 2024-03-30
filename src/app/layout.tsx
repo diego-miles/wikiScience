@@ -1,6 +1,6 @@
 
 import type { Metadata } from 'next'
-import { Noto_Sans_Georgian, Noto_Serif_Georgian, Nunito_Sans } from 'next/font/google'
+import { Noto_Sans_Georgian, Noto_Serif_Georgian } from 'next/font/google'
 import './globals.css'
 import './Footer'
 import Footer from './Footer'
@@ -20,7 +20,7 @@ const noto_sans_georgian = Noto_Sans_Georgian({
   // variable: '--font-noto-sans-georgian',
   // style: 'italic',
   subsets: ['latin'],
-  display: 'swap'
+  // display: 'swap'
 })
 
 
@@ -56,14 +56,14 @@ export default function RootLayout({
       <meta name="google-adsense-account" content="ca-pub-6831545317289734"></meta>
       <body className={` ${noto_sans_georgian.className} ${noto_serif_georgian.variable} `}>
       {/* <ConsentProvider> */}
-          <noscript>
+          {/* <noscript>
             <iframe
               src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
               height="0"
               width="0"
               style={{ display: "none", visibility: "hidden" }}
             />
-          </noscript>
+          </noscript> */}
             {/* <NavBarContainer title="" profileLink='' menuLink=''/> */}
             {children}
             <AnalyticsVercel />
@@ -77,7 +77,7 @@ export default function RootLayout({
             
           {/* <Script
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6831545317289734" strategy="worker" crossOrigin="anonymous"/> */}
-          <Script
+          {/* <Script
             id="gtm-script"
             strategy="worker"
             dangerouslySetInnerHTML={{
@@ -89,7 +89,7 @@ export default function RootLayout({
                 })(window,document,'script','dataLayer','${GTM_ID}');
               `,
             }}
-          />
+          /> */}
           {/* <Script
             src={`https://www.googletagmanager.com/gtag/js?id=${GTM_ID_ANA}`}
             strategy="afterInteractive"
