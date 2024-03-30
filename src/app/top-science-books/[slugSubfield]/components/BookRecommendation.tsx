@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './BookRecomm.module.css';
 import { Book } from '@prisma/client'; // Import Ratings from Prisma schema
-// import SyllabusComponet from './syllabus/Syllabus';
+import SyllabusComponet from './syllabus/Syllabus';
 // import { JsonValue } from '@prisma/client/runtime/library';
 
 type BookRecommendationProps = {
@@ -10,7 +10,7 @@ type BookRecommendationProps = {
   syllabus?: any ;
 };
 
-const BookRecommendation: React.FC<BookRecommendationProps> = ({ book, priority,  }) => {
+const BookRecommendation: React.FC<BookRecommendationProps> = ({ book, priority, syllabus }) => {
   const {
     englishTitle,
     authors,
@@ -52,7 +52,7 @@ const highlightKeywords = (text: string) => {
       </h2>
       <div className={styles.contentGrid}>
         <div className={styles.leftColumn}>
-          {/* <SyllabusComponet title={englishTitle} priority={priority} syllabusData={syllabus}/> */}
+          <SyllabusComponet title={englishTitle} priority={priority} syllabusData={syllabus}/>
           <div className={styles.infoGrid}>
             {publicationDate && <div> <p className='p2'>Publication</p> <p>{publicationDate}</p></div>}
             {lastEditionYear && <div> <p className='p2'>Last Ed.</p> <p>{lastEditionYear}</p></div>}

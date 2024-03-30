@@ -1,6 +1,6 @@
 
 import type { Metadata } from 'next'
-import { Noto_Sans_Georgian, Noto_Serif_Georgian, Nunito_Sans } from 'next/font/google'
+import { Noto_Sans_Georgian, Noto_Serif_Georgian } from 'next/font/google'
 import './globals.css'
 import './Footer'
 import Footer from './Footer'
@@ -52,7 +52,7 @@ export default function RootLayout({
 
     <html lang="en">
       
-      <meta name="google-adsense-account" content="ca-pub-6831545317289734"></meta>
+      {/* <meta name="google-adsense-account" content="ca-pub-6831545317289734"></meta> */}
       <body className={` ${noto_sans_georgian.className} ${noto_serif_georgian.variable} `}>
       {/* <ConsentProvider> */}
           {/* <CookieConsent /> */}
