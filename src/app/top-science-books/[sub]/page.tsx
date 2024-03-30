@@ -3,7 +3,7 @@ import { PrismaClient } from '@prisma/client';
 // import NavBar from '@/components/NavbarContainer';
 import ContextSpace from './components/ContextSpace';
 import ArticleTitle from './components/ArticleTitle';
-import LocalContextLinks from './components/LocalContextLinks';
+// import LocalContextLinks from './components/LocalContextLinks';
 import BookRecommendation from './components/BookRecommendation';
 import styles from './page.module.css'
 // import ScrollTopButton from '@/components/ScrollTopButton'
@@ -39,6 +39,7 @@ const getSubFieldRecommendation = async (sub: string) => {
 
 const ScrollTopButton = dynamic(() => import('@/components/ScrollTopButton'), { ssr: false });
 const NavBar = dynamic(() => import('@/components/NavbarContainer'), { ssr: false });
+const LocalContextLinks = dynamic(() => import('./components/LocalContextLinks'), { ssr: false });
 
 
 async function SubFieldRecommendationPage({ params: { sub } }: SubFieldPageProps) {
