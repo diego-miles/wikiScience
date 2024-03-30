@@ -34,7 +34,7 @@ const noto_serif_georgian = Noto_Serif_Georgian({
 
 // export { noto_sans_georgian, noto_serif_georgian }
 export const metadata: Metadata = {
-  metadataBase: new URL('https://storage.cloud.google.com/bestbooks/covers/'),
+  // metadataBase: new URL('https://bestbooks.s3.us-east-2.amazonaws.com/'),
   title: 'Wikiscience',
   description: 'Compendium of scientific human knowladge',
 }
@@ -53,7 +53,7 @@ export default function RootLayout({
   return (
 
     <html lang="en">
-      <meta name="google-adsense-account" content="ca-pub-6831545317289734"></meta>
+      {/* <meta name="google-adsense-account" content="ca-pub-6831545317289734"></meta> */}
       <body className={` ${noto_sans_georgian.className} ${noto_serif_georgian.variable} `}>
       {/* <ConsentProvider> */}
           {/* <noscript>

@@ -63,15 +63,15 @@ async function SubFieldRecommendationPage({ params: { sub } }: SubFieldPageProps
 
     return (
         <div className={styles.wrapper}>
-            {/* <NavBar title={subFieldData.field} title2={subFieldData.subField} domain="www.wiki-science.com/" active={true} menuPath='./NavigationMenu'/> */}
+            <NavBar title={subFieldData.field} title2={subFieldData.subField} domain="www.wiki-science.com/" active={true} menuPath='./NavigationMenu'/>
             <main>
-                {/* <ContextSpace />
+                <ContextSpace />
                 <ArticleTitle topic={subFieldData.subField} />
-                <LocalContextLinks links={bookLinks} /> */}
+                <LocalContextLinks links={bookLinks} />
                 {bookRecommendations}
-                {/* <div className='globalSpace'></div>
                 <div className='globalSpace'></div>
-                <ScrollTopButton /> */}
+                <div className='globalSpace'></div>
+                <ScrollTopButton />
             </main>
         </div>
     );
