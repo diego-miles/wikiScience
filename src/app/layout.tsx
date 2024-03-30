@@ -4,7 +4,7 @@ import { Noto_Sans_Georgian, Noto_Serif_Georgian } from 'next/font/google'
 import './globals.css'
 import './Footer'
 import Footer from './Footer'
-import { Analytics as AnalyticsVercel } from '@vercel/analytics/react';
+// import { Analytics as AnalyticsVercel } from '@vercel/analytics/react';
 import Script from 'next/script'
 // import { ConsentProvider } from '../contexts/ConsentContext';
 // import Analytics from './GoogleAnalytics'
@@ -66,7 +66,7 @@ export default function RootLayout({
           </noscript> */}
             {/* <NavBarContainer title="" profileLink='' menuLink=''/> */}
             {children}
-            <AnalyticsVercel />
+            {/* <AnalyticsVercel /> */}
             {/* <ScrollTopButton /> */}
             <Footer />
             {/* <Suspense fallback={<div>Loading...</div>}>

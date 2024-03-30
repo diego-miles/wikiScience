@@ -1,4 +1,3 @@
-
 import { PrismaClient } from '@prisma/client';
 import NavBar from '@/components/NavbarContainer';
 import ContextSpace from './components/ContextSpace';
@@ -53,16 +52,16 @@ async function SubFieldRecommendationPage({ params: { sub } }: SubFieldPageProps
         id: book.englishTitle.replace(/\s+/g, '-').toLowerCase(),
     })) || [];
 
-    const bookRecommendations = subFieldData.books.map((book, index) => (
+    const bookRecommendations = subFieldData?.books?.map((book, index) => (
         <BookRecommendation key={book.englishTitle} book={book} syllabus={book.syllabus || {}} priority={index === 0} />
     )) || [];
 
     return (
         <div className={styles.wrapper}>
-            <NavBar title={subFieldData.field} title2={subFieldData.subField} domain="www.wiki-science.com/" active={true} menuPath='./NavigationMenu'/>
+            <NavBar title={subFieldData?.field} title2={subFieldData?.subField} domain="www.wiki-science.com/" active={true} menuPath='./NavigationMenu'/>
             <main>
                 <ContextSpace />
-                <ArticleTitle topic={subFieldData.subField} />
+                <ArticleTitle topic={subFieldData?.subField} />
                 <LocalContextLinks links={bookLinks} />
                 {bookRecommendations}
                 <div className='globalSpace'></div>

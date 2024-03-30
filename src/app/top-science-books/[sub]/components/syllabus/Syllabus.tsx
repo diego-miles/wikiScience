@@ -4,12 +4,11 @@ import Image from 'next/image';
 import Overlay from './Overlay'; // Asegúrate de que esta importación sea correcta
 import SyllabusButton from './SyllabusButton';
 import styles from './Syllabus.module.css';
-import { JsonValue } from '@prisma/client/runtime/library';
 
 type Props = {
   title: string;
   priority: boolean;
-  syllabusData: JsonValue ;
+  syllabusData: any ;
 };
 
 const formatTitleForURL = (title: string) => {
