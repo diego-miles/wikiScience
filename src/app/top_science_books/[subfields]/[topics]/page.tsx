@@ -5,14 +5,13 @@ import ArticleTitle from '@/components/books-components/ArticleTitle';
 import LocalContextLinks from '@/components/books-components/LocalContextLinks';
 import BookRecommendation from '@/components/books-components/BookRecommendation';
 import styles from './page.module.css';
-import { cache } from 'react';
+// import { cache } from 'react';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-// import ScrollTopButton from '@/components/ScrollTopButton';
-import dynamic from 'next/dynamic';
+import ScrollTopButton from '@/components/ScrollTopButton';
 
 
-const ScrollTopButton = dynamic(() => import('@/components/ScrollTopButton'), { ssr: false });
+
 
 type OGImage = {
     url: string;
@@ -22,7 +21,7 @@ const prisma = new PrismaClient();
 
 interface ProductPageProps {
     params: {
-        topics: string;
+        slug: string;
     };
 }
 
@@ -33,9 +32,9 @@ const formatTitleForURL = (title: string) => {
         .replace(/&/g, '%26');
 };
 
-const getRecommendation = cache(async (topics: string) => {
+const getRecommendation = async (slug: string) => {
     const recommendations = await prisma.topicRecommendation.findUnique({
-        where: { slug: topics },
+        where: { slug: slug },
         include: {
             books: true
         },
@@ -44,13 +43,13 @@ const getRecommendation = cache(async (topics: string) => {
     if (!recommendations) notFound();
 
     return recommendations;
-});
+};
 
 
 export async function generateMetadata({
-    params: { topics },
+    params: { slug },
 }: ProductPageProps): Promise<Metadata> {
-    const recommendations = await getRecommendation(topics);
+    const recommendations = await getRecommendation(slug);
 
     // const images = (recommendations?.books?.map((book) => ({
     //     url: formatTitleForURL(book.englishTitle) || '' 
@@ -72,9 +71,9 @@ export async function generateMetadata({
 
 
 async function RecommendationPage({
-    params: { topics },
+    params: { slug },
 }: ProductPageProps) {
-    const recommendations = await getRecommendation(topics);
+    const recommendations = await getRecommendation(slug);
 
     const bookLinks = recommendations?.books?.map((book) => ({
         text: book.englishTitle,

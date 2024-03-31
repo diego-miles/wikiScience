@@ -1,29 +1,27 @@
 import { PrismaClient } from '@prisma/client';
 import NavBar from '@/components/NavbarContainer';
-// import ContextSpace from '@/components/books-components/ContextSpace';
+import ContextSpace from '@/components/books-components/ContextSpace';
 import ArticleTitle from '@/components/books-components/ArticleTitle';
 import LocalContextLinks from '@/components/books-components/LocalContextLinks';
 import BookRecommendation from '@/components/books-components/BookRecommendation';
-import { cache } from "react";
+import { unstable_cache } from 'next/cache';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-// import ScrollTopButton from '@/components/ScrollTopButton';
-// import dynamic from 'next/dynamic';
-
-// const ScrollTopButton = dynamic(() => import('@/components/ScrollTopButton'), { ssr: false });
+import ScrollTopButton from '@/components/ScrollTopButton';
+import { Book } from '@prisma/client'; // Import Ratings from Prisma schema
 
 
 interface SubFieldPageProps {
     params: {
-        subfields: string;
+        slugSubfield: string;
     }
 }
 
 const prisma = new PrismaClient();
 
-const getSubFieldRecommendation = cache(async (subfields: string) => {
+const getSubFieldRecommendation = unstable_cache(async (slugSubfield: string) => {
     const subFieldData = await prisma.subFieldRecommendation.findUnique({
-        where: { slug: subfields },
+        where: { slug: slugSubfield },
         include: {
             books: true
         }
@@ -34,29 +32,29 @@ const getSubFieldRecommendation = cache(async (subfields: string) => {
 });
 
 
-async function Page({ params: { subfields } }: SubFieldPageProps) {
-    const subFieldData = await getSubFieldRecommendation(subfields);
+async function Page({ params: { slugSubfield } }: SubFieldPageProps) {
+    const subFieldData = await getSubFieldRecommendation(slugSubfield);
 
-    const bookLinks = subFieldData?.books?.map(book => ({
+    const bookLinks = subFieldData.books.map((book: { englishTitle: string; }) => ({
         text: book.englishTitle,
         id: book.englishTitle.replace(/\s+/g, '-').toLowerCase(),
     })) || [];
 
-    const bookRecommendations = subFieldData?.books?.map((book, index) => (
+    const bookRecommendations = subFieldData.books.map((book, index) => (
         <BookRecommendation key={book.englishTitle} book={book} syllabus={book.syllabus || {}} priority={index === 0} />
     )) || [];
 
     return (
         <div>
-            <NavBar title={subFieldData?.field} title2={subFieldData?.subField} domain="www.wiki-science.com/" active={true} menuPath='./NavigationMenu'/>
+            <NavBar title={subFieldData.field} title2={subFieldData.subField} domain="www.wiki-science.com/" menuPath='./NavigationMenu'/>
             <main>
-                {/* <ContextSpace /> */}
-                <ArticleTitle topic={subFieldData?.subField} />
+                <ContextSpace />
+                <ArticleTitle topic={subFieldData.subField || ''} />
                 <LocalContextLinks links={bookLinks || []} />
                 {bookRecommendations}
-                {/* <div className='globalSpace'></div> */}
-                {/* <div className='globalSpace'></div> */}
-                {/* <ScrollTopButton /> */}
+                <div className='globalSpace'></div>
+                <div className='globalSpace'></div>
+                <ScrollTopButton />
             </main>
         </div>
     );

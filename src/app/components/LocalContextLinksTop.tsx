@@ -136,20 +136,20 @@ const LocalContextLinks: React.FC<LocalContextLinksProps> = ({ links }) => {
           className={styles.localContextLinksContainer}
           style={{ display: isVisible ? 'flex' : 'none' }}
         >
-          {links.map((link, index) => (
-            <a
-              key={index}
-              href={`#${link.id}`}
-              className={styles.linkText}
-              onClick={(e) => {
-                e.preventDefault();
-                smoothScroll(link.id);
-              }}
-              ref={el => (linkRefs.current[index] = el)}
-            >
-              {link.text}
-            </a>
-          ))}
+        {links.map((link, index) => (
+          <a
+            key={index}
+            href={`#${link.id}`}
+            className={styles.linkText}
+            onClick={(e) => {
+              e.preventDefault();
+              smoothScroll(link.id);
+            }}
+            ref={el => { linkRefs.current[index] = el; }} // Updated ref assignment
+          >
+            {link.text}
+          </a>
+        ))}
           <a
             className={styles.watchEverything}
             onClick={toggleDropdown}
