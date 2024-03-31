@@ -44,7 +44,7 @@ async function SubFieldRecommendationPage({ params: { slugSubfield } }: SubField
 
     return (
         <div>
-            <NavBar title={subFieldData.field} title2={subFieldData.subField} domain="www.wiki-science.com/" active={true} menuPath='./NavigationMenu'/>
+            <NavBar title={subFieldData.field} title2={subFieldData.subField} domain="www.wiki-science.com/" menuPath='./NavigationMenu'/>
             <main>
                 <ContextSpace />
                 <ArticleTitle topic={subFieldData?.subField} />
