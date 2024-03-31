@@ -1,5 +1,5 @@
 import { PrismaClient } from '@prisma/client';
-import NavBar from '@/components/NavbarContainer';
+// import NavBar from '@/components/NavbarContainer';
 import ContextSpace from './components/ContextSpace';
 import ArticleTitle from './components/ArticleTitle';
 import LocalContextLinks from './components/LocalContextLinks';
@@ -44,7 +44,7 @@ async function SubFieldRecommendationPage({ params: { slugSubfield } }: SubField
 
     return (
         <div>
-            <NavBar title={subFieldData.field} title2={subFieldData.subField} domain="www.wiki-science.com/" menuPath='./NavigationMenu'/>
+            {/* <NavBar title={subFieldData.field} title2={subFieldData.subField} domain="www.wiki-science.com/" menuPath='./NavigationMenu'/> */}
             <main>
                 <ContextSpace />
                 <ArticleTitle topic={subFieldData?.subField} />
