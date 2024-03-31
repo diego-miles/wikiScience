@@ -17,7 +17,7 @@ import Script from 'next/script'
 const noto_sans_georgian = Noto_Sans_Georgian({
   // weight: ['400','500', '600', '700', '800', '900'],
   subsets: ['latin'],
-  display: 'swap'
+  // display: 'swap'
 })
 
 
@@ -46,23 +46,21 @@ export default function RootLayout({
 // const GoogleAdsScript = dynamic(() => import('./GoogleAdsScript'), { ssr: false });
 // const CookieConsent = dynamic(() => import('./CookieConsent'), { ssr: false });
   return (
-
     <html lang="en">
-      
       <meta name="google-adsense-account" content="ca-pub-6831545317289734"></meta>
       <body className={` ${noto_sans_georgian.className} ${noto_serif_georgian.variable} `}>
           {/* <CookieConsent /> */}
-          <noscript>
+          {/* <noscript>
             <iframe
               src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
               height="0"
               width="0"
               style={{ display: "none", visibility: "hidden" }}
             />
-          </noscript>
+          </noscript> */}
             {/* <NavBarContainer title="" profileLink='' menuLink=''/> */}
             {children}
-            <AnalyticsVercel />
+            {/* <AnalyticsVercel /> */}
             {/* <ScrollTopButton /> */}
             <Footer />
             {/* <Suspense fallback={<div>Loading...</div>}> */}
@@ -101,7 +99,6 @@ export default function RootLayout({
               gtag('config', '${GTM_ID_ANA}');
             `}
           </Script> */}
-
           </body>
     </html>
 
