@@ -18,7 +18,7 @@ export async function create() {
 export async function get() {
   const cookieStore = cookies()
   const cookiesConsent = cookieStore.get('cookiesConsent')
-    console.log('Cookie action set in action')
+    // console.log('Cookie action set in action')
     return cookiesConsent
 }
 

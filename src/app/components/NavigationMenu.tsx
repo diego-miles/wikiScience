@@ -29,7 +29,7 @@ const NavigationMenu: React.FC<NavigationMenuProps> = ({ className, style }) => 
                                     <ul key={sIdx}>
                                         <li className={styles.subField}>
                                             {/* Use toSlug to convert subField.title into a slug */}
-                                            <Link href={`/top-science-books/${toSlug(subField.title)}`} className='menu-link'>
+                                            <Link href={`/top_science_books/${toSlug(subField.title)}`} className='menu-link'>
                                                 {subField.title}
                                             </Link>
                                         </li>

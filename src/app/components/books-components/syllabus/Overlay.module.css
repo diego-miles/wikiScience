@@ -1,0 +1,82 @@
+.overlayContainer {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    /* margin: 20vh 0; */
+    padding: 3rem 1.5rem;
+    /* padding-top: 7rem; */
+    z-index: 10000;
+    background-color: rgba(13, 28, 42, 0.827);
+    overflow-y: scroll;
+    /* Permite el desplazamiento vertical si es necesario */    
+}
+
+.background {
+    overflow-y: auto;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    /* background-color: var(--color-background2); */
+}
+
+.syllabusContent {
+    padding: 2rem 2rem;
+    background-color: var(--color-background2);
+}
+
+
+
+.crossIcon {
+    width: 4rem;
+    height: 3rem;
+    top: 4rem;
+    right: 2rem;
+    position: fixed;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease, visibility 0.2s ease;
+    z-index: 10000;
+}
+
+.crossIconOpen {
+    opacity: 1;
+    visibility: visible;
+}
+
+.crossIcon::before,
+.crossIcon::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 3rem;
+    height: 0.5rem;
+    background-color: var(--color-accent1);
+    border-radius: 0.5rem;
+    transition: transform 0.3s ease;
+    transform: translate(-50%, -50%) rotate(0);
+}
+
+.crossIconOpen::before {
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.crossIconOpen::after {
+    transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+
+.figureOverlay {
+    position: relative;
+    margin: 0 auto;
+    width: 30rem;
+    height: 40rem;
+    /* padding-bottom: 5rem; */
+    margin-bottom: 3rem;
+    /* max-width: 70vw; */
+    /* max-height: 80vh; */
+}

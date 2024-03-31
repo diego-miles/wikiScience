@@ -1,0 +1,101 @@
+.bookRecommendation {
+    padding-bottom: 1.5rem;
+}
+
+.container {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
+
+
+.summaryParagraph span {
+    /* color: var(--color-title1); */
+    color: #001831;
+    font-weight: 500;
+}
+
+.cover {
+    position: relative;
+    margin-bottom: 10rem;
+}
+
+.coverImg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 2rem;
+    padding-top: 1rem;
+}
+
+.overlay {
+    position: absolute;
+    bottom: 0;
+    background-color: var(--color-accent1);
+}
+
+.details,
+.ratings {
+    display: flex;
+    justify-content: space-between;
+}
+
+.detailItem,
+.rating {
+    flex: 1;
+    text-align: center;
+}
+
+.detailTitle {
+    margin-bottom: 0.5rem;
+}
+
+.bookRecommendation .infoGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    text-align: center;
+    padding-bottom: 1rem;
+}
+
+.ratingsGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    text-align: center;
+    padding: 0 5rem;
+    padding-bottom: 1.5rem;
+}
+
+.bookRecommendation .ratingsTitle {
+    text-align: center;
+}
+
+.title {
+    position: relative;
+    padding-top: 3rem;
+}
+
+/* Estilos para manejar el grid de contenido en pantallas anchas */
+.bookRecommendation .contentGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
+/* Media query para pantallas de al menos 768px de ancho */
+@media only screen and (min-width: 700px) {
+    .title {
+        padding-top: 5rem;
+    }
+
+    .bookRecommendation .contentGrid {
+        grid-template-columns: .9fr 1.1fr;
+    }
+
+    .leftColumn {
+        padding: 0 2rem;
+    }
+
+    .rightColumn {
+        padding-top: 2rem;
+    }
+}

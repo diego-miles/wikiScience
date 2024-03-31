@@ -33,12 +33,12 @@ const LinkComponent: FC<LinkProps> = ({ title, path, active, onClick }) => (
 const NavigationLinks: FC<NavbarProps> = ({ title, title2, title3, domain, active }) => {
     const generateLink = useCallback((_domain: string | undefined, _title: string | undefined, additionalPath: string = ''): string => {
         const safeTitle = _title ?? '';
-        return `/top-science-books/${toSlug(safeTitle)}${additionalPath}`;
+        return `/top_science_books/${toSlug(safeTitle)}${additionalPath}`;
     }, []);
     
     return (
         <div className={styles.contextualLinks}>
-            <LinkComponent title={title} path="/top-science-books/" />
+            <LinkComponent title={title} path="/top_science_books/" />
             {title2 && (
                 <>
                     <span className={styles.padding}>{" > "}</span>
