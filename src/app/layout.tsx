@@ -60,18 +60,13 @@ const CookieConsent = dynamic(() => import('./CookieConsent'), { ssr: false });
               style={{ display: "none", visibility: "hidden" }}
             />
           </noscript>
-            {/* <NavBarContainer title="" profileLink='' menuLink=''/> */}
             {children}
             <AnalyticsVercel />
             {/* <ScrollTopButton /> */}
             <Footer />
-            {/* <Suspense fallback={<div>Loading...</div>}> */}
-            {/* </Suspense> */}
             {/* <Analytics /> */}
             <GoogleAdsScript />
             
-          {/* <Script
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6831545317289734" strategy="worker" crossOrigin="anonymous"/> */}
           {/* <Script
             id="gtm-script"
             strategy="worker"
