@@ -5,9 +5,9 @@ type Ratings {
 }
 
 type RatingDetail {
-  average Float?
-  number  Int?
-  link    String?
+  average Float
+  number  Int
+  link    String
 }
 
 model Book {

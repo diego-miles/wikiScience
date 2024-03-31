@@ -1,4 +1,4 @@
-//🧩Don't Edit this file.✨Generated in Sun Mar 31 2024 01:23:01 GMT-0600 (Central Standard Time)✨
+//🧩Don't Edit this file.✨Generated in Sun Mar 31 2024 01:28:01 GMT-0600 (Central Standard Time)✨
 
 generator client {
   provider = "prisma-client-js"
@@ -16,9 +16,9 @@ type Ratings {
 }
 
 type RatingDetail {
-  average Float?
-  number  Int?
-  link    String?
+  average Float
+  number  Int
+  link    String
 }
 
 model Book {
