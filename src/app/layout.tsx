@@ -9,10 +9,10 @@ import Script from 'next/script'
 // import { ConsentProvider } from '../contexts/ConsentContext';
 // import ConsentProvider  from '../contexts/ClientSideWrapper';
 // import Analytics from './GoogleAnalytics'
-// import dynamic from 'next/dynamic';
+import dynamic from 'next/dynamic';
 // import GoogleAdsScript from './GoogleAdsScript.js'
 // import React, { Suspense } from 'react';
-
+import {get} from './CookieAction'
 
 
 
@@ -36,8 +36,8 @@ export const metadata: Metadata = {
   description: 'Compendium of scientific human knowladge',
 }
 
-// const GTM_ID = process.env.GTM_ID;
-// const GTM_ID_ANA = process.env.GTM_ID_ANA;
+const GTM_ID = process.env.GTM_ID;
+const GTM_ID_ANA = process.env.GTM_ID_ANA;
 
 export default function RootLayout({
   children,
@@ -45,25 +45,23 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
 
-// const GoogleAdsScript = dynamic(() => import('./GoogleAdsScript'), { ssr: false });
-// const CookieConsent = dynamic(() => import('./CookieConsent'), { ssr: false });
-// const ConsentProvider = dynamic(() => import('../contexts/ClientSideWrapper'), { ssr: false });
+const GoogleAdsScript = dynamic(() => import('./GoogleAdsScript'), { ssr: false });
+const CookieConsent = dynamic(() => import('./CookieConsent'), { ssr: false });
   return (
 
     <html lang="en">
       
-      {/* <meta name="google-adsense-account" content="ca-pub-6831545317289734"></meta> */}
+      <meta name="google-adsense-account" content="ca-pub-6831545317289734"></meta>
       <body className={` ${noto_sans_georgian.className} ${noto_serif_georgian.variable} `}>
-      {/* <ConsentProvider> */}
-          {/* <CookieConsent /> */}
-          {/* <noscript>
+          <CookieConsent />
+          <noscript>
             <iframe
               src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
               height="0"
               width="0"
               style={{ display: "none", visibility: "hidden" }}
             />
-          </noscript> */}
+          </noscript>
             {/* <NavBarContainer title="" profileLink='' menuLink=''/> */}
             {children}
             {/* <AnalyticsVercel /> */}
@@ -72,11 +70,11 @@ export default function RootLayout({
             {/* <Suspense fallback={<div>Loading...</div>}> */}
             {/* </Suspense> */}
             {/* <Analytics /> */}
-            {/* <GoogleAdsScript /> */}
+            <GoogleAdsScript />
             
           {/* <Script
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6831545317289734" strategy="worker" crossOrigin="anonymous"/> */}
-          {/* <Script
+          <Script
             id="gtm-script"
             strategy="worker"
             dangerouslySetInnerHTML={{
@@ -88,7 +86,7 @@ export default function RootLayout({
                 })(window,document,'script','dataLayer','${GTM_ID}');
               `,
             }}
-          /> */}
+          />
           {/* <Script
             src={`https://www.googletagmanager.com/gtag/js?id=${GTM_ID_ANA}`}
             strategy="afterInteractive"
@@ -106,7 +104,6 @@ export default function RootLayout({
             `}
           </Script> */}
 
-      {/* </ConsentProvider> */}
           </body>
     </html>
 

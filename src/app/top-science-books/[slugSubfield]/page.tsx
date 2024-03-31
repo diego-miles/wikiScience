@@ -17,14 +17,6 @@ interface SubFieldPageProps {
 
 const prisma = new PrismaClient();
 
-
-// const formatTitleForURL = (title: string) => {
-//     return title
-//         .replace(/&/g, "%26")
-//         .replace(/[^a-zA-Z0-9 ,'&-]/g, "")
-//         .replace(/ /g, "+");
-// };
-
 const getSubFieldRecommendation = cache(async (slugSubfield: string) => {
     const subFieldData = await prisma.subFieldRecommendation.findUnique({
         where: { slug: slugSubfield },
@@ -37,26 +29,6 @@ const getSubFieldRecommendation = cache(async (slugSubfield: string) => {
     return subFieldData;
 });
 
-// export async function generateMetadata({ params: { subfield } }: SubFieldPageProps): Promise<Metadata> {
-//     const subFieldData = await getSubFieldRecommendation(subfield);
-
-//     // const images = subFieldData.books.map(book => ({
-//     //     url: `${formatTitleForURL(book.englishTitle)}.png`
-//     // }));
-
-//     const keywords = subFieldData?.books?.flatMap(book => book.keywords || []);
-//     const uniqueKeywords = Array.from(new Set(keywords));
-//     const description = `Dive into the internet curated, often updated, list of the top science books on ${subFieldData?.subField}. From groundbreaking discoveries to the fundamentals of the universe, explore books that have shaped our understanding of science`;
-
-//     return {
-//         title: subFieldData?.subField,
-//         description: description,
-//         // openGraph: {
-//         //     // images: images
-//         // },
-//         keywords: uniqueKeywords.join(', ')
-//     };
-// }
 
 async function SubFieldRecommendationPage({ params: { slugSubfield } }: SubFieldPageProps) {
     const subFieldData = await getSubFieldRecommendation(slugSubfield);
@@ -72,7 +44,6 @@ async function SubFieldRecommendationPage({ params: { slugSubfield } }: SubField
 
     return (
         <div>
-            
             <NavBar title={subFieldData?.field} title2={subFieldData?.subField} domain="www.wiki-science.com/" active={true} menuPath='./NavigationMenu'/>
             <main>
                 <ContextSpace />
