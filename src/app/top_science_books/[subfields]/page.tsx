@@ -38,21 +38,21 @@ async function SubFieldRecommendationPage({ params: { subfields } }: SubFieldPag
         id: book.englishTitle.replace(/\s+/g, '-').toLowerCase(),
     })) || [];
 
-    const bookRecommendations = subFieldData?.books?.map((book, index) => (
-        <BookRecommendation key={book.englishTitle} book={book} syllabus={book.syllabus || {}} priority={index === 0} />
-    )) || [];
+    // const bookRecommendations = subFieldData?.books?.map((book, index) => (
+    //     <BookRecommendation key={book.englishTitle} book={book} syllabus={book.syllabus || {}} priority={index === 0} />
+    // )) || [];
 
     return (
         <div>
-            <NavBar title={subFieldData?.field} title2={subFieldData?.subField} domain="www.wiki-science.com/" active={true} menuPath='./NavigationMenu'/>
+            {/* <NavBar title={subFieldData?.field} title2={subFieldData?.subField} domain="www.wiki-science.com/" active={true} menuPath='./NavigationMenu'/> */}
             <main>
                 <ContextSpace />
                 <ArticleTitle topic={subFieldData?.subField} />
-                <LocalContextLinks links={bookLinks || []} />
-                {bookRecommendations}
+                {/* <LocalContextLinks links={bookLinks || []} /> */}
+                {/* {bookRecommendations} */}
                 <div className='globalSpace'></div>
                 <div className='globalSpace'></div>
-                <ScrollTopButton />
+                {/* <ScrollTopButton /> */}
             </main>
         </div>
     );
