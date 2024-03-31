@@ -34,7 +34,7 @@ const LocalContextLinks: React.FC<LocalContextLinksProps> = ({ links }) => {
     <div className={styles.localContextLinksContainer}>
       {links.map((link, index) => (
         <div key={index} className={styles.linkArrowRow} >
-          <div className={`${styles.arrow} animate`}  />
+          <div className={`${styles.arrow} animate`} />
           <a
             href={`#${link.id}`}
             className={styles.link}
@@ -42,8 +42,9 @@ const LocalContextLinks: React.FC<LocalContextLinksProps> = ({ links }) => {
               e.preventDefault();
               smoothScroll(link.id);
             }}
-            // Use a function to assign the ref
-            ref={el => (linkRefs.current[index] = el)}
+            ref={el => {
+              linkRefs.current[index] = el;
+            }}
           >
             {link.text}
           </a>
