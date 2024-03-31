@@ -1,4 +1,4 @@
-//🧩Don't Edit this file.✨Generated in Sat Mar 30 2024 22:22:25 GMT-0600 (Central Standard Time)✨
+//🧩Don't Edit this file.✨Generated in Sat Mar 30 2024 23:08:59 GMT-0600 (Central Standard Time)✨
 
 generator client {
   provider = "prisma-client-js"
@@ -6,7 +6,7 @@ generator client {
 
 datasource db {
   provider = "mongodb"
-  url      = "mongodb+srv://wikisciencemx:GVhnuLcWimKkJTqX@wikicluster.5ey65n9.mongodb.net/wikiScience?retryWrites=true&w=majority"
+  url      = env("DATABASE_URL")
 }
 
 type Ratings {
