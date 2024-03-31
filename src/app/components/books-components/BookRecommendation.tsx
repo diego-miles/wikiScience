@@ -1,7 +1,8 @@
 import React from 'react';
 import styles from './BookRecomm.module.css';
 import { Book } from '@prisma/client'; // Import Ratings from Prisma schema
-import SyllabusComponet from './syllabus/Syllabus';
+// import SyllabusComponet from './syllabus/Syllabus';
+import dynamic from 'next/dynamic';
 // import { JsonValue } from '@prisma/client/runtime/library';
 
 type BookRecommendationProps = {
@@ -10,6 +11,7 @@ type BookRecommendationProps = {
   syllabus?: any ;
 };
 
+const SyllabusComponet = dynamic(() => import('./syllabus/Syllabus'), { ssr: false });
 
 
 const BookRecommendation: React.FC<BookRecommendationProps> = ({ book, priority, syllabus }) => {

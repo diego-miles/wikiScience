@@ -8,10 +8,11 @@ import styles from './page.module.css';
 import { cache } from 'react';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import ScrollTopButton from '@/components/ScrollTopButton';
+// import ScrollTopButton from '@/components/ScrollTopButton';
+import dynamic from 'next/dynamic';
 
 
-
+const ScrollTopButton = dynamic(() => import('@/components/ScrollTopButton'), { ssr: false });
 
 type OGImage = {
     url: string;
