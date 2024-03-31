@@ -47,7 +47,7 @@ async function SubFieldRecommendationPage({ params: { slugSubfield } }: SubField
             {/* <NavBar title={subFieldData.field} title2={subFieldData.subField} domain="www.wiki-science.com/" menuPath='./NavigationMenu'/> */}
             <main>
                 <ContextSpace />
-                <ArticleTitle topic={subFieldData?.subField} />
+                <ArticleTitle topic={subFieldData.subField} />
                 <LocalContextLinks links={bookLinks || []} />
                 {bookRecommendations}
                 <div className='globalSpace'></div>
