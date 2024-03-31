@@ -12,12 +12,12 @@ type LocalContextLinksProps = {
 };
 
 const LocalContextLinks: React.FC<LocalContextLinksProps> = ({ links }) => {
-  // Explicitly define the type for the refs array
+  // useRef to create a container for the refs
   const linkRefs = useRef<(HTMLAnchorElement | null)[]>([]);
 
+  // Initialize or update the refs array to match the number of links
   useEffect(() => {
-    // Adjust the length of the refs array when the links change
-    linkRefs.current = linkRefs.current.slice(0, links.length);
+    linkRefs.current = links.map((_, index) => linkRefs.current[index] || null);
   }, [links]);
 
   const smoothScroll = (id: string) => {
@@ -33,7 +33,7 @@ const LocalContextLinks: React.FC<LocalContextLinksProps> = ({ links }) => {
   return (
     <div className={styles.localContextLinksContainer}>
       {links.map((link, index) => (
-        <div key={index} className={styles.linkArrowRow} >
+        <div key={index} className={styles.linkArrowRow}>
           <div className={`${styles.arrow} animate`} />
           <a
             href={`#${link.id}`}
@@ -43,7 +43,7 @@ const LocalContextLinks: React.FC<LocalContextLinksProps> = ({ links }) => {
               smoothScroll(link.id);
             }}
             ref={el => {
-              linkRefs.current[index] = el;
+              linkRefs.current[index] = el; // Directly assign the ref
             }}
           >
             {link.text}
