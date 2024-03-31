@@ -1,19 +1,19 @@
+import { PrismaClient } from '@prisma/client';
 import NavBar from '@/components/NavbarContainer';
-import ContextSpace from './components/ContextSpace';
-import ArticleTitle from './components/ArticleTitle';
-import LocalContextLinks from './components/LocalContextLinks';
-import BookRecommendation from './components/BookRecommendation';
+import ContextSpace from '@/components/books-components/ContextSpace';
+import ArticleTitle from '@/components/books-components/ArticleTitle';
+import LocalContextLinks from '@/components/books-components/LocalContextLinks';
+import BookRecommendation from '@/components/books-components/BookRecommendation';
 // import { unstable_cache } from 'next/cache';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import ScrollTopButton from '@/components/ScrollTopButton';
-import { PrismaClient } from '@prisma/client';
 import { Book } from '@prisma/client'; // Import Ratings from Prisma schema
 
 
 interface SubFieldPageProps {
     params: {
-        slugSubfield: string;
+        slugsub: string;
     }
 }
 
@@ -35,9 +35,9 @@ const getRecommendation = async (slug: string) => {
 
 
 
-const getSubFieldRecommendation = (async (slugSubfield: string) => {
+const getSubFieldRecommendation = (async (slugsub: string) => {
     const subFieldData = await prisma.subFieldRecommendation.findUnique({
-        where: { slug: slugSubfield },
+        where: { slug: slugsub },
         include: {
             books: true
         }
@@ -48,8 +48,8 @@ const getSubFieldRecommendation = (async (slugSubfield: string) => {
 });
 
 
-async function Page({ params: { slugSubfield } }: SubFieldPageProps) {
-    const subFieldData = await getSubFieldRecommendation(slugSubfield);
+async function Page({ params: { slugsub } }: SubFieldPageProps) {
+    const subFieldData = await getSubFieldRecommendation(slugsub);
 
     const bookLinks = subFieldData.books.map((book: { englishTitle: string; }) => ({
         text: book.englishTitle,
