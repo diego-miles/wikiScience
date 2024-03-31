@@ -4,7 +4,7 @@ import ContextSpace from '@/components/books-components/ContextSpace';
 import ArticleTitle from '@/components/books-components/ArticleTitle';
 import LocalContextLinks from '@/components/books-components/LocalContextLinks';
 import BookRecommendation from '@/components/books-components/BookRecommendation';
-// import { unstable_cache } from 'next/cache';
+import { unstable_cache } from 'next/cache';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import ScrollTopButton from '@/components/ScrollTopButton';
@@ -20,24 +20,10 @@ interface SubFieldPageProps {
 const prisma = new PrismaClient();
 
 
-const getRecommendation = async (slug: string) => {
-    const recommendations = await prisma.topicRecommendation.findUnique({
-        where: { slug: slug },
-        include: {
-            books: true
-        },
-    });
 
-    if (!recommendations) notFound();
-
-    return recommendations;
-};
-
-
-
-const getSubFieldRecommendation = (async (slugsub: string) => {
+const getSubFieldRecommendation = unstable_cache(async (slugsub: string) => {
     const subFieldData = await prisma.subFieldRecommendation.findUnique({
-        where: { slug: slugsub },
+        where: { slug : slugsub },
         include: {
             books: true
         }
