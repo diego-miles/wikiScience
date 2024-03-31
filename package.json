@@ -25,6 +25,7 @@
     "react": "^18",
     "react-burger-menu": "^3.0.9",
     "react-dom": "^18",
+    "react-error-decoder": "^2.0.6",
     "react-icons": "^4.11.0"
   },
   "devDependencies": {
