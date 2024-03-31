@@ -12,7 +12,6 @@ import Script from 'next/script'
 import dynamic from 'next/dynamic';
 // import GoogleAdsScript from './GoogleAdsScript.js'
 // import React, { Suspense } from 'react';
-import {get} from './CookieAction'
 
 
 
