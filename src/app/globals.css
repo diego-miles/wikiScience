@@ -1,6 +1,9 @@
 :root {
   --color-h1: #00659A;
-  --color-h2: #00635c;
+  /* --color-h2: #003c85; */
+  --color-h2: #006775;
+  /* --color-h2: #00627e; */
+  /* --color-h2: #00635c; */
   --color-h3: #766246;
   --color-h4: #24433F;
   --color-h5: #2E4053;
@@ -26,14 +29,14 @@
   --color-green-text: #197D4F;
   --color-darkgreen-text: #7eaba8;
 
-  --font-size-p: 1.8rem;
+  --font-size-p: 1.7rem;
   --font-size-small-p: 1.5rem;
   --font-size-h1: 3.7rem;
   --font-size-h2: 2.2rem;
-  --font-size-h3: 1.9rem;
-  --font-size-h4: 1.9rem;
+  --font-size-h3: 1.8rem;
+  --font-size-h4: 1.8rem;
   --font-size-h5: 1.3rem;
-  --font-size-a: 1.8rem;
+  --font-size-a: 1.7rem;
   --font-size-h6: 1.3rem;
   --font-size-nav-item-menu-field: 1.5rem;
   --font-size-nav-item-menu-branch: 1.5rem;
@@ -154,7 +157,7 @@ h1 {
   font-weight: 900;
   color: var(--color-h1);
   text-align: center;
-  line-height: .9;
+  line-height: 1.2;
   padding-bottom: 5rem;
 }
 

@@ -17,7 +17,7 @@ import dynamic from 'next/dynamic';
 const noto_sans_georgian = Noto_Sans_Georgian({
   // weight: ['400','500', '600', '700', '800', '900'],
   subsets: ['latin'],
-  // display: 'swap'
+  display: 'swap'
 })
 
 

@@ -73,6 +73,8 @@ async function ElementPage({ params: { slug } }: ElementPageProps) {
     Description: img.description
   }));
 
+// Assuming element.history is an array of objects with the structure { event: string; year: number; description: string; }
+// Then, pass this object to the History component
 
   return (
     <>
@@ -85,6 +87,9 @@ async function ElementPage({ params: { slug } }: ElementPageProps) {
         <p><strong>Atomic Weight:</strong> {element.atomicWeight}</p>
         <p><strong>Appearance:</strong> {element.appearance}</p>
         <p><strong>General Description:</strong> {element.description}</p>
+
+          <h2>Discovery and History</h2>
+        <History data={element.history} />
 
         {/* Discovery and History */}
         {/* Already implemented */}

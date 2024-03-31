@@ -2,3 +2,96 @@
     background-color: var(--color-background1);
     min-height: 0px;
 }
+
+.recommendationIntro h2 {
+    color: #006779;
+    text-align: center;
+}
+
+
+.h1 {
+    color: var(--color-h1);
+    padding-bottom: 2rem;
+}
+
+.center {
+    font-weight: 300;
+    text-align: center;
+    color: #003f5d;
+    font-size: 2.2rem;
+}
+
+.logoContainer {
+    background-image: url('/wiki-logo2.svg'); 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 9rem;
+    /* Adjust as needed */
+    height: 9rem;
+    /* Adjust as needed*/
+    /* text-align: center; */
+    margin: 0 auto;
+    /* To center the div */
+}
+.ImageBooksContainer {
+    background-image: url('/books-banner.png'); 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 10rem;
+    height: 10rem;
+    margin: 0 auto;
+    margin-bottom: -3rem;
+}
+
+.bullets li p {
+    padding-top: .5rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+/* .recommendationIntro {
+    margin-left: 1rem;
+} */
+
+/* .recommendationIntro h3 {
+    padding-top: .0rem;
+} */
+
+
+.bullets {
+    list-style: none;
+    /* Remove default list bullets */
+    /* padding-left: .5rem; */
+    padding-right: .5rem;
+    padding-left: .5rem;
+    /* Adjust as needed */
+}
+
+.customBullet {
+    position: relative;
+    padding-left: 1.5rem;
+    /* Adjust as needed, make space for the bullet */
+}
+
+.customBullet::before {
+    content: '';
+    /* Necessary for a pseudo-element */
+    position: absolute;
+    left: 0;
+    /* Align with the text start */
+    top: 40%;
+    /* Center vertically */
+    transform: translateY(-50%);
+    /* Precise vertical centering */
+    height: 6px;
+    /* Bullet size */
+    width: 6px;
+    /* Bullet size */
+    background-color: #1f71ca;
+    /* background-color: #007bff; */
+    /* Bullet color, change as needed */
+    border-radius: 50%;
+    /* Makes it circular */
+}

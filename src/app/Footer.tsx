@@ -10,7 +10,7 @@ const Footer = () => {
         </li>
       </ul>
         <div className='globalHeight'></div>
-        <p className={styles.textFooter}>--  WikiScience V0.0  --</p>
+        <p className={styles.textFooter}>--  WikiScience V1.0  --</p>
         <p className={styles.textFooter}>wikisciencemx@gmail.com</p>
     </footer>
   );
