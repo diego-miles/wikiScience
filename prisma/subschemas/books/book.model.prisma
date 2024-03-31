@@ -17,12 +17,12 @@ model Book {
   englishTitle             String   
   spanishTitle             String?
   authors                  String[]
-  difficulty               String
+  difficulty               String?
   keywords                 String[]
   span                     String[]
   coverImage               String?
   syllabusImages           String[]
-  pages                    Int
+  pages                    Int?
   lastEditionYear          Int? // numero de edición
   lastEditionNumber        Int? // año de edicion
   publicationDate          Int?
@@ -53,8 +53,8 @@ model topicRecommendation {
 
 model subFieldRecommendation {
   id       String @id @default(auto()) @map("_id") @db.ObjectId
-  field    String
-  subField String
+  field    String?
+  subField String?
   slug     String @unique
   books    Book[]
   @@map("subfieldsRecommendation")
