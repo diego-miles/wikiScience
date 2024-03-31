@@ -8,7 +8,7 @@ import Script from 'next/script'
 // import { ConsentProvider } from '../contexts/ConsentContext';
 // import ConsentProvider  from '../contexts/ClientSideWrapper';
 // import Analytics from './GoogleAnalytics'
-// import dynamic from 'next/dynamic';
+import dynamic from 'next/dynamic';
 // import GoogleAdsScript from './GoogleAdsScript.js'
 // import React, { Suspense } from 'react';
 
@@ -43,30 +43,32 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
 
-// const GoogleAdsScript = dynamic(() => import('./GoogleAdsScript'), { ssr: false });
-// const CookieConsent = dynamic(() => import('./CookieConsent'), { ssr: false });
+const GoogleAdsScript = dynamic(() => import('./GoogleAdsScript'), { ssr: false });
+const CookieConsent = dynamic(() => import('./CookieConsent'), { ssr: false });
   return (
+
     <html lang="en">
+      
       <meta name="google-adsense-account" content="ca-pub-6831545317289734"></meta>
       <body className={` ${noto_sans_georgian.className} ${noto_serif_georgian.variable} `}>
-          {/* <CookieConsent /> */}
-          {/* <noscript>
+          <CookieConsent />
+          <noscript>
             <iframe
               src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
               height="0"
               width="0"
               style={{ display: "none", visibility: "hidden" }}
             />
-          </noscript> */}
+          </noscript>
             {/* <NavBarContainer title="" profileLink='' menuLink=''/> */}
             {children}
-            {/* <AnalyticsVercel /> */}
+            <AnalyticsVercel />
             {/* <ScrollTopButton /> */}
             <Footer />
             {/* <Suspense fallback={<div>Loading...</div>}> */}
             {/* </Suspense> */}
             {/* <Analytics /> */}
-            {/* <GoogleAdsScript /> */}
+            <GoogleAdsScript />
             
           {/* <Script
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6831545317289734" strategy="worker" crossOrigin="anonymous"/> */}
@@ -99,6 +101,7 @@ export default function RootLayout({
               gtag('config', '${GTM_ID_ANA}');
             `}
           </Script> */}
+
           </body>
     </html>
 
