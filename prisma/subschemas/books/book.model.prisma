@@ -53,8 +53,8 @@ model topicRecommendation {
 
 model subFieldRecommendation {
   id       String @id @default(auto()) @map("_id") @db.ObjectId
-  field    String?
-  subField String?
+  field    String
+  subField String
   slug     String @unique
   books    Book[]
   @@map("subfieldsRecommendation")
