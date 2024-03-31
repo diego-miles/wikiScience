@@ -1,13 +1,13 @@
 import { PrismaClient } from '@prisma/client';
-import NavBar from '@/components/NavbarContainer';
-import ContextSpace from '@/components/books-components/ContextSpace';
+// import NavBar from '@/components/NavbarContainer';
+// import ContextSpace from '@/components/books-components/ContextSpace';
 import ArticleTitle from '@/components/books-components/ArticleTitle';
-import LocalContextLinks from '@/components/books-components/LocalContextLinks';
-import BookRecommendation from '@/components/books-components/BookRecommendation';
+// import LocalContextLinks from '@/components/books-components/LocalContextLinks';
+// import BookRecommendation from '@/components/books-components/BookRecommendation';
 import { cache } from "react";
-import { Metadata } from 'next';
-import { notFound } from 'next/navigation';
-import ScrollTopButton from '@/components/ScrollTopButton';
+// import { Metadata } from 'next';
+// import { notFound } from 'next/navigation';
+// import ScrollTopButton from '@/components/ScrollTopButton';
 
 interface SubFieldPageProps {
     params: {
@@ -25,7 +25,7 @@ const getSubFieldRecommendation = cache(async (subfields: string) => {
         }
     });
 
-    if (!subFieldData) notFound();
+    // if (!subFieldData) notFound();
     return subFieldData;
 });
 
@@ -33,10 +33,10 @@ const getSubFieldRecommendation = cache(async (subfields: string) => {
 async function SubFieldRecommendationPage({ params: { subfields } }: SubFieldPageProps) {
     const subFieldData = await getSubFieldRecommendation(subfields);
 
-    const bookLinks = subFieldData?.books?.map(book => ({
-        text: book.englishTitle,
-        id: book.englishTitle.replace(/\s+/g, '-').toLowerCase(),
-    })) || [];
+    // const bookLinks = subFieldData?.books?.map(book => ({
+    //     text: book.englishTitle,
+    //     id: book.englishTitle.replace(/\s+/g, '-').toLowerCase(),
+    // })) || [];
 
     // const bookRecommendations = subFieldData?.books?.map((book, index) => (
     //     <BookRecommendation key={book.englishTitle} book={book} syllabus={book.syllabus || {}} priority={index === 0} />
@@ -46,12 +46,12 @@ async function SubFieldRecommendationPage({ params: { subfields } }: SubFieldPag
         <div>
             {/* <NavBar title={subFieldData?.field} title2={subFieldData?.subField} domain="www.wiki-science.com/" active={true} menuPath='./NavigationMenu'/> */}
             <main>
-                <ContextSpace />
+                {/* <ContextSpace /> */}
                 <ArticleTitle topic={subFieldData?.subField} />
                 {/* <LocalContextLinks links={bookLinks || []} /> */}
                 {/* {bookRecommendations} */}
-                <div className='globalSpace'></div>
-                <div className='globalSpace'></div>
+                {/* <div className='globalSpace'></div> */}
+                {/* <div className='globalSpace'></div> */}
                 {/* <ScrollTopButton /> */}
             </main>
         </div>
