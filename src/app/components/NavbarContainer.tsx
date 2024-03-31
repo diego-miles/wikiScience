@@ -4,7 +4,11 @@ import Link from 'next/link';
 import styles from './NavbarContainer.module.css';
 import { Suspense, lazy } from 'react';
 import CrossIcon from './CrossIcon'; // Import the new CrossIcon component
+import dynamic from 'next/dynamic';
 
+
+// NavigationMenu
+const NavigationMenu = dynamic(() => import('./NavigationMenu'), { ssr: false });
 
 const toSlug = (title: string): string => title.toLowerCase().replace(/\s+/g, '_');
 
@@ -62,7 +66,7 @@ const MenuToggle: FC<{ onClick: () => void; isMenuVisible: boolean }> = ({ onCli
 );
 
 const NavBarContainer: FC<NavbarProps> = memo(({ title, title2, title3, domain, active, menuPath }) => {
-    const NavigationMenu = lazy(() => import(`${menuPath}`));
+    // const NavigationMenu = lazy(() => import(`${menuPath}`));
     const [isMenuVisible, setIsMenuVisible] = useState<boolean>(false);
     const [lastScrollY, setLastScrollY] = useState<number>(0);
     const [showNavbar, setShowNavbar] = useState<boolean>(true);

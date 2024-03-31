@@ -19,11 +19,9 @@ interface SubFieldPageProps {
 
 const prisma = new PrismaClient();
 
-
-
 const getSubFieldRecommendation = unstable_cache(async (slugsub: string) => {
     const subFieldData = await prisma.subFieldRecommendation.findUnique({
-        where: { slug : slugsub },
+        where: { slug: slugsub },
         include: {
             books: true
         }
