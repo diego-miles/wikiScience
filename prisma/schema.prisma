@@ -1,4 +1,4 @@
-//🧩Don't Edit this file.✨Generated in Sat Mar 30 2024 23:53:29 GMT-0600 (Central Standard Time)✨
+//🧩Don't Edit this file.✨Generated in Sun Mar 31 2024 01:23:01 GMT-0600 (Central Standard Time)✨
 
 generator client {
   provider = "prisma-client-js"
@@ -6,7 +6,7 @@ generator client {
 
 datasource db {
   provider = "mongodb"
-  url      = env("DATABASE_URL")
+  url      = "mongodb+srv://wikisciencemx:GVhnuLcWimKkJTqX@wikicluster.5ey65n9.mongodb.net/wikiScience?retryWrites=true&w=majority"
 }
 
 type Ratings {
@@ -16,9 +16,9 @@ type Ratings {
 }
 
 type RatingDetail {
-  average Float
-  number  Int
-  link    String
+  average Float?
+  number  Int?
+  link    String?
 }
 
 model Book {
@@ -32,8 +32,8 @@ model Book {
   coverImage                 String?
   syllabusImages             String[]
   pages                      Int?
-  lastEditionYear            Int? // numero de edición
-  lastEditionNumber          Int? // año de edicion
+  lastEditionYear            Int?
+  lastEditionNumber          Int?
   publicationDate            Int?
   originCountry              String?
   spanishEdition             Boolean?
@@ -65,7 +65,7 @@ model topicRecommendation {
 model subFieldRecommendation {
   id       String @id @default(auto()) @map("_id") @db.ObjectId
   field    String
-  subField String
+  subField String @unique
   slug     String @unique
   books    Book[]
 
