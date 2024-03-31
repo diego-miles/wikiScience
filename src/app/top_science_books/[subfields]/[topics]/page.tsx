@@ -21,7 +21,7 @@ const prisma = new PrismaClient();
 
 interface ProductPageProps {
     params: {
-        slug: string;
+        topics: string;
     };
 }
 
@@ -32,9 +32,9 @@ const formatTitleForURL = (title: string) => {
         .replace(/&/g, '%26');
 };
 
-const getRecommendation = async (slug: string) => {
+const getRecommendation = async (topics: string) => {
     const recommendations = await prisma.topicRecommendation.findUnique({
-        where: { slug: slug },
+        where: { slug: topics },
         include: {
             books: true
         },
@@ -47,9 +47,9 @@ const getRecommendation = async (slug: string) => {
 
 
 export async function generateMetadata({
-    params: { slug },
+    params: { topics },
 }: ProductPageProps): Promise<Metadata> {
-    const recommendations = await getRecommendation(slug);
+    const recommendations = await getRecommendation(topics);
 
     // const images = (recommendations?.books?.map((book) => ({
     //     url: formatTitleForURL(book.englishTitle) || '' 
@@ -71,9 +71,9 @@ export async function generateMetadata({
 
 
 async function RecommendationPage({
-    params: { slug },
+    params: { topics },
 }: ProductPageProps) {
-    const recommendations = await getRecommendation(slug);
+    const recommendations = await getRecommendation(topics);
 
     const bookLinks = recommendations?.books?.map((book) => ({
         text: book.englishTitle,

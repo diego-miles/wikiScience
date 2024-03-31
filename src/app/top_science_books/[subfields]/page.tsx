@@ -13,15 +13,15 @@ import { Book } from '@prisma/client'; // Import Ratings from Prisma schema
 
 interface SubFieldPageProps {
     params: {
-        slugSubfield: string;
+        subfields: string;
     }
 }
 
 const prisma = new PrismaClient();
 
-const getSubFieldRecommendation = unstable_cache(async (slugSubfield: string) => {
+const getSubFieldRecommendation = unstable_cache(async (subfields: string) => {
     const subFieldData = await prisma.subFieldRecommendation.findUnique({
-        where: { slug: slugSubfield },
+        where: { slug: subfields },
         include: {
             books: true
         }
@@ -32,8 +32,8 @@ const getSubFieldRecommendation = unstable_cache(async (slugSubfield: string) =>
 });
 
 
-async function Page({ params: { slugSubfield } }: SubFieldPageProps) {
-    const subFieldData = await getSubFieldRecommendation(slugSubfield);
+async function Page({ params: { subfields } }: SubFieldPageProps) {
+    const subFieldData = await getSubFieldRecommendation(subfields);
 
     const bookLinks = subFieldData.books.map((book: { englishTitle: string; }) => ({
         text: book.englishTitle,

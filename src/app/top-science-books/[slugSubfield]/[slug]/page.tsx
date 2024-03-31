@@ -46,28 +46,28 @@ const getRecommendation = async (slug: string) => {
 };
 
 
-export async function generateMetadata({
-    params: { slug },
-}: ProductPageProps): Promise<Metadata> {
-    const recommendations = await getRecommendation(slug);
+// export async function generateMetadata({
+//     params: { slug },
+// }: ProductPageProps): Promise<Metadata> {
+//     const recommendations = await getRecommendation(slug);
 
-    // const images = (recommendations?.books?.map((book) => ({
-    //     url: formatTitleForURL(book.englishTitle) || '' 
-    // })) || []).filter(image => image.url !== null) as OGImage[];
+//     // const images = (recommendations?.books?.map((book) => ({
+//     //     url: formatTitleForURL(book.englishTitle) || '' 
+//     // })) || []).filter(image => image.url !== null) as OGImage[];
 
-    const keywords = recommendations?.books?.flatMap((book) => book.keywords || []) || [];
-    const uniqueKeywords = Array.from(new Set(keywords));
-    const description = `Dive into the internet curate, often updated, list of the top science books on ${recommendations?.subField}. From groundbreaking discoveries to the fundamentals of the universe, explore books that have shaped our understanding of science`;
+//     const keywords = recommendations?.books?.flatMap((book) => book.keywords || []) || [];
+//     const uniqueKeywords = Array.from(new Set(keywords));
+//     const description = `Dive into the internet curate, often updated, list of the top science books on ${recommendations?.subField}. From groundbreaking discoveries to the fundamentals of the universe, explore books that have shaped our understanding of science`;
 
-    return {
-        title: recommendations?.topic,
-        description: description,
-        openGraph: {
-            // images: images,
-        },
-        keywords: uniqueKeywords.join(', '),
-    };
-}
+//     return {
+//         title: recommendations?.topic,
+//         description: description,
+//         openGraph: {
+//             // images: images,
+//         },
+//         keywords: uniqueKeywords.join(', '),
+//     };
+// }
 
 
 async function RecommendationPage({
