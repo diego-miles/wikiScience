@@ -1,11 +1,17 @@
 /** @type {import('next').NextConfig} */
-module.exports = {
+
+
+
+const nextConfig = {
   images: {
     loader: 'custom',
     loaderFile: './myImageLoader.js',
   },
+  
+  
   experimental: {
     nextScriptWorkers: true,
+        serverActions: true,
   },
     async headers() {
         return [
@@ -22,3 +28,5 @@ module.exports = {
         ];
     },
 };
+
+module.exports = nextConfig
