@@ -4,7 +4,7 @@ import { Noto_Sans_Georgian, Noto_Serif_Georgian } from 'next/font/google'
 import './globals.css'
 import './Footer'
 import Footer from './Footer'
-// import { Analytics as AnalyticsVercel } from '@vercel/analytics/react';
+import { Analytics as AnalyticsVercel } from '@vercel/analytics/react';
 import Script from 'next/script'
 // import { ConsentProvider } from '../contexts/ConsentContext';
 // import ConsentProvider  from '../contexts/ClientSideWrapper';
@@ -64,7 +64,7 @@ const CookieConsent = dynamic(() => import('./CookieConsent'), { ssr: false });
           </noscript>
             {/* <NavBarContainer title="" profileLink='' menuLink=''/> */}
             {children}
-            {/* <AnalyticsVercel /> */}
+            <AnalyticsVercel />
             {/* <ScrollTopButton /> */}
             <Footer />
             {/* <Suspense fallback={<div>Loading...</div>}> */}
@@ -74,7 +74,7 @@ const CookieConsent = dynamic(() => import('./CookieConsent'), { ssr: false });
             
           {/* <Script
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6831545317289734" strategy="worker" crossOrigin="anonymous"/> */}
-          <Script
+          {/* <Script
             id="gtm-script"
             strategy="worker"
             dangerouslySetInnerHTML={{
@@ -86,7 +86,7 @@ const CookieConsent = dynamic(() => import('./CookieConsent'), { ssr: false });
                 })(window,document,'script','dataLayer','${GTM_ID}');
               `,
             }}
-          />
+          /> */}
           {/* <Script
             src={`https://www.googletagmanager.com/gtag/js?id=${GTM_ID_ANA}`}
             strategy="afterInteractive"
