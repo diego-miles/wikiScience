@@ -14,5 +14,5 @@
 //}
 //datasource db {
 //  provider = "mongodb"
-//  url      = env("DATABASE_URL")
+//  url      = "mongodb+srv://wikisciencemx:GVhnuLcWimKkJTqX@wikicluster.5ey65n9.mongodb.net/wikiScience?retryWrites=true&w=majority"
 //}
