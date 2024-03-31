@@ -33,12 +33,12 @@ const getSubFieldRecommendation = cache(async (slugSubfield: string) => {
 async function SubFieldRecommendationPage({ params: { slugSubfield } }: SubFieldPageProps) {
     const subFieldData = await getSubFieldRecommendation(slugSubfield);
 
-    const bookLinks = subFieldData?.books?.map(book => ({
+    const bookLinks = subFieldData.books.map(book => ({
         text: book.englishTitle,
         id: book.englishTitle.replace(/\s+/g, '-').toLowerCase(),
     })) || [];
 
-    const bookRecommendations = subFieldData?.books?.map((book, index) => (
+    const bookRecommendations = subFieldData.books.map((book, index) => (
         <BookRecommendation key={book.englishTitle} book={book} syllabus={book.syllabus || {}} priority={index === 0} />
     )) || [];
 
