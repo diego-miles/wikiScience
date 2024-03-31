@@ -1,5 +1,3 @@
-
-
 type Ratings {
   amazon    RatingDetail
   goodreads RatingDetail
@@ -7,9 +5,9 @@ type Ratings {
 }
 
 type RatingDetail {
-  average Float
-  number  Int
-  link    String
+  average Float?
+  number  Int?
+  link    String?
 }
 
 model Book {
@@ -23,8 +21,8 @@ model Book {
   coverImage               String?
   syllabusImages           String[]
   pages                    Int?
-  lastEditionYear          Int? // numero de edición
-  lastEditionNumber        Int? // año de edicion
+  lastEditionYear          Int?
+  lastEditionNumber        Int? 
   publicationDate          Int?
   originCountry            String?
   spanishEdition           Boolean?
@@ -54,8 +52,11 @@ model topicRecommendation {
 model subFieldRecommendation {
   id       String @id @default(auto()) @map("_id") @db.ObjectId
   field    String
-  subField String
+  subField String @unique
   slug     String @unique
   books    Book[]
   @@map("subfieldsRecommendation")
 }
+
+
+

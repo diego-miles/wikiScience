@@ -1,13 +1,15 @@
-import { PrismaClient } from '@prisma/client';
-// import NavBar from '@/components/NavbarContainer';
+import NavBar from '@/components/NavbarContainer';
 import ContextSpace from './components/ContextSpace';
 import ArticleTitle from './components/ArticleTitle';
 import LocalContextLinks from './components/LocalContextLinks';
 import BookRecommendation from './components/BookRecommendation';
-import { cache } from "react";
+import { unstable_cache } from 'next/cache';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import ScrollTopButton from '@/components/ScrollTopButton';
+import { PrismaClient } from '@prisma/client';
+import { Book } from '@prisma/client'; // Import Ratings from Prisma schema
+
 
 interface SubFieldPageProps {
     params: {
@@ -17,7 +19,7 @@ interface SubFieldPageProps {
 
 const prisma = new PrismaClient();
 
-const getSubFieldRecommendation = cache(async (slugSubfield: string) => {
+const getSubFieldRecommendation = unstable_cache(async (slugSubfield: string) => {
     const subFieldData = await prisma.subFieldRecommendation.findUnique({
         where: { slug: slugSubfield },
         include: {
@@ -30,10 +32,10 @@ const getSubFieldRecommendation = cache(async (slugSubfield: string) => {
 });
 
 
-async function SubFieldRecommendationPage({ params: { slugSubfield } }: SubFieldPageProps) {
+async function Page({ params: { slugSubfield } }: SubFieldPageProps) {
     const subFieldData = await getSubFieldRecommendation(slugSubfield);
 
-    const bookLinks = subFieldData.books.map(book => ({
+    const bookLinks = subFieldData.books.map((book: { englishTitle: string; }) => ({
         text: book.englishTitle,
         id: book.englishTitle.replace(/\s+/g, '-').toLowerCase(),
     })) || [];
@@ -44,7 +46,7 @@ async function SubFieldRecommendationPage({ params: { slugSubfield } }: SubField
 
     return (
         <div>
-            {/* <NavBar title={subFieldData.field} title2={subFieldData.subField} domain="www.wiki-science.com/" menuPath='./NavigationMenu'/> */}
+            <NavBar title={subFieldData.field} title2={subFieldData.subField} domain="www.wiki-science.com/" menuPath='./NavigationMenu'/>
             <main>
                 <ContextSpace />
                 <ArticleTitle topic={subFieldData.subField || ''} />
@@ -58,4 +60,4 @@ async function SubFieldRecommendationPage({ params: { slugSubfield } }: SubField
     );
 }
 
-export default SubFieldRecommendationPage;
+export default Page;

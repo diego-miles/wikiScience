@@ -5,7 +5,7 @@ import ArticleTitle from '../components/ArticleTitle';
 import LocalContextLinks from '../components/LocalContextLinks';
 import BookRecommendation from '../components/BookRecommendation';
 import styles from './page.module.css';
-import { cache } from 'react';
+// import { cache } from 'react';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import ScrollTopButton from '@/components/ScrollTopButton';
@@ -32,7 +32,7 @@ const formatTitleForURL = (title: string) => {
         .replace(/&/g, '%26');
 };
 
-const getRecommendation = cache(async (slug: string) => {
+const getRecommendation = async (slug: string) => {
     const recommendations = await prisma.topicRecommendation.findUnique({
         where: { slug: slug },
         include: {
@@ -43,7 +43,7 @@ const getRecommendation = cache(async (slug: string) => {
     if (!recommendations) notFound();
 
     return recommendations;
-});
+};
 
 
 export async function generateMetadata({
