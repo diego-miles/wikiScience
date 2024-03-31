@@ -11,7 +11,6 @@ const nextConfig = {
   
   experimental: {
     nextScriptWorkers: true,
-        serverActions: true,
   },
     async headers() {
         return [
