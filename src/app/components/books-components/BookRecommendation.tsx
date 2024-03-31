@@ -19,32 +19,33 @@ const BookRecommendation: React.FC<BookRecommendationProps> = ({ book, priority,
     publicationDate,
     ratings,
     summary,
-    span,
+    // span,
   } = book;
 
   const authorsFormatted = authors.join(', ');
 
-  // Function to highlight keywords in summary
-const highlightKeywords = (text: string) => {
-  // First, create a regex pattern from keywords to identify phrases in the text
-  const regexPattern = span.map(kw => kw.replace(/([\s,.;])/g, '\\$1')).join('|');
-  const regex = new RegExp(`\\b(${regexPattern})\\b`, 'gi');
+//   // Function to highlight keywords in summary
+// const highlightKeywords = (text: string) => {
+//   // First, create a regex pattern from keywords to identify phrases in the text
+//   const regexPattern = span.map(kw => kw.replace(/([\s,.;])/g, '\\$1')).join('|');
+//   const regex = new RegExp(`\\b(${regexPattern})\\b`, 'gi');
 
-  // Split the text by the regex and keep the separators (keywords)
-  const splitText = text.split(regex);
+//   // Split the text by the regex and keep the separators (keywords)
+//   const splitText = text.split(regex);
 
-  return splitText.map((segment, index) => {
-    // Check if the segment is a keyword
-    if (span.some(kw => kw.toLowerCase() === segment.toLowerCase())) {
-      return <span key={index} className={styles.keyword}>{segment}</span>;
-    }
-    // If not a keyword, return the segment as is
-    return segment;
-  });
-};
+//   return splitText.map((segment, index) => {
+//     // Check if the segment is a keyword
+//     if (span.some(kw => kw.toLowerCase() === segment.toLowerCase())) {
+//       return <span key={index} className={styles.keyword}>{segment}</span>;
+//     }
+//     // If not a keyword, return the segment as is
+//     return segment;
+//   });
+// };
 
 
   return (
+    <>
     <div className={styles.bookRecommendation}>
 
       <h2 id={book.englishTitle.replace(/\s+/g, '-').toLowerCase()} className={styles.title} >
@@ -99,6 +100,7 @@ const highlightKeywords = (text: string) => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

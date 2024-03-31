@@ -8,11 +8,6 @@ import { cache } from "react";
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import ScrollTopButton from '@/components/ScrollTopButton';
-import { decode } from "react-error-decoder";
-
-decode(
-  "Minified React error #419; visit https://reactjs.org/docs/error-decoder.html?invariant=419 for the full message or use the non-minified dev environment for full errors and additional helpful warnings.",
-);
 
 interface SubFieldPageProps {
     params: {
