@@ -28,7 +28,7 @@ model Book {
   spanishEdition           Boolean?
   summary                  String[]
   amazonLink               String?
-  ratings Ratings
+  ratings Ratings?
   topicRecommendation    topicRecommendation?         @relation(fields: [topicRecommendationSlug], references: [slug])
   topicRecommendationSlug String?
   subFieldRecommendation   subFieldRecommendation? @relation(fields: [subFieldRecommendationSlug], references: [slug])
