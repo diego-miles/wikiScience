@@ -1,7 +1,7 @@
 :root {
   --color-h1: #00659A;
   /* --color-h2: #003c85; */
-  --color-h2: #006775;
+  --color-h2: #005f6c;
   /* --color-h2: #00627e; */
   /* --color-h2: #00635c; */
   --color-h3: #766246;
@@ -166,8 +166,8 @@ h2 {
   font-size: var(--font-size-h2);
   color: var(--color-h2);
   font-weight:700;
-  padding-top: 3.5rem;
-  margin-bottom: 1.3rem;
+  padding-top: 3.7rem;
+  margin-bottom: 1.7rem;
   line-height: 1.2;
 }
 
