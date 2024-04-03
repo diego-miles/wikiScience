@@ -9,6 +9,7 @@ import styles from './page.module.css';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import ScrollTopButton from '@/components/ScrollTopButton';
+import { unstable_cache } from 'next/cache';
 
 
 
@@ -25,14 +26,15 @@ interface ProductPageProps {
     };
 }
 
-const formatTitleForURL = (title: string) => {
-    return title
-        .replace(/[^a-zA-Z0-9 ,'&-]/g, '')
-        .replace(/ /g, '%20')
-        .replace(/&/g, '%26');
+const formatTitleForAmazonImageURL = (title: string) => {
+  return title
+    .replace(/[^a-zA-Z0-9 ,'&-]/g, "")
+    .replace(/&/g, "%26")
+    .replace(/ /g, "+");
 };
 
-const getRecommendation = async (slug: string) => {
+
+const getRecommendation = unstable_cache(async (slug: string) => {
     const recommendations = await prisma.topicRecommendation.findUnique({
         where: { slug: slug },
         include: {
@@ -43,31 +45,34 @@ const getRecommendation = async (slug: string) => {
     if (!recommendations) notFound();
 
     return recommendations;
-};
+});
 
 
-// export async function generateMetadata({
-//     params: { slug },
-// }: ProductPageProps): Promise<Metadata> {
-//     const recommendations = await getRecommendation(slug);
+export async function generateMetadata({
+    params: { slug },
+}: ProductPageProps): Promise<Metadata> {
+    const recommendations = await getRecommendation(slug);
 
-//     // const images = (recommendations?.books?.map((book) => ({
-//     //     url: formatTitleForURL(book.englishTitle) || '' 
-//     // })) || []).filter(image => image.url !== null) as OGImage[];
 
-//     const keywords = recommendations?.books?.flatMap((book) => book.keywords || []) || [];
-//     const uniqueKeywords = Array.from(new Set(keywords));
-//     const description = `Dive into the internet curate, often updated, list of the top science books on ${recommendations?.subField}. From groundbreaking discoveries to the fundamentals of the universe, explore books that have shaped our understanding of science`;
 
-//     return {
-//         title: recommendations?.topic,
-//         description: description,
-//         openGraph: {
-//             // images: images,
-//         },
-//         keywords: uniqueKeywords.join(', '),
-//     };
-// }
+
+    const images = (recommendations?.books?.map((book) => ({
+        url: `${formatTitleForAmazonImageURL(book.englishTitle)}.png` || '' 
+    })) || []).filter(image => image.url !== null) as OGImage[];
+
+    const keywords = recommendations?.books?.flatMap((book) => book.keywords || []) || [];
+    const uniqueKeywords = Array.from(new Set(keywords));
+    const description = `Explore our expertly curated and constantly updated list of the top science books on ${recommendations?.topic} for 2024. Discover groundbreaking works that delve into the universe's mysteries and the most significant scientific discoveries. These essential reads offer in-depth knowledge, insightful analysis, and innovative perspectives for both enthusiasts and scholars alike.`;
+
+    return {
+        title: `Best ${formatTitleForAmazonImageURL(recommendations?.topic)} books of all time (2024)` ,
+        description: description,
+        openGraph: {
+            images: images,
+        },
+        keywords: uniqueKeywords.join(', '),
+    };
+}
 
 
 async function RecommendationPage({

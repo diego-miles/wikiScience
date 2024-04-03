@@ -85,7 +85,7 @@
 }
 
 html::-webkit-scrollbar-thumb {
-  background: var(--color-accent2);
+  background: var(--color-accent1);
   border-radius: 0.6rem;
 }
 
@@ -105,7 +105,7 @@ body::-webkit-scrollbar {
 }
 
 body::-webkit-scrollbar-thumb {
-  background: var(--color-accent2);
+  background: var(--color-soft-blue);
   border-radius: 0.6rem;
 }
 

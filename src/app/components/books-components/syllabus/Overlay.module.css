@@ -25,6 +25,7 @@
 .syllabusContent {
     padding: 2rem 2rem;
     background-color: var(--color-background2);
+    border-radius: .5rem;
 }
 
 
