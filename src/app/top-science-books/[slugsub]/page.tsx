@@ -73,10 +73,10 @@ export async function generateMetadata({
 
     const keywords = recommendations?.books?.flatMap((book) => book.keywords || []) || [];
     const uniqueKeywords = Array.from(new Set(keywords));
-    const description = `Dive into the internet curate, often updated, list of the top science books on ${recommendations?.subField}. From groundbreaking discoveries to the fundamentals of the universe, explore books that have shaped our understanding of science`;
+    const description = `Explore our expertly curated and constantly updated list of the top science books on ${recommendations?.subField} for 2024. Discover groundbreaking works that delve into the universe's mysteries and the most significant scientific discoveries. These essential reads offer in-depth knowledge, insightful analysis, and innovative perspectives for both enthusiasts and scholars alike.`;
 
     return {
-        title: `Explore our expertly curated and constantly updated list of the top science books on ${recommendations?.subField} for 2024. Discover groundbreaking works that delve into the universe's mysteries and the most significant scientific discoveries. These essential reads offer in-depth knowledge, insightful analysis, and innovative perspectives for both enthusiasts and scholars alike.`,
+        title: `Best ${formatTitleForAmazonImageURL(recommendations?.subField)} books of all time (2024)` ,
         description: description,
         openGraph: {
             images: images,
