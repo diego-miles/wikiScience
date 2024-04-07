@@ -20,7 +20,7 @@ interface SubFieldPageProps {
 
 interface ProductPageProps {
     params: {
-        slug: string;
+        slugsub: string;
     }
 }
 
@@ -60,9 +60,9 @@ const formatTitleForAmazonImageURL = (title: string) => {
 
 
 export async function generateMetadata({
-    params: { slug },
+    params: { slugsub },
 }: ProductPageProps): Promise<Metadata> {
-    const recommendations = await getSubFieldRecommendation(slug);
+    const recommendations = await getSubFieldRecommendation(slugsub);
 
 
 
