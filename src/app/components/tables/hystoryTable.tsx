@@ -6,7 +6,7 @@ import styles from './HistoryTable.module.css';
 
 interface HistoryData {
   event: string;
-  year: number;
+  year: String;
   description: string;
 }
 
