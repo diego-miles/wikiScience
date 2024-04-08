@@ -381,7 +381,7 @@ const sanitizedHistoryData = element.history.map(histItem => ({
           {element.externalResources && element.externalResources.map((resource, index) => (
             <div key={index}>
               <p><strong>Resource Type:</strong> {resource.resourceType}</p>
-              <a href={resource.link}><strong>Link:</strong> {resource.description}</a>
+              <a href={resource?.link}><strong>Link:</strong> {resource?.description}</a>
             </div>
           ))}
         </section>
@@ -390,9 +390,9 @@ const sanitizedHistoryData = element.history.map(histItem => ({
           <h2>28. User Interactions</h2>
           {element.userInteractions && element.userInteractions.map((interaction, index) => (
             <div key={index}>
-              <p><strong>Contribution:</strong> {interaction.contribution}</p>
-              <p><strong>Question:</strong> {interaction.question}</p>
-              <p><strong>Discussion:</strong> {interaction.discussion}</p>
+              <p><strong>Contribution:</strong> {interaction?.contribution}</p>
+              <p><strong>Question:</strong> {interaction?.question}</p>
+              <p><strong>Discussion:</strong> {interaction?.discussion}</p>
             </div>
           ))}
         </section>
@@ -402,9 +402,9 @@ const sanitizedHistoryData = element.history.map(histItem => ({
           <h2>29. Synthesis and Production</h2>
           {element.synthesisProduction && (
             <>
-              <p><strong>Synthesis Methods:</strong> {element.synthesisProduction.synthesisMethods}</p>
-              <p><strong>Extraction Methods:</strong> {element.synthesisProduction.extractionMethods}</p>
-              <p><strong>Global Production:</strong> {element.synthesisProduction.globalProduction}</p>
+              <p><strong>Synthesis Methods:</strong> {element?.synthesisProduction?.synthesisMethods}</p>
+              <p><strong>Extraction Methods:</strong> {element?.synthesisProduction?.extractionMethods}</p>
+              <p><strong>Global Production:</strong> {element?.synthesisProduction?.globalProduction}</p>
             </>
           )}
         </section>
@@ -412,8 +412,8 @@ const sanitizedHistoryData = element.history.map(histItem => ({
         {/* Environmental Safety */}
         <section id="environmental-safety">
           <h2>Environmental Safety</h2>
-          <p><strong>Health Hazards:</strong> {element.environmentalSafety.healthHazards}</p>
-          <p><strong>Safety Precautions:</strong> {element.environmentalSafety.safetyPrecautions}</p>
+          <p><strong>Health Hazards:</strong> {element.environmentalSafety?.healthHazards}</p>
+          <p><strong>Safety Precautions:</strong> {element.environmentalSafety?.safetyPrecautions}</p>
         </section>
 
 
