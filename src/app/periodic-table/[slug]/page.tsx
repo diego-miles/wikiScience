@@ -10,10 +10,11 @@ import History from '@/components/tables/hystoryTable'; // Ajusta la ruta de imp
 
 
 
-interface ImageGalleryItem {
-  imageUrl: string;
-  description: string;
-}
+type ImageGalleryItem = {
+  imageUrl: string | null;
+  description: string | null;
+};
+
 
 const prisma = new PrismaClient();
 
@@ -80,11 +81,10 @@ const sectionTitles = [
   }));
 
   // Check and map over the gallery only if it's an array of the expected type
-  const images = element?.imageGallery?.map((img: ImageGalleryItem) => ({
-    URL: img.imageUrl,
-    Description: img.description
-  }));
-
+const images = element?.imageGallery?.map((img: ImageGalleryItem) => ({
+  URL: img.imageUrl ?? 'DefaultURL', // Proporciona una URL por defecto o maneja el caso de null de alguna manera
+  Description: img.description ?? 'No description' // Proporciona una descripción por defecto o maneja el caso de null
+}));
 // Assuming element.history is an array of objects with the structure { event: string; year: number; description: string; }
 // Then, pass this object to the History component
 
