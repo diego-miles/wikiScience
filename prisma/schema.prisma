@@ -1,4 +1,4 @@
-//🧩Don't Edit this file.✨Generated in Sun Mar 31 2024 02:49:50 GMT-0600 (Central Standard Time)✨
+//🧩Don't Edit this file.✨Generated in Sun Apr 07 2024 23:38:30 GMT-0600 (Central Standard Time)✨
 
 generator client {
   provider = "prisma-client-js"
@@ -229,235 +229,226 @@ model ElectronicComponentDatasheet {
 }
 
 model ChemicalElement {
-  id                           String                               @id @default(auto()) @map("_id") @db.ObjectId
-  symbol                       String                               @unique
-  name                         String                               @unique
-  slug                         String                               @unique
-  atomicNumber                 Int
-  atomicWeight                 Float
-  description                  String
-  history                      History[]
-  discoveryYear                Int
-  meltingPoint                 Float?
-  boilingPoint                 Float?
-  density                      Float?
-  appearance                   String?
-  classifications              ChemicalElementClassification[]
-  atomicStructure              ElementAtomicStructure
-  isotopes                     ElementIsotope[]
-  compounds                    ElementCompound[]
-  abundances                   ElementIsotopeAbundance[]
-  crystalStructures            ElementCrystalStructure[]
-  allotropes                   ElementAllotrope[]
-  electronConfig               ElementElectronConfiguration // ElementElectronConfiguration
-  oxidationStates              ElementOxidationState[]
-  physicalProperties           ElementPhysicalProperties
-  chemicalProperties           ElementChemicalProperties
-  environmentalSafety          ElementEnvironmentalSafety
-  practicalApplications        ElementPracticalApplication[] // Array of ElementPracticalApplication
-  spectralLines                ElementSpectralLine[]
-  naturalOccurrence            ElementNaturalOccurrence
-  biologicalRole               ElementBiologicalRole
-  economicData                 ElementEconomicData
-  imageGallery                 ImageGallery[]
-  healthEnvironmentalImpact    ElementHealthEnvironmentalImpact
-  futurePredictions            ElementFuturePrediction[]
-  userInteractions             ElementUserInteraction[]
-  externalResources            ElementExternalResource[]
-  magneticElectricalProperties ElementMagneticElectricalProperties?
-  opticalProperties            ElementOpticalProperties?
-  quantumProperties            ElementQuantumProperties?
-  synthesisProduction          ElementSynthesisProduction?
-  safetyDataSheet              ElementSafetyDataSheet?
-  legalStatus                  ElementLegalStatus?
-  interdisciplinaryConnections Json
+  id                              String                               @id @default(auto()) @map("_id") @db.ObjectId
+  symbol                          String                               @unique
+  name                            String                               @unique
+  slug                            String                               @unique
+  atomicNumber                    String?
+  atomicWeight                    String?
+  description                     String?
+  history                         History[]
+  discoveryYear                   String
+  meltingPoString                 String?
+  boilingPoString                 String?
+  density                         String?
+  appearance                      String?
+  classifications                 ChemicalElementClassification[]
+  atomicStructure                 ElementAtomicStructure?
+  isotopes                        ElementIsotope[]
+  compounds                       ElementCompound[]
+  crystalStructures               ElementCrystalStructure[]
+  allotropes                      ElementAllotrope[]
+  electronConfig                  ElementElectronConfiguration? // ElementElectronConfiguration
+  oxidationStates                 ElementOxidationState[]
+  physicalProperties              ElementPhysicalProperties?
+  chemicalProperties              ElementChemicalProperties?
+  environmentalSafety             ElementEnvironmentalSafety?
+  practicalApplications           ElementPracticalApplication[] // Array of ElementPracticalApplication
+  spectralLines                   ElementSpectralLine[]
+  naturalOccurrence               ElementNaturalOccurrence?
+  biologicalRole                  ElementBiologicalRole?
+  economicData                    ElementEconomicData?
+  imageGallery                    ImageGallery[]
+  healthEnvironmentalImpact       ElementHealthEnvironmentalImpact?
+  futurePredictions               ElementFuturePrediction[]
+  userStringeractions             ElementUserStringeraction[]
+  externalResources               ElementExternalResource[]
+  magneticElectricalProperties    ElementMagneticElectricalProperties?
+  opticalProperties               ElementOpticalProperties?
+  quantumProperties               ElementQuantumProperties?
+  synthesisProduction             ElementSynthesisProduction?
+  safetyDataSheet                 ElementSafetyDataSheet?
+  legalStatus                     ElementLegalStatus?
+  StringerdisciplinaryConnections Json?
 }
 
 type ElementPracticalApplication {
-  application String
-  description String
+  application String?
+  description String?
 }
 
 type ElementElectronConfiguration {
-  configuration String
-  description   String
+  configuration String?
+  description   String?
 }
 
-// type ElementInterdisciplinaryConnection {
+// type ElementStringerdisciplinaryConnection {
 //     connectionDetails String
 // }
 
 type ElementLegalStatus {
-  regulations       String
-  legalRestrictions String
+  regulations       String?
+  legalRestrictions String?
 }
 
 type ElementSafetyDataSheet {
-  handling         String
-  storage          String
-  firstAidMeasures String
+  handling         String?
+  storage          String?
+  firstAidMeasures String?
 }
 
 type ElementSynthesisProduction {
-  synthesisMethods  String
-  extractionMethods String
-  globalProduction  String
+  synthesisMethods  String?
+  extractionMethods String?
+  globalProduction  String?
 }
 
 type ElementQuantumProperties {
-  quantumNumbers     Json
-  electronShellModel Json
-  energyLevels       Json
+  quantumNumbers     Json?
+  electronShellModel Json?
+  energyLevels       Json?
 }
 
 type ElementOpticalProperties {
-  refractiveIndex    String
-  reflectivity       String
-  absorptionSpectrum String
+  refractiveIndex    String?
+  reflectivity       String?
+  absorptionSpectrum String?
 }
 
 type ElementMagneticElectricalProperties {
-  magneticSusceptibility String
-  electricalResistivity  String
-  hallCoefficient        String
+  magneticSusceptibility String?
+  electricalResistivity  String?
+  hallCoefficient        String?
 }
 
 type ElementExternalResource {
-  resourceType String
-  link         String
-  description  String
+  resourceType String?
+  link         String?
+  description  String?
 }
 
 type ElementFuturePrediction {
-  prediction  String
-  description String
-}
-
-type ElementIsotopeAbundance {
-  isotopeNumber Int
-  abundance     Float
-  halfLife      String
-  decayMode     String
+  prediction  String?
+  description String?
 }
 
 type ElementHealthEnvironmentalImpact {
-  healthImpact        String
-  environmentalImpact String
+  healthImpact        String?
+  environmentalImpact String?
 }
 
 type ChemicalElementClassification {
-  classification String
-  description    String
+  classification String?
+  description    String?
 }
 
 type ElementAtomicStructure {
-  electrons                Int?
-  protons                  Int?
-  neutrons                 Int?
-  ionizationEnergy         Float?
-  electronAffinity         Float?
-  atomicRadius             Int?
-  atomicPolarization       String
-  electronegativity        Float
-  firstIonizationPotential Float
+  electrons                String?
+  protons                  String?
+  neutrons                 String?
+  ionizationEnergy         String?
+  electronAffinity         String?
+  atomicRadius             String?
+  atomicPolarization       String?
+  electronegativity        String?
+  firstIonizationPotential String?
 }
 
 type ElementIsotope {
-  isotopeNumber Int
-  abundance     Float
-  halfLife      String
-  decayMode     String
+  isotopeNumber String?
+  abundance     String?
+  halfLife      String?
+  decayMode     String?
+  description   String?
 }
 
 type ElementCompound {
-  name        String
-  formula     String
-  description String
+  name        String?
+  formula     String?
+  description String?
 }
 
 type History {
-  event       String
-  year        Int
-  description String
+  event       String?
+  year        String?
+  description String?
 }
 
 type ElementCrystalStructure {
-  type        String
-  temperature Float
-  description String
+  type        String?
+  temperature String?
+  description String?
 }
 
 type ElementAllotrope {
-  name        String
-  description String
+  name        String?
+  description String?
 }
 
 type ElementOxidationState {
-  state       Int
-  description String
+  state       String?
+  description String?
 }
 
 type ElementPhysicalProperties {
-  meltingPoint                Float
-  boilingPoint                Float
-  density                     Float
-  atomicRadius                Int
-  atomicVolume                Float
-  covalentRadius              Int
-  molarHeat                   String
-  thermalConductivity         Float
-  soundVelocity               String
-  mohsHardness                String
-  brinellHardness             String
-  specificHeatCapacity        String
-  thermalExpansionCoefficient String
-  phaseTransitionTemperatures String
+  meltingPoString             String?
+  boilingPoString             String?
+  density                     String?
+  atomicRadius                String?
+  atomicVolume                String?
+  covalentRadius              String?
+  molarHeat                   String?
+  thermalConductivity         String?
+  soundVelocity               String?
+  mohsHardness                String?
+  brinellHardness             String?
+  specificHeatCapacity        String?
+  thermalExpansionCoefficient String?
+  phaseTransitionTemperatures String?
 }
 
 type ElementChemicalProperties {
-  electronegativity          Float
-  ionizationPotential        Float
-  reactivity                 String
-  commonOxidationStates      String
-  standardReductionPotential Float
-  description                String
+  reactivity                 String?
+  commonOxidationStates      String?
+  standardReductionPotential String?
+  description                String?
 }
 
 type ElementEnvironmentalSafety {
-  healthHazards     String
-  safetyPrecautions String
+  healthHazards     String?
+  safetyPrecautions String?
 }
 
 type ImageGallery {
-  imageUrl    String
-  description String
+  imageUrl    String?
+  description String?
 }
 
 type ElementSpectralLine {
-  wavelength Float
-  intensity  String
-  lineType   String
+  wavelength   String?
+  Stringensity String?
+  lineType     String?
 }
 
 type ElementNaturalOccurrence {
-  occurrenceType String
-  description    String
+  occurrenceType String?
+  description    String?
 }
 
 type ElementBiologicalRole {
-  role        String
-  description String
+  role        String?
+  description String?
 }
 
 type ElementEconomicData {
-  marketPrice        String
-  producingCountries String
-  industrialUse      String
-  description        String
+  marketPrice        String?
+  producingCountries String?
+  industrialUse      String?
+  description        String?
 }
 
-type ElementUserInteraction {
-  contribution String
-  question     String
-  discussion   String
+type ElementUserStringeraction {
+  contribution String?
+  question     String?
+  discussion   String?
 }

@@ -64,9 +64,6 @@ export async function generateMetadata({
 }: ProductPageProps): Promise<Metadata> {
     const recommendations = await getSubFieldRecommendation(slugsub);
 
-
-
-
     const images = (recommendations?.books?.map((book) => ({
         url: `${formatTitleForAmazonImageURL(book.englishTitle)}.png` || '' 
     })) || []).filter(image => image.url !== null) as OGImage[];
