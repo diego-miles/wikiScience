@@ -80,7 +80,7 @@ const sectionTitles = [
   }));
 
   // Check and map over the gallery only if it's an array of the expected type
-  const images = element.imageGallery.map((img: ImageGalleryItem) => ({
+  const images = element?.imageGallery?.map((img: ImageGalleryItem) => ({
     URL: img.imageUrl,
     Description: img.description
   }));

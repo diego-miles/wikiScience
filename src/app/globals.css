@@ -147,6 +147,7 @@ p {
   color: var(--color-p);
   padding-bottom: 0.9rem;
   line-height: 1.4;
+  text-wrap: balance;
 }
 
 .p2 {
