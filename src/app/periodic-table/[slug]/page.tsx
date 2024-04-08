@@ -381,10 +381,11 @@ const sanitizedHistoryData = element.history.map(histItem => ({
           {element.externalResources && element.externalResources.map((resource, index) => (
             <div key={index}>
               <p><strong>Resource Type:</strong> {resource.resourceType}</p>
-              <a href={resource?.link}><strong>Link:</strong> {resource?.description}</a>
+              <a href={resource?.link || undefined}><strong>Link:</strong> {resource?.description}</a>
             </div>
           ))}
         </section>
+
 
         <section id="28-user-interactions">
           <h2>28. User Interactions</h2>
