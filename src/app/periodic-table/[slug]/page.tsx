@@ -104,8 +104,8 @@ const images = element?.imageGallery?.map((img: ImageGalleryItem) => ({
         <section id="1-physical-properties">
           <h2>1. Physical Properties</h2>
           <p><strong>Discovery Year:</strong> {element.discoveryYear}</p>
-          <p><strong>Melting Point:</strong> {element?.meltingPoint}</p>
-          <p><strong>Boiling Point:</strong> {element?.boilingPoint}</p>
+          <p><strong>Melting Point:</strong> {element.meltingPoint ? `${element.meltingPoint} K` : 'N/A'}</p>
+          <p><strong>Boiling Point:</strong> {element.boilingPoint ? `${element.boilingPoint} K` : 'N/A'}</p>
           <p><strong>Density:</strong> {element.density ? `${element.density} g/cm³` : 'N/A'}</p>
           <p><strong>Appearance:</strong> {element.appearance || 'N/A'}</p>
         </section>

@@ -8,8 +8,8 @@ model ChemicalElement {
     description                  String?
     history                      History[]
     discoveryYear                String
-    meltingPoString                 String?
-    boilingPoString                 String?
+    meltingPoint                 String?
+    boilingPoint                 String?
     density                      String?
     appearance                   String?
     classifications              ChemicalElementClassification[]
