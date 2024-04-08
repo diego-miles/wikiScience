@@ -1,4 +1,4 @@
-//🧩Don't Edit this file.✨Generated in Mon Apr 08 2024 02:24:25 GMT-0600 (Central Standard Time)✨
+//🧩Don't Edit this file.✨Generated in Mon Apr 08 2024 02:36:11 GMT-0600 (Central Standard Time)✨
 
 generator client {
   provider = "prisma-client-js"
@@ -425,9 +425,9 @@ type ImageGallery {
 }
 
 type ElementSpectralLine {
-  wavelength   String?
-  Stringensity String?
-  lineType     String?
+  wavelength String?
+  intensity  String?
+  lineType   String?
 }
 
 type ElementNaturalOccurrence {

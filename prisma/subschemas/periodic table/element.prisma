@@ -213,7 +213,7 @@ type ImageGallery {
 
 type ElementSpectralLine {
     wavelength  String?
-    Stringensity   String?
+    intensity   String?
     lineType    String?
 }
 
