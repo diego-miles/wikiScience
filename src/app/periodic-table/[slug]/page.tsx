@@ -88,6 +88,17 @@ const images = element?.imageGallery?.map((img: ImageGalleryItem) => ({
 // Assuming element.history is an array of objects with the structure { event: string; year: number; description: string; }
 // Then, pass this object to the History component
 
+const sanitizedHistoryData = element.history.map(histItem => ({
+  event: histItem.event ?? 'Unknown Event',
+  year: histItem.year ?? 'Unknown Year',
+  description: histItem.description ?? 'No description available'
+}));
+
+
+
+
+
+
   return (
     <>
       <NavBar domain="www.wiki-science.com/" menuPath='./NavigationMenu' />
@@ -121,7 +132,7 @@ const images = element?.imageGallery?.map((img: ImageGalleryItem) => ({
         {/* Discovery and History */}
         <section id="3-discovery-and-history">
           <h2>Discovery and History</h2>
-          <History data={element.history} />
+          <History data={sanitizedHistoryData} />
         </section>
 
 
