@@ -178,8 +178,8 @@ type ElementOxidationState {
 }
 
 type ElementPhysicalProperties {
-    meltingPoString               String?
-    boilingPoString               String?
+    meltingPoint               String?
+    boilingPoint                String?
     density                    String?
     atomicRadius               String?
     atomicVolume               String?
