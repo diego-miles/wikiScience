@@ -1,4 +1,4 @@
-//🧩Don't Edit this file.✨Generated in Mon Apr 08 2024 02:36:11 GMT-0600 (Central Standard Time)✨
+//🧩Don't Edit this file.✨Generated in Mon Apr 08 2024 02:50:07 GMT-0600 (Central Standard Time)✨
 
 generator client {
   provider = "prisma-client-js"
@@ -229,47 +229,47 @@ model ElectronicComponentDatasheet {
 }
 
 model ChemicalElement {
-  id                              String                               @id @default(auto()) @map("_id") @db.ObjectId
-  symbol                          String                               @unique
-  name                            String                               @unique
-  slug                            String                               @unique
-  atomicNumber                    String?
-  atomicWeight                    String?
-  description                     String?
-  history                         History[]
-  discoveryYear                   String
-  meltingPoint                    String?
-  boilingPoint                    String?
-  density                         String?
-  appearance                      String?
-  classifications                 ChemicalElementClassification[]
-  atomicStructure                 ElementAtomicStructure?
-  isotopes                        ElementIsotope[]
-  compounds                       ElementCompound[]
-  crystalStructures               ElementCrystalStructure[]
-  allotropes                      ElementAllotrope[]
-  electronConfig                  ElementElectronConfiguration? // ElementElectronConfiguration
-  oxidationStates                 ElementOxidationState[]
-  physicalProperties              ElementPhysicalProperties?
-  chemicalProperties              ElementChemicalProperties?
-  environmentalSafety             ElementEnvironmentalSafety?
-  practicalApplications           ElementPracticalApplication[] // Array of ElementPracticalApplication
-  spectralLines                   ElementSpectralLine[]
-  naturalOccurrence               ElementNaturalOccurrence?
-  biologicalRole                  ElementBiologicalRole?
-  economicData                    ElementEconomicData?
-  imageGallery                    ImageGallery[]
-  healthEnvironmentalImpact       ElementHealthEnvironmentalImpact?
-  futurePredictions               ElementFuturePrediction[]
-  userStringeractions             ElementUserStringeraction[]
-  externalResources               ElementExternalResource[]
-  magneticElectricalProperties    ElementMagneticElectricalProperties?
-  opticalProperties               ElementOpticalProperties?
-  quantumProperties               ElementQuantumProperties?
-  synthesisProduction             ElementSynthesisProduction?
-  safetyDataSheet                 ElementSafetyDataSheet?
-  legalStatus                     ElementLegalStatus?
-  StringerdisciplinaryConnections Json?
+  id                           String                               @id @default(auto()) @map("_id") @db.ObjectId
+  symbol                       String                               @unique
+  name                         String                               @unique
+  slug                         String                               @unique
+  atomicNumber                 String?
+  atomicWeight                 String?
+  description                  String?
+  history                      History[]
+  discoveryYear                String
+  meltingPoint                 String?
+  boilingPoint                 String?
+  density                      String?
+  appearance                   String?
+  classifications              ChemicalElementClassification[]
+  atomicStructure              ElementAtomicStructure?
+  isotopes                     ElementIsotope[]
+  compounds                    ElementCompound[]
+  crystalStructures            ElementCrystalStructure[]
+  allotropes                   ElementAllotrope[]
+  electronConfig               ElementElectronConfiguration? // ElementElectronConfiguration
+  oxidationStates              ElementOxidationState[]
+  physicalProperties           ElementPhysicalProperties?
+  chemicalProperties           ElementChemicalProperties?
+  environmentalSafety          ElementEnvironmentalSafety?
+  practicalApplications        ElementPracticalApplication[] // Array of ElementPracticalApplication
+  spectralLines                ElementSpectralLine[]
+  naturalOccurrence            ElementNaturalOccurrence?
+  biologicalRole               ElementBiologicalRole?
+  economicData                 ElementEconomicData?
+  imageGallery                 ImageGallery[]
+  healthEnvironmentalImpact    ElementHealthEnvironmentalImpact?
+  futurePredictions            ElementFuturePrediction[]
+  userInteractions             ElementuserInteractions[]
+  externalResources            ElementExternalResource[]
+  magneticElectricalProperties ElementMagneticElectricalProperties?
+  opticalProperties            ElementOpticalProperties?
+  quantumProperties            ElementQuantumProperties?
+  synthesisProduction          ElementSynthesisProduction?
+  safetyDataSheet              ElementSafetyDataSheet?
+  legalStatus                  ElementLegalStatus?
+  interdisciplinaryConnections Json?
 }
 
 type ElementPracticalApplication {
@@ -447,7 +447,7 @@ type ElementEconomicData {
   description        String?
 }
 
-type ElementUserStringeraction {
+type ElementuserInteractions {
   contribution String?
   question     String?
   discussion   String?
