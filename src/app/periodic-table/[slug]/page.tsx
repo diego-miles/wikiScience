@@ -138,8 +138,8 @@ const sanitizedHistoryData = element.history.map(histItem => ({
 
         <section id="4-natural-occurrence">
           <h2>Natural Occurrence</h2>
-          <p><strong>Type:</strong> {element.naturalOccurrence.occurrenceType}</p>
-          <p><strong>Description:</strong> {element.naturalOccurrence.description}</p>
+          <p><strong>Type:</strong> {element.naturalOccurrence?.occurrenceType}</p>
+          <p><strong>Description:</strong> {element.naturalOccurrence?.description}</p>
         </section>
 
         {/* <section id="5-chemical-classification">
@@ -168,19 +168,19 @@ const sanitizedHistoryData = element.history.map(histItem => ({
         {/* Atomic Structure */}
         <section id="7-atomic-structure">
           <h2>7. Atomic Structure</h2>
-          <p><strong>Electrons:</strong> {element.atomicStructure.electrons}</p>
-          <p><strong>Protons:</strong> {element.atomicStructure.protons}</p>
-          <p><strong>Neutrons:</strong> {element.atomicStructure.neutrons}</p>
-          <p><strong>Ionization Energy:</strong> {element.atomicStructure.ionizationEnergy} eV</p>
-          <p><strong>Electron Affinity:</strong> {element.atomicStructure.electronAffinity} eV</p>
+          <p><strong>Electrons:</strong> {element.atomicStructure?.electrons}</p>
+          <p><strong>Protons:</strong> {element.atomicStructure?.protons}</p>
+          <p><strong>Neutrons:</strong> {element.atomicStructure?.neutrons}</p>
+          <p><strong>Ionization Energy:</strong> {element.atomicStructure?.ionizationEnergy} eV</p>
+          <p><strong>Electron Affinity:</strong> {element.atomicStructure?.electronAffinity} eV</p>
         </section>
 
 
         {/* Electron Configuration */}
         <section id="8-electron-configuration">
           <h2>8. Electron Configuration</h2>
-          <p>{element.electronConfig.configuration}</p>
-          <p><strong>Description:</strong> {element.electronConfig.description}</p>
+          <p>{element.electronConfig?.configuration}</p>
+          <p><strong>Description:</strong> {element.electronConfig?.description}</p>
         </section>
 
 
@@ -189,9 +189,9 @@ const sanitizedHistoryData = element.history.map(histItem => ({
           <h2>9. Crystal Structures</h2>
           {element.crystalStructures.map((structure, index) => (
             <div key={index}>
-              <p><strong>Type:</strong> {structure.type}</p>
-              <p><strong>Temperature:</strong> {structure.temperature} K</p>
-              <p><strong>Description:</strong> {structure.description}</p>
+              <p><strong>Type:</strong> {structure?.type}</p>
+              <p><strong>Temperature:</strong> {structure?.temperature} K</p>
+              <p><strong>Description:</strong> {structure?.description}</p>
             </div>
           ))}
         </section>
@@ -200,8 +200,8 @@ const sanitizedHistoryData = element.history.map(histItem => ({
           <h2>10. Allotropes</h2>
           {element.allotropes.map((allotrope, index) => (
             <div key={index}>
-              <p><strong>Name:</strong> {allotrope.name}</p>
-              <p><strong>Description:</strong> {allotrope.description}</p>
+              <p><strong>Name:</strong> {allotrope?.name}</p>
+              <p><strong>Description:</strong> {allotrope?.description}</p>
             </div>
           ))}
         </section>
@@ -211,10 +211,10 @@ const sanitizedHistoryData = element.history.map(histItem => ({
           <h2>11. Isotopes and Abundances</h2>
           {element.isotopes.map(isotope => (
             <div key={isotope.isotopeNumber}>
-              <p><strong>Isotope Number:</strong> {isotope.isotopeNumber}</p>
-              <p><strong>Abundance:</strong> {isotope.abundance}%</p>
-              <p><strong>Half Life:</strong> {isotope.halfLife}</p>
-              <p><strong>Decay Mode:</strong> {isotope.decayMode}</p>
+              <p><strong>Isotope Number:</strong> {isotope?.isotopeNumber}</p>
+              <p><strong>Abundance:</strong> {isotope?.abundance}%</p>
+              <p><strong>Half Life:</strong> {isotope?.halfLife}</p>
+              <p><strong>Decay Mode:</strong> {isotope?.decayMode}</p>
             </div>
           ))}
         </section>
@@ -225,7 +225,7 @@ const sanitizedHistoryData = element.history.map(histItem => ({
         <section id="12-oxidation-states">
           <h2>12. Oxidation States</h2>
           {element.oxidationStates.map(state => (
-            <p key={state.state}>{state.state}: {state.description}</p>
+            <p key={state?.state}>{state?.state}: {state?.description}</p>
           ))}
         </section>
 
@@ -234,9 +234,9 @@ const sanitizedHistoryData = element.history.map(histItem => ({
           <h2>13. Compounds</h2>
           {element.compounds.map((compound, index) => (
             <div key={index}>
-              <p><strong>Name:</strong> {compound.name}</p>
-              <p><strong>Formula:</strong> {compound.formula}</p>
-              <p><strong>Description:</strong> {compound.description}</p>
+              <p><strong>Name:</strong> {compound?.name}</p>
+              <p><strong>Formula:</strong> {compound?.formula}</p>
+              <p><strong>Description:</strong> {compound?.description}</p>
             </div>
           ))}
         </section>
@@ -246,9 +246,9 @@ const sanitizedHistoryData = element.history.map(histItem => ({
         {element.magneticElectricalProperties && (
           <section id="14-magnetic-and-electrical-properties">
             <h2>14. Magnetic and Electrical Properties</h2>
-            <p><strong>Magnetic Susceptibility:</strong> {element.magneticElectricalProperties.magneticSusceptibility}</p>
-            <p><strong>Electrical Resistivity:</strong> {element.magneticElectricalProperties.electricalResistivity}</p>
-            <p><strong>Hall Coefficient:</strong> {element.magneticElectricalProperties.hallCoefficient}</p>
+            <p><strong>Magnetic Susceptibility:</strong> {element.magneticElectricalProperties?.magneticSusceptibility}</p>
+            <p><strong>Electrical Resistivity:</strong> {element.magneticElectricalProperties?.electricalResistivity}</p>
+            <p><strong>Hall Coefficient:</strong> {element.magneticElectricalProperties?.hallCoefficient}</p>
           </section>
         )}
 
@@ -267,9 +267,9 @@ const sanitizedHistoryData = element.history.map(histItem => ({
           <h2>16. Quantum Properties</h2>
           {element.quantumProperties && (
             <>
-              <p><strong>Quantum Numbers:</strong> {JSON.stringify(element.quantumProperties.quantumNumbers)}</p>
-              <p><strong>Electron Shell Model:</strong> {JSON.stringify(element.quantumProperties.electronShellModel)}</p>
-              <p><strong>Energy Levels:</strong> {JSON.stringify(element.quantumProperties.energyLevels)}</p>
+              <p><strong>Quantum Numbers:</strong> {JSON.stringify(element.quantumProperties?.quantumNumbers)}</p>
+              <p><strong>Electron Shell Model:</strong> {JSON.stringify(element.quantumProperties?.electronShellModel)}</p>
+              <p><strong>Energy Levels:</strong> {JSON.stringify(element.quantumProperties?.energyLevels)}</p>
             </>
           )}
         </section>
@@ -281,9 +281,9 @@ const sanitizedHistoryData = element.history.map(histItem => ({
           <h2>17. Spectral Lines</h2>
           {element.spectralLines.map((line, index) => (
             <div key={index}>
-              <p><strong>Wavelength:</strong> {line.wavelength} nm</p>
-              <p><strong>Intensity:</strong> {line.intensity}</p>
-              <p><strong>Line Type:</strong> {line.lineType}</p>
+              <p><strong>Wavelength:</strong> {line?.wavelength} nm</p>
+              <p><strong>Intensity:</strong> {line?.intensity}</p>
+              <p><strong>Line Type:</strong> {line?.lineType}</p>
             </div>
           ))}
         </section>
@@ -296,8 +296,8 @@ const sanitizedHistoryData = element.history.map(histItem => ({
           <h2>18. Practical Applications</h2>
           {element.practicalApplications.map(app => (
             <div key={app.application}>
-              <p><strong>Application:</strong> {app.application}</p>
-              <p><strong>Description:</strong> {app.description}</p>
+              <p><strong>Application:</strong> {app?.application}</p>
+              <p><strong>Description:</strong> {app?.description}</p>
             </div>
           ))}
         </section>
@@ -306,25 +306,25 @@ const sanitizedHistoryData = element.history.map(histItem => ({
         {/* Biological Role */}
         <section id="19-biological-role">
           <h2>19. Biological Role</h2>
-          <p><strong>Role:</strong> {element.biologicalRole.role}</p>
-          <p><strong>Description:</strong> {element.biologicalRole.description}</p>
+          <p><strong>Role:</strong> {element.biologicalRole?.role}</p>
+          <p><strong>Description:</strong> {element.biologicalRole?.description}</p>
         </section>
 
 
         <section id="21-health-environmental-impact">
           <h2>21. Health and Environmental Impact</h2>
-          <p><strong>Health Impact:</strong> {element.healthEnvironmentalImpact.healthImpact}</p>
-          <p><strong>Environmental Impact:</strong> {element.healthEnvironmentalImpact.environmentalImpact}</p>
+          <p><strong>Health Impact:</strong> {element.healthEnvironmentalImpact?.healthImpact}</p>
+          <p><strong>Environmental Impact:</strong> {element.healthEnvironmentalImpact?.environmentalImpact}</p>
         </section>
 
 
         {/* Economic Data */}
         <section id="22-economic-data">
           <h2>22. Economic Data</h2>
-          <p><strong>Market Price:</strong> {element.economicData.marketPrice}</p>
-          <p><strong>Producing Countries:</strong> {element.economicData.producingCountries}</p>
-          <p><strong>Industrial Use:</strong> {element.economicData.industrialUse}</p>
-          <p><strong>Description:</strong> {element.economicData.description}</p>
+          <p><strong>Market Price:</strong> {element.economicData?.marketPrice}</p>
+          <p><strong>Producing Countries:</strong> {element.economicData?.producingCountries}</p>
+          <p><strong>Industrial Use:</strong> {element.economicData?.industrialUse}</p>
+          <p><strong>Description:</strong> {element.economicData?.description}</p>
         </section>
 
 
@@ -333,8 +333,8 @@ const sanitizedHistoryData = element.history.map(histItem => ({
           <h2>23. Legal Status</h2>
           {element.legalStatus && (
             <>
-              <p><strong>Regulations:</strong> {element.legalStatus.regulations}</p>
-              <p><strong>Legal Restrictions:</strong> {element.legalStatus.legalRestrictions}</p>
+              <p><strong>Regulations:</strong> {element.legalStatus?.regulations}</p>
+              <p><strong>Legal Restrictions:</strong> {element.legalStatus?.legalRestrictions}</p>
             </>
           )}
         </section>
@@ -344,9 +344,9 @@ const sanitizedHistoryData = element.history.map(histItem => ({
           <h2>24. Safety Data Sheet</h2>
           {element.safetyDataSheet && (
             <>
-              <p><strong>Handling:</strong> {element.safetyDataSheet.handling}</p>
-              <p><strong>Storage:</strong> {element.safetyDataSheet.storage}</p>
-              <p><strong>First Aid Measures:</strong> {element.safetyDataSheet.firstAidMeasures}</p>
+              <p><strong>Handling:</strong> {element?.safetyDataSheet?.handling}</p>
+              <p><strong>Storage:</strong> {element?.safetyDataSheet?.storage}</p>
+              <p><strong>First Aid Measures:</strong> {element?.safetyDataSheet?.firstAidMeasures}</p>
             </>
           )}
         </section>
