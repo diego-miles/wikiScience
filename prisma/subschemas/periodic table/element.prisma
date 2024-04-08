@@ -31,7 +31,7 @@ model ChemicalElement {
     imageGallery                 ImageGallery[]
     healthEnvironmentalImpact    ElementHealthEnvironmentalImpact?
     futurePredictions            ElementFuturePrediction[]
-    userStringeractions             ElementUserStringeraction[]
+    userInteractions             ElementuserInteractions[]
     externalResources            ElementExternalResource[]
     magneticElectricalProperties ElementMagneticElectricalProperties?
     opticalProperties            ElementOpticalProperties?
@@ -39,7 +39,7 @@ model ChemicalElement {
     synthesisProduction          ElementSynthesisProduction?
     safetyDataSheet              ElementSafetyDataSheet?
     legalStatus                  ElementLegalStatus?
-    StringerdisciplinaryConnections Json?
+    interdisciplinaryConnections Json?
 }
 
 
@@ -234,7 +234,7 @@ type ElementEconomicData {
     description         String?
 }
 
-type ElementUserStringeraction {
+type ElementuserInteractions {
     contribution String?
     question     String?
     discussion   String?
