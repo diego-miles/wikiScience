@@ -65,7 +65,7 @@ export async function generateMetadata({
     const description = `Explore our expertly curated and constantly updated list of the top science books on ${recommendations?.topic} for 2024. Discover groundbreaking works that delve into the universe's mysteries and the most significant scientific discoveries. These essential reads offer in-depth knowledge, insightful analysis, and innovative perspectives for both enthusiasts and scholars alike.`;
 
     return {
-        title: `Best ${formatTitleForAmazonImageURL(recommendations?.topic)} books of all time (2024)` ,
+        title: `Best ${recommendations?.topic} books of all time (2024)` ,
         description: description,
         openGraph: {
             images: images,
