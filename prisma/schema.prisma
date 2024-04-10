@@ -1,4 +1,4 @@
-//🧩Don't Edit this file.✨Generated in Mon Apr 08 2024 02:50:07 GMT-0600 (Central Standard Time)✨
+//🧩Don't Edit this file.✨Generated in Wed Apr 10 2024 00:36:55 GMT-0600 (Central Standard Time)✨
 
 generator client {
   provider = "prisma-client-js"
@@ -44,10 +44,34 @@ model Book {
   topicRecommendationSlug    String?
   subFieldRecommendation     subFieldRecommendation? @relation(fields: [subFieldRecommendationSlug], references: [slug])
   subFieldRecommendationSlug String?
-  syllabus                   Json?
+  syllabus                   Syllabus?
   slug                       String                  @unique
 
   @@map("book")
+}
+
+type Syllabus {
+  title   String
+  content Content
+}
+
+type Content {
+  title   String
+  chapter Chapter?
+}
+
+type Chapter {
+  title    String // Title of the chapter
+  sections Section[] // List of sections
+}
+
+type Section {
+  title       String? // Title of the section
+  subsections Subsection[] // List of subsections, empty if this section has no subsections
+}
+
+type Subsection {
+  title String? // Title of the subsection
 }
 
 model topicRecommendation {
