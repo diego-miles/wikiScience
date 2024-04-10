@@ -1,12 +1,12 @@
 "use client"
-import React, { useCallback, useEffect, useMemo } from 'react';
+import React, { useEffect } from 'react';
 import styles from './Overlay.module.css';
 import Image from 'next/image';
 
 type OverlayProps = {
   isVisible: boolean;
   closeOverlay: () => void;
-  syllabusData: any;
+  syllabusData: any; // Es recomendable definir un tipo más específico si es posible.
   title: string;
 };
 
@@ -15,47 +15,38 @@ const Overlay: React.FC<OverlayProps> = ({ isVisible, closeOverlay, syllabusData
     document.body.style.overflow = isVisible ? 'hidden' : '';
   }, [isVisible]);
 
-  const handleClose = useCallback(() => {
-    closeOverlay();
-  }, [closeOverlay]);
+  const formatTitleForURL = (title: string): string => {
+    return title
+      .replace(/[^a-zA-Z0-9 ,'&-]/g, "")
+      .replace(/&/g, "%26")
+      .replace(/ /g, "+");
+  };
 
-  const renderDynamicContent = useCallback((data: any, depth: number = 0): React.ReactNode => {
-    if (!data) return null;
-
+  const renderContent = (data: any, depth: number = 0): React.ReactNode => {
     if (Array.isArray(data)) {
       return data.map((item, index) => (
-        <React.Fragment key={index}>{renderDynamicContent(item, depth + 1)}</React.Fragment>
+        <React.Fragment key={index}>{renderContent(item, depth + 1)}</React.Fragment>
       ));
-    } else if (typeof data === 'object') {
+    } else if (typeof data === 'object' && data !== null) {
       return (
-        <div style={{ marginLeft: `${depth * 20}px` }}>
+        <div style={{ marginLeft: `${depth * 5}px` }}>
           {Object.entries(data).map(([key, value], index) => (
             <div key={index}>
-              {renderDynamicContent(value, depth + 1)}
+              <strong>{}</strong>: {renderContent(value, depth + 1)}
             </div>
           ))}
         </div>
       );
     } else {
-      return depth > 1 ? (depth <= 3 ? <h4>{data}</h4> : <p>{data}</p>) : null;
+      if (depth <= 0) {
+        return null; // Omitir los dos primeros niveles
+      } else if (depth <= 3) {
+        return <h4>{data}</h4>; // Tercer nivel
+      } else {
+        return <p>{data}</p>; // Cuarto nivel y más
+      }
     }
-  }, []);
-
-  const isContentEmpty = useCallback((content: React.ReactNode): boolean => {
-    if (Array.isArray(content)) {
-      return content.every(item => isContentEmpty(item));
-    }
-    return !content;
-  }, []);
-
-  const syllabusContent = useMemo(() => renderDynamicContent(syllabusData), [syllabusData, renderDynamicContent]);
-
-  const formatTitleForURL = useCallback((title: string) => {
-    return title
-      .replace(/[^a-zA-Z0-9 ,'&-]/g, "")
-      .replace(/&/g, "%26")
-      .replace(/ /g, "+");
-  }, []);
+  };
 
   if (!isVisible) return null;
 
@@ -73,9 +64,14 @@ const Overlay: React.FC<OverlayProps> = ({ isVisible, closeOverlay, syllabusData
             sizes="(max-width: 150px)"
           />
         </figure>
-        {!isContentEmpty(syllabusContent) ? syllabusContent : <div className={styles.noContent}>No syllabus content available.</div>}
+
+        {/* Renderizando los datos del syllabus directamente con la función renderContent */}
+        {syllabusData ? renderContent(syllabusData) : (
+          <div className={styles.noContent}>No syllabus content available.</div>
+        )}
       </div>
-      <div tabIndex={0} className={`${styles.iconWrapper} ${styles.crossIcon} ${styles.crossIconOpen}`} onClick={handleClose}></div>
+
+      <div tabIndex={0} className={`${styles.iconWrapper} ${styles.crossIcon} ${styles.crossIconOpen}`} onClick={closeOverlay}></div>
     </div>
   );
 };
