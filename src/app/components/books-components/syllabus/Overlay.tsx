@@ -1,7 +1,6 @@
 "use client"
 import React, { useCallback, useEffect, useMemo } from 'react';
 import styles from './Overlay.module.css';
-import CrossIcon from '@/components/CrossIcon2';
 import Image from 'next/image';
 
 type OverlayProps = {
@@ -16,11 +15,11 @@ const Overlay: React.FC<OverlayProps> = ({ isVisible, closeOverlay, syllabusData
     document.body.style.overflow = isVisible ? 'hidden' : '';
   }, [isVisible]);
 
-  const handleClose = () => {
+  const handleClose = useCallback(() => {
     closeOverlay();
-  };
+  }, [closeOverlay]);
 
-const renderDynamicContent = useCallback((data: any, depth: number = 0): React.ReactNode => {
+  const renderDynamicContent = useCallback((data: any, depth: number = 0): React.ReactNode => {
     if (!data) return null;
 
     if (Array.isArray(data)) {
@@ -30,7 +29,7 @@ const renderDynamicContent = useCallback((data: any, depth: number = 0): React.R
     } else if (typeof data === 'object') {
       return (
         <div style={{ marginLeft: `${depth * 20}px` }}>
-          {Object.values(data).map((value, index) => (
+          {Object.entries(data).map(([key, value], index) => (
             <div key={index}>
               {renderDynamicContent(value, depth + 1)}
             </div>
@@ -42,14 +41,21 @@ const renderDynamicContent = useCallback((data: any, depth: number = 0): React.R
     }
   }, []);
 
-  const formatTitleForURL = (title: string) => {
+  const isContentEmpty = useCallback((content: React.ReactNode): boolean => {
+    if (Array.isArray(content)) {
+      return content.every(item => isContentEmpty(item));
+    }
+    return !content;
+  }, []);
+
+  const syllabusContent = useMemo(() => renderDynamicContent(syllabusData), [syllabusData, renderDynamicContent]);
+
+  const formatTitleForURL = useCallback((title: string) => {
     return title
       .replace(/[^a-zA-Z0-9 ,'&-]/g, "")
       .replace(/&/g, "%26")
       .replace(/ /g, "+");
-  };
-
-const syllabusContent = useMemo(() => renderDynamicContent(syllabusData), [syllabusData, renderDynamicContent]);
+  }, []);
 
   if (!isVisible) return null;
 
@@ -67,7 +73,7 @@ const syllabusContent = useMemo(() => renderDynamicContent(syllabusData), [sylla
             sizes="(max-width: 150px)"
           />
         </figure>
-        {syllabusContent || <div className={styles.noContent}>No syllabus content available.</div>}
+        {!isContentEmpty(syllabusContent) ? syllabusContent : <div className={styles.noContent}>No syllabus content available.</div>}
       </div>
       <div tabIndex={0} className={`${styles.iconWrapper} ${styles.crossIcon} ${styles.crossIconOpen}`} onClick={handleClose}></div>
     </div>
