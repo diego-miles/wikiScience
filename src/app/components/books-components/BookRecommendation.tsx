@@ -1,14 +1,15 @@
 import React from 'react';
 import styles from './BookRecomm.module.css';
-import { Book } from '@prisma/client'; // Import Ratings from Prisma schema
 import SyllabusComponet from './syllabus/Syllabus';
 // import dynamic from 'next/dynamic';
 // import { JsonValue } from '@prisma/client/runtime/library';
+import { Book, Syllabus, Section, Subsection } from '@prisma/client';
+
 
 type BookRecommendationProps = {
   book: Book; // Type assertion to include ratings property
   priority: boolean;
-  syllabus?: any ;
+  syllabus?: Syllabus[];
 };
 
 // const SyllabusComponet = dynamic(() => import('./syllabus/Syllabus'), { ssr: false });
@@ -52,12 +53,12 @@ const BookRecommendation: React.FC<BookRecommendationProps> = ({ book, priority,
     <>
     <div className={styles.bookRecommendation}>
 
-      <h2 id={book.englishTitle.replace(/\s+/g, '-').toLowerCase()} className={styles.title} >
+      <h2 id={book.englishTitle?.replace(/\s+/g, '-').toLowerCase()} className={styles.title} >
         {'"' + englishTitle + '"'} <span>by {authorsFormatted}</span>
       </h2>
       <div className={styles.contentGrid}>
         <div className={styles.leftColumn}>
-          <SyllabusComponet title={englishTitle} priority={priority} syllabusData={syllabus}/>
+        <SyllabusComponet title={englishTitle} priority={priority} syllabusData={syllabus}/>
           <div className={styles.infoGrid}>
             {publicationDate && <div> <p className='p2'>Publication</p> <p>{publicationDate}</p></div>}
             {lastEditionYear && <div> <p className='p2'>Last Ed.</p> <p>{lastEditionYear}</p></div>}

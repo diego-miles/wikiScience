@@ -1,3 +1,5 @@
+import { Syllabus } from "..\..\schema"
+
 type Ratings {
   amazon    RatingDetail
   goodreads RatingDetail
@@ -33,34 +35,24 @@ model Book {
   topicRecommendationSlug String?
   subFieldRecommendation   subFieldRecommendation? @relation(fields: [subFieldRecommendationSlug], references: [slug])
   subFieldRecommendationSlug String?
-  syllabus Syllabus?
+  syllabus Syllabus[] 
   slug String @unique
   @@map("book")
 }
 
 type Syllabus {
-  title String
-  content Content
-}
-type Content {
-  title String
-  chapter Chapter?
-}
-
-type Chapter {
-  title String // Title of the chapter
-  sections Section[] // List of sections
+  chapter   String?
+  sections  Section[]
 }
 
 type Section {
-  title String? // Title of the section
-  subsections Subsection[] // List of subsections, empty if this section has no subsections
+  title         String?
+  subsections   Subsection[]
 }
 
 type Subsection {
-  title String? // Title of the subsection
+  title String?
 }
-
 
 
 model topicRecommendation {

@@ -4,12 +4,14 @@ import Image from 'next/image';
 import Overlay from './Overlay'; // Asegúrate de que esta importación sea correcta
 import SyllabusButton from './SyllabusButton';
 import styles from './Syllabus.module.css';
+import { Syllabus, Section, Subsection } from '@prisma/client';
+
 import { JsonValue } from '@prisma/client/runtime/library';
 
 type Props = {
   title: string;
   priority: boolean;
-  syllabusData: JsonValue ;
+  syllabusData?: Syllabus[] ;
 };
 
 const formatTitleForURL = (title: string) => {
@@ -19,7 +21,7 @@ const formatTitleForURL = (title: string) => {
     .replace(/ /g, "+");
 };
 
-const Syllabus = ({ title, priority, syllabusData }: Props) => {
+const SyllabusPage = ({ title, priority, syllabusData }: Props) => {
   const [overlayVisible, setOverlayVisible] = useState(false);
 
   const handleSyllabusButtonClick = () => {
@@ -47,12 +49,17 @@ const Syllabus = ({ title, priority, syllabusData }: Props) => {
         </figure>
         {/* Otros elementos del layout aquí, si es necesario */}
       </div>
-      {overlayVisible && (
-        <Overlay syllabusData={syllabusData}  isVisible={overlayVisible} closeOverlay={() => setOverlayVisible(false)} title={title} />
+      {overlayVisible && syllabusData && (
+        <Overlay 
+          syllabusData={syllabusData} 
+          isVisible={overlayVisible} 
+          closeOverlay={() => setOverlayVisible(false)} 
+          title={title} 
+        />
       )}
     </div>
   );
 };
 
 
-export default Syllabus;
+export default SyllabusPage;

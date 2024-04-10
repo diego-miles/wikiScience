@@ -2,11 +2,12 @@
 import React, { useEffect } from 'react';
 import styles from './Overlay.module.css';
 import Image from 'next/image';
+import { Book, Syllabus, Section, Subsection } from '@prisma/client';
 
 type OverlayProps = {
+  syllabusData: Syllabus[] | null;
   isVisible: boolean;
   closeOverlay: () => void;
-  syllabusData: any; // Es recomendable definir un tipo más específico si es posible.
   title: string;
 };
 
@@ -22,37 +23,12 @@ const Overlay: React.FC<OverlayProps> = ({ isVisible, closeOverlay, syllabusData
       .replace(/ /g, "+");
   };
 
-  const renderContent = (data: any, depth: number = 0): React.ReactNode => {
-    if (Array.isArray(data)) {
-      return data.map((item, index) => (
-        <React.Fragment key={index}>{renderContent(item, depth + 1)}</React.Fragment>
-      ));
-    } else if (typeof data === 'object' && data !== null) {
-      return (
-        <div style={{ marginLeft: `${depth * 5}px` }}>
-          {Object.entries(data).map(([key, value], index) => (
-            <div key={index}>
-              <strong>{}</strong>: {renderContent(value, depth + 1)}
-            </div>
-          ))}
-        </div>
-      );
-    } else {
-      if (depth <= 0) {
-        return null; // Omitir los dos primeros niveles
-      } else if (depth <= 3) {
-        return <h4>{data}</h4>; // Tercer nivel
-      } else {
-        return <p>{data}</p>; // Cuarto nivel y más
-      }
-    }
-  };
-
   if (!isVisible) return null;
 
   return (
     <div className={styles.overlayContainer} style={{ overflowY: 'auto' }}>
       <div className={styles.syllabusContent}>
+        {/* ... existing figure code ... */}
         <figure className={styles.figureOverlay}>
           <Image
             src={`${formatTitleForURL(title)}.png`}
@@ -65,10 +41,22 @@ const Overlay: React.FC<OverlayProps> = ({ isVisible, closeOverlay, syllabusData
           />
         </figure>
 
-        {/* Renderizando los datos del syllabus directamente con la función renderContent */}
-        {syllabusData ? renderContent(syllabusData) : (
-          <div className={styles.noContent}>No syllabus content available.</div>
-        )}
+        {syllabusData && syllabusData.map((syllabus, syllabusIndex) => (
+          <div key={syllabusIndex}>
+            <strong>{syllabus.chapter}</strong> 
+            {Array.isArray(syllabus.sections) && syllabus.sections.map((section, sectionIndex) => (
+              <div key={sectionIndex}>
+                <p>{section.title}</p> 
+                {Array.isArray(section.subsections) && section.subsections.map((subsection, subsectionIndex) => (
+                  <div key={subsectionIndex}>
+                    <p>{subsection.title}</p> 
+                  </div>
+                ))}
+              </div>
+            ))}
+          </div>
+        ))}
+
       </div>
 
       <div tabIndex={0} className={`${styles.iconWrapper} ${styles.crossIcon} ${styles.crossIconOpen}`} onClick={closeOverlay}></div>
@@ -76,4 +64,4 @@ const Overlay: React.FC<OverlayProps> = ({ isVisible, closeOverlay, syllabusData
   );
 };
 
-export default Overlay;
+export default Overlay
