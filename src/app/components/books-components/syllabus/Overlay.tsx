@@ -4,12 +4,32 @@ import styles from './Overlay.module.css';
 import Image from 'next/image';
 import { Book, Syllabus, Section, Subsection } from '@prisma/client';
 
+
+
+type OptionalSyllabus = {
+  chapter?: string | null;
+  sections?: (OptionalSection | null)[] | null;
+};
+
+type OptionalSection = {
+  title?: string | null;
+  subsections?: (OptionalSubsection | null)[] | null;
+};
+
+type OptionalSubsection = {
+  title?: string | null;
+};
+
 type OverlayProps = {
-  syllabusData: Syllabus[] | null;
+  syllabusData: OptionalSyllabus[] | null;
   isVisible: boolean;
   closeOverlay: () => void;
   title: string;
 };
+
+
+
+
 
 const Overlay: React.FC<OverlayProps> = ({ isVisible, closeOverlay, syllabusData, title }) => {
   useEffect(() => {
@@ -41,15 +61,15 @@ const Overlay: React.FC<OverlayProps> = ({ isVisible, closeOverlay, syllabusData
           />
         </figure>
 
-        {syllabusData && syllabusData.map((syllabus, syllabusIndex) => (
+        {syllabusData?.map((syllabus, syllabusIndex) => (
           <div key={syllabusIndex}>
-            <strong>{syllabus.chapter}</strong> 
-            {Array.isArray(syllabus.sections) && syllabus.sections.map((section, sectionIndex) => (
+            <strong>{syllabus?.chapter ?? 'Chapter'}</strong>
+            {syllabus?.sections?.map((section, sectionIndex) => (
               <div key={sectionIndex}>
-                <p>{section.title}</p> 
-                {Array.isArray(section.subsections) && section.subsections.map((subsection, subsectionIndex) => (
+                <p>{section?.title ?? 'Section'}</p>
+                {section?.subsections?.map((subsection, subsectionIndex) => (
                   <div key={subsectionIndex}>
-                    <p>{subsection.title}</p> 
+                    <p>{subsection?.title ?? 'Subsection'}</p>
                   </div>
                 ))}
               </div>
@@ -64,4 +84,4 @@ const Overlay: React.FC<OverlayProps> = ({ isVisible, closeOverlay, syllabusData
   );
 };
 
-export default Overlay
+export default Overlay;
