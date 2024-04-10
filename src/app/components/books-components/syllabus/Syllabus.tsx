@@ -6,7 +6,11 @@ import SyllabusButton from './SyllabusButton';
 import styles from './Syllabus.module.css';
 import { Syllabus, Section, Subsection } from '@prisma/client';
 
+
+
+
 import { JsonValue } from '@prisma/client/runtime/library';
+import dynamic from 'next/dynamic';
 
 type Props = {
   title: string;
