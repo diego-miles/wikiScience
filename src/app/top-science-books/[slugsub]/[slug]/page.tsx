@@ -4,7 +4,6 @@ import ContextSpace from '@/components/books-components/ContextSpace';
 import ArticleTitle from '@/components/books-components/ArticleTitle';
 import LocalContextLinks from '@/components/books-components/LocalContextLinks';
 import BookRecommendation from '@/components/books-components/BookRecommendation';
-import styles from './page.module.css';
 // import { cache } from 'react';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
@@ -90,7 +89,7 @@ async function RecommendationPage({
     )) || [];
 
     return (
-        <div className={styles.scroll}>
+        <div>
             <NavBar title={recommendations?.field} title2={recommendations?.subField} title3={recommendations?.topic} domain="www.wiki-science.com/" menuPath='./NavigationMenu' />
             <main>
                 <ContextSpace />
