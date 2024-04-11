@@ -1,19 +1,9 @@
-"use client"
 import React, { useEffect } from 'react';
 import styles from './Overlay.module.css';
 import Image from 'next/image';
-import { Book,  Section, Subsection } from '@prisma/client';
+import { Book, Syllabus, Section, Subsection } from '@prisma/client';
 
 
-type Syllabus = {
-  chapter: string;
-  sections: {
-    title: string;
-    subsections: {
-      title: string;
-    }[];
-  }[];
-};
 
 
 type OverlayProps = {
@@ -22,6 +12,7 @@ type OverlayProps = {
   closeOverlay: () => void;
   title: string;
 };
+
 
 
 
@@ -54,22 +45,22 @@ const Overlay: React.FC<OverlayProps> = ({ isVisible, closeOverlay, syllabusData
           />
         </figure>
 
-        {Array.isArray(syllabusData) && syllabusData.map((syllabus, syllabusIndex) => (
-          <div key={syllabusIndex}>
-            <strong>{syllabus.chapter || 'Chapter'}</strong>
-            {syllabus.sections.map((section, sectionIndex) => (
-              <div key={sectionIndex}>
-                <p>{section.title || 'Section'}</p>
-                {section.subsections.map((subsection, subsectionIndex) => (
-                  <div key={subsectionIndex}>
-                    <p>{subsection.title || 'Subsection'}</p>
-                  </div>
-                ))}
-              </div>
-            ))}
-          </div>
-        ))}
 
+      {Array.isArray(syllabusData) && syllabusData.map((syllabus: Syllabus, syllabusIndex: number) => (
+        <div key={syllabusIndex}>
+          <strong>{syllabus.chapter || 'Chapter'}</strong>
+          {Array.isArray(syllabus.sections) && syllabus.sections.map((section: Section, sectionIndex: number) => (
+            <div key={sectionIndex}>
+              <p>{section.title || 'Section'}</p>
+              {Array.isArray(section.subsections) && section.subsections.map((subsection: Subsection, subsectionIndex: number) => (
+                <div key={subsectionIndex}>
+                  <p>{subsection.title || 'Subsection'}</p>
+                </div>
+              ))}
+            </div>
+          ))}
+        </div>
+      ))}
 
       </div>
 

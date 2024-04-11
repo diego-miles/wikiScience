@@ -85,8 +85,8 @@ async function RecommendationPage({
         id: book.englishTitle.replace(/\s+/g, '-').toLowerCase(),
     })) || [];
 
-    const bookRecommendations = recommendations?.books?.map((book, index) => (
-        <BookRecommendation key={book.englishTitle} book={book} syllabus={book.syllabus || {}} priority={index === 0} />
+    const bookRecommendations = recommendations.books.map((book, index) => (
+        <BookRecommendation key={book.englishTitle} book={book} syllabus={book.syllabus} priority={index === 0} />
     )) || [];
 
     return (
