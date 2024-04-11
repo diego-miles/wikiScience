@@ -86,7 +86,7 @@ async function RecommendationPage({
     })) || [];
 
     const bookRecommendations = recommendations.books.map((book, index) => (
-        <BookRecommendation key={book.englishTitle} book={book} syllabus={book.syllabus} priority={index === 0} />
+        <BookRecommendation key={book.englishTitle} book={book} priority={index === 0} />
     )) || [];
 
     return (

@@ -9,12 +9,11 @@ import { Book, Syllabus, Section, Subsection } from '@prisma/client';
 type BookRecommendationProps = {
   book: Book; // Type assertion to include ratings property
   priority: boolean;
-  syllabus: Syllabus[];
 };
 
 
 
-const BookRecommendation: React.FC<BookRecommendationProps> = ({ book, priority, syllabus }) => {
+const BookRecommendation: React.FC<BookRecommendationProps> = ({ book, priority,}) => {
   const {
     englishTitle,
     authors,
@@ -23,6 +22,7 @@ const BookRecommendation: React.FC<BookRecommendationProps> = ({ book, priority,
     publicationDate,
     ratings,
     summary,
+    syllabus
     // span,
   } = book;
 
