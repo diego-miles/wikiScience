@@ -1,7 +1,7 @@
 "use client"
 import React, { useState, useCallback } from 'react';
 import Image from 'next/image';
-import Overlay from './Overlay'; // Asegúrate de que esta importación sea correcta
+// import Overlay from './Overlay'; // Asegúrate de que esta importación sea correcta
 import SyllabusButton from './SyllabusButton';
 import styles from './Syllabus.module.css';
 import { Syllabus, Section, Subsection } from '@prisma/client';
@@ -12,10 +12,14 @@ import { Syllabus, Section, Subsection } from '@prisma/client';
 import { JsonValue } from '@prisma/client/runtime/library';
 import dynamic from 'next/dynamic';
 
+
+const Overlay = dynamic(() => import('./Overlay'), { ssr: false });
+
+
 type Props = {
   title: string;
   priority: boolean;
-  syllabusData?: Syllabus[] ;
+  syllabusData: Syllabus[] ;
 };
 
 const formatTitleForURL = (title: string) => {
@@ -53,7 +57,7 @@ const SyllabusPage = ({ title, priority, syllabusData }: Props) => {
         </figure>
         {/* Otros elementos del layout aquí, si es necesario */}
       </div>
-      {overlayVisible && syllabusData && (
+      {overlayVisible && (
         <Overlay 
           syllabusData={syllabusData} 
           isVisible={overlayVisible} 

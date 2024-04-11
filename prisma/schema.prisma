@@ -1,4 +1,4 @@
-//🧩Don't Edit this file.✨Generated in Wed Apr 10 2024 16:28:50 GMT-0600 (Central Standard Time)✨
+//🧩Don't Edit this file.✨Generated in Wed Apr 10 2024 18:01:16 GMT-0600 (Central Standard Time)✨
 
 generator client {
   provider = "prisma-client-js"
@@ -51,17 +51,17 @@ model Book {
 }
 
 type Syllabus {
-  chapter  String?
+  chapter  String
   sections Section[]
 }
 
 type Section {
-  title       String?
+  title       String
   subsections Subsection[]
 }
 
 type Subsection {
-  title String?
+  title String
 }
 
 model topicRecommendation {

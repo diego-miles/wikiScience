@@ -41,17 +41,17 @@ model Book {
 }
 
 type Syllabus {
-  chapter   String?
+  chapter   String
   sections  Section[]
 }
 
 type Section {
-  title         String?
+  title         String
   subsections   Subsection[]
 }
 
 type Subsection {
-  title String?
+  title String
 }
 
 

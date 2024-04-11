@@ -6,22 +6,9 @@ import { Book, Syllabus, Section, Subsection } from '@prisma/client';
 
 
 
-type OptionalSyllabus = {
-  chapter?: string | null;
-  sections?: (OptionalSection | null)[] | null;
-};
-
-type OptionalSection = {
-  title?: string | null;
-  subsections?: (OptionalSubsection | null)[] | null;
-};
-
-type OptionalSubsection = {
-  title?: string | null;
-};
 
 type OverlayProps = {
-  syllabusData: OptionalSyllabus[] | null;
+  syllabusData: Syllabus[];
   isVisible: boolean;
   closeOverlay: () => void;
   title: string;
@@ -48,7 +35,6 @@ const Overlay: React.FC<OverlayProps> = ({ isVisible, closeOverlay, syllabusData
   return (
     <div className={styles.overlayContainer} style={{ overflowY: 'auto' }}>
       <div className={styles.syllabusContent}>
-        {/* ... existing figure code ... */}
         <figure className={styles.figureOverlay}>
           <Image
             src={`${formatTitleForURL(title)}.png`}
@@ -61,15 +47,16 @@ const Overlay: React.FC<OverlayProps> = ({ isVisible, closeOverlay, syllabusData
           />
         </figure>
 
-        {Array.isArray(syllabusData) && syllabusData.map((syllabus, syllabusIndex) => (
+
+        {syllabusData.map((syllabus: Syllabus, syllabusIndex: number) => (
           <div key={syllabusIndex}>
-            <strong>{syllabus?.chapter ?? 'Chapter'}</strong>
-            {Array.isArray(syllabus?.sections) && syllabus.sections.map((section, sectionIndex) => (
+            <h4>{syllabus.chapter}</h4>
+            {syllabus.sections.map((section: Section, sectionIndex: number) => (
               <div key={sectionIndex}>
-                <p>{section?.title ?? 'Section'}</p>
-                {Array.isArray(section?.subsections) && section.subsections.map((subsection, subsectionIndex) => (
+                <p>{section.title}</p>
+                {section.subsections.map((subsection: Subsection, subsectionIndex: number) => (
                   <div key={subsectionIndex}>
-                    <p>{subsection?.title ?? 'Subsection'}</p>
+                    <p>{subsection.title}</p>
                   </div>
                 ))}
               </div>
