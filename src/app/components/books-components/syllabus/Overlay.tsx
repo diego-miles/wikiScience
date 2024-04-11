@@ -31,7 +31,6 @@ const Overlay: React.FC<OverlayProps> = ({ isVisible, closeOverlay, syllabusData
   };
 
   if (!isVisible) return null;
-
   return (
     <div className={styles.overlayContainer} style={{ overflowY: 'auto' }}>
       <div className={styles.syllabusContent}>
@@ -48,21 +47,21 @@ const Overlay: React.FC<OverlayProps> = ({ isVisible, closeOverlay, syllabusData
         </figure>
 
 
-        {syllabusData.map((syllabus: Syllabus, syllabusIndex: number) => (
-          <div key={syllabusIndex}>
-            <h4>{syllabus.chapter}</h4>
-            {Array.isArray(syllabus.sections) && syllabus.sections.map((section: Section, sectionIndex: number) => (
-              <div key={sectionIndex}>
-                <p>{section.title}</p>
-                {Array.isArray(section.subsections) && section.subsections.map((subsection: Subsection, subsectionIndex: number) => (
-                  <div key={subsectionIndex}>
-                    <p>{subsection.title}</p>
-                  </div>
-                ))}
-              </div>
-            ))}
-          </div>
-        ))}
+      {Array.isArray(syllabusData) && syllabusData.map((syllabus: Syllabus, syllabusIndex: number) => (
+        <div key={syllabusIndex}>
+          <strong>{syllabus.chapter || 'Chapter'}</strong>
+          {Array.isArray(syllabus.sections) && syllabus.sections.map((section: Section, sectionIndex: number) => (
+            <div key={sectionIndex}>
+              <p>{section.title || 'Section'}</p>
+              {Array.isArray(section.subsections) && section.subsections.map((subsection: Subsection, subsectionIndex: number) => (
+                <div key={subsectionIndex}>
+                  <p>{subsection.title || 'Subsection'}</p>
+                </div>
+              ))}
+            </div>
+          ))}
+        </div>
+      ))}
 
       </div>
 
