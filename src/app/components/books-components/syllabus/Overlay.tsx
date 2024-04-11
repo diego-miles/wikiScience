@@ -48,7 +48,7 @@ const Overlay: React.FC<OverlayProps> = ({ isVisible, closeOverlay, syllabusData
         </figure>
 
 
-        {Array.isArray(syllabusData) && syllabusData.map((syllabus: Syllabus, syllabusIndex: number) => (
+        {syllabusData.map((syllabus: Syllabus, syllabusIndex: number) => (
           <div key={syllabusIndex}>
             <h4>{syllabus.chapter}</h4>
             {Array.isArray(syllabus.sections) && syllabus.sections.map((section: Section, sectionIndex: number) => (
