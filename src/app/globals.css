@@ -1,7 +1,8 @@
 :root {
   --color-h1: #00659A;
   /* --color-h2: #003c85; */
-  --color-h2: #005f6c;
+  --color-h2: #0a566a;
+  /* --color-h2: #005f6c; */
   /* --color-h2: #00627e; */
   /* --color-h2: #00635c; */
   --color-h3: #766246;
@@ -11,6 +12,7 @@
   /* --color-p: #243b48; */
   --color-a: #576f80;
   --color-a2: #006397;
+  /* --color-accent1: #0075c3; */
   --color-accent1: #3498db;
   --color-accent2: #cf4336;
   --color-accent3: #16a085;
@@ -36,7 +38,7 @@
   --font-size-p: 1.7rem;
   --font-size-small-p: 1.5rem;
   --font-size-h1: 3.7rem;
-  --font-size-h2: 2.2rem;
+  --font-size-h2: 2rem;
   --font-size-h3: 1.8rem;
   --font-size-h4: 1.8rem;
   --font-size-h5: 1.3rem;
@@ -170,8 +172,8 @@ h2 {
   font-size: var(--font-size-h2);
   color: var(--color-h2);
   font-weight:700;
-  padding-top: 3.7rem;
-  margin-bottom: 1.7rem;
+  padding-top: 3.5rem;
+  margin-bottom: 1.5rem;
   line-height: 1.2;
 }
 
@@ -362,6 +364,21 @@ h3:hover {
   text-decoration: underline;
 }
 
+.active {
+  color: var(--color-h1);
+  font-weight: 700;
+}
+
+
+.smallText {
+  font-size: 1.5rem;
+  padding-bottom: .3rem;
+}
+
+
+.smallText2 {
+  font-size: 1.3rem;
+}
 
 
 

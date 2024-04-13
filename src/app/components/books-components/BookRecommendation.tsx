@@ -59,9 +59,9 @@ const BookRecommendation: React.FC<BookRecommendationProps> = ({ book, priority,
         <div className={styles.leftColumn}>
         <SyllabusComponet title={englishTitle} priority={priority} syllabusData={syllabus}/>
           <div className={styles.infoGrid}>
-            {publicationDate && <div> <p className='p2'>Publication</p> <p>{publicationDate}</p></div>}
-            {lastEditionYear && <div> <p className='p2'>Last Ed.</p> <p>{lastEditionYear}</p></div>}
-            {pages && <div><p className='p2'>Pages</p> <p>{pages}</p></div>}
+            {publicationDate && <div> <p className={"smallText"}>Pub. Year</p> <p className='p2'>{publicationDate}</p></div>}
+            {lastEditionYear && <div> <p className={"smallText"}>Last Ed.</p> <p className='p2'>{lastEditionYear}</p></div>}
+            {pages && <div><p className={"smallText"}>Pages</p> <p className='p2'> {pages}</p></div>}
           </div>
 
           <p className={styles.ratingsTitle}>Ratings:</p>
@@ -69,18 +69,19 @@ const BookRecommendation: React.FC<BookRecommendationProps> = ({ book, priority,
         {ratings?.amazon && (
           <div>
             <a className='active-gold2' href={ratings.amazon?.link} target="_blank" rel="noopener noreferrer">Amazon</a>
-              <a href={ratings.amazon?.link} target="_blank" rel="noopener noreferrer" className='active-gold'>
+              <a href={ratings.amazon?.link} target="_blank" rel="noopener noreferrer" className='active'>
                 {ratings.amazon?.average}
               </a>
+              <p className={"smallText"}>({ratings.amazon?.number} ratings)</p>
           </div>
         )}
         {ratings?.goodreads && (
           <div>
-            <a className='active-gold2' href={ratings.amazon?.link} target="_blank" rel="noopener noreferrer">Goodreads</a>
-              <a className='active-gold' href={ratings.amazon?.link} target="_blank" rel="noopener noreferrer">
+            <a className='active-gold2' href={ratings.goodreads?.link} target="_blank" rel="noopener noreferrer">Goodreads</a>
+              <a className='active' href={ratings.goodreads?.link} target="_blank" rel="noopener noreferrer">
                 {ratings?.goodreads.average}
               </a>
-
+              <p className={"smallText2"}>({ratings.goodreads?.number} ratings)</p> 
           </div>
         )}
         {/* {ratings?.google && (

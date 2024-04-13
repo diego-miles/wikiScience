@@ -1,5 +1,6 @@
 import React from 'react';
 import { PrismaClient } from '@prisma/client';
+import {ChemicalElement} from '@prisma/client';
 import { cache } from 'react';
 import NavBar from '@/components/NavbarContainer';
 import ScrollTopButton from '@/components/ScrollTopButton';
@@ -113,20 +114,30 @@ const sanitizedHistoryData = element.history.map(histItem => ({
 
         {/* Discovery Year, Melting and Boiling Points, Density, and Appearance */}
         <section id="1-physical-properties">
-          <h2>1. Physical Properties</h2>
-          <p><strong>Discovery Year:</strong> {element.discoveryYear}</p>
-          <p><strong>Melting Point:</strong> {element.meltingPoint ? `${element.meltingPoint} K` : 'N/A'}</p>
-          <p><strong>Boiling Point:</strong> {element.boilingPoint ? `${element.boilingPoint} K` : 'N/A'}</p>
-          <p><strong>Density:</strong> {element.density ? `${element.density} g/cm³` : 'N/A'}</p>
-          <p><strong>Appearance:</strong> {element.appearance || 'N/A'}</p>
+            <h2>1. Physical Properties</h2>
+            <p><strong>Melting Point:</strong> {element.physicalProperties?.meltingPoint ? `${element.physicalProperties.meltingPoint} K` : 'N/A'}</p>
+            <p><strong>Boiling Point:</strong> {element.physicalProperties?.boilingPoint ? `${element.physicalProperties.boilingPoint} K` : 'N/A'}</p>
+            <p><strong>Density:</strong> {element.physicalProperties?.density ? `${element.physicalProperties.density} g/cm³` : 'N/A'}</p>
+            <p><strong>Atomic Radius:</strong> {element.physicalProperties?.atomicRadius || 'N/A'}</p>
+            <p><strong>Atomic Volume:</strong> {element.physicalProperties?.atomicVolume || 'N/A'}</p>
+            <p><strong>Covalent Radius:</strong> {element.physicalProperties?.covalentRadius || 'N/A'}</p>
+            <p><strong>Molar Heat:</strong> {element.physicalProperties?.molarHeat || 'N/A'}</p>
+            <p><strong>Thermal Conductivity:</strong> {element.physicalProperties?.thermalConductivity || 'N/A'}</p>
+            <p><strong>Sound Velocity:</strong> {element.physicalProperties?.soundVelocity || 'N/A'}</p>
+            <p><strong>Mohs Hardness:</strong> {element.physicalProperties?.mohsHardness || 'N/A'}</p>
+            <p><strong>Brinell Hardness:</strong> {element.physicalProperties?.brinellHardness || 'N/A'}</p>
+            <p><strong>Specific Heat Capacity:</strong> {element.physicalProperties?.specificHeatCapacity || 'N/A'}</p>
+            <p><strong>Thermal Expansion Coefficient:</strong> {element.physicalProperties?.thermalExpansionCoefficient || 'N/A'}</p>
+            <p><strong>Phase Transition Temperatures:</strong> {element.physicalProperties?.phaseTransitionTemperatures || 'N/A'}</p>
         </section>
-
 
         <section id="2-chemical-properties">
-          <h2>2. Chemical Properties</h2>
-          {/* Properties like electronegativity, ionizationPotential, etc., similar to Physical Properties rendering */}
+            <h2>2. Chemical Properties</h2>
+            <p><strong>Reactivity:</strong> {element.chemicalProperties?.reactivity || 'N/A'}</p>
+            <p><strong>Common Oxidation States:</strong> {element.chemicalProperties?.commonOxidationStates || 'N/A'}</p>
+            <p><strong>Standard Reduction Potential:</strong> {element.chemicalProperties?.standardReductionPotential || 'N/A'}</p>
+            <p><strong>Description:</strong> {element.chemicalProperties?.description || 'N/A'}</p>
         </section>
-
 
 
         {/* Discovery and History */}
@@ -142,15 +153,6 @@ const sanitizedHistoryData = element.history.map(histItem => ({
           <p><strong>Description:</strong> {element.naturalOccurrence?.description}</p>
         </section>
 
-        {/* <section id="5-chemical-classification">
-          <h2>Chemical Classification</h2>
-          {element.classifications.map((classification, index) => (
-            <div key={index}>
-              <p><strong>Classification:</strong> {classification.classification}</p>
-              <p><strong>Description:</strong> {classification.description}</p>
-            </div>
-          ))}
-        </section> */}
 
 
         {/* Classifications */}
@@ -173,6 +175,10 @@ const sanitizedHistoryData = element.history.map(histItem => ({
           <p><strong>Neutrons:</strong> {element.atomicStructure?.neutrons}</p>
           <p><strong>Ionization Energy:</strong> {element.atomicStructure?.ionizationEnergy} eV</p>
           <p><strong>Electron Affinity:</strong> {element.atomicStructure?.electronAffinity} eV</p>
+          <p><strong>Atomic Radius:</strong> {element.atomicStructure?.atomicRadius} eV</p>
+          <p><strong>Atomic Polarization:</strong> {element.atomicStructure?.atomicPolarization} eV</p>
+          <p><strong>Electronegativity:</strong> {element.atomicStructure?.electronegativity} eV</p>
+          <p><strong>First Ionization Potential:</strong> {element.atomicStructure?.firstIonizationPotential} eV</p>
         </section>
 
 
@@ -215,6 +221,7 @@ const sanitizedHistoryData = element.history.map(histItem => ({
               <p><strong>Abundance:</strong> {isotope?.abundance}%</p>
               <p><strong>Half Life:</strong> {isotope?.halfLife}</p>
               <p><strong>Decay Mode:</strong> {isotope?.decayMode}</p>
+              <p><strong>Description:</strong> {isotope?.description}</p>
             </div>
           ))}
         </section>
@@ -365,14 +372,18 @@ const sanitizedHistoryData = element.history.map(histItem => ({
 
 
         <section id="26-interdisciplinary-connections">
-          <h2>26. Interdisciplinary Connections</h2>
-          {/* Assume it's parsed into objects with titles and descriptions */}
-          {/* {element.interdisciplinaryConnections?.map((connection, index) => (
-            <div key={index}>
-              <p><strong>Title:</strong> {connection.title}</p>
-              <p><strong>Description:</strong> {connection.description}</p>
-            </div>
-          ))} */}
+            <h2>26. Interdisciplinary Connections</h2>
+            {/* Assuming interdisciplinaryConnections is an object with titles as keys and descriptions as values */}
+            {element.interdisciplinaryConnections ? (
+                Object.entries(element.interdisciplinaryConnections).map(([key, description], index) => (
+                    <div key={index}>
+                        <p><strong>Title:</strong> {key.replace(/([A-Z])/g, ' $1').trim()}</p> {/* This will format the key to add spaces before any capital letters */}
+                        <p><strong>Description:</strong> {description}</p>
+                    </div>
+                ))
+            ) : (
+                <p>No interdisciplinary connections available.</p>
+            )}
         </section>
 
 
