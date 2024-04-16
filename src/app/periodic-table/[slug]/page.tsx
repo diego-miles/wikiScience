@@ -34,6 +34,18 @@ const getElementData = cache(async (slug: string) => {
   return element;
 });
 
+
+
+
+
+
+
+
+
+
+
+
+
 async function ElementPage({ params: { slug } }: ElementPageProps) {
   const element = await getElementData(slug);
 
