@@ -7,8 +7,8 @@ const nextConfig = {
     loader: 'custom',
     loaderFile: './myImageLoader.js',
   },
-  
-  
+
+
   experimental: {
     nextScriptWorkers: true,
   },
@@ -26,6 +26,15 @@ const nextConfig = {
             },
         ];
     },
+  // Agregamos la configuración de Tailwind CSS
+  css: {
+    loader: 'postcss-loader',
+    options: {
+      postcssOptions: {
+        plugins: ['tailwindcss'],
+      },
+    },
+  },
 };
 
-module.exports = nextConfig
+module.exports = nextConfig;

@@ -2,22 +2,14 @@
 import type { Metadata } from 'next'
 import { Noto_Sans_Georgian, Noto_Serif_Georgian } from 'next/font/google'
 import './globals.css'
-import Footer from './Footer'
+import Footer from './components/Footer'
 import { Analytics as AnalyticsVercel } from '@vercel/analytics/react';
-import Script from 'next/script'
-// import { ConsentProvider } from '../contexts/ConsentContext';
-// import ConsentProvider  from '../contexts/ClientSideWrapper';
-// import Analytics from './GoogleAnalytics'
 import dynamic from 'next/dynamic';
-// import GoogleAdsScript from './GoogleAdsScript.js'
-// import React, { Suspense } from 'react';
-
 
 
 const noto_sans_georgian = Noto_Sans_Georgian({
-  // weight: ['400','500', '600', '700', '800', '900'],
   subsets: ['latin'],
-  display: 'swap'
+  // display: 'swap'
 })
 
 
