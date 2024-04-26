@@ -27,63 +27,60 @@ const HomePage: React.FC = () => {
         </header>
 
         <section className={styles.recommendationIntro}>
-        {/* <div className={styles.ImageBooksContainer}>
-                  </div> */}
-      <h2 className={styles.title2}>Top Science Books</h2>
-      <p>Explore our curated selection of science books.</p>
-      <ul className={styles.bullets}>
-        <li className={styles.customBullet}>
-          <p>Book summaries and descriptions</p>
-        </li>
-        <li className={styles.customBullet}>
-          <p>Book impact and relevance</p>
-        </li>
-        <li className={styles.customBullet}>
-          <p>High-quality book cover images</p>
-        </li>
-        <li className={styles.customBullet}>
-          <p>Syllabus previews</p>
-        </li>
-        <li className={styles.customBullet}>
-          <p>Ratings and reviews from Amazon and Goodreads</p>
-        </li>
-        <li className={styles.customBullet}>
-          <p>Personal reading experiences</p>
-        </li>
-      </ul>
-                  <div tabIndex={0} className={`${styles.menuWrapper}`}>
-            <div className={styles.menuMain}> 
-                <div className={styles.navContainer}>
-                    {data.map((field, idx) => (
-                        <div className={styles.branchContainer} key={idx}>
-                            <div>
-                                <li className={styles.titleField}>{field.title}</li>
-                            </div>
-                            <div className={styles.gridLayout}>
-                                {field.subFields.map((subField, sIdx) => (
-                                    <ul key={sIdx}>
-                                        <li className={styles.subField}>
-                                            {/* Use toSlug to convert subField.title into a slug */}
-                                            <Link href={`/top-science-books/${toSlug(subField.title)}`} className='menu-link'>
-                                                {subField.title}
-                                            </Link>
-                                        </li>
-                                        {subField.topics.map((topic, tIdx) => (
-                                            <li className={styles.subTopic} key={tIdx}>
-                                                {/* Use toSlug for both subField.title and topic to create a nested slug */}
-                                                <Link href={`/top-science-books/${toSlug(subField.title)}/${toSlug(topic)}`} >
-                                                    {topic}
-                                                </Link>
-                                            </li>
-                                        ))}
-                                    </ul>
-                                ))}
-                            </div>
-                        </div>
-                    ))}
-                </div>
+          <h2>Unlock the secrets of science</h2>
+  <p>Explore the vast expanse of human knowledge with our curated collection of top science books.</p>
+
+          <ul className={styles.bullets}>
+            <li className={styles.customBullet}>
+              <p>Get an in-depth look at each book with our expert summaries.</p>
+            </li>
+            <li className={styles.customBullet}>
+              <p>Discover how each book has impacted the world of science.</p>
+            </li>
+            <li className={styles.customBullet}>
+              <p>Visualize the journey with stunning book cover images.</p>
+            </li>
+            <li className={styles.customBullet}>
+              <p>Explore detailed outlines to get a sneak peek at the rich content.</p>
+            </li>
+            <li className={styles.customBullet}>
+              <p>See what others have to say about each book on platforms like Amazon and Goodreads.</p>
+            </li>
+            <li className={styles.customBullet}>
+              <p>Gain valuable insights from personal reading experiences and reviews.</p>
+            </li>
+          </ul>
+          <div tabIndex={0} className={`${styles.menuWrapper}`}>
+            <div className={styles.menuMain}>
+              <div className={styles.navContainer}>
+                {data.map((field, idx) => (
+                  <div className={styles.branchContainer} key={idx}>
+                    <div>
+                      <li className={styles.titleField}>{field.title}</li>
+                    </div>
+                    <div className={styles.gridLayout}>
+                      {field.subFields.map((subField, sIdx) => (
+                        <ul key={sIdx}>
+                          <li className={styles.subField}>
+                            <Link href={`/top-science-books/${toSlug(subField.title)}`} className='menu-link'>
+                              {subField.title}
+                            </Link>
+                          </li>
+                          {subField.topics.map((topic, tIdx) => (
+                            <li className={styles.subTopic} key={tIdx}>
+                              <Link href={`/top-science-books/${toSlug(subField.title)}/${toSlug(topic)}`}>
+                                {topic}
+                              </Link>
+                            </li>
+                          ))}
+                        </ul>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
-        </div>
+          </div>
         </section>
 
         {/* <ScienceFieldsMenu data={data}/> */}

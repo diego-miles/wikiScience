@@ -72,7 +72,7 @@ const BookRecommendation: React.FC<BookRecommendationProps> = ({ book, priority,
               <a href={ratings.amazon?.link} target="_blank" rel="noopener noreferrer" className='active'>
                 {ratings.amazon?.average}
               </a>
-              <p className={"smallText"}>({ratings.amazon?.number} ratings)</p>
+              <p className={"smallText2"}>({ratings.amazon?.number} ratings)</p>
           </div>
         )}
         {ratings?.goodreads && (

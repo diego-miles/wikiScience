@@ -34,18 +34,6 @@ const getElementData = cache(async (slug: string) => {
   return element;
 });
 
-
-
-
-
-
-
-
-
-
-
-
-
 async function ElementPage({ params: { slug } }: ElementPageProps) {
   const element = await getElementData(slug);
 
@@ -127,9 +115,9 @@ const sanitizedHistoryData = element.history.map(histItem => ({
         {/* Discovery Year, Melting and Boiling Points, Density, and Appearance */}
         <section id="1-physical-properties">
             <h2>1. Physical Properties</h2>
-            <p><strong>Melting Point:</strong> {element.physicalProperties?.meltingPoint ? `${element.physicalProperties.meltingPoint} K` : 'N/A'}</p>
-            <p><strong>Boiling Point:</strong> {element.physicalProperties?.boilingPoint ? `${element.physicalProperties.boilingPoint} K` : 'N/A'}</p>
-            <p><strong>Density:</strong> {element.physicalProperties?.density ? `${element.physicalProperties.density} g/cm³` : 'N/A'}</p>
+            <p><strong>Melting Point:</strong> {element.physicalProperties?.meltingPoint ? `${element.physicalProperties.meltingPoint}` : 'N/A'}</p>
+            <p><strong>Boiling Point:</strong> {element.physicalProperties?.boilingPoint ? `${element.physicalProperties.boilingPoint}` : 'N/A'}</p>
+            <p><strong>Density:</strong> {element.physicalProperties?.density ? `${element.physicalProperties.density} ` : 'N/A'}</p>
             <p><strong>Atomic Radius:</strong> {element.physicalProperties?.atomicRadius || 'N/A'}</p>
             <p><strong>Atomic Volume:</strong> {element.physicalProperties?.atomicVolume || 'N/A'}</p>
             <p><strong>Covalent Radius:</strong> {element.physicalProperties?.covalentRadius || 'N/A'}</p>

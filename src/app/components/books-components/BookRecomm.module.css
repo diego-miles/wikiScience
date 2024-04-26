@@ -104,7 +104,7 @@
     }
 
     .bookRecommendation .contentGrid {
-        grid-template-columns: .9fr 1.1fr;
+        grid-template-columns: 1fr 1fr;
     }
 
     .leftColumn {

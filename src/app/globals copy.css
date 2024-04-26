@@ -1,12 +1,7 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-
 :root {
   --color-h1: #00659A;
   /* --color-h2: #003c85; */
-  --color-h2: #326a8b;
+  --color-h2: #0a566a;
   /* --color-h2: #005f6c; */
   /* --color-h2: #00627e; */
   /* --color-h2: #00635c; */
@@ -14,9 +9,8 @@
   --color-h4: #24433F;
   --color-h5: #2E4053;
   --color-p: #021e2f;
-  --color-strong: #0f0f0f;
   /* --color-p: #243b48; */
-  --color-a: #324e62;
+  --color-a: #576f80;
   --color-a2: #006397;
   /* --color-accent1: #0075c3; */
   --color-accent1: #3498db;
@@ -41,14 +35,14 @@
   --color-green-text: #197D4F;
   --color-darkgreen-text: #7eaba8;
 
-  --font-size-p: 1.5rem;
+  --font-size-p: 1.7rem;
   --font-size-small-p: 1.5rem;
-  --font-size-h1: 3rem;
-  --font-size-h2: 1.9rem;
+  --font-size-h1: 3.7rem;
+  --font-size-h2: 2rem;
   --font-size-h3: 1.8rem;
   --font-size-h4: 1.8rem;
   --font-size-h5: 1.3rem;
-  --font-size-a: 1.5rem;
+  --font-size-a: 1.7rem;
   --font-size-h6: 1.3rem;
   --font-size-nav-item-menu-field: 1.5rem;
   --font-size-nav-item-menu-branch: 1.5rem;
@@ -125,9 +119,9 @@ body {
   background: var(--color-background1);
   margin: 0 auto;
   background-image: linear-gradient(#F1F1F1 2px, transparent 2px),
-    linear-gradient(90deg, #F1F1F1 2px, transparent 2px);
-  background-size: 2rem 2rem;
-
+      linear-gradient(90deg, #F1F1F1 2px, transparent 2px);
+    background-size: 2.5rem 2.5rem;
+  
 }
 
 
@@ -152,11 +146,10 @@ a {
 
 p {
   font-size: var(--font-size-p);
-  font-weight: 500;
   color: var(--color-p);
   padding-bottom: 0.9rem;
-  line-height: 1.6;
-  /* text-wrap: balance; */
+  line-height: 1.4;
+  text-wrap: balance;
 }
 
 .p2 {
@@ -178,7 +171,7 @@ h1 {
 h2 {
   font-size: var(--font-size-h2);
   color: var(--color-h2);
-  font-weight: 700;
+  font-weight:700;
   padding-top: 3.5rem;
   margin-bottom: 1.5rem;
   line-height: 1.2;
@@ -227,8 +220,8 @@ span {
 
 strong {
   font-size: var(--font-size-p);
-  color: var(--color-strong);
-  font-weight: 700;
+  color: var(--color-p);
+  font-weight: 600;
 }
 
 .globalHeight {
@@ -366,7 +359,6 @@ h3:hover {
   color: var(--color-gold);
   font-weight: 700;
 }
-
 .active-gold2 {
   color: var(--color-gold);
   text-decoration: underline;
@@ -406,7 +398,6 @@ h3:hover {
   h5 {
     font-size: 1.5rem;
   }
-
   main {
     padding: 0rem 3rem;
     padding-top: 11rem;
@@ -425,3 +416,4 @@ h3:hover {
     margin: 0 auto;
   }
 }
+

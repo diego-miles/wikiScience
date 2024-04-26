@@ -27,14 +27,14 @@ const nextConfig = {
         ];
     },
   // Agregamos la configuración de Tailwind CSS
-  css: {
-    loader: 'postcss-loader',
-    options: {
-      postcssOptions: {
-        plugins: ['tailwindcss'],
-      },
-    },
-  },
+//   css: {
+//     loader: 'postcss-loader',
+//     options: {
+//       postcssOptions: {
+//         plugins: ['tailwindcss'],
+//       },
+//     },
+//   },
 };
 
-module.exports = nextConfig;
+export default nextConfig;

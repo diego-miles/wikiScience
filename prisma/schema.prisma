@@ -1,12 +1,11 @@
-//🧩Don't Edit this file.✨Generated in Wed Apr 10 2024 18:01:16 GMT-0600 (Central Standard Time)✨
+//🧩Don't Edit this file.✨Generated in Thu Apr 25 2024 16:05:14 GMT-0600 (Central Standard Time)✨
 
 generator client {
-  provider = "prisma-client-js"
+provider = "prisma-client-js"
 }
-
 datasource db {
-  provider = "mongodb"
-  url      = env("DATABASE_URL")
+provider = "mongodb"
+url      = env("DATABASE_URL")
 }
 
 type Ratings {
@@ -22,47 +21,47 @@ type RatingDetail {
 }
 
 model Book {
-  id                         String                  @id @default(auto()) @map("_id") @db.ObjectId
-  englishTitle               String
-  spanishTitle               String?
-  authors                    String[]
-  difficulty                 String?
-  keywords                   String[]
-  span                       String[]
-  coverImage                 String?
-  syllabusImages             String[]
-  pages                      Int?
-  lastEditionYear            Int?
-  lastEditionNumber          Int?
-  publicationDate            Int?
-  originCountry              String?
-  spanishEdition             Boolean?
-  summary                    String[]
-  amazonLink                 String?
-  ratings                    Ratings?
-  topicRecommendation        topicRecommendation?    @relation(fields: [topicRecommendationSlug], references: [slug])
-  topicRecommendationSlug    String?
-  subFieldRecommendation     subFieldRecommendation? @relation(fields: [subFieldRecommendationSlug], references: [slug])
+  id                       String                  @id @default(auto()) @map("_id") @db.ObjectId
+  englishTitle             String   
+  spanishTitle             String?
+  authors                  String[]
+  difficulty               String?
+  keywords                 String[]
+  span                     String[]
+  coverImage               String?
+  syllabusImages           String[]
+  pages                    Int?
+  lastEditionYear          Int?
+  lastEditionNumber        Int? 
+  publicationDate          Int?
+  originCountry            String?
+  spanishEdition           Boolean?
+  summary                  String[]
+  amazonLink               String?
+  ratings Ratings?
+  topicRecommendation    topicRecommendation?         @relation(fields: [topicRecommendationSlug], references: [slug])
+  topicRecommendationSlug String?
+  subFieldRecommendation   subFieldRecommendation? @relation(fields: [subFieldRecommendationSlug], references: [slug])
   subFieldRecommendationSlug String?
-  syllabus                   Syllabus[]
-  slug                       String                  @unique
-
+  syllabus Syllabus[] 
+  slug String @unique
   @@map("book")
 }
 
 type Syllabus {
-  chapter  String
-  sections Section[]
+  chapter   String
+  sections  Section[]
 }
 
 type Section {
-  title       String
-  subsections Subsection[]
+  title         String
+  subsections   Subsection[]
 }
 
 type Subsection {
   title String
 }
+
 
 model topicRecommendation {
   id           String @id @default(auto()) @map("_id") @db.ObjectId
@@ -72,7 +71,6 @@ model topicRecommendation {
   topicSummary String
   slug         String @unique
   books        Book[]
-
   @@map("topicsRecommendation")
 }
 
@@ -82,45 +80,46 @@ model subFieldRecommendation {
   subField String @unique
   slug     String @unique
   books    Book[]
-
   @@map("subfieldsRecommendation")
 }
 
+
+
 // Model for the Electronic Component
 model ElectronicComponent {
-  id                      String                                    @id @default(auto()) @map("_id") @db.ObjectId
-  name                    String                                    @unique
-  slug                    String                                    @unique
-  category                String?
-  type                    String?
-  subtype                 String?
-  manufacturers           String[]
-  description             String?
-  lifeSpan                String?
-  history                 Json
-  Glossary                String[]
-  functionDiagram         String?
-  operationDiagram        String?
-  applicationDiagram      String?
-  availability            Boolean?
+  id                              String                                      @id @default(auto()) @map("_id") @db.ObjectId
+  name                            String                      @unique           
+  slug                            String                      @unique
+  category                        String?
+  type                            String?
+  subtype                         String?
+  manufacturers                   String[]
+  description                     String?
+  lifeSpan                        String?
+  history                         Json
+  Glossary                        String[]
+  functionDiagram                 String?
+  operationDiagram                String?
+  applicationDiagram              String?
+  availability                    Boolean?
   // eolDate               DateTime
-  pricing                 Float?
+  pricing                         Float?
   // packageType           String
-  footprint               String?
-  standardsAndRegulations String[]
-  relatedDocuments        String[]
-  createdAt               DateTime                                  @default(now()) @map("createdAt")
-  updatedAt               DateTime                                  @updatedAt @map("updatedAt")
+  footprint                       String?
+  standardsAndRegulations         String[]
+  relatedDocuments                String[]
+  createdAt                       DateTime                                    @default(now()) @map("createdAt")
+  updatedAt                       DateTime                                    @updatedAt @map("updatedAt")
   // Relationships
-  variants                ElectronicComponentVariant[]
-  Measurements            ElectronicComponentMeasurements[]
-  function                ElectronicComponentFunction?
-  operation               ElectronicComponentOperation?
-  applications            ElectronicComponentApplication[]
+  variants                        ElectronicComponentVariant[]
+  Measurements ElectronicComponentMeasurements[]
+  function                        ElectronicComponentFunction?
+  operation                       ElectronicComponentOperation?
+  applications                    ElectronicComponentApplication[]
   // technicalSpecs                  ElectronicComponentTechnicalSpecifications?
-  thermalSpecifications   ElectronicComponentThermalSpecifications?
-  datasheets              ElectronicComponentDatasheet[]
-  additionalResources     ElectronicComponentAdditionalResource[]
+  thermalSpecifications           ElectronicComponentThermalSpecifications?
+  datasheets                      ElectronicComponentDatasheet[]
+  additionalResources             ElectronicComponentAdditionalResource[]
 }
 
 // type History {
@@ -232,237 +231,253 @@ model ElectronicComponentAdditionalResource {
 
 // Model for Datasheets of Electronic Components
 model ElectronicComponentDatasheet {
-  id                      String               @id @default(auto()) @map("_id") @db.ObjectId
-  name                    String
-  description             String
-  url                     String
+  id                                           String                                      @id @default(auto()) @map("_id") @db.ObjectId
+  name                                         String
+  description                                  String
+  url                                          String
   // electronicComponentTechnicalSpecifications   ElectronicComponentTechnicalSpecifications? @relation(fields: [electronicComponentTechnicalSpecificationsId], references: [electronicComponentName])
   // electronicComponentTechnicalSpecificationsId String?
-  electronicComponent     ElectronicComponent? @relation(fields: [electronicComponentName], references: [name])
-  electronicComponentName String?
+  electronicComponent                          ElectronicComponent?                        @relation(fields: [electronicComponentName], references: [name])
+  electronicComponentName                      String?
+}
+model ChemicalElement {
+    id                           String                         @id @default(auto()) @map("_id") @db.ObjectId
+    symbol                       String                         @unique
+    name                         String                         @unique
+    slug                         String                         @unique
+    atomicNumber                 String?
+    atomicWeight                 String?
+    description                  String?
+    history                      History[]
+    discoveryYear                String
+    meltingPoint                 String?
+    boilingPoint                 String?
+    density                      String?
+    appearance                   String?
+    classifications              ChemicalElementClassification[]
+    atomicStructure              ElementAtomicStructure?
+    isotopes                     ElementIsotope[]
+    compounds                    ElementCompound[]
+    crystalStructures            ElementCrystalStructure[]
+    allotropes                   ElementAllotrope[]
+    electronConfig               ElementElectronConfiguration?  // ElementElectronConfiguration
+    oxidationStates              ElementOxidationState[]
+    physicalProperties           ElementPhysicalProperties?
+    chemicalProperties           ElementChemicalProperties?
+    environmentalSafety          ElementEnvironmentalSafety?
+    practicalApplications        ElementPracticalApplication[] // Array of ElementPracticalApplication
+    spectralLines                ElementSpectralLine[]
+    naturalOccurrence            ElementNaturalOccurrence?
+    biologicalRole               ElementBiologicalRole?
+    economicData                 ElementEconomicData?
+    imageGallery                 ImageGallery[]
+    healthEnvironmentalImpact    ElementHealthEnvironmentalImpact?
+    futurePredictions            ElementFuturePrediction[]
+    userInteractions             ElementuserInteractions[]
+    externalResources            ElementExternalResource[]
+    magneticElectricalProperties ElementMagneticElectricalProperties?
+    opticalProperties            ElementOpticalProperties?
+    quantumProperties            ElementQuantumProperties?
+    synthesisProduction          ElementSynthesisProduction?
+    safetyDataSheet              ElementSafetyDataSheet?
+    legalStatus                  ElementLegalStatus?
+    interdisciplinaryConnections Json?
 }
 
-model ChemicalElement {
-  id                           String                               @id @default(auto()) @map("_id") @db.ObjectId
-  symbol                       String                               @unique
-  name                         String                               @unique
-  slug                         String                               @unique
-  atomicNumber                 String?
-  atomicWeight                 String?
-  description                  String?
-  history                      History[]
-  discoveryYear                String
-  meltingPoint                 String?
-  boilingPoint                 String?
-  density                      String?
-  appearance                   String?
-  classifications              ChemicalElementClassification[]
-  atomicStructure              ElementAtomicStructure?
-  isotopes                     ElementIsotope[]
-  compounds                    ElementCompound[]
-  crystalStructures            ElementCrystalStructure[]
-  allotropes                   ElementAllotrope[]
-  electronConfig               ElementElectronConfiguration? // ElementElectronConfiguration
-  oxidationStates              ElementOxidationState[]
-  physicalProperties           ElementPhysicalProperties?
-  chemicalProperties           ElementChemicalProperties?
-  environmentalSafety          ElementEnvironmentalSafety?
-  practicalApplications        ElementPracticalApplication[] // Array of ElementPracticalApplication
-  spectralLines                ElementSpectralLine[]
-  naturalOccurrence            ElementNaturalOccurrence?
-  biologicalRole               ElementBiologicalRole?
-  economicData                 ElementEconomicData?
-  imageGallery                 ImageGallery[]
-  healthEnvironmentalImpact    ElementHealthEnvironmentalImpact?
-  futurePredictions            ElementFuturePrediction[]
-  userInteractions             ElementuserInteractions[]
-  externalResources            ElementExternalResource[]
-  magneticElectricalProperties ElementMagneticElectricalProperties?
-  opticalProperties            ElementOpticalProperties?
-  quantumProperties            ElementQuantumProperties?
-  synthesisProduction          ElementSynthesisProduction?
-  safetyDataSheet              ElementSafetyDataSheet?
-  legalStatus                  ElementLegalStatus?
-  interdisciplinaryConnections Json?
-}
 
 type ElementPracticalApplication {
-  application String?
-  description String?
+    application String?
+    description String?
 }
 
+
+
 type ElementElectronConfiguration {
-  configuration String?
-  description   String?
+    configuration String?
+    description   String?
 }
+
 
 // type ElementStringerdisciplinaryConnection {
 //     connectionDetails String
 // }
 
+
 type ElementLegalStatus {
-  regulations       String?
-  legalRestrictions String?
+    regulations       String?
+    legalRestrictions String?
 }
+
 
 type ElementSafetyDataSheet {
-  handling         String?
-  storage          String?
-  firstAidMeasures String?
+    handling         String?
+    storage          String?
+    firstAidMeasures String?
 }
+
 
 type ElementSynthesisProduction {
-  synthesisMethods  String?
-  extractionMethods String?
-  globalProduction  String?
+    synthesisMethods  String?
+    extractionMethods String?
+    globalProduction  String?
 }
+
 
 type ElementQuantumProperties {
-  quantumNumbers     Json?
-  electronShellModel Json?
-  energyLevels       Json?
+    quantumNumbers    Json?
+    electronShellModel Json?
+    energyLevels      Json?
 }
+
 
 type ElementOpticalProperties {
-  refractiveIndex    String?
-  reflectivity       String?
-  absorptionSpectrum String?
+    refractiveIndex    String?
+    reflectivity       String?
+    absorptionSpectrum String?
 }
+
 
 type ElementMagneticElectricalProperties {
-  magneticSusceptibility String?
-  electricalResistivity  String?
-  hallCoefficient        String?
+    magneticSusceptibility String?
+    electricalResistivity  String?
+    hallCoefficient       String?
 }
+
 
 type ElementExternalResource {
-  resourceType String?
-  link         String?
-  description  String?
+    resourceType String?
+    link         String?
+    description  String?
 }
+
+
 
 type ElementFuturePrediction {
-  prediction  String?
-  description String?
+    prediction String?
+    description String?
 }
+
+
 
 type ElementHealthEnvironmentalImpact {
-  healthImpact        String?
-  environmentalImpact String?
+    healthImpact       String?
+    environmentalImpact String?
 }
 
+
+
 type ChemicalElementClassification {
-  classification String?
-  description    String?
+    classification     String?
+    description        String?
 }
 
 type ElementAtomicStructure {
-  electrons                String?
-  protons                  String?
-  neutrons                 String?
-  ionizationEnergy         String?
-  electronAffinity         String?
-  atomicRadius             String?
-  atomicPolarization       String?
-  electronegativity        String?
-  firstIonizationPotential String?
+    electrons               String?
+    protons                 String?
+    neutrons                String?
+    ionizationEnergy        String?
+    electronAffinity        String?
+    atomicRadius            String?
+    atomicPolarization      String?
+    electronegativity       String?
+    firstIonizationPotential String?
 }
 
 type ElementIsotope {
-  isotopeNumber String?
-  abundance     String?
-  halfLife      String?
-  decayMode     String?
-  description   String?
+    isotopeNumber   String?
+    abundance       String?
+    halfLife        String?
+    decayMode       String?
+    description     String?
 }
 
 type ElementCompound {
-  name        String?
-  formula     String?
-  description String?
+    name        String?
+    formula     String?
+    description String?
 }
 
 type History {
-  event       String?
-  year        String?
-  description String?
+    event       String?
+    year        String?
+    description String?
 }
 
 type ElementCrystalStructure {
-  type        String?
-  temperature String?
-  description String?
+    type        String?
+    temperature String?
+    description String?
 }
 
 type ElementAllotrope {
-  name        String?
-  description String?
+    name        String?
+    description String?
 }
 
 type ElementOxidationState {
-  state       String?
-  description String?
+    state       String?
+    description String?
 }
 
 type ElementPhysicalProperties {
-  meltingPoint                String?
-  boilingPoint                String?
-  density                     String?
-  atomicRadius                String?
-  atomicVolume                String?
-  covalentRadius              String?
-  molarHeat                   String?
-  thermalConductivity         String?
-  soundVelocity               String?
-  mohsHardness                String?
-  brinellHardness             String?
-  specificHeatCapacity        String?
-  thermalExpansionCoefficient String?
-  phaseTransitionTemperatures String?
+    meltingPoint               String?
+    boilingPoint                String?
+    density                    String?
+    atomicRadius               String?
+    atomicVolume               String?
+    covalentRadius             String?
+    molarHeat                  String?
+    thermalConductivity        String?
+    soundVelocity              String?
+    mohsHardness               String?
+    brinellHardness            String?
+    specificHeatCapacity       String?
+    thermalExpansionCoefficient String?
+    phaseTransitionTemperatures String?
 }
 
 type ElementChemicalProperties {
-  reactivity                 String?
-  commonOxidationStates      String?
-  standardReductionPotential String?
-  description                String?
+    reactivity                 String?
+    commonOxidationStates      String?
+    standardReductionPotential String?
+    description                String?
 }
 
 type ElementEnvironmentalSafety {
-  healthHazards     String?
-  safetyPrecautions String?
+    healthHazards     String?
+    safetyPrecautions String?
 }
 
 type ImageGallery {
-  imageUrl    String?
-  description String?
+    imageUrl     String?
+    description  String?
 }
 
 type ElementSpectralLine {
-  wavelength String?
-  intensity  String?
-  lineType   String?
+    wavelength  String?
+    intensity   String?
+    lineType    String?
 }
 
 type ElementNaturalOccurrence {
-  occurrenceType String?
-  description    String?
+    occurrenceType String?
+    description    String?
 }
 
 type ElementBiologicalRole {
-  role        String?
-  description String?
+    role        String?
+    description String?
 }
 
 type ElementEconomicData {
-  marketPrice        String?
-  producingCountries String?
-  industrialUse      String?
-  description        String?
+    marketPrice         String?
+    producingCountries  String?
+    industrialUse       String?
+    description         String?
 }
 
 type ElementuserInteractions {
-  contribution String?
-  question     String?
-  discussion   String?
+    contribution String?
+    question     String?
+    discussion   String?
 }
