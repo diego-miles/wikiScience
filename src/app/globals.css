@@ -15,7 +15,7 @@
   --color-h4: #1a6157;
   --color-h5: #2E4053;
   --color-p: #021e2f;
-  --color-strong: #0f0f0f;
+  --color-strong: #090909;
   /* --color-p: #243b48; */
   --color-a: #324e62;
   --color-a2: #006397;
@@ -180,7 +180,7 @@ h1 {
 h2 {
   font-size: var(--font-size-h2);
   color: var(--color-h2);
-  font-weight: 800;
+  font-weight: 900;
   padding-top: 3.5rem;
   margin-bottom: 1.5rem;
   line-height: 1.2;

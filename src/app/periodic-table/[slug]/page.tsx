@@ -105,7 +105,7 @@ const sanitizedHistoryData = element.history.map(histItem => ({
       <NavBar domain="www.wiki-science.com/" menuPath='./NavigationMenu' />
       <main style={{ marginTop: '9rem' }}>
         <h1>{element.name} ({element.symbol})</h1>
-        {images.length > 0 && <ImageCarousel images={images} />}
+        {/* {images.length > 0 && <ImageCarousel images={images} />} */}
         <LocalContextLinks links={links} />
         <p><strong>Atomic Number:</strong> {element.atomicNumber}</p>
         <p><strong>Atomic Weight:</strong> {element.atomicWeight}</p>
