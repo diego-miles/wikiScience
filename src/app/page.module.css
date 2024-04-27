@@ -1,5 +1,5 @@
 .mainContent {
-    margin-top: 3rem;
+    margin-top: 5rem;
 }
 
 .home {
@@ -19,7 +19,7 @@
 .h1 {
     color: #44a6cd;
     /* font-family: var(--font-family-p); */
-    font-size: 2.6rem;
+    font-size: 2.8rem;
     font-weight: 800;
     padding-top: .5rem;
     padding-bottom: 1.6rem;
@@ -29,7 +29,7 @@
     font-weight: 900;
     text-align: center;
     color: #2d373d;
-    font-size: 2.3rem;
+    font-size: 2.5rem;
     margin: 0 auto;
     margin-top: 2rem;
     background-color: var(--color-background1);
@@ -45,13 +45,13 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
-    width: 5rem;
+    width: 6rem;
     /* Adjust as needed */
     height: 6rem;
     /* Adjust as needed*/
     /* text-align: center; */
     margin: 0 auto;
-    padding: 1rem;
+    padding: 2rem;
     /* To center the div */
 }
 /* .ImageBooksContainer {
