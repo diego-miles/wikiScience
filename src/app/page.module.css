@@ -1,5 +1,5 @@
 .mainContent {
-    margin-top: 4rem;
+    margin-top: 3rem;
 }
 
 .home {
@@ -17,10 +17,11 @@
 }
 
 .h1 {
-    color: #00709c;
+    color: #44a6cd;
     /* font-family: var(--font-family-p); */
     font-size: 2.6rem;
     font-weight: 800;
+    padding-top: .5rem;
     padding-bottom: 1.6rem;
 }
 
@@ -40,16 +41,17 @@
 }
 
 .logoContainer {
-    background-image: url('/wikiblue-logo.svg'); 
+    background-image: url('/wikilogo-blue.svg'); 
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
-    width: 6rem;
+    width: 5rem;
     /* Adjust as needed */
-    height: 9rem;
+    height: 6rem;
     /* Adjust as needed*/
     /* text-align: center; */
     margin: 0 auto;
+    padding: 1rem;
     /* To center the div */
 }
 /* .ImageBooksContainer {
