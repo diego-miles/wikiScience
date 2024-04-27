@@ -50,37 +50,7 @@ const HomePage: React.FC = () => {
               <p>Gain valuable insights from personal reading experiences and reviews.</p>
             </li>
           </ul>
-          <div tabIndex={0} className={`${styles.menuWrapper}`}>
-            <div className={styles.menuMain}>
-              <div className={styles.navContainer}>
-                {data.map((field, idx) => (
-                  <div className={styles.branchContainer} key={idx}>
-                    <div>
-                      <li className={styles.titleField}>{field.title}</li>
-                    </div>
-                    <div className={styles.gridLayout}>
-                      {field.subFields.map((subField, sIdx) => (
-                        <ul key={sIdx}>
-                          <li className={styles.subField}>
-                            <Link href={`/top-science-books/${toSlug(subField.title)}`} className='menu-link'>
-                              {subField.title}
-                            </Link>
-                          </li>
-                          {subField.topics.map((topic, tIdx) => (
-                            <li className={styles.subTopic} key={tIdx}>
-                              <Link href={`/top-science-books/${toSlug(subField.title)}/${toSlug(topic)}`}>
-                                {topic}
-                              </Link>
-                            </li>
-                          ))}
-                        </ul>
-                      ))}
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
+
         </section>
 
         {/* <ScienceFieldsMenu data={data}/> */}

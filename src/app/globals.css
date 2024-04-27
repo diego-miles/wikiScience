@@ -34,12 +34,12 @@
   /* --color-span: #466f82; */
   /* --color-span: #004c6f; */
   --color-dark: #2c3e50;
-  --color-light: #e9edef;
+  --color-light: #e1ebef;
   --color-active: #00A40B;
   --color-soft-blue: #95D5FF;
   --color-soft-green: #BAE9D2;
   --color-green-text: #197D4F;
-  --color-darkgreen-text: #7eaba8;
+  --color-darkgreen-text: #71a5a2;
 
   --font-size-p: 1.5rem;
   --font-size-small-p: 1.5rem;
@@ -148,6 +148,7 @@ a {
   font-size: var(--font-size-a);
   line-height: 1.1;
   padding: .4rem 0;
+  font-weight: 500;
 }
 
 p {

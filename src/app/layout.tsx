@@ -12,11 +12,13 @@ import dynamic from 'next/dynamic';
 // import GoogleAdsScript from './GoogleAdsScript.js'
 // import React, { Suspense } from 'react';
 
+import { cn } from "@/lib/utils"
 
 
 const noto_sans_georgian = Noto_Sans_Georgian({
   // weight: ['400','500', '600', '700', '800', '900'],
   subsets: ['latin'],
+  variable: '--font-noto-sans-georgian',
   display: 'swap'
 })
 
@@ -50,7 +52,10 @@ const CookieConsent = dynamic(() => import('./CookieConsent'), { ssr: false });
     <html lang="en">
       
       <meta name="google-adsense-account" content="ca-pub-6831545317289734"></meta>
-      <body className={` ${noto_sans_georgian.className} ${noto_serif_georgian.variable} `}>
+      <body className={cn(
+          "min-h-screen bg-background font-sans antialiased",
+          noto_sans_georgian.variable
+        )}>
           <CookieConsent />
           <noscript>
             <iframe
