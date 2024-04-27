@@ -1,7 +1,7 @@
 import React from 'react';
 import { PrismaClient } from '@prisma/client';
 import {ChemicalElement} from '@prisma/client';
-import { cache } from 'react';
+import { unstable_cache } from 'next/cache';
 import NavBar from '@/components/NavbarContainer';
 import ScrollTopButton from '@/components/ScrollTopButton';
 import { notFound } from 'next/navigation';
@@ -25,7 +25,7 @@ interface ElementPageProps {
   };
 }
 
-const getElementData = cache(async (slug: string) => {
+const getElementData = unstable_cache(async (slug: string) => {
   const element = await prisma.chemicalElement.findUnique({
     where: { slug }
   });

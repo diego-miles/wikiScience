@@ -27,7 +27,7 @@ const HomePage: React.FC = () => {
         </header>
 
         <section className={styles.recommendationIntro}>
-          <h2>Unlock the secrets of science</h2>
+          <h2>Top Science Books</h2>
   <p>Explore the vast expanse of human knowledge with our curated collection of top science books.</p>
 
           <ul className={styles.bullets}>
