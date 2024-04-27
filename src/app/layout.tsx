@@ -16,7 +16,7 @@ import { cn } from "@/lib/utils"
 
 
 const noto_sans_georgian = Noto_Sans_Georgian({
-  // weight: ['400','500', '600', '700', '800', '900'],
+  weight: ['400','500', '600', '700', '800', '900'],
   subsets: ['latin'],
   variable: '--font-noto-sans-georgian',
   display: 'swap'
@@ -26,7 +26,8 @@ const noto_sans_georgian = Noto_Sans_Georgian({
 const noto_serif_georgian = Noto_Serif_Georgian({
   weight: ['400','500', '600', '700', '800', '900'],
   variable: '--font-noto-serif-georgian',
-  subsets: ['latin']
+  subsets: ['latin'],
+  display: 'swap'
 })
 
 
@@ -54,7 +55,7 @@ const CookieConsent = dynamic(() => import('./CookieConsent'), { ssr: false });
       <meta name="google-adsense-account" content="ca-pub-6831545317289734"></meta>
       <body className={cn(
           "min-h-screen bg-background font-sans antialiased",
-          noto_sans_georgian.variable
+          noto_sans_georgian.variable, noto_serif_georgian.variable
         )}>
           <CookieConsent />
           <noscript>

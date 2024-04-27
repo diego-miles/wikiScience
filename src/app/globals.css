@@ -227,7 +227,7 @@ span {
 }
 
 strong {
-  font-size: var(--font-size-p);
+  /* font-size: var(--font-size-p); */
   color: var(--color-strong);
   font-weight: 700;
 }

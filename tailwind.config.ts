@@ -22,6 +22,7 @@ const config = {
     extend: {
       fontFamily: {
         sans: ["var(--font-noto-sans-georgian)", ...fontFamily.sans],
+        serif: ["var(--font-noto-serif-georgian)", ...fontFamily.serif],
       },
       // colors: {
       //   border: "hsl(var(--border))",
