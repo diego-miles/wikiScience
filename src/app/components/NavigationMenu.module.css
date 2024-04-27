@@ -99,7 +99,7 @@
 .subField a {
   font-family: var(--font-family-h1);
   /* font-size: 1.6rem; */
-  font-weight: 600;
+  font-weight: 700;
   color: var(--color-h1);
   font-style: normal;
   padding-bottom: .5rem;
@@ -109,7 +109,7 @@
 
 
 .subTopic {
-  font-weight: 300;
+  /* font-weight: 400; */
   /* line-height: 110%; */
   /* padding-bottom: 0.5rem; */
   border-left: 0.5rem solid var(--color-light);
@@ -120,9 +120,10 @@
 .subTopic a {
   font-family: var(--font-family-h1);
   color: var(--color-p);
+  font-weight: 600;
   /* text-decoration: underline; */
   text-decoration-color: var(--color-accent1);
-  /* font-size: 1.7rem; */
+  /* font-size: 1.5rem; */
   /* font-weight: 600; */
   /* padding-left: .2rem; */
   padding-bottom: .5rem;

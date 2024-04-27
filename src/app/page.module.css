@@ -1,5 +1,5 @@
 .mainContent {
-    margin-top: 5rem;
+    margin-top: 7rem;
 }
 
 .home {
@@ -19,9 +19,9 @@
 .h1 {
     color: #44a6cd;
     /* font-family: var(--font-family-p); */
-    font-size: 2.8rem;
+    font-size: 3rem;
     font-weight: 800;
-    padding-top: .5rem;
+    padding-top: 1rem;
     padding-bottom: 1.6rem;
 }
 
@@ -29,7 +29,7 @@
     font-weight: 900;
     text-align: center;
     color: #2d373d;
-    font-size: 2.5rem;
+    font-size: 2.8rem;
     margin: 0 auto;
     margin-top: 2rem;
     background-color: var(--color-background1);
@@ -37,7 +37,7 @@
     padding: 1rem 1rem;
     margin-bottom: 3rem;
     border-radius: 2rem;
-    max-width: 50rem;
+    max-width: 55rem;
 }
 
 .logoContainer {
@@ -45,13 +45,13 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
-    width: 6rem;
+    width: 7rem;
     /* Adjust as needed */
-    height: 6rem;
+    height: 7rem;
     /* Adjust as needed*/
     /* text-align: center; */
     margin: 0 auto;
-    padding: 2rem;
+    /* padding: 3rem; */
     /* To center the div */
 }
 /* .ImageBooksContainer {
@@ -68,7 +68,7 @@
 .bullets li p {
     padding-top: .8rem;
     font-size: 1.5rem;
-    font-weight: 400;
+    font-weight: 700;
 }
 
 /* .recommendationIntro {
