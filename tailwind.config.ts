@@ -24,60 +24,70 @@ const config = {
         sans: ["var(--font-noto-sans-georgian)", ...fontFamily.sans],
         serif: ["var(--font-noto-serif-georgian)", ...fontFamily.serif],
       },
-      // colors: {
-      //   border: "hsl(var(--border))",
-      //   input: "hsl(var(--input))",
-      //   ring: "hsl(var(--ring))",
-      //   background: "hsl(var(--background))",
-      //   foreground: "hsl(var(--foreground))",
-      //   primary: {
-      //     DEFAULT: "hsl(var(--primary))",
-      //     foreground: "hsl(var(--primary-foreground))",
-      //   },
-      //   secondary: {
-      //     DEFAULT: "hsl(var(--secondary))",
-      //     foreground: "hsl(var(--secondary-foreground))",
-      //   },
-      //   destructive: {
-      //     DEFAULT: "hsl(var(--destructive))",
-      //     foreground: "hsl(var(--destructive-foreground))",
-      //   },
-      //   muted: {
-      //     DEFAULT: "hsl(var(--muted))",
-      //     foreground: "hsl(var(--muted-foreground))",
-      //   },
-      //   accent: {
-      //     DEFAULT: "hsl(var(--accent))",
-      //     foreground: "hsl(var(--accent-foreground))",
-      //   },
-      //   popover: {
-      //     DEFAULT: "hsl(var(--popover))",
-      //     foreground: "hsl(var(--popover-foreground))",
-      //   },
-      //   card: {
-      //     DEFAULT: "hsl(var(--card))",
-      //     foreground: "hsl(var(--card-foreground))",
-      //   },
-      // },
-      // borderRadius: {
-      //   lg: "var(--radius)",
-      //   md: "calc(var(--radius) - 2px)",
-      //   sm: "calc(var(--radius) - 4px)",
-      // },
-      // keyframes: {
-      //   "accordion-down": {
-      //     from: { height: "0" },
-      //     to: { height: "var(--radix-accordion-content-height)" },
-      //   },
-      //   "accordion-up": {
-      //     from: { height: "var(--radix-accordion-content-height)" },
-      //     to: { height: "0" },
-      //   },
-      // },
-      // animation: {
-      //   "accordion-down": "accordion-down 0.2s ease-out",
-      //   "accordion-up": "accordion-up 0.2s ease-out",
-      // },
+      keyframes: {
+        "accordion-down": {
+          from: { height: "0" },
+          to: { height: "var(--radix-accordion-content-height)" },
+        },
+        "accordion-up": {
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: "0" },
+        },
+      },
+      animation: {
+        "accordion-down": "accordion-down 0.2s ease-out",
+        "accordion-up": "accordion-up 0.2s ease-out",
+
+      },
+      colors: {
+        h1: 'var(--color-h1)',
+        h2: 'var(--color-h2)',
+        h3: 'var(--color-h3)',
+        h4: 'var(--color-h4)',
+        h5: 'var(--color-h5)',
+        p: 'var(--color-p)',
+        strong: 'var(--color-strong)',
+        a: 'var(--color-a)',
+        a2: 'var(--color-a2)',
+        accent1: 'var(--color-accent1)',
+        accent2: 'var(--color-accent2)',
+        accent3: 'var(--color-accent3)',
+        gold: 'var(--color-gold)',
+        background1: 'var(--color-background1)',
+        background2: 'var(--color-background2)',
+        background3: 'var(--color-background3)',
+        border: 'var(--color-border)',
+        button: 'var(--color-button)',
+        menu: 'var(--color-menu)',
+        span: 'var(--color-span)',
+        dark: 'var(--color-dark)',
+        light: 'var(--color-light)',
+        active: 'var(--color-active)',
+        'soft-blue': 'var(--color-soft-blue)',
+        'soft-green': 'var(--color-soft-green)',
+        'green-text': 'var(--color-green-text)',
+        'darkgreen-text': 'var(--color-darkgreen-text)',
+      },
+      fontSize: {
+        'xs': '.75rem', // Tamaño de fuente extra pequeño
+        'sm': '1.4rem', // Tamaño de fuente pequeño
+        'base': '1.5rem', // Tamaño de fuente base
+        'lg': '1.6rem', // Tamaño de fuente grande
+        'xl': '1.8rem', // Tamaño de fuente extra grande
+        '2xl': '2rem', // Tamaño de fuente 2x grande
+        '3xl': '2.3rem', // Tamaño de fuente 3x grande
+        '4xl': '2.4rem', // Tamaño de fuente 4x grande
+        '5xl': '2.6rem', // Tamaño de fuente 5x grande
+        '6xl': '3rem', // Tamaño de fuente 6x grande
+      },
+      
+            lineHeight: {
+        'tight': "1.25", // Puedes ajustar estos valores según tus necesidades
+        'normal': "1.5",
+        'relaxed': "1.75",
+        'loose': "2",
+      }
+
     },
   },
   plugins: [require("tailwindcss-animate")],
