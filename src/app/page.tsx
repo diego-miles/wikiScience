@@ -1,4 +1,3 @@
-"use client"
 import React from 'react';
 import Image from 'next/image';
 import NavBar from '@/components/NavbarContainer';
@@ -47,48 +46,50 @@ const HomePage: React.FC = () => {
           <TextGenerateEffectDemo></TextGenerateEffectDemo>
         </header>
 
-<section className="mt-16">
-  <h2 className="text-2xl font-bold text-center text-[#477780]">Top Science Books</h2>
-  <p className="text-lg text-center mt-4 font-normal">Explore a curated collection of top science books:</p>
-  <ul className="list-none mt-5 px-4">
-    {[
-      "Get in-depth insights with expert summaries.",
-      "Discover each book's impact on science.",
-      "Visualize the journey with stunning cover images.",
-      "Explore detailed outlines for rich content.",
-      "Read reviews from platforms like Amazon and Goodreads.",
-      "Gain insights from personal reading experiences."
-    ].map((item, index) => (
-      <li key={index} className="flex items-start mb-4">
-        <div className="w-2 h-2 p-1 rounded-full bg-[#1f71ca] mr-4 mt-4"></div>
-        <p className="text-sm font-bold py-1">{item}</p>
-      </li>
-    ))}
-  </ul>
-</section>
+        <section className="mt-16">
+          <h2 className="text-2xl font-extrabold text-center mb-12 text-[#477780]">Top Science Books</h2>
+          <p className="text-lg text-center mt-4 font-normal">Explore a curated collection of top science books:</p>
+          <div className='max-w-4xl  mx-auto'>
+          <ul className="list-none mt-5 px-4">
+            {[
+              "Get in-depth insights with expert summaries.",
+              "Discover each book's impact on science.",
+              "Visualize the journey with stunning cover images.",
+              "Explore detailed outlines for rich content.",
+              "Read reviews from platforms like Amazon and Goodreads.",
+              "Gain insights from personal reading experiences."
+            ].map((item, index) => (
+              <li key={index} className="flex items-start mb-4">
+                <div className="w-2 h-2 p-1 rounded-full bg-[#1f71ca] mr-4 mt-4"></div>
+                <p className="text-sm font-bold py-1">{item}</p>
+              </li>
+            ))}
+          </ul>
+          </div>
+        </section>
 
 
         {/* Menu section using Tailwind's grid and flexbox utilities */}
         <div className="mt-16">
-          <div className="max-w-6xl mx-auto">
+          <div className="max-w-7xl mx-auto">
             {/* <div className="text-center text-[#a3c4e0] rounded-md py-2 mb-4 text-lg font-medium">Top Science Books</div> */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {data.map((field, idx) => (
                 <div key={idx} className="p-4">
-                  <h3 className="text-2xl font-bold text-[#71a5a2] text-center pb-4 pt-12">{field.title}</h3>
+                  <h3 className="text-xl font-bold text-[#71a5a2] text-center pb-4 pt-12">{field.title}</h3>
                   <div className="grid grid-cols-2 gap-2">
                     {field.subFields.map((subField, sIdx) => (
                       <ul key={sIdx}>
                         <li className="pb-2">
-                          <Link href={`/top-science-books/${toSlug(subField.title)}`} className="text-lg font-medium text-[#00659A] hover:text-[#3498db]">
+                          <Link href={`/top-science-books/${toSlug(subField.title)}`} className="text-base font-medium text-[#00659A] hover:text-[#3498db]">
                             {subField.title}
                           </Link>
                         </li>
                         {subField.topics.map((topic, tIdx) => (
-                          <li key={tIdx} className="pl-4 border-l-2 border-[#e1ebef] pb-2"> 
+                          <li key={tIdx} className=" pl-4 border-l-2 border-[#e1ebef] pb-2"> 
                             <Link 
                               href={`/top-science-books/${toSlug(subField.title)}/${toSlug(topic)}`} 
-                              className="text-base text-[#021e2f] hover:underline hover:text-[#3498db]"
+                              className=" text-sm text-[#021e2f] hover:underline hover:text-[#3498db]"
                             >
                               {topic}
                             </Link>

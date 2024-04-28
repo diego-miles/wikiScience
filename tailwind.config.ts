@@ -77,7 +77,7 @@ const config = {
         '2xl': '2rem', // Tamaño de fuente 2x grande
         '3xl': '2.3rem', // Tamaño de fuente 3x grande
         '4xl': '2.4rem', // Tamaño de fuente 4x grande
-        '5xl': '2.6rem', // Tamaño de fuente 5x grande
+        '5xl': '2.7rem', // Tamaño de fuente 5x grande
         '6xl': '3rem', // Tamaño de fuente 6x grande
       },
       
@@ -86,9 +86,30 @@ const config = {
         'normal': "1.5",
         'relaxed': "1.75",
         'loose': "2",
+      },
+      screens: {
+        'sm': '480px',      
+        'md': '768px',      
+        'lg': '768px',     
+        'xl': '768px',     
+        '2xl': '768px',   
+        '3xl': '768px',   
+        '4xl': '768px',   
+      },
+      
+    container: {
+      center: true,
+      padding: '2rem',
+      screens: {
+        "sm": '600px',
+        "md": '728px',
+        "lg": '984px',
+        "xl": '1000px',
+        '2xl': '1240px',
       }
+    }
 
-    },
+    }
   },
   plugins: [require("tailwindcss-animate")],
 } satisfies Config

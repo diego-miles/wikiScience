@@ -404,26 +404,26 @@ h3:hover {
     font-size: 11px;
   }
 
-
+/* 
   h5 {
     font-size: 1.5rem;
-  }
+  } */
 
-  main {
+  /* main {
     padding: 0rem 3rem;
     padding-top: 11rem;
     margin: 0 auto;
-  }
+  } */
 }
 
 @media only screen and (min-width: 1025px) {
   html {
-    font-size: 12px;
+    font-size: 11px;
   }
 
-  main {
+  /* main {
     padding: 0rem 3rem;
     padding-top: 12rem;
     margin: 0 auto;
-  }
+  } */
 }
