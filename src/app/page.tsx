@@ -1,3 +1,4 @@
+
 import React from 'react';
 import Image from 'next/image';
 import NavBar from '@/components/NavbarContainer';
@@ -5,10 +6,10 @@ import data from '@/components/data';
 import ScrollTopButton from '@/components/ScrollTopButton';
 import Link from 'next/link';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
-import {TextGenerateEffectDemo} from './HeroHomeText'
+// import TextGenerateEffectDemo from './HeroHomeText'
 import dynamic from 'next/dynamic';
 
-
+const TextGenerateEffectDemo = dynamic(() => import('./HeroHomeText'), { ssr: false })
 
 
 const toSlug = (title: string) => {
@@ -43,7 +44,7 @@ const HomePage: React.FC = () => {
           </figure>
         </div>
 
-        <header className="text-center mt-4">
+        <header className="text-center mt-4 min-h-80">
           <h1 className="text-5xl font-bold text-[#44a6cd]">Wiki Science</h1> {/* Using Tailwind's text color and font weight utilities */}
           {/* <p className="text-3xl font-extrabold text-[#2d373d] mt-4 px-2">A next-generation educational platform. <span className="text-[#376ba2]">Powered by AI.</span></p>  */}
           <TextGenerateEffectDemo></TextGenerateEffectDemo>
