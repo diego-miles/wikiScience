@@ -14,7 +14,7 @@
   --color-h3: #766246;
   --color-h4: #1a6157;
   --color-h5: #2E4053;
-  --color-p: #021e2f;
+  --color-p: #000b12;
   --color-strong: #090909;
   /* --color-p: #243b48; */
   --color-a: #324e62;
@@ -154,7 +154,7 @@ a {
 
 p {
   font-size: var(--font-size-p);
-  font-weight: 500;
+  font-weight: 400;
   color: var(--color-p);
   padding-bottom: 1.2rem;
   line-height: 1.5;

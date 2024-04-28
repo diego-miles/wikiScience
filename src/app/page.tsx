@@ -6,6 +6,9 @@ import ScrollTopButton from '@/components/ScrollTopButton';
 import Link from 'next/link';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
 import {TextGenerateEffectDemo} from './HeroHomeText'
+import dynamic from 'next/dynamic';
+
+
 
 
 const toSlug = (title: string) => {
@@ -47,8 +50,8 @@ const HomePage: React.FC = () => {
         </header>
 
         <section className="mt-16">
-          <h2 className="text-2xl font-extrabold text-center mb-12 text-[#477780]">Top Science Books</h2>
-          <p className="text-lg text-center mt-4 font-normal">Explore a curated collection of top science books:</p>
+          <h2 className=" text-2xl font-extrabold text-center mb-12 text-[#477780]">Top Science Books</h2>
+          <p className="text-lg text-center mt-4 font-normal">  Explore a community-curated collection of top science books </p>
           <div className='max-w-4xl  mx-auto'>
           <ul className="list-none mt-5 px-4">
             {[
