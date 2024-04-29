@@ -125,6 +125,7 @@ body::-webkit-scrollbar-track {
 
 body {
   background: var(--color-background1);
+  /* background: var(--color-background1); */
   margin: 0 auto;
   background-image: linear-gradient(#F1F1F1 2px, transparent 2px),
     linear-gradient(90deg, #F1F1F1 2px, transparent 2px);
@@ -141,7 +142,14 @@ main {
   padding-top: 10rem;
   margin: 0 auto;
   position: static;
+  text-align: center;
 }
+
+section {
+  text-align: left;
+  width: 100%;
+}
+
 
 a {
   color: var(--color-a);

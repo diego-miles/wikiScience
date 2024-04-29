@@ -9,6 +9,7 @@ import { AspectRatio } from '@/components/ui/aspect-ratio';
 // import TextGenerateEffectDemo from './HeroHomeText'
 import dynamic from 'next/dynamic';
 import Accordion from '@/components/books-components/AccordionFields'
+import logoSvg from '/head-background.svg';
 
 const TextGenerateEffectDemo = dynamic(() => import('./HeroHomeText'), { ssr: false })
 
@@ -21,7 +22,7 @@ const HomePage: React.FC = () => {
   return (
     <div>
       <NavBar />
-      <main className=" mx-auto mt-12"> {/* Using Tailwind's container class for centering and padding */}
+      <main className="flex min-h-screen flex-col items-center justify-between mx-auto mt-12 text-center"> {/* Using Tailwind's container class for centering and padding */}
       {/* <div className="relative mt-16">
         <div className="absolute inset-0 flex items-center justify-center mt-28">
 
@@ -37,24 +38,32 @@ const HomePage: React.FC = () => {
         </div>
       </div> */}
 
+          <header className=" h-fit">
+            <figure className='mx-auto w-fit'>
+              <Image width={55} height={50} alt='Wiki-logo' src={'wikilogo-blue.svg'} unoptimized  ></Image>
+            </figure>
+            <h1 className="mt-1 text-5xl font-bold text-[#44a6cd]">Wiki Science</h1> {/* Using Tailwind's text color and font weight utilities */}
+            {/* <p className="text-3xl font-extrabold text-[#2d373d] mt-4 px-2">A next-generation educational platform. <span className="text-[#376ba2]">Powered by AI.</span></p>  */}
+            <div className="h-72">
+            <TextGenerateEffectDemo></TextGenerateEffectDemo>
+            </div>
+          </header>
 
-        <div className="flex justify-center "> {/* Centering the logo */}
-          {/* <div className="w-20 h-20 bg-no-repeat bg-center bg-contain z-30" style={{ backgroundImage: 'url(/wikilogo-blue.svg)' }}></div>  */}
-          <figure className=''>
-            <Image width={55} height={50} alt='Wiki-logo' src={'wikilogo-blue.svg'} unoptimized  ></Image>
-          </figure>
-        </div>
-          <h1 className="mt-1 text-5xl font-bold text-[#44a6cd]">Wiki Science</h1> {/* Using Tailwind's text color and font weight utilities */}
 
-        <header className="text-center mt-0 h-64 ">
-          {/* <p className="text-3xl font-extrabold text-[#2d373d] mt-4 px-2">A next-generation educational platform. <span className="text-[#376ba2]">Powered by AI.</span></p>  */}
-          <div className="text-center mt-0 h-40 ">
-          <TextGenerateEffectDemo></TextGenerateEffectDemo>
-          </div>
-        </header>
+
 
         <section className="">
-          <h2 className=" text-2xl font-bold text-center mb-12 text-[#477780]">Top Science Books</h2>
+<div className='relative '>
+  <div 
+    className=" overflow-hidden bg-cover w-[32rem] h-28 mx-auto absolute top-0 left-0 right-0 bottom-0 flex items-center justify-center"
+    style={{ 
+      backgroundImage: `url('/background-head.svg')`, 
+    }}
+  >
+  </div>
+</div>
+
+          <h2 className=" text-2xl font-bold text-center mb-12 text-[#39717b]">Top Science Books</h2>
           <p className="text-lg text-center mt-4 font-normal">  Explore a community-curated collection of top science books </p>
           <div className='max-w-4xl  mx-auto'>
           <ul className="list-none mt-5 px-4">
@@ -74,6 +83,7 @@ const HomePage: React.FC = () => {
           </ul>
           </div>
         </section>
+        
         <section className='pt-16'>
         <Accordion></Accordion>
         </section>
