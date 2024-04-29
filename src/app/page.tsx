@@ -55,7 +55,7 @@ const HomePage: React.FC = () => {
         <section className="">
 <div className='relative '>
   <div 
-    className=" overflow-hidden bg-cover w-[32rem] h-28 mx-auto absolute top-0 left-0 right-0 bottom-0 flex items-center justify-center"
+    className=" overflow-hidden bg-cover w-[32rem] h-28 mx-auto absolute top-2 left-0 right-0 bottom-0 flex items-center justify-center"
     style={{ 
       backgroundImage: `url('/background-head.svg')`, 
     }}

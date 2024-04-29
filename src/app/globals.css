@@ -4,10 +4,13 @@
 
 
 :root {
-  --color-h1: #005d8f;
+  --color-h1: #035480;
+  /* --color-h1: #005d8f; */
   /* --color-h1: #00659A; */
   /* --color-h2: #003c85; */
-  --color-h2: #1c4b4e;
+  --color-h2: rgb(16, 108, 154);
+  /* --color-h2: rgb(23, 114, 160); */
+  /* --color-h2: #1c4b4e; */
   /* --color-h2: #326a8b; */
   /* --color-h2: #005f6c; */
   /* --color-h2: #00627e; */
@@ -20,7 +23,7 @@
   --color-strong: #090909;
   /* --color-p: #243b48; */
   --color-a: #ad0048;
-  --color-a2: #006397;
+  --color-a2: #4a6370;
   /* --color-accent1: #0075c3; */
   --color-accent1: #3498db;
   --color-accent2: #cf4336;
@@ -29,10 +32,11 @@
   --color-background1: #f4f6f6;
   --color-background2: #cfd3d3;
   --color-background3: #B0B6B9;
-  --color-border: #BAD1DD;
+  --color-border: #9bc1d6;
   --color-button: #EAF0F3;
   --color-menu: #e9edef;
-  --color-span: rgb(130, 164, 180);
+  --color-span: rgb(153, 171, 181);
+  /* --color-span: rgb(45, 132, 175); */
   /* --color-span: rgb(138, 184, 205); */
   /* --color-span: #7497a8; */
   /* --color-span: #588196; */
@@ -194,10 +198,10 @@ h1 {
 h2 {
   font-size: var(--font-size-h2);
   color: var(--color-h2);
-  font-weight: 800;
+  font-weight: 600;
   padding-top: 3.5rem;
   margin-bottom: 1.5rem;
-  line-height: 1.2;
+  line-height: 1.4;
 }
 
 h3 {
@@ -239,7 +243,7 @@ li {
 
 span {
   color: var(--color-span);
-  font-weight: 600;
+  /* font-weight: 600; */
 }
 
 strong {

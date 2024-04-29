@@ -34,7 +34,10 @@ const NavigationMenu: React.FC<NavigationMenuProps> = ({ className, style }) => 
         <div tabIndex={0} className={`${styles.menuWrapper} ${className}`} style={style}>
 
             <div className={styles.menuMain}> 
+<Link href={'/'}>
 
+                <h2 className='font-semibold text-base'>Home</h2>
+</Link>
     <Accordion type="single" collapsible className="w-full" >
       <AccordionItem value="item-1">
         <AccordionTrigger>
@@ -46,9 +49,9 @@ const NavigationMenu: React.FC<NavigationMenuProps> = ({ className, style }) => 
                     {chemicalElements.map((element) => (
                         <div key={element.symbol}>
                     <Link href={`periodic-table/${element.name.toLowerCase()}`}>
-                            <h3 className='font-normal text-black text-xs'>
+                            <h3 className='font-normal text-black text-xs '>
                                 {element.name} {' '}
-                                <span>
+                                <span className='text-[#6084b6]'>
                                     ({element.symbol})
                                     </span>
                                 </h3>
@@ -68,7 +71,7 @@ const NavigationMenu: React.FC<NavigationMenuProps> = ({ className, style }) => 
         {data.map((field, idx) => (
           <Accordion key={idx} type="single" collapsible className="mb-4">
             {/* <Link href={`/top-science-books/${toSlug(field.title)}`}> */}
-              <h3 className="text-base font-semibold ">{field.title}</h3>
+              <h3 className="text-base font-semibold text-left">{field.title}</h3>
             {/* </Link> */}
             {field.subFields.map((subField, sIdx) => (
               <AccordionItem key={sIdx} value={`item-${idx}-${sIdx}`}>
@@ -80,13 +83,13 @@ const NavigationMenu: React.FC<NavigationMenuProps> = ({ className, style }) => 
                 <AccordionContent>
                   <ul>
                     <li className=""> 
-                      <Link className='text-sm' href={`/top-science-books/${toSlug(subField.title)}`}>
+                      <Link className='text-xs text-left' href={`/top-science-books/${toSlug(subField.title)}`}>
                         {subField.title} 
                       </Link> 
                     </li>
                     {subField.topics.map((topic, tIdx) => (
                       <li key={tIdx}>
-                        <Link className=" py-2 text-xs" href={`/top-science-books/${toSlug(subField.title)}/${toSlug(topic)}`}>
+                        <Link className=" py-2 text-xs text-left" href={`/top-science-books/${toSlug(subField.title)}/${toSlug(topic)}`}>
                           {/* <p> */}
                             {topic}
                             {/* </p> */}
@@ -104,7 +107,10 @@ const NavigationMenu: React.FC<NavigationMenuProps> = ({ className, style }) => 
       </AccordionItem>
     </Accordion>
 
-          
+
+                <h2 className='font-semibold text-base text-slate-300'>Electronics Encyclopedia</h2>
+                <h2 className='font-semibold text-base text-slate-300'>Concepts</h2>
+                <h2 className='font-semibold text-base text-slate-300'>Biographies</h2>
                 {/* <div className={styles.header}>~ Top Science Books ~</div> */}
                 <section className='text-center'>
                 </section>

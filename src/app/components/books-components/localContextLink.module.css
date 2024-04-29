@@ -10,9 +10,9 @@
 
 .localContextLinksContainer a {
     /* text-decoration: underline; */
-    color: #004f56;
+    color: #14352e;
     text-decoration-color: var(--color-active-element);
-    font-weight: 600;
+    font-weight: 500;
     scroll-behavior: smooth;
     /* line-height: 1.2; */
     font-size: 1.4rem;
