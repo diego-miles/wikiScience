@@ -25,27 +25,34 @@ export const TextGenerateEffect = ({
     );
   }, [animate]);
 
-  const renderWords = () => {
-    return (
-      <motion.div ref={scope}>
-        {wordsArray.map((word, idx) => {
-          return (
-            <motion.span
-              key={word + idx}
-              className=" dark:text-white text-[#19252f] opacity-0"
-            >
-              {word}{" "}
-            </motion.span>
-          );
-        })}
-      </motion.div>
-    );
-  };
+const renderWords = () => {
+  return (
+    <motion.div ref={scope}>
+      {wordsArray.map((word, idx) => {
+        return (
+          <motion.span
+            key={word + idx}
+            className="dark:text-white text-[#19252f] opacity-0 relative"
+            // style={{
+            //   // WebkitTextStroke: '2px #0064fa', // Grosor y color del contorno del texto
+            //   textShadow: '-2px 2px 0px rgb(135, 225, 244)', // Sombra en el lado izquierdo para simular efecto de profundidad
+            // }}
+          >
+            {word}{" "}
+          </motion.span>
+        );
+      })}
+    </motion.div>
+  );
+};
+
+
+
 
   return (
     <div className={cn("font-normal", className)}>
-      <div className="mt-2">
-        <div className="mx-auto max-w-5xl dark:text-white font-bold text-5xl leading-snug tracking-wide">
+      <div className="mt-2  ">
+        <div className=" mx-auto py-5 max-w-5xl   dark:text-white font-bold text-5xl leading-snug tracking-wide">
           {renderWords()}
         </div>
       </div>

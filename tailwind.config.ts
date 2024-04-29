@@ -53,7 +53,7 @@ const config = {
         accent2: 'var(--color-accent2)',
         accent3: 'var(--color-accent3)',
         gold: 'var(--color-gold)',
-        background1: 'var(--color-background1)',
+        "background1": 'var(--color-background1)',
         background2: 'var(--color-background2)',
         background3: 'var(--color-background3)',
         border: 'var(--color-border)',

@@ -37,14 +37,14 @@ const HomePage: React.FC = () => {
       </div> */}
 
 
-        <div className="flex justify-center"> {/* Centering the logo */}
+        <div className="flex justify-center "> {/* Centering the logo */}
           {/* <div className="w-20 h-20 bg-no-repeat bg-center bg-contain z-30" style={{ backgroundImage: 'url(/wikilogo-blue.svg)' }}></div>  */}
-          <figure>
+          <figure className=''>
             <Image width={55} height={50} alt='Wiki-logo' src={'wikilogo-blue.svg'} unoptimized  ></Image>
           </figure>
         </div>
 
-        <header className="text-center mt-4 min-h-80">
+        <header className="text-center mt-2 min-h-80">
           <h1 className="text-5xl font-bold text-[#44a6cd]">Wiki Science</h1> {/* Using Tailwind's text color and font weight utilities */}
           {/* <p className="text-3xl font-extrabold text-[#2d373d] mt-4 px-2">A next-generation educational platform. <span className="text-[#376ba2]">Powered by AI.</span></p>  */}
           <TextGenerateEffectDemo></TextGenerateEffectDemo>

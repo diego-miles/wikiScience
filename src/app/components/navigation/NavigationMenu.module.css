@@ -99,7 +99,7 @@
 .subField a {
   font-family: var(--font-family-h1);
   /* font-size: 1.6rem; */
-  font-weight: 700;
+  font-weight: 600;
   color: var(--color-h1);
   font-style: normal;
   padding-bottom: .5rem;
@@ -120,7 +120,7 @@
 .subTopic a {
   font-family: var(--font-family-h1);
   color: var(--color-p);
-  font-weight: 600;
+  font-weight: 500;
   /* text-decoration: underline; */
   text-decoration-color: var(--color-accent1);
   /* font-size: 1.5rem; */
