@@ -8,6 +8,7 @@ import Link from 'next/link';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
 // import TextGenerateEffectDemo from './HeroHomeText'
 import dynamic from 'next/dynamic';
+import Accordion from '@/components/books-components/AccordionFields'
 
 const TextGenerateEffectDemo = dynamic(() => import('./HeroHomeText'), { ssr: false })
 
@@ -20,7 +21,7 @@ const HomePage: React.FC = () => {
   return (
     <div>
       <NavBar />
-      <main className="container mx-auto mt-12"> {/* Using Tailwind's container class for centering and padding */}
+      <main className=" mx-auto mt-12"> {/* Using Tailwind's container class for centering and padding */}
       {/* <div className="relative mt-16">
         <div className="absolute inset-0 flex items-center justify-center mt-28">
 
@@ -43,15 +44,17 @@ const HomePage: React.FC = () => {
             <Image width={55} height={50} alt='Wiki-logo' src={'wikilogo-blue.svg'} unoptimized  ></Image>
           </figure>
         </div>
+          <h1 className="mt-1 text-5xl font-bold text-[#44a6cd]">Wiki Science</h1> {/* Using Tailwind's text color and font weight utilities */}
 
-        <header className="text-center mt-2 min-h-80">
-          <h1 className="text-5xl font-bold text-[#44a6cd]">Wiki Science</h1> {/* Using Tailwind's text color and font weight utilities */}
+        <header className="text-center mt-0 h-64 ">
           {/* <p className="text-3xl font-extrabold text-[#2d373d] mt-4 px-2">A next-generation educational platform. <span className="text-[#376ba2]">Powered by AI.</span></p>  */}
+          <div className="text-center mt-0 h-40 ">
           <TextGenerateEffectDemo></TextGenerateEffectDemo>
+          </div>
         </header>
 
-        <section className="mt-16">
-          <h2 className=" text-2xl font-extrabold text-center mb-12 text-[#477780]">Top Science Books</h2>
+        <section className="">
+          <h2 className=" text-2xl font-bold text-center mb-12 text-[#477780]">Top Science Books</h2>
           <p className="text-lg text-center mt-4 font-normal">  Explore a community-curated collection of top science books </p>
           <div className='max-w-4xl  mx-auto'>
           <ul className="list-none mt-5 px-4">
@@ -71,12 +74,13 @@ const HomePage: React.FC = () => {
           </ul>
           </div>
         </section>
-
+        <section className='pt-16'>
+        <Accordion></Accordion>
+        </section>
 
         {/* Menu section using Tailwind's grid and flexbox utilities */}
-        <div className="mt-16">
+        {/* <div className="mt-16">
           <div className="max-w-7xl mx-auto">
-            {/* <div className="text-center text-[#a3c4e0] rounded-md py-2 mb-4 text-lg font-medium">Top Science Books</div> */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {data.map((field, idx) => (
                 <div key={idx} className="p-4">
@@ -106,7 +110,7 @@ const HomePage: React.FC = () => {
               ))}
             </div>
           </div>
-        </div>
+        </div> */}
 
         <ScrollTopButton />
       </main>
@@ -120,3 +124,5 @@ const HomePage: React.FC = () => {
 };
 
 export default HomePage;
+
+
