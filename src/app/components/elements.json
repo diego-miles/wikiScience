@@ -1,0 +1,592 @@
+[
+    {
+        "symbol": "H",
+        "name": "Hydrogen",
+        "family": "Non-metal"
+    },
+    {
+        "symbol": "He",
+        "name": "Helium",
+        "family": "Noble gas"
+    },
+    {
+        "symbol": "Li",
+        "name": "Lithium",
+        "family": "Alkali metal"
+    },
+    {
+        "symbol": "Be",
+        "name": "Beryllium",
+        "family": "Alkaline earth metal"
+    },
+    {
+        "symbol": "B",
+        "name": "Boron",
+        "family": "Metalloid"
+    },
+    {
+        "symbol": "C",
+        "name": "Carbon",
+        "family": "Non-metal"
+    },
+    {
+        "symbol": "N",
+        "name": "Nitrogen",
+        "family": "Non-metal"
+    },
+    {
+        "symbol": "O",
+        "name": "Oxygen",
+        "family": "Non-metal"
+    },
+    {
+        "symbol": "F",
+        "name": "Fluorine",
+        "family": "Halogen"
+    },
+    {
+        "symbol": "Ne",
+        "name": "Neon",
+        "family": "Noble gas"
+    },
+    {
+        "symbol": "Na",
+        "name": "Sodium",
+        "family": "Alkali metal"
+    },
+    {
+        "symbol": "Mg",
+        "name": "Magnesium",
+        "family": "Alkaline earth metal"
+    },
+    {
+        "symbol": "Al",
+        "name": "Aluminum",
+        "family": "Transition metal"
+    },
+    {
+        "symbol": "Si",
+        "name": "Silicon",
+        "family": "Metalloid"
+    },
+    {
+        "symbol": "P",
+        "name": "Phosphorus",
+        "family": "Non-metal"
+    },
+    {
+        "symbol": "S",
+        "name": "Sulfur",
+        "family": "Non-metal"
+    },
+    {
+        "symbol": "Cl",
+        "name": "Chlorine",
+        "family": "Halogen"
+    },
+    {
+        "symbol": "Ar",
+        "name": "Argon",
+        "family": "Noble gas"
+    },
+    {
+        "symbol": "K",
+        "name": "Potassium",
+        "family": "Alkali metal"
+    },
+    {
+        "symbol": "Ca",
+        "name": "Calcium",
+        "family": "Alkaline earth metal"
+    },
+    {
+        "symbol": "Sc",
+        "name": "Scandium",
+        "family": "Transition metal"
+    },
+    {
+        "symbol": "Ti",
+        "name": "Titanium",
+        "family": "Transition metal"
+    },
+    {
+        "symbol": "V",
+        "name": "Vanadium",
+        "family": "Transition metal"
+    },
+    {
+        "symbol": "Cr",
+        "name": "Chromium",
+        "family": "Transition metal"
+    },
+    {
+        "symbol": "Mn",
+        "name": "Manganese",
+        "family": "Transition metal"
+    },
+    {
+        "symbol": "Fe",
+        "name": "Iron",
+        "family": "Transition metal"
+    },
+    {
+        "symbol": "Co",
+        "name": "Cobalt",
+        "family": "Transition metal"
+    },
+    {
+        "symbol": "Ni",
+        "name": "Nickel",
+        "family": "Transition metal"
+    },
+    {
+        "symbol": "Cu",
+        "name": "Copper",
+        "family": "Transition metal"
+    },
+    {
+        "symbol": "Zn",
+        "name": "Zinc",
+        "family": "Transition metal"
+    },
+    {
+        "symbol": "Ga",
+        "name": "Gallium",
+        "family": "Post-transition metal"
+    },
+    {
+        "symbol": "Ge",
+        "name": "Germanium",
+        "family": "Metalloid"
+    },
+    {
+        "symbol": "As",
+        "name": "Arsenic",
+        "family": "Metalloid"
+    },
+    {
+        "symbol": "Se",
+        "name": "Selenium",
+        "family": "Non-metal"
+    },
+    {
+        "symbol": "Br",
+        "name": "Bromine",
+        "family": "Halogen"
+    },
+    {
+        "symbol": "Kr",
+        "name": "Krypton",
+        "family": "Noble gas"
+    },
+    {
+        "symbol": "Rb",
+        "name": "Rubidium",
+        "family": "Alkali metal"
+    },
+    {
+        "symbol": "Sr",
+        "name": "Strontium",
+        "family": "Alkaline earth metal"
+    },
+    {
+        "symbol": "Y",
+        "name": "Yttrium",
+        "family": "Transition metal"
+    },
+    {
+        "symbol": "Zr",
+        "name": "Zirconium",
+        "family": "Transition metal"
+    },
+    {
+        "symbol": "Nb",
+        "name": "Niobium",
+        "family": "Transition metal"
+    },
+    {
+        "symbol": "Mo",
+        "name": "Molybdenum",
+        "family": "Transition metal"
+    },
+    {
+        "symbol": "Tc",
+        "name": "Technetium",
+        "family": "Transition metal"
+    },
+    {
+        "symbol": "Ru",
+        "name": "Ruthenium",
+        "family": "Transition metal"
+    },
+    {
+        "symbol": "Rh",
+        "name": "Rhodium",
+        "family": "Transition metal"
+    },
+    {
+        "symbol": "Pd",
+        "name": "Palladium",
+        "family": "Transition metal"
+    },
+    {
+        "symbol": "Ag",
+        "name": "Silver",
+        "family": "Transition metal"
+    },
+    {
+        "symbol": "Cd",
+        "name": "Cadmium",
+        "family": "Transition metal"
+    },
+    {
+        "symbol": "In",
+        "name": "Indium",
+        "family": "Post-transition metal"
+    },
+    {
+        "symbol": "Sn",
+        "name": "Tin",
+        "family": "Post-transition metal"
+    },
+    {
+        "symbol": "Sb",
+        "name": "Antimony",
+        "family": "Metalloid"
+    },
+    {
+        "symbol": "Te",
+        "name": "Tellurium",
+        "family": "Metalloid"
+    },
+    {
+        "symbol": "I",
+        "name": "Iodine",
+        "family": "Halogen"
+    },
+    {
+        "symbol": "Xe",
+        "name": "Xenon",
+        "family": "Noble gas"
+    },
+    {
+        "symbol": "Cs",
+        "name": "Cesium",
+        "family": "Alkali metal"
+    },
+    {
+        "symbol": "Ba",
+        "name": "Barium",
+        "family": "Alkaline earth metal"
+    },
+    {
+        "symbol": "La",
+        "name": "Lanthanum",
+        "family": "Lanthanide"
+    },
+    {
+        "symbol": "Ce",
+        "name": "Cerium",
+        "family": "Lanthanide"
+    },
+    {
+        "symbol": "Pr",
+        "name": "Praseodymium",
+        "family": "Lanthanide"
+    },
+    {
+        "symbol": "Nd",
+        "name": "Neodymium",
+        "family": "Lanthanide"
+    },
+    {
+        "symbol": "Pm",
+        "name": "Promethium",
+        "family": "Lanthanide"
+    },
+    {
+        "symbol": "Sm",
+        "name": "Samarium",
+        "family": "Lanthanide"
+    },
+    {
+        "symbol": "Eu",
+        "name": "Europium",
+        "family": "Lanthanide"
+    },
+    {
+        "symbol": "Gd",
+        "name": "Gadolinium",
+        "family": "Lanthanide"
+    },
+    {
+        "symbol": "Tb",
+        "name": "Terbium",
+        "family": "Lanthanide"
+    },
+    {
+        "symbol": "Dy",
+        "name": "Dysprosium",
+        "family": "Lanthanide"
+    },
+    {
+        "symbol": "Ho",
+        "name": "Holmium",
+        "family": "Lanthanide"
+    },
+    {
+        "symbol": "Er",
+        "name": "Erbium",
+        "family": "Lanthanide"
+    },
+    {
+        "symbol": "Tm",
+        "name": "Thulium",
+        "family": "Lanthanide"
+    },
+    {
+        "symbol": "Yb",
+        "name": "Ytterbium",
+        "family": "Lanthanide"
+    },
+    {
+        "symbol": "Lu",
+        "name": "Lutetium",
+        "family": "Lanthanide"
+    },
+    {
+        "symbol": "Hf",
+        "name": "Hafnium",
+        "family": "Transition metal"
+    },
+    {
+        "symbol": "Ta",
+        "name": "Tantalum",
+        "family": "Transition metal"
+    },
+    {
+        "symbol": "W",
+        "name": "Tungsten",
+        "family": "Transition metal"
+    },
+    {
+        "symbol": "Re",
+        "name": "Rhenium",
+        "family": "Transition metal"
+    },
+    {
+        "symbol": "Os",
+        "name": "Osmium",
+        "family": "Transition metal"
+    },
+    {
+        "symbol": "Ir",
+        "name": "Iridium",
+        "family": "Transition metal"
+    },
+    {
+        "symbol": "Pt",
+        "name": "Platinum",
+        "family": "Transition metal"
+    },
+    {
+        "symbol": "Au",
+        "name": "Gold",
+        "family": "Transition metal"
+    },
+    {
+        "symbol": "Hg",
+        "name": "Mercury",
+        "family": "Transition metal"
+    },
+    {
+        "symbol": "Tl",
+        "name": "Thallium",
+        "family": "Post-transition metal"
+    },
+    {
+        "symbol": "Pb",
+        "name": "Lead",
+        "family": "Post-transition metal"
+    },
+    {
+        "symbol": "Bi",
+        "name": "Bismuth",
+        "family": "Post-transition metal"
+    },
+    {
+        "symbol": "Po",
+        "name": "Polonium",
+        "family": "Post-transition metal"
+    },
+    {
+        "symbol": "At",
+        "name": "Astatine",
+        "family": "Halogen"
+    },
+    {
+        "symbol": "Rn",
+        "name": "Radon",
+        "family": "Noble gas"
+    },
+    {
+        "symbol": "Fr",
+        "name": "Francium",
+        "family": "Alkali metal"
+    },
+    {
+        "symbol": "Ra",
+        "name": "Radium",
+        "family": "Alkaline earth metal"
+    },
+    {
+        "symbol": "Ac",
+        "name": "Actinium",
+        "family": "Actinide"
+    },
+    {
+        "symbol": "Th",
+        "name": "Thorium",
+        "family": "Actinide"
+    },
+    {
+        "symbol": "Pa",
+        "name": "Protactinium",
+        "family": "Actinide"
+    },
+    {
+        "symbol": "U",
+        "name": "Uranium",
+        "family": "Actinide"
+    },
+    {
+        "symbol": "Np",
+        "name": "Neptunium",
+        "family": "Actinide"
+    },
+    {
+        "symbol": "Pu",
+        "name": "Plutonium",
+        "family": "Actinide"
+    },
+    {
+        "symbol": "Am",
+        "name": "Americium",
+        "family": "Actinide"
+    },
+    {
+        "symbol": "Cm",
+        "name": "Curium",
+        "family": "Actinide"
+    },
+    {
+        "symbol": "Bk",
+        "name": "Berkelium",
+        "family": "Actinide"
+    },
+    {
+        "symbol": "Cf",
+        "name": "Californium",
+        "family": "Actinide"
+    },
+    {
+        "symbol": "Es",
+        "name": "Einsteinium",
+        "family": "Actinide"
+    },
+    {
+        "symbol": "Fm",
+        "name": "Fermium",
+        "family": "Actinide"
+    },
+    {
+        "symbol": "Md",
+        "name": "Mendelevium",
+        "family": "Actinide"
+    },
+    {
+        "symbol": "No",
+        "name": "Nobelium",
+        "family": "Actinide"
+    },
+    {
+        "symbol": "Lr",
+        "name": "Lawrencium",
+        "family": "Actinide"
+    },
+    {
+        "symbol": "Rf",
+        "name": "Rutherfordium",
+        "family": "Transition metal"
+    },
+    {
+        "symbol": "Db",
+        "name": "Dubnium",
+        "family": "Transition metal"
+    },
+    {
+        "symbol": "Sg",
+        "name": "Seaborgium",
+        "family": "Transition metal"
+    },
+    {
+        "symbol": "Bh",
+        "name": "Bohrium",
+        "family": "Transition metal"
+    },
+    {
+        "symbol": "Hs",
+        "name": "Hassium",
+        "family": "Transition metal"
+    },
+    {
+        "symbol": "Mt",
+        "name": "Meitnerium",
+        "family": "Transition metal"
+    },
+    {
+        "symbol": "Ds",
+        "name": "Darmstadtium",
+        "family": "Transition metal"
+    },
+    {
+        "symbol": "Rg",
+        "name": "Roentgenium",
+        "family": "Transition metal"
+    },
+    {
+        "symbol": "Cn",
+        "name": "Copernicium",
+        "family": "Transition metal"
+    },
+    {
+        "symbol": "Nh",
+        "name": "Nihonium",
+        "family": "Transition metal"
+    },
+    {
+        "symbol": "Fl",
+        "name": "Flerovium",
+        "family": "Transition metal"
+    },
+    {
+        "symbol": "Mc",
+        "name": "Moscovium",
+        "family": "Transition metal"
+    },
+    {
+        "symbol": "Lv",
+        "name": "Livermorium",
+        "family": "Transition metal"
+    },
+    {
+        "symbol": "Ts",
+        "name": "Tennessine",
+        "family": "Halogen"
+    },
+    {
+        "symbol": "Og",
+        "name": "Oganesson",
+        "family": "Noble gas"
+    }
+]

@@ -50,7 +50,7 @@ const BookRecommendation: React.FC<BookRecommendationProps> = ({ book, priority,
 
   return (
     <>
-    <div className={styles.bookRecommendation}>
+    <section className={styles.bookRecommendation} >
 
       <h2 id={book.englishTitle?.replace(/\s+/g, '-').toLowerCase()} className={styles.title} >
         {'"' + englishTitle + '"'} <span>by {authorsFormatted}</span>
@@ -104,7 +104,7 @@ const BookRecommendation: React.FC<BookRecommendationProps> = ({ book, priority,
           ))}
         </div>
       </div>
-    </div>
+    </section>
     </>
   );
 };

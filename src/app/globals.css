@@ -4,7 +4,8 @@
 
 
 :root {
-  --color-h1: #00659A;
+  --color-h1: #005d8f;
+  /* --color-h1: #00659A; */
   /* --color-h2: #003c85; */
   --color-h2: #1c4b4e;
   /* --color-h2: #326a8b; */
@@ -31,7 +32,9 @@
   --color-border: #BAD1DD;
   --color-button: #EAF0F3;
   --color-menu: #e9edef;
-  --color-span: #7497a8;
+  --color-span: rgb(130, 164, 180);
+  /* --color-span: rgb(138, 184, 205); */
+  /* --color-span: #7497a8; */
   /* --color-span: #588196; */
   /* --color-span: #466f82; */
   /* --color-span: #004c6f; */
@@ -45,7 +48,7 @@
 
   --font-size-p: 1.5rem;
   --font-size-small-p: 1.5rem;
-  --font-size-h1: 3rem;
+  --font-size-h1: 2.8rem;
   --font-size-h2: 1.8rem;
   --font-size-h3: 1.7rem;
   --font-size-h4: 1.6rem;
@@ -150,14 +153,16 @@ section {
   width: 100%;
 }
 
-
+li {
+  font-size: 1.5rem;
+}
 a {
   color: var(--color-a);
   text-decoration: none;
   display: block;
   font-size: var(--font-size-a);
-  line-height: 1.1;
-  padding: .4rem 0;
+  line-height: 1.5;
+  /* padding: .4rem 0; */
   font-weight: 400;
 }
 
@@ -182,7 +187,7 @@ h1 {
   font-weight: 900;
   color: var(--color-h1);
   text-align: center;
-  line-height: 1.2;
+  line-height: 1.3;
   padding-bottom: 5rem;
 }
 
@@ -234,6 +239,7 @@ li {
 
 span {
   color: var(--color-span);
+  font-weight: 600;
 }
 
 strong {

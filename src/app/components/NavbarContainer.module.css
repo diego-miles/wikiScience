@@ -40,14 +40,15 @@
 
 .contextualLinks a {
   font-style: normal;
-  font-size: 1.4rem;
-  padding: 0.2rem 0;
+  font-size: 1.3rem;
+  padding: 0rem 0;
   font-weight: 400;
+  color: #a2a6a6;
   /* color: var(--color-title3); */
 }
 
 .active {
-  color: var(--color-h1);
+  color: blue;
   font-weight: 600;
 }
 
@@ -83,7 +84,7 @@
 .padding {
   padding: .2rem 0.5rem;
   padding-bottom: 0rem;
-  color: #454a4b;
+  color: #8e8e8e;
   /* font-family: var(--font-family-text); */
   font-weight: 500;
   font-size: 1.2rem;

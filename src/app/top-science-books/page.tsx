@@ -15,6 +15,8 @@ const Page: React.FC = () => {
     <div>
       <NavBar menuPath='./NavigationMenu'/>
       <main className={styles.animatedElement}>
+        <section>
+
           <div className={styles.divContext}>
             <p className={styles.textContext}>Ranking</p>
           </div>
@@ -23,6 +25,7 @@ const Page: React.FC = () => {
           <ScienceFieldsMenu data={data}/>
           <ScrollTopButton />
           
+        </section>
       </main>
     </div>
   );
