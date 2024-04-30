@@ -23,7 +23,7 @@
   --color-strong: #090909;
   /* --color-p: #243b48; */
   --color-a: #ad0048;
-  --color-a2: #4a6370;
+  --color-a2: #5c8eaa;
   /* --color-accent1: #0075c3; */
   --color-accent1: #3498db;
   --color-accent2: #cf4336;
@@ -32,7 +32,8 @@
   --color-background1: #f4f6f6;
   --color-background2: #cfd3d3;
   --color-background3: #B0B6B9;
-  --color-border: #9bc1d6;
+  --color-border: #d2e3ec;
+  /* --color-border: #9bc1d6; */
   --color-button: #EAF0F3;
   --color-menu: #e9edef;
   --color-span: rgb(153, 171, 181);
