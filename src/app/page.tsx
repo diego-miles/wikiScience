@@ -44,7 +44,7 @@ const HomePage: React.FC = () => {
             </figure>
             <h1 className="mt-1 text-5xl font-bold text-[#44a6cd]">Wiki Science</h1> {/* Using Tailwind's text color and font weight utilities */}
             {/* <p className="text-3xl font-extrabold text-[#2d373d] mt-4 px-2">A next-generation educational platform. <span className="text-[#376ba2]">Powered by AI.</span></p>  */}
-            <div className="h-72">
+            <div className="h-[18rem]">
             <TextGenerateEffectDemo></TextGenerateEffectDemo>
             </div>
           </header>
@@ -55,7 +55,7 @@ const HomePage: React.FC = () => {
         <section className="">
 <div className='relative '>
   <div 
-    className=" overflow-hidden bg-cover w-[32rem] h-28 mx-auto absolute top-2 left-0 right-0 bottom-0 flex items-center justify-center"
+    className=" overflow-hidden bg-cover w-[34rem] h-28 mx-auto absolute top-1 left-0 right-0 bottom-0 flex items-center justify-center"
     style={{ 
       backgroundImage: `url('/background-head.svg')`, 
     }}
@@ -63,10 +63,10 @@ const HomePage: React.FC = () => {
   </div>
 </div>
 
-          <h2 className=" text-2xl font-bold text-center mb-12 text-[#39717b]">Top Science Books</h2>
+          <h2 className=" text-2xl font-bold text-center mb-16 text-[#39717b]">Top Science Books</h2>
           <p className="text-lg text-center mt-4 font-normal">  Explore a community-curated collection of top science books </p>
-          <div className='max-w-4xl  mx-auto'>
-          <ul className="list-none mt-5 px-4">
+          <div className='max-w-3xl  mx-auto'>
+          <ul className="list-none mt-6 px-4">
             {[
               "Get in-depth insights with expert summaries.",
               "Discover each book's impact on science.",
