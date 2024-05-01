@@ -12,7 +12,7 @@ const Footer = () => {
           <Link href="#" className="text-white py-4 font-medium">Top Science Books</Link>
         </li>
         <li>
-          <Link href="#" className="text-white py-4 font-medium">Periodic Table</Link>
+          <Link href="#" className="text-white py-4 font-medium">Science Concepts</Link>
         </li>
       </ul>
         <div className='globalHeight '></div>
