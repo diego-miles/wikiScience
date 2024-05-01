@@ -10,7 +10,7 @@ import {
   AccordionTrigger, 
 } from "@/components/ui/accordion";
 
-import chemicalElements from '@/components/elements.json'; // Importa la lista de elementos químicos
+import chemicalElements from '@/components/elementsData.json'; // Importa la lista de elementos químicos
 
 
 
