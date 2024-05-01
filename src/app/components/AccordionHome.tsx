@@ -11,12 +11,12 @@ import data from '@/components/data';
 
 export default function AccordionDemo() {
   return (
-    <div className="container mx-auto bg-background1 pt-8"> 
+    <div className="container mx-auto p-12 py-16 pb-20 bg-background1 border-4 shadow-lg rounded-2xl"> 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
         {data.map((field, idx) => (
           <Accordion key={idx} type="single" collapsible className="">
             {/* <Link href={`/top-science-books/${toSlug(field.title)}`}> */}
-              <h3 className="mt-0 mb-2">{field.title}</h3>
+              <h3 className="">{field.title}</h3>
             {/* </Link> */}
             {field.subFields.map((subField, sIdx) => (
               <AccordionItem  key={sIdx} value={`item-${idx}-${sIdx}`}>
