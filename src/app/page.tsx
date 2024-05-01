@@ -8,7 +8,7 @@ import Link from 'next/link';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
 // import TextGenerateEffectDemo from './HeroHomeText'
 import dynamic from 'next/dynamic';
-import Accordion from '@/components/AccordionHome'
+import Accordion from '@/AccordionHome'
 import logoSvg from '/head-background.svg';
 import { CardWithForm } from '@/ChemistryCard';
 import ChemestrCards from './CarrouselElements'
@@ -49,7 +49,7 @@ const HomePage: React.FC = () => {
             >
             </div>
           </div>
-          <h2 className=" text-3xl font-bold text-center mb-20 ">Chemistry Elemets</h2>
+          <h2 className=" text-3xl font-bold text-center mb-20 ">Chemichal Elemets</h2>
           {/* <p className="text-lg text-center mt-4 font-normal">  Explore a community-curated collection of top science books </p> */}
           {/* <CardWithForm></CardWithForm> */}
 
