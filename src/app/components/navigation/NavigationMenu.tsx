@@ -10,6 +10,7 @@ import {
   AccordionTrigger, 
 } from "@/components/ui/accordion";
 
+
 import chemicalElements from '@/components/elementsData.json'; // Importa la lista de elementos químicos
 
 
@@ -67,12 +68,10 @@ const NavigationMenu: React.FC<NavigationMenuProps> = ({ className, style }) => 
 
         </AccordionTrigger>
         <AccordionContent>
-      <div className="grid grid-cols-2 md:grid-cols-2 gap-8 mt-9">
+      {/* <div className="grid grid-cols-2 md:grid-cols-2 gap-8 mt-9">
         {data.map((field, idx) => (
           <Accordion key={idx} type="single" collapsible className="mb-4">
-            {/* <Link href={`/top-science-books/${toSlug(field.title)}`}> */}
               <h3 className="text-base font-semibold text-left">{field.title}</h3>
-            {/* </Link> */}
             {field.subFields.map((subField, sIdx) => (
               <AccordionItem key={sIdx} value={`item-${idx}-${sIdx}`}>
                 <AccordionTrigger>
@@ -90,9 +89,7 @@ const NavigationMenu: React.FC<NavigationMenuProps> = ({ className, style }) => 
                     {subField.topics.map((topic, tIdx) => (
                       <li key={tIdx}>
                         <Link className=" py-2 text-xs text-left" href={`/top-science-books/${toSlug(subField.title)}/${toSlug(topic)}`}>
-                          {/* <p> */}
                             {topic}
-                            {/* </p> */}
                         </Link>
                       </li>
                     ))}
@@ -102,7 +99,48 @@ const NavigationMenu: React.FC<NavigationMenuProps> = ({ className, style }) => 
             ))}
           </Accordion>
         ))}
-      </div>
+      </div> */}
+
+
+
+            <section className={"-mt-12 "}> 
+                {/* <div className={styles.header}>~ Top Science Books ~</div> */}
+
+                
+                <div className={styles.navContainer}>
+                    {data.map((field, idx) => (
+                        <div className={styles.branchContainer} key={idx}>
+                            <div>
+                                <li className={styles.titleField}>{field.title}</li>
+                            </div>
+                            <div className={styles.gridLayout}>
+                                {field.subFields.map((subField, sIdx) => (
+                                    <ul key={sIdx}>
+                                        <li className={styles.subField}>
+                                            {/* Use toSlug to convert subField.title into a slug */}
+                                            <Link href={`/top-science-books/${toSlug(subField.title)}`} className='menu-link'>
+                                                {subField.title}
+                                            </Link>
+                                        </li>
+                                        {subField.topics.map((topic, tIdx) => (
+                                            <li className={styles.subTopic} key={tIdx}>
+                                                {/* Use toSlug for both subField.title and topic to create a nested slug */}
+                                                <Link href={`/top-science-books/${toSlug(subField.title)}/${toSlug(topic)}`} >
+                                                    {topic}
+                                                </Link>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                ))}
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </section>
+
+
+
+
         </AccordionContent>
       </AccordionItem>
     </Accordion>

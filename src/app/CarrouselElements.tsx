@@ -37,10 +37,12 @@ export default function CarouselSpacing() {
                 <Card className=""  >
                   <CardContent className="flex aspect-square items-center justify-center py-4 px-3">
                     <div>
+                        
                       <p className="text-xl font-extrabold py-0">{element.symbol}</p>
                       <p className="text-xs font-base py-0 my-0"># <strong>{element.atomicNumber}</strong></p>
                       <p className=" font-bold py-0">{element.name}</p>
                       <p className="font-medium text-2xs py-1 text-[#7e729e]">{element.family}</p>
+                      <div className=""></div>
                     </div>
                   </CardContent>
                 </Card>
