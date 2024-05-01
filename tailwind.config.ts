@@ -69,6 +69,7 @@ const config = {
         'darkgreen-text': 'var(--color-darkgreen-text)',
       },
       fontSize: {
+        '2xs': '1.1rem', // Tamaño de fuente extra pequeño
         'xs': '1.3rem', // Tamaño de fuente extra pequeño
         'sm': '1.4rem', // Tamaño de fuente pequeño
         'base': '1.5rem', // Tamaño de fuente base

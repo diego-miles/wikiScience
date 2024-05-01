@@ -28,19 +28,19 @@ export default function CarouselSpacing() {
 
   return (
     <div>
-      <Carousel className="w-[75vw] md:max-w-3xl" setApi={setApi}>
+      <Carousel className="w-[75vw]  md:max-w-3xl max-h-60" setApi={setApi}>
         <CarouselContent className="-ml-1" >
           {chemicalElements.map((element, index) => (
-            <CarouselItem key={element.atomicNumber} className="pl-1 basis-1/3">
+            <CarouselItem key={element.atomicNumber} className="pl-1 basis-1/3 min-w-52">
               <div className="p-1">
                 <Link href={`periodic-table/${element.name.toLowerCase()}`}>   
                 <Card >
-                  <CardContent className="flex aspect-square items-center justify-center p-6">
+                  <CardContent className="flex aspect-square items-center justify-center p-4">
                     <div>
-                      <p className="text-xl font-extrabold">{element.symbol}</p>
-                      <p className="text-xs font-base py-0 my-0">Atomic #: <strong>{element.atomicNumber}</strong></p>
+                      <p className="text-xl font-extrabold py-0">{element.symbol}</p>
+                      <p className="text-xs font-base py-0 my-0"># <strong>{element.atomicNumber}</strong></p>
                       <p className=" font-bold py-0">{element.name}</p>
-                      <p className="font-medium text-xs py-1 ">{element.family}</p>
+                      <p className="font-semibold text-2xs py-1 text-[#534674]">{element.family}</p>
                     </div>
                   </CardContent>
                 </Card>
@@ -52,7 +52,7 @@ export default function CarouselSpacing() {
         <CarouselPrevious />
         <CarouselNext />
       </Carousel>
-      <div className="py-4 text-center text-sm text-muted-foreground">
+      <div className="pb-4 text-center text-sm text-muted-foreground">
         Slide {current} of {chemicalElements.length} 
       </div>
     </div>
