@@ -28,19 +28,19 @@ export default function CarouselSpacing() {
 
   return (
     <div>
-      <Carousel className="w-[75vw]  md:max-w-3xl " setApi={setApi}>
-        <CarouselContent className="-ml-1" >
+      <Carousel className="w-[75vw] " setApi={setApi}>
+        <CarouselContent className="-ml-1 " >
           {chemicalElements.map((element, index) => (
-            <CarouselItem key={element.atomicNumber} className="pl-1 basis-1/3 min-w-52">
+            <CarouselItem key={element.atomicNumber} className="pl-1 basis-1/3 min-w-52 max-w-52">
               <div className="p-1">
                 <Link href={`periodic-table/${element.name.toLowerCase()}`}>   
-                <Card >
+                <Card className=""  >
                   <CardContent className="flex aspect-square items-center justify-center py-4 px-3">
                     <div>
                       <p className="text-xl font-extrabold py-0">{element.symbol}</p>
                       <p className="text-xs font-base py-0 my-0"># <strong>{element.atomicNumber}</strong></p>
                       <p className=" font-bold py-0">{element.name}</p>
-                      <p className="font-medium text-2xs py-1 text-[#7b7197]">{element.family}</p>
+                      <p className="font-medium text-2xs py-1 text-[#7e729e]">{element.family}</p>
                     </div>
                   </CardContent>
                 </Card>
