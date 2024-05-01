@@ -42,7 +42,7 @@ const NavigationMenu: React.FC<NavigationMenuProps> = ({ className, style }) => 
     <Accordion type="single" collapsible className="w-full" >
       <AccordionItem value="item-1">
         <AccordionTrigger>
-                                <h2 className='text-center text-base w-full font-semibold'>Chemical Elements</h2>
+                                <h2 className='py-6 mb-0 text-center text-base w-full font-semibold'>Chemical Elements</h2>
 
         </AccordionTrigger>
         <AccordionContent>
@@ -64,42 +64,10 @@ const NavigationMenu: React.FC<NavigationMenuProps> = ({ className, style }) => 
       </AccordionItem>
       <AccordionItem value="item-2">
         <AccordionTrigger>
-                                <h2 className='py-6 text-center w-full text-base font-semibold'>Top Science Books</h2>
+                                <h2 className='text-center py-6 mb-3 w-full text-base font-semibold pb-4'>Top Science Books</h2>
 
         </AccordionTrigger>
         <AccordionContent>
-      {/* <div className="grid grid-cols-2 md:grid-cols-2 gap-8 mt-9">
-        {data.map((field, idx) => (
-          <Accordion key={idx} type="single" collapsible className="mb-4">
-              <h3 className="text-base font-semibold text-left">{field.title}</h3>
-            {field.subFields.map((subField, sIdx) => (
-              <AccordionItem key={sIdx} value={`item-${idx}-${sIdx}`}>
-                <AccordionTrigger>
-                    <p className='p-0 text-sm'>
-                  {subField.title}
-                    </p>
-                </AccordionTrigger>
-                <AccordionContent>
-                  <ul>
-                    <li className=""> 
-                      <Link className='text-xs text-left' href={`/top-science-books/${toSlug(subField.title)}`}>
-                        {subField.title} 
-                      </Link> 
-                    </li>
-                    {subField.topics.map((topic, tIdx) => (
-                      <li key={tIdx}>
-                        <Link className=" py-2 text-xs text-left" href={`/top-science-books/${toSlug(subField.title)}/${toSlug(topic)}`}>
-                            {topic}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                </AccordionContent>
-              </AccordionItem>
-            ))}
-          </Accordion>
-        ))}
-      </div> */}
 
 
 
