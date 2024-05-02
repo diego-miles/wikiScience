@@ -1,7 +1,7 @@
 
 import React from 'react';
 import Image from 'next/image';
-import NavBar from '@/components/NavbarContainer';
+import NavBar from '@/components/navigation/NavbarContainer';
 import data from '@/data/data';
 import ScrollTopButton from '@/components/ScrollTopButton';
 import Link from 'next/link';

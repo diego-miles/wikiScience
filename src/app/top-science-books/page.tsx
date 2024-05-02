@@ -1,7 +1,7 @@
 import React from 'react';
 import { ScienceFieldsMenu } from './ScienceFieldsMenu';
 import data from '@/data/data';
-import NavBar from '@/components/NavbarContainer';
+import NavBar from '@/components/navigation/NavbarContainer';
 import styles from './Recomendaciones.module.css';
 import ScrollTopButton from '@/components/ScrollTopButton'
 

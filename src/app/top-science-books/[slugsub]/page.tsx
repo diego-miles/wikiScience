@@ -1,5 +1,5 @@
 import { PrismaClient } from '@prisma/client';
-import NavBar from '@/components/NavbarContainer';
+import NavBar from '@/components/navigation/NavbarContainer';
 import ContextSpace from '@/components/books-components/ContextSpace';
 import ArticleTitle from '@/components/books-components/ArticleTitle';
 import LocalContextLinks from '@/components/books-components/LocalContextLinks';
@@ -107,7 +107,11 @@ async function Page({ params: { slugsub } }: SubFieldPageProps) {
                 <ContextSpace />
                 <ArticleTitle topic={subFieldData.subField || ''} />
                 <LocalContextLinks links={bookLinks || []} />
-                {bookRecommendations}
+                <div className='-mx-7 shadow-2xl bg-background1'>
+                    <div className=' mt-20 max-w-[75rem] mx-auto    w-full   rounded-2xl pt-4 pb-9 px-9  md:px-20'>
+                        {bookRecommendations}
+                    </div>
+                </div>
                 <div className='globalSpace'></div>
                 <div className='globalSpace'></div>
                 <ScrollTopButton />

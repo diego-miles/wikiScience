@@ -28,25 +28,6 @@ const BookRecommendation: React.FC<BookRecommendationProps> = ({ book, priority,
 
   const authorsFormatted = authors.join(', ');
 
-//   // Function to highlight keywords in summary
-// const highlightKeywords = (text: string) => {
-//   // First, create a regex pattern from keywords to identify phrases in the text
-//   const regexPattern = span.map(kw => kw.replace(/([\s,.;])/g, '\\$1')).join('|');
-//   const regex = new RegExp(`\\b(${regexPattern})\\b`, 'gi');
-
-//   // Split the text by the regex and keep the separators (keywords)
-//   const splitText = text.split(regex);
-
-//   return splitText.map((segment, index) => {
-//     // Check if the segment is a keyword
-//     if (span.some(kw => kw.toLowerCase() === segment.toLowerCase())) {
-//       return <span key={index} className={styles.keyword}>{segment}</span>;
-//     }
-//     // If not a keyword, return the segment as is
-//     return segment;
-//   });
-// };
-
 
   return (
     <>
@@ -84,21 +65,13 @@ const BookRecommendation: React.FC<BookRecommendationProps> = ({ book, priority,
               <p className={"smallText2"}>({ratings.goodreads?.number} ratings)</p> 
           </div>
         )}
-        {/* {ratings?.google && (
-          <div>
-            <a className='active-gold2'>Google</a>
-            <a className='active-gold'>
-                {ratings.google.average}
-            </a>
-          </div>
-        )} */}
+
       </div>
         </div>
 
         <div className={styles.rightColumn}>
         {summary?.map((paragraph, index) => (
           <p key={index} className={styles.summaryParagraph} >
-            {/* {highlightKeywords(paragraph)} */}
             {paragraph}
           </p>
           ))}

@@ -3,12 +3,12 @@ import React, { useState, useEffect, useCallback, memo, useRef, FC, CSSPropertie
 import Link from 'next/link';
 import styles from './NavbarContainer.module.css';
 import { Suspense, lazy } from 'react';
-import CrossIcon from './CrossIcon'; // Import the new CrossIcon component
+import CrossIcon from '../CrossIcon'; // Import the new CrossIcon component
 import dynamic from 'next/dynamic';
 
 
 // NavigationMenu
-const NavigationMenu = dynamic(() => import('./navigation/NavigationMenu'), { ssr: false });
+const NavigationMenu = dynamic(() => import('./NavigationMenu'), { ssr: false });
 
 const toSlug = (title: string): string => title.toLowerCase().replace(/\s+/g, '_');
 

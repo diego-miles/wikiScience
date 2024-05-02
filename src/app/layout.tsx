@@ -17,7 +17,7 @@ import { ThemeProvider } from "@/ThemProvider"
 
 
 const noto_sans_georgian = Noto_Sans_Georgian({
-  weight: ['400','500', '600', '700', '800', '900'],
+  weight: ['400', '500', '600', '700', '800', '900'],
   subsets: ['latin'],
   variable: '--font-noto-sans-georgian',
   display: 'swap'
@@ -25,7 +25,7 @@ const noto_sans_georgian = Noto_Sans_Georgian({
 
 
 const noto_serif_georgian = Noto_Serif_Georgian({
-  weight: ['400','500', '600', '700', '800', '900'],
+  weight: ['400', '500', '600', '700', '800', '900'],
   variable: '--font-noto-serif-georgian',
   subsets: ['latin'],
   display: 'swap'
@@ -47,34 +47,42 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
 
-const GoogleAdsScript = dynamic(() => import('./GoogleAdsScript'), { ssr: false });
-const CookieConsent = dynamic(() => import('./CookieConsent'), { ssr: false });
+  const GoogleAdsScript = dynamic(() => import('./GoogleAdsScript'), { ssr: false });
+  const CookieConsent = dynamic(() => import('./CookieConsent'), { ssr: false });
   return (
 
     <html lang="en">
-      
+
       <meta name="google-adsense-account" content="ca-pub-6831545317289734"></meta>
       <body className={cn(
-          "min-h-screen bg-background font-sans antialiased",
-          noto_sans_georgian.variable, noto_serif_georgian.variable
-        )}>
-          <CookieConsent />
-          <noscript>
-            <iframe
-              src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
-              height="0"
-              width="0"
-              style={{ display: "none", visibility: "hidden" }}
-            />
-          </noscript>
-            {children}
-            {/* <AnalyticsVercel /> */}
-            {/* <ScrollTopButton /> */}
-            <Footer />
-            {/* <Analytics /> */}
-            <GoogleAdsScript />
-            
-          {/* <Script
+        "min-h-screen bg-background font-sans antialiased",
+        noto_sans_georgian.variable, noto_serif_georgian.variable
+      )}>
+        <CookieConsent />
+        <noscript>
+          <iframe
+            src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
+            height="0"
+            width="0"
+            style={{ display: "none", visibility: "hidden" }}
+          />
+        </noscript>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          {children}
+        </ThemeProvider>
+
+        {/* <AnalyticsVercel /> */}
+        {/* <ScrollTopButton /> */}
+        <Footer />
+        {/* <Analytics /> */}
+        <GoogleAdsScript />
+
+        {/* <Script
             id="gtm-script"
             strategy="worker"
             dangerouslySetInnerHTML={{
@@ -87,12 +95,12 @@ const CookieConsent = dynamic(() => import('./CookieConsent'), { ssr: false });
               `,
             }}
           /> */}
-          {/* <Script
+        {/* <Script
             src={`https://www.googletagmanager.com/gtag/js?id=${GTM_ID_ANA}`}
             strategy="afterInteractive"
             async
           /> */}
-          {/* <Script
+        {/* <Script
             id="google-analytics-script"
             strategy="afterInteractive"
           >
@@ -104,7 +112,7 @@ const CookieConsent = dynamic(() => import('./CookieConsent'), { ssr: false });
             `}
           </Script> */}
 
-          </body>
+      </body>
     </html>
 
   )

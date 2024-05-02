@@ -1,4 +1,4 @@
-import NavBar from '@/components/NavbarContainer';
+import NavBar from '@/components/navigation/NavbarContainer';
 
 export default function PrivacyPolicy() {
     const h2Style = { paddingTop: '2rem' };

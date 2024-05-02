@@ -8,9 +8,9 @@
 .layer,
 .layer2,
 .layer3 {
-    width: 13rem;
-    /* 160px / 10px = 16rem */
-    height: 16rem;
+    width: 11rem;
+    /* 160px / 10px = 13rem */
+    height: 13rem;
     /* 200px / 10px = 20rem */
     background-color: white;
     box-shadow: 0 -0.2rem 0.8rem rgba(7, 67, 95, 0.168);
@@ -19,9 +19,9 @@
 }
 
 .layer0 {
-    width: 13rem;
-    /* 160px / 10px = 16rem */
-    height: 16rem;
+    width: 11rem;
+    /* 160px / 10px = 13rem */
+    height: 13rem;
     /* 200px / 10px = 20rem */
     position: absolute;
     background-color: rgba(14, 28, 40, 0.574);

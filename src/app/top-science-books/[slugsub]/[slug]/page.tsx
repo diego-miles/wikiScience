@@ -1,5 +1,5 @@
 import { PrismaClient } from '@prisma/client';
-import NavBar from '@/components/NavbarContainer';
+import NavBar from '@/components/navigation/NavbarContainer';
 import ContextSpace from '@/components/books-components/ContextSpace';
 import ArticleTitle from '@/components/books-components/ArticleTitle';
 import LocalContextLinks from '@/components/books-components/LocalContextLinks';
@@ -26,10 +26,10 @@ interface ProductPageProps {
 }
 
 const formatTitleForAmazonImageURL = (title: string) => {
-  return title
-    .replace(/[^a-zA-Z0-9 ,'&-]/g, "")
-    .replace(/&/g, "%26")
-    .replace(/ /g, "+");
+    return title
+        .replace(/[^a-zA-Z0-9 ,'&-]/g, "")
+        .replace(/&/g, "%26")
+        .replace(/ /g, "+");
 };
 
 
@@ -56,7 +56,7 @@ export async function generateMetadata({
 
 
     const images = (recommendations?.books?.map((book) => ({
-        url: `${formatTitleForAmazonImageURL(book.englishTitle)}.png` || '' 
+        url: `${formatTitleForAmazonImageURL(book.englishTitle)}.png` || ''
     })) || []).filter(image => image.url !== null) as OGImage[];
 
     const keywords = recommendations?.books?.flatMap((book) => book.keywords || []) || [];
@@ -64,7 +64,7 @@ export async function generateMetadata({
     const description = `Explore our expertly curated and constantly updated list of the top science books on ${recommendations?.topic} for 2024. Discover groundbreaking works that delve into the universe's mysteries and the most significant scientific discoveries. These essential reads offer in-depth knowledge, insightful analysis, and innovative perspectives for both enthusiasts and scholars alike.`;
 
     return {
-        title: `Best ${recommendations?.topic} books of all time (2024)` ,
+        title: `Best ${recommendations?.topic} books of all time (2024)`,
         description: description,
         openGraph: {
             images: images,
@@ -94,8 +94,12 @@ async function RecommendationPage({
             <main>
                 <ContextSpace />
                 <ArticleTitle topic={recommendations?.topic} />
-                <LocalContextLinks  links={bookLinks || []}/>
-                {bookRecommendations}
+                <LocalContextLinks links={bookLinks || []} />
+                <div className='-mx-7 shadow-2xl bg-background1'>
+                    <div className=' mt-20 max-w-[75rem] mx-auto    w-full   rounded-2xl pt-4 pb-9 px-9  md:px-20'>
+                        {bookRecommendations}
+                    </div>
+                </div>
                 <div className='globalSpace'></div>
                 <div className='globalSpace'></div>
                 <ScrollTopButton />

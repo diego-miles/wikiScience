@@ -1,10 +1,11 @@
 .bookRecommendation {
     padding-bottom: 1.5rem;
     text-align: center;
+    padding-top: 1rem;
 }
 
 .container {
-    padding-top: 3rem;
+    padding-top: 4rem;
     padding-bottom: 3rem;
 }
 
@@ -64,14 +65,13 @@
     text-align: center;
     padding: 0 2rem;
     padding-bottom: 1.5rem;
-}
-
-.ratingsGrid div {
-    padding: 0 2rem;
+    max-width: 28rem;
+    margin: 0 auto;
 }
 
 .smallText {
     font-size: 1.3rem;
+
 }
 
 
@@ -80,8 +80,13 @@
 }
 
 .ratingsTitle {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: #576e83;
     padding-top: 1.5rem;
+    padding-bottom: .2rem;
+
+
 }
 
 

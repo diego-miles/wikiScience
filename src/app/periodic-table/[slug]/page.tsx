@@ -2,7 +2,7 @@ import React from 'react';
 import { PrismaClient } from '@prisma/client';
 import {ChemicalElement} from '@prisma/client';
 import { unstable_cache } from 'next/cache';
-import NavBar from '@/components/NavbarContainer';
+import NavBar from '@/components/navigation/NavbarContainer';
 import ScrollTopButton from '@/components/ScrollTopButton';
 import { notFound } from 'next/navigation';
 import LocalContextLinks from '@/components/LocalContextLinksTop'; // Import the component

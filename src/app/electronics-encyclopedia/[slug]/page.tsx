@@ -1,7 +1,7 @@
 import React from 'react';
 import { PrismaClient } from '@prisma/client';
 import { cache } from 'react';
-import NavBar from '@/components/NavbarContainer';
+import NavBar from '@/components/navigation/NavbarContainer';
 import ScrollTopButton from '@/components/ScrollTopButton';
 import { notFound } from 'next/navigation';
 import LocalContextLinks from '@/components/LocalContextLinks';

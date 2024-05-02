@@ -4,7 +4,7 @@
 
 
 :root {
-  --color-h1: #035480;
+  --color-h1: #006ba5;
   /* --color-h1: #005d8f; */
   /* --color-h1: #00659A; */
   /* --color-h2: #003c85; */
@@ -36,7 +36,7 @@
   /* --color-border: #9bc1d6; */
   --color-button: #EAF0F3;
   --color-menu: #e9edef;
-  --color-span: rgb(153, 171, 181);
+  --color-span: rgb(119, 157, 177);
   /* --color-span: rgb(45, 132, 175); */
   /* --color-span: rgb(138, 184, 205); */
   /* --color-span: #7497a8; */
@@ -53,7 +53,7 @@
 
   --font-size-p: 1.5rem;
   --font-size-small-p: 1.5rem;
-  --font-size-h1: 2.8rem;
+  --font-size-h1: 2.7rem;
   --font-size-h2: 1.8rem;
   --font-size-h3: 1.7rem;
   --font-size-h4: 1.6rem;
@@ -132,6 +132,7 @@ body::-webkit-scrollbar-track {
 }
 
 body {
+  /* min-height: ; */
   background: var(--color-background1);
   /* background: var(--color-background1); */
   margin: 0 auto;
@@ -147,7 +148,7 @@ body {
 
 main {
   min-height: 100vh;
-  max-width: 90rem;
+  max-width: 100rem;
   width: auto;
   padding: 0rem 1.6rem;
   padding-top: 10rem;
@@ -405,7 +406,9 @@ h3:hover {
 
 .smallText {
   font-size: 1.5rem;
-  padding-bottom: .3rem;
+  padding: 0;
+  padding-bottom: 0rem;
+  line-height: 1.3;
 }
 
 
