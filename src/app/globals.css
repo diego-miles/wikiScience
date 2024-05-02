@@ -306,15 +306,26 @@ h5,
 p,
 a,
 svg,
-img,
+
 span,
 h6,
 .animate {
-  animation: fadeUp 1.1s ease forwards;
+  animation: fadeUp .4s ease forwards;
   opacity: 0;
   transform: translateY(10px);
-  animation-delay: calc(var(--animation-order) * 100ms);
+  animation-delay: calc(1 * 100ms);
 }
+
+
+figure, 
+.animate {
+  animation: fadeUp 1.5s ease forwards;
+  opacity: 0;
+  transform: translateY(10px);
+  animation-delay: calc(1 * 100ms);
+}
+
+
 
 li {
   opacity: 0;

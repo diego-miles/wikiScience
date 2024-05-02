@@ -28,10 +28,10 @@ const HomePage: React.FC = () => {
       <main className="flex min-h-screen flex-col items-center justify-between mx-auto mt-12 text-center"> 
 
         <header className=" h-[30rem]">
-          <figure className='mx-auto w-fit'>
-            <Image width={55} height={50} alt='Wiki-logo' src={'wikilogo-blue.svg'} unoptimized  ></Image>
+          <figure className='mx-auto w-fit h-24'>
+            <Image width={65} height={65} alt='Wiki-logo' src={'wikilogo-blue.svg'} unoptimized  ></Image>
           </figure>
-          <h1 className="mt-1 text-5xl font-bold text-[#44a6cd]">Wiki Science</h1> {/* Using Tailwind's text color and font weight utilities */}
+          <h1 className="mt-[.8rem] text-[3rem] font-extrabold text-[#44a6cd]">Wiki Science</h1> {/* Using Tailwind's text color and font weight utilities */}
           {/* <p className="text-3xl font-extrabold text-[#2d373d] mt-4 px-2">A next-generation educational platform. <span className="text-[#376ba2]">Powered by AI.</span></p>  */}
           <div className=" absolute top-[26rem] left-0 right-0">
             <TextHeroHome></TextHeroHome>
