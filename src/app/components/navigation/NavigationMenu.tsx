@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './NavigationMenu.module.css';
 import Link from 'next/link';
 // import Accordion from '@/components/books-components/AccordionFields'
-import data from '@/components/data';
+import data from '@/data/data';
 import {
   Accordion,
   AccordionContent,
@@ -12,7 +12,7 @@ import {
 import Image from 'next/image';
 
 
-import chemicalElements from '@/components/elementsData.json'; // Importa la lista de elementos químicos
+import chemicalElements from '@/data/elementsData.json'; // Importa la lista de elementos químicos
 
 
 

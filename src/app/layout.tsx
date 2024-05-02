@@ -12,7 +12,8 @@ import dynamic from 'next/dynamic';
 // import GoogleAdsScript from './GoogleAdsScript.js'
 // import React, { Suspense } from 'react';
 
-import { cn } from "@/lib/utils"
+import { cn } from "../lib/utils"
+import { ThemeProvider } from "@/ThemProvider"
 
 
 const noto_sans_georgian = Noto_Sans_Georgian({

@@ -7,7 +7,7 @@ import {
 import Link from "next/link";
 
 // Assuming you have your data in a file named 'data.js'
-import data from '@/components/data';
+import data from '@/data/data';
 
 export default function AccordionDemo() {
   return (

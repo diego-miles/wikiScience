@@ -2,7 +2,7 @@
 import React from 'react';
 import Image from 'next/image';
 import NavBar from '@/components/NavbarContainer';
-import data from '@/components/data';
+import data from '@/data/data';
 import ScrollTopButton from '@/components/ScrollTopButton';
 import Link from 'next/link';
 import { AspectRatio } from '@/components/ui/aspect-ratio';

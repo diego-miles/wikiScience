@@ -9,7 +9,7 @@ import {
   CarouselNext, 
   CarouselPrevious,
 } from "@/components/ui/carousel"
-import chemicalElements from '@/components/elementsData.json'; 
+import chemicalElements from '@/data/elementsData.json'; 
 import Link from "next/link";
 
 export default function CarouselSpacing() {
@@ -37,11 +37,10 @@ export default function CarouselSpacing() {
                 <Card className="bg-background1  shadow-lg my-5 border-[4px] border-[#c7b19a]"  >
                   <CardContent className="flex aspect-square items-center justify-center py-4 px-3">
                     <div>
-                        
+                      <p className="text-xs font-base py-0 my-0 text-slate-400"># <strong className="text-slate-400">{element.atomicNumber}</strong></p>
                       <p className="text-xl font-extrabold py-0">{element.symbol}</p>
-                      <p className="text-xs font-base py-0 my-0"># <strong>{element.atomicNumber}</strong></p>
                       <p className=" font-bold py-0">{element.name}</p>
-                      <p className="font-medium text-2xs py-1 text-[#7e729e]">{element.family}</p>
+                      <p className="font-medium text-2xs  mt-2 h-2 mb-3 leading-4 text-[#7e729e]">{element.family}</p>
                       <div className=""></div>
                     </div>
                   </CardContent>

@@ -2,7 +2,7 @@
 import React from 'react';
 import Image from 'next/image';
 import NavBar from '@/components/NavbarContainer';
-import data from '@/components/data';
+import data from '@/data/data';
 import ScrollTopButton from '@/components/ScrollTopButton';
 import Link from 'next/link';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
@@ -10,11 +10,11 @@ import { AspectRatio } from '@/components/ui/aspect-ratio';
 import dynamic from 'next/dynamic';
 import Accordion from '@/AccordionHome'
 import logoSvg from '/head-background.svg';
-import { CardWithForm } from '@/ChemistryCard';
+import { CardWithForm } from '@/components/ChemistryCards';
 import ChemestrCards from './CarrouselElements'
 
 
-const TextGenerateEffectDemo = dynamic(() => import('./HeroHomeText'), { ssr: false })
+const TextHeroHome = dynamic(() => import('./TextHeroHome'), { ssr: false })
 
 
 const toSlug = (title: string) => {
@@ -27,14 +27,14 @@ const HomePage: React.FC = () => {
       <NavBar />
       <main className="flex min-h-screen flex-col items-center justify-between mx-auto mt-12 text-center"> 
 
-        <header className=" h-fit">
+        <header className=" h-[30rem]">
           <figure className='mx-auto w-fit'>
             <Image width={55} height={50} alt='Wiki-logo' src={'wikilogo-blue.svg'} unoptimized  ></Image>
           </figure>
           <h1 className="mt-1 text-5xl font-bold text-[#44a6cd]">Wiki Science</h1> {/* Using Tailwind's text color and font weight utilities */}
           {/* <p className="text-3xl font-extrabold text-[#2d373d] mt-4 px-2">A next-generation educational platform. <span className="text-[#376ba2]">Powered by AI.</span></p>  */}
-          <div className="h-[18rem]">
-            <TextGenerateEffectDemo></TextGenerateEffectDemo>
+          <div className=" absolute top-[26rem] left-0 right-0">
+            <TextHeroHome></TextHeroHome>
           </div>
         </header>
 
@@ -49,7 +49,7 @@ const HomePage: React.FC = () => {
             >
             </div>
           </div>
-          <h2 className=" text-3xl font-bold text-center mb-20 ">Chemichal Elemets</h2>
+          <h2 className=" text-[2.1rem] font-bold text-center mb-20 ">Chemichal Elemets</h2>
           {/* <p className="text-lg text-center mt-4 font-normal">  Explore a community-curated collection of top science books </p> */}
           {/* <CardWithForm></CardWithForm> */}
 
@@ -74,7 +74,7 @@ const HomePage: React.FC = () => {
             >
             </div>
           </div>
-          <h2 className=" text-3xl font-bold text-center mb-20 ">Top Science Books</h2>
+          <h2 className=" text-[2.1rem] font-bold text-center mb-20 ">Top Science Books</h2>
           {/* <p className="text-lg text-center mt-4 font-normal">  Explore a community-curated collection of top science books </p> */}
 
           <div className='max-w-2xl  mx-auto bg-background1 border-[4px] rounded-3xl border-[#98bdd3] shadow-sm'>
