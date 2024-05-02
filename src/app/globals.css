@@ -306,10 +306,11 @@ h5,
 p,
 a,
 svg,
+img,
 span,
 h6,
 .animate {
-  animation: fadeUp .9s ease forwards;
+  animation: fadeUp 1.1s ease forwards;
   opacity: 0;
   transform: translateY(10px);
   animation-delay: calc(var(--animation-order) * 100ms);

@@ -117,10 +117,10 @@ const NavigationMenu: React.FC<NavigationMenuProps> = ({ className, style }) => 
         </Accordion>
 
 
-        <h2 className='font-semibold text-base text-slate-300'>Electronics Encyclopedia</h2>
-        <h2 className='font-semibold text-base text-slate-300'>Electronics Encyclopedia</h2>
+        <h2 className='font-semibold text-base text-slate-300 pt-16'>Biographies</h2>
         <h2 className='font-semibold text-base text-slate-300'>Concepts</h2>
-        <h2 className='font-semibold text-base text-slate-300'>Biographies</h2>
+        <h2 className='font-semibold text-base text-slate-300'>Biological organisms</h2>
+        <h2 className='font-semibold text-base text-slate-300'>Electronics Encyclopedia</h2>
         {/* <div className={styles.header}>~ Top Science Books ~</div> */}
         <section className='text-center'>
         </section>
