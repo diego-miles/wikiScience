@@ -5,6 +5,7 @@ import styles from './NavbarContainer.module.css';
 import { Suspense, lazy } from 'react';
 import CrossIcon from '../CrossIcon'; // Import the new CrossIcon component
 import dynamic from 'next/dynamic';
+import DarkModeTooggle from '@/components/DarkModeToggle'
 
 
 // NavigationMenu
@@ -124,9 +125,13 @@ const NavBarContainer: FC<NavbarProps> = memo(({ title, title2, title3, domain, 
     };
 
     return (
-        <div className={styles.container}>
-            <div className={`${styles.navbarContainer} ${showNavbar ? '' : styles.hidden}`}>
+    <div className="absolute w-full top-0 left-0 z-100 ">
+        <div className={`fixed top-0 right-0 left-0 w-full max-w-[120rem] min-h-[6rem] mx-auto px-4 py-2 bg-gray-100 dark:bg-background1dark shadow-md z-50 flex justify-between items-center ${showNavbar ? '' : 'hidden'}`}>
                 <NavigationLinks title={title} title2={title2} title3={title3} domain={domain} active={active} />
+            <div className='absolute  p-[.4rem]   rounded-md right-[1.8rem] md:right-14 -bottom-14  dark:bg-background1dark'>
+                <DarkModeTooggle></DarkModeTooggle>
+            </div>
+
                 <MenuToggle onClick={toggleMenu} isMenuVisible={isMenuVisible} />
             </div>
             <Suspense fallback={<div>Loading menu...</div>}>

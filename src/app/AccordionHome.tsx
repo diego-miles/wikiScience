@@ -11,7 +11,7 @@ import data from '@/data/data';
 
 export default function AccordionDemo() {
   return (
-    <div className="container mx-auto p-12 py-16 pb-20 bg-background1 border-4 shadow-lg rounded-2xl border-[#b9a98c]"> 
+    <div className="container mx-auto p-12 py-16 pb-20 bg-background1 dark:bg-background1dark border-4 shadow-lg rounded-2xl border-[#b9a98c]"> 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
         {data.map((field, idx) => (
           <Accordion key={idx} type="single" collapsible className="">

@@ -1,6 +1,15 @@
 import type { Config } from "tailwindcss"
 const { fontFamily } = require("tailwindcss/defaultTheme")
 
+const svgToDataUri = require("mini-svg-data-uri");
+ 
+const colors = require("tailwindcss/colors");
+const {
+  default: flattenColorPalette,
+} = require("tailwindcss/lib/util/flattenColorPalette");
+ 
+
+
 
 const config = {
   darkMode: ["class"],
@@ -51,9 +60,12 @@ const config = {
         a2: 'var(--color-a2)',
         accent1: 'var(--color-accent1)',
         accent2: 'var(--color-accent2)',
+        
         accent3: 'var(--color-accent3)',
         gold: 'var(--color-gold)',
-        "background1": 'var(--color-background1)',
+        background1: 'var(--color-background1)',
+        background1dark: 'var(--color-background1-dark)',
+
         background2: 'var(--color-background2)',
         background3: 'var(--color-background3)',
         border: 'var(--color-border)',
@@ -78,7 +90,7 @@ const config = {
         '2xl': '2rem', // Tamaño de fuente 2x grande
         '3xl': '2.3rem', // Tamaño de fuente 3x grande
         '4xl': '2.4rem', // Tamaño de fuente 4x grande
-        '5xl': '2.7rem', // Tamaño de fuente 5x grande
+        '5xl': '2.8rem', // Tamaño de fuente 5x grande
         '6xl': '3rem', // Tamaño de fuente 6x grande
       },
       
@@ -112,7 +124,30 @@ const config = {
 
     }
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [require("tailwindcss-animate"  ),
+    function ({ matchUtilities, theme }: any) {
+      matchUtilities(
+        {
+          "bg-grid": (value: any) => ({
+            backgroundImage: `url("${svgToDataUri(
+              `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="none" stroke="${value}"><path d="M0 .5H31.5V32"/></svg>`
+            )}")`,
+          }),
+          "bg-grid-small": (value: any) => ({
+            backgroundImage: `url("${svgToDataUri(
+              `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="8" height="8" fill="none" stroke="${value}"><path d="M0 .5H31.5V32"/></svg>`
+            )}")`,
+          }),
+          "bg-dot": (value: any) => ({
+            backgroundImage: `url("${svgToDataUri(
+              `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="16" height="16" fill="none"><circle fill="${value}" id="pattern-circle" cx="10" cy="10" r="1.6257413380501518"></circle></svg>`
+            )}")`,
+          }),
+        },
+        { values: flattenColorPalette(theme("backgroundColor")), type: "color" }
+      );
+    },
+  ],
 } satisfies Config
 
 export default config

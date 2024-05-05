@@ -31,27 +31,27 @@ const LocalContextLinks: React.FC<LocalContextLinksProps> = ({ links }) => {
   };
 
   return (
-    <div className={styles.localContextLinksContainer}>
+  <div className="p-6 py-8 relative max-w-[40rem] mx-auto text-left rounded-2xl border-[3px] border-[#e3ecf0] dark:border-[#26657f] bg-background1 dark:bg-background1dark shadow-lg">  
       {links.map((link, index) => (
-        <div key={index} className={styles.linkArrowRow}>
+        <div key={index} className="flex items-center px-2 pb-3 ">
           <div className={`${styles.arrow} animate`} />
           <a
             href={`#${link.id}`}
-            className={styles.link}
+            className={`${styles.link} text-[#1c4d75] dark:text-white font-semibold text-[1.5rem] py-1`}
             onClick={(e) => {
               e.preventDefault();
               smoothScroll(link.id);
             }}
-            ref={el => {
-              linkRefs.current[index] = el; // Directly assign the ref
+            ref={(el) => {
+              linkRefs.current[index] = el;
             }}
           >
             {link.text}
           </a>
         </div>
       ))}
-    </div>
+  </div>
   );
 };
 
-export default LocalContextLinks;
+export default LocalContextLinks

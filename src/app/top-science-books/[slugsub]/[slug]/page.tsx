@@ -95,13 +95,10 @@ async function RecommendationPage({
                 <ContextSpace />
                 <ArticleTitle topic={recommendations?.topic} />
                 <LocalContextLinks links={bookLinks || []} />
-                <div className='-mx-7 shadow-2xl bg-background1'>
-                    <div className=' mt-20 max-w-[75rem] mx-auto    w-full   rounded-2xl pt-4 pb-9 px-9  md:px-20'>
+                    <div className=' py-20 max-w-[75rem] mx-auto    w-full  rounded-2xl pb-9'>
                         {bookRecommendations}
                     </div>
-                </div>
-                <div className='globalSpace'></div>
-                <div className='globalSpace'></div>
+
                 <ScrollTopButton />
             </main>
         </div>

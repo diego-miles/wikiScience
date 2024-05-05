@@ -3,12 +3,15 @@
 @tailwind utilities;
 
 
+
+
 :root {
-  --color-h1: #006ba5;
+  --color-h1: #006aa3;
   /* --color-h1: #005d8f; */
   /* --color-h1: #00659A; */
   /* --color-h2: #003c85; */
-  --color-h2: #006fa7;
+  --color-h2: #030303;
+  /* --color-h2: #006fa7; */
   /* --color-h2: rgb(23, 114, 160); */
   /* --color-h2: #1c4b4e; */
   /* --color-h2: #326a8b; */
@@ -23,20 +26,22 @@
   --color-strong: #090909;
   /* --color-p: #243b48; */
   --color-a: #ad0048;
-  --color-a2: #5c8eaa;
+  --color-a2: #0077b7;
   /* --color-accent1: #0075c3; */
   --color-accent1: #3498db;
   --color-accent2: #cf4336;
   --color-accent3: #16a085;
   --color-gold: #5d4a15;
   --color-background1: #f4f6f6;
+  --color-background1-dark: #1B2836;
+  /* --color-background1-dark: #172330; */
   --color-background2: #cfd3d3;
   --color-background3: #B0B6B9;
-  --color-border: #d2e3ec;
+  --color-border: #2a9edd;
   /* --color-border: #9bc1d6; */
   --color-button: #EAF0F3;
   --color-menu: #e9edef;
-  --color-span: rgb(119, 157, 177);
+  --color-span: rgb(154, 174, 185);
   /* --color-span: rgb(45, 132, 175); */
   /* --color-span: rgb(138, 184, 205); */
   /* --color-span: #7497a8; */
@@ -53,8 +58,8 @@
 
   --font-size-p: 1.5rem;
   --font-size-small-p: 1.5rem;
-  --font-size-h1: 2.7rem;
-  --font-size-h2: 1.8rem;
+  --font-size-h1: 3.2rem;
+  --font-size-h2: 2.3rem;
   --font-size-h3: 1.7rem;
   --font-size-h4: 1.6rem;
   --font-size-h5: 1.3rem;
@@ -124,7 +129,7 @@ body::-webkit-scrollbar {
 
 body::-webkit-scrollbar-thumb {
   background: var(--color-soft-blue);
-  border-radius: 0.6rem;
+  /* border-radius: 0.6rem; */
 }
 
 body::-webkit-scrollbar-track {
@@ -132,18 +137,19 @@ body::-webkit-scrollbar-track {
 }
 
 body {
-  /* min-height: ; */
-  background: var(--color-background1);
-  /* background: var(--color-background1); */
+  @apply dark:bg-[var(--color-background1-dark)] ;
+  background-color: var(--color-background1);
+  height: 100%;
   margin: 0 auto;
-  background-image: linear-gradient(#F1F1F1 2px, transparent 2px),
+  /* background-image: linear-gradient(#F1F1F1 2px, transparent 2px),
     linear-gradient(90deg, #edf3f3 2px, transparent 2px);
-  background-size: 2rem 2rem;
+  background-size: 2rem 2rem; */
   /* background-image: linear-gradient(#F1F1F1 2px, transparent 2px),
     linear-gradient(90deg, #f6f5f5 2px, transparent 2px);
   background-size: 2rem 2rem; */
 
 }
+
 
 
 main {
@@ -163,8 +169,11 @@ section {
 }
 
 li {
+    @apply dark:text-[#dcedf8];
   font-size: 1.5rem;
 }
+
+
 a {
   color: var(--color-a);
   text-decoration: none;
@@ -176,6 +185,8 @@ a {
 }
 
 p {
+    @apply dark:text-[#dcedf8];
+    /* @apply dark:font-light; */
   font-size: var(--font-size-p);
   font-weight: 400;
   color: var(--color-p);
@@ -191,6 +202,7 @@ p {
 
 
 h1 {
+  @apply dark:text-sky-300;
   font-family: var(--font-noto-serif-georgian);
   font-size: var(--font-size-h1);
   font-weight: 900;
@@ -198,25 +210,36 @@ h1 {
   text-align: center;
   line-height: 1.3;
   padding-bottom: 5rem;
+  letter-spacing: -0.025em;
 }
 
 h2 {
+    @apply dark:text-white;
   font-size: var(--font-size-h2);
   color: var(--color-h2);
-  font-weight: 700;
+  font-weight: 600;
   padding-top: 3.5rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.7rem;
   line-height: 1.4;
+  /* margin-top: 2rem; */
+    /* border-bottom: 1px solid #e5e7eb; */
+    /* Adjust color as needed */
+    letter-spacing: -0.020em;
+    /* Equivalent to tracking-tight in Tailwind CSS */
+
 }
 
 h3 {
+    @apply dark:text-[#dcedf8];
   font-size: var(--font-size-h3);
   color: var(--color-h3);
   font-weight: 600;
   margin-bottom: 1rem;
+  letter-spacing: -0.025em;
 }
 
 h4 {
+    @apply dark:text-white;
   /* font-family: var(--font-noto-serif-georgian); */
   font-size: var(--font-size-h4);
   color: var(--color-h4);
@@ -226,6 +249,7 @@ h4 {
 }
 
 h5 {
+    @apply dark:text-white;
   /* font-family: var(--font-noto-serif-georgian); */
   font-size: var(--font-size-h5);
   color: var(--color-h5);
@@ -252,6 +276,7 @@ span {
 }
 
 strong {
+      @apply dark:text-[#67cfff];
   /* font-size: var(--font-size-p); */
   color: var(--color-strong);
   font-weight: 700;

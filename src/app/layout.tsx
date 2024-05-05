@@ -14,6 +14,7 @@ import dynamic from 'next/dynamic';
 
 import { cn } from "../lib/utils"
 import { ThemeProvider } from "@/ThemProvider"
+import { GridBackgroundDemo } from './GridBackground'
 
 
 const noto_sans_georgian = Noto_Sans_Georgian({
@@ -34,7 +35,7 @@ const noto_serif_georgian = Noto_Serif_Georgian({
 
 export const metadata: Metadata = {
   // metadataBase: new URL('https://storage.cloud.google.com/bestbooks/covers/'),
-  title: 'Wikiscience',
+  title: 'Wiki Science',
   description: 'Compendium of scientific human knowladge',
 }
 
@@ -54,10 +55,17 @@ export default function RootLayout({
     <html lang="en">
 
       <meta name="google-adsense-account" content="ca-pub-6831545317289734"></meta>
-      <body className={cn(
-        "min-h-screen bg-background font-sans antialiased",
-        noto_sans_georgian.variable, noto_serif_georgian.variable
-      )}>
+<body
+  className={cn(
+    "min-h-screen font-sans antialiased ",
+    "bg-grid-black/[0.03] dark:bg-grid-white/[0.02] ",
+    noto_sans_georgian.variable,
+    noto_serif_georgian.variable
+  )}
+>
+<GridBackgroundDemo/>
+
+
         <CookieConsent />
         <noscript>
           <iframe

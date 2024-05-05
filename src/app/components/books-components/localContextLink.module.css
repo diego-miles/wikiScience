@@ -2,20 +2,20 @@
     display: flex;
     flex-direction: column;
     padding: 1.5rem 1rem;
-    padding-top: 2rem;
+    padding-top: 1rem;
     max-width: 40rem;
     margin: auto;
     margin-bottom: 2rem;
     text-align: left;
-    background-color: var(--color-background1);
     border-radius: 1rem;
     border-color: #5dacb6;
     border-width: 2px;
+    background-color: var(--color-background1);
 }
 
 .localContextLinksContainer a {
     /* text-decoration: underline; */
-    color: #004770;
+    color: #015b8f;
     text-decoration-color: var(--color-active-element);
     font-weight: 600;
     scroll-behavior: smooth;

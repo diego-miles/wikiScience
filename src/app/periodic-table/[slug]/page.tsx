@@ -6,7 +6,7 @@ import NavBar from '@/components/navigation/NavbarContainer';
 import ScrollTopButton from '@/components/ScrollTopButton';
 import { notFound } from 'next/navigation';
 import LocalContextLinks from '@/components/LocalContextLinksTop'; // Import the component
-import ImageCarousel from '@/components/ImageCarousel'; // Ajusta la ruta según tu estructura de proyecto
+import ImageCarousel from '@/components/books-components/ImageCarousel'; // Ajusta la ruta según tu estructura de proyecto
 import History from '@/components/tables/hystoryTable'; // Ajusta la ruta de importación según tu estructura de proyecto
 
 

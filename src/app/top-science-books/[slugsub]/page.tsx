@@ -107,8 +107,8 @@ async function Page({ params: { slugsub } }: SubFieldPageProps) {
                 <ContextSpace />
                 <ArticleTitle topic={subFieldData.subField || ''} />
                 <LocalContextLinks links={bookLinks || []} />
-                <div className='-mx-7 shadow-2xl bg-background1'>
-                    <div className=' mt-20 max-w-[75rem] mx-auto    w-full   rounded-2xl pt-4 pb-9 px-9  md:px-20'>
+                <div className=''>
+                    <div className=' mt-20 max-w-[75rem] mx-auto    w-full   rounded-2xl pt-4  '>
                         {bookRecommendations}
                     </div>
                 </div>

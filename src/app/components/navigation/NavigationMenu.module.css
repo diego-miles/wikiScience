@@ -4,7 +4,7 @@
   top: 0;
   bottom: 0;
   width: 100%;
-  z-index: 100;
+  z-index: 30;
   padding-top: 9rem;
   overflow-y: auto;
   overflow-x: hidden;
@@ -24,7 +24,7 @@
   top: 0;
   bottom: 0;
   width: 100%;
-  z-Index: 100;
+  z-Index: 20;
 }
 
 .header {

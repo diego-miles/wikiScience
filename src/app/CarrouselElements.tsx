@@ -34,7 +34,7 @@ export default function CarouselSpacing() {
             <CarouselItem key={element.atomicNumber} className="pl-1 basis-1/3 min-w-52 max-w-52">
               <div className="p-1">
                 <Link href={`periodic-table/${element.name.toLowerCase()}`}>   
-                <Card className="bg-background1  shadow-lg my-5 border-[4px] border-[#c7b19a]"  >
+                <Card className="bg-background1 dark:bg-background1dark  shadow-lg my-5 border-[4px] border-[#c7b19a]"  >
                   <CardContent className="flex aspect-square items-center justify-center py-4 px-3">
                     <div>
                       <p className="text-xs font-base py-0 my-0 text-slate-400"># <strong className="text-slate-400">{element.atomicNumber}</strong></p>

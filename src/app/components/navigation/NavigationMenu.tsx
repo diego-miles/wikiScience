@@ -33,7 +33,7 @@ const toSlug = (title: string) => {
 const NavigationMenu: React.FC<NavigationMenuProps> = ({ className, style }) => {
 
   return (
-    <div tabIndex={0} className={`${styles.menuWrapper} ${className}`} style={style}>
+    <div tabIndex={0} className=" dark:bg-background1dark fixed top-0 bottom-0 w-full z-30 pt-36 overflow-y-auto overflow-x-hidden bg-background1"  style={style}>
 
       <div className={styles.menuMain}>
         <Link href={'/'}>
