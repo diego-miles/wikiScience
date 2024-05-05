@@ -35,7 +35,7 @@ const HomePage: React.FC = () => {
           <figure className='mx-auto w-fit h-24'>
             <Image width={60} height={60} alt='Wiki-logo' src={'wiki-blue.svg'} unoptimized  ></Image>
           </figure>
-          <h1 className="mt-[.8rem] text-[3rem] font-extrabold text-[#44a6cd] dark:text-[#95e1ff]">Wiki Science</h1> {/* Using Tailwind's text color and font weight utilities */}
+          <h1 className="mt-[.8rem] text-[2.7rem] font-extrabold text-[#44a6cd] dark:text-[#95e1ff]">Wiki Science</h1> {/* Using Tailwind's text color and font weight utilities */}
           {/* <p className="text-3xl font-extrabold text-[#2d373d] mt-4 px-2">A next-generation educational platform. <span className="text-[#376ba2]">Powered by AI.</span></p>  */}
           <div className=" absolute top-[27rem] left-0 right-0">
             <TextHeroHome></TextHeroHome>
@@ -53,7 +53,7 @@ const HomePage: React.FC = () => {
             >
             </div>
           </div>
-          <h2 className=" text-[2.1rem] font-bold text-center mb-20  ">Chemichal Elemets</h2>
+          <h2 className=" text-[2rem] font-bold text-center mb-20 text-h1">Chemichal Elemets</h2>
           {/* <p className="text-lg text-center mt-4 font-normal">  Explore a community-curated collection of top science books </p> */}
           {/* <CardWithForm></CardWithForm> */}
 
@@ -78,7 +78,7 @@ const HomePage: React.FC = () => {
             >
             </div>
           </div>
-          <h2 className=" text-[2.1rem] font-bold text-center mb-20 ">Top Science Books</h2>
+          <h2 className=" text-[2rem] font-bold text-center mb-20 text-h1 ">Top Science Books</h2>
           {/* <p className="text-lg text-center mt-4 font-normal">  Explore a community-curated collection of top science books </p> */}
 
           <div className='max-w-2xl  mx-auto bg-background1 dark:bg-background1dark border-[4px] mb-28 rounded-3xl border-[#98bdd3] shadow-sm'>

@@ -89,8 +89,8 @@ const config = {
         'xl': '1.8rem', // Tamaño de fuente extra grande
         '2xl': '2rem', // Tamaño de fuente 2x grande
         '3xl': '2.3rem', // Tamaño de fuente 3x grande
-        '4xl': '2.4rem', // Tamaño de fuente 4x grande
-        '5xl': '2.8rem', // Tamaño de fuente 5x grande
+        '4xl': '2.6rem', // Tamaño de fuente 4x grande
+        '5xl': '2.9rem', // Tamaño de fuente 5x grande
         '6xl': '3rem', // Tamaño de fuente 6x grande
       },
       
