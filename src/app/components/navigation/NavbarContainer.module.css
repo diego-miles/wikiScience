@@ -69,7 +69,7 @@
 .rightIcon {
   width: 3.8rem;
   /* era 40px */
-  height: 4rem;
+  height: 3.5rem;
   /* era 50px */
   background-image: url('/microscope.svg');
   background-size: contain;

@@ -79,7 +79,7 @@ const LocalContextLinks: React.FC<LocalContextLinksProps> = ({ links }) => {
           <a
             key={index}
             href={`#${link.id}`}
-              className="text-a2 font-bold border-2 border-border rounded-lg px-4 py-2 text-center no-underline"
+              className="text-xs font-semibold border-2 border-border rounded-lg px-4 py-2 text-center no-underline dark:text-sky-300"
             onClick={(e) => {
               e.preventDefault();
               smoothScroll(link.id);
@@ -98,12 +98,12 @@ const LocalContextLinks: React.FC<LocalContextLinksProps> = ({ links }) => {
 
       {/* Dropdown container */}
       {dropdownActive && (
-        <div className="flex flex-col fixed top-0 left-0 right-0 bottom-0 py-40 z-30 overflow-y-auto bg-background1 ">
+        <div className="flex flex-col fixed top-0 left-0 right-0 bottom-0 py-40 z-30 overflow-y-auto bg-background1 dark:bg-background1dark ">
          {links.map((link, index) => (
           <a
             key={index}
             href={`#${link.id}`}
-              className="text-a2 font-bold   px-4 py-2 text-center my-2 no-underline" // Added margin for spacing
+              className="font-medium text-base dark:text-sky-300 px-4 py-2 text-center my-2 no-underline" // Added margin for spacing
             onClick={(e) => {
               e.preventDefault();
               smoothScroll(link.id);
@@ -113,7 +113,7 @@ const LocalContextLinks: React.FC<LocalContextLinksProps> = ({ links }) => {
             {link.text}
           </a>
         ))}
-          <a className="font-noto-serif-georgian text-accent1 italic px-4 py-2 rounded-lg cursor-pointer fixed top-28 right-4 text-xl font-medium" onClick={toggleDropdown}>
+          <a className="font-noto-serif-georgian text-accent1  italic px-4 py-2 rounded-lg cursor-pointer fixed top-28 right-4 text-xl font-medium" onClick={toggleDropdown}>
             Close
           </a>
         </div>

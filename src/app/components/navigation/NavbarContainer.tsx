@@ -126,13 +126,13 @@ const NavBarContainer: FC<NavbarProps> = memo(({ title, title2, title3, domain, 
 
     return (
     <div className="absolute w-full top-0 left-0 z-100 ">
-        <div className={`fixed top-0 right-0 left-0 w-full max-w-[120rem] min-h-[6rem] mx-auto px-4 py-2 bg-gray-100 dark:bg-background1dark shadow-md z-50 flex justify-between items-center ${showNavbar ? '' : 'hidden'}`}>
+        <div className={`fixed top-0 right-0 left-0 w-full max-w-[120rem] min-h-[5rem] mx-auto px-4 bg-gray-100 dark:bg-background1dark shadow-md z-50 flex justify-between items-center content-center ${showNavbar ? '' : 'hidden'}`}>
                 <NavigationLinks title={title} title2={title2} title3={title3} domain={domain} active={active} />
-            <div className='absolute  p-[.4rem]   rounded-md right-[1.8rem] md:right-14 -bottom-14  dark:bg-background1dark'>
+            <div className='flex items-center content-center pt-1'>
                 <DarkModeTooggle></DarkModeTooggle>
+                <MenuToggle onClick={toggleMenu} isMenuVisible={isMenuVisible} />
             </div>
 
-                <MenuToggle onClick={toggleMenu} isMenuVisible={isMenuVisible} />
             </div>
             <Suspense fallback={<div>Loading menu...</div>}>
                 <NavigationMenu style={menuStyle} />

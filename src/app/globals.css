@@ -112,9 +112,9 @@ html::-webkit-scrollbar-thumb {
   border-radius: 0.6rem;
 }
 
-html::-webkit-scrollbar-track {
+/* html::-webkit-scrollbar-track {
   background: var(--color-background2);
-}
+} */
 
 html {
   font-size: 10px;
