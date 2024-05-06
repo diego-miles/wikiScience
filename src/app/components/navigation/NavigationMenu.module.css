@@ -13,19 +13,15 @@
 .menuMain {
   text-align: center;
   width: 100vw;
-  padding: 0 2rem;
+  padding: 0 1.5rem;
   max-width: 90rem;
   margin: 0 auto;
   /* padding-bottom: 50rem; */
 }
 
-.navbarContainer {
-  position: relative;
-  top: 0;
-  bottom: 0;
-  width: 100%;
-  z-Index: 20;
-}
+/* .navContainer {
+  border-radius: 2rem;
+} */
 
 .header {
   color: rgb(163, 196, 224);
@@ -62,7 +58,7 @@
 
 .titleField {
   /* font-family: var(--font-family-h1); */
-  color: rgb(129, 181, 180);
+  color: rgb(20, 123, 109);
   /* color: var(--color-darkgreen-text); */
   font-size: 1.65rem;
   font-weight: 700;
@@ -74,7 +70,7 @@
 
 .branchContainer {
   padding: 0 1.5rem;
-  padding-left: 2.5rem;
+  padding-left: 1.5rem;
   max-width: 40rem;
   margin: 0 auto;
   /* padding-bottom: 2rem; */
@@ -83,7 +79,7 @@
 .gridLayout {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 1.8rem 1.8rem ;
+  gap: 1.5rem 1.8rem ;
 }
 
 .navListItem {
@@ -99,9 +95,9 @@
 
 .subField a {
   font-family: var(--font-family-h1);
-  font-size: 1.4rem;
-  font-weight: 600;
-  color: rgb(7, 71, 96);
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: rgb(0, 51, 140);
   font-style: normal;
   padding-bottom: .5rem;
   line-height: 1.3;

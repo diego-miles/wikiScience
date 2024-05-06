@@ -45,7 +45,7 @@ const NavigationMenu: React.FC<NavigationMenuProps> = ({ className, style }) => 
         <Accordion type="single" collapsible className="w-full" >
           <AccordionItem value="item-1">
             <AccordionTrigger>
-              <h2 className='py-6 mb-0  text-center text-base w-full font-extrabold'>Chemical Elements</h2>
+              <h2 className='py-6 mb-0  text-center text-base w-full font-extrabold text-h1'>Chemical Elements</h2>
 
             </AccordionTrigger>
             <AccordionContent>
@@ -67,7 +67,7 @@ const NavigationMenu: React.FC<NavigationMenuProps> = ({ className, style }) => 
           </AccordionItem>
           <AccordionItem value="item-2">
             <AccordionTrigger>
-              <h2 className='text-center py-6 mb-3 w-full text-base font-extrabold pb-4 '>Top Science Books</h2>
+              <h2 className='text-center py-6 mb-3 w-full text-base font-extrabold pb-4 text-h1'>Top Science Books</h2>
 
             </AccordionTrigger>
             <AccordionContent>
