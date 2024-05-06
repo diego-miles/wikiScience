@@ -36,7 +36,7 @@ const noto_serif_georgian = Noto_Serif_Georgian({
 export const metadata: Metadata = {
   // metadataBase: new URL('https://storage.cloud.google.com/bestbooks/covers/'),
   title: 'Wiki Science',
-  description: 'Compendium of scientific human knowladge',
+  description: 'a compendium of scientific human knowladge',
 }
 
 const GTM_ID = process.env.GTM_ID;

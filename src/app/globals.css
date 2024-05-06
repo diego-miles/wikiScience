@@ -33,7 +33,7 @@
   --color-accent3: #16a085;
   --color-gold: #5d4a15;
   --color-background1: #f4f6f6;
-  --color-background1-dark: #1B2836;
+  --color-background1-dark: rgb(20, 34, 56);
   /* --color-background1-dark: #172330; */
   --color-background2: #cfd3d3;
   --color-background3: #B0B6B9;
