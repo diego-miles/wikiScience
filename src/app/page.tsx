@@ -31,13 +31,13 @@ const HomePage: React.FC = () => {
       
       "> 
 
-        <header className=" h-[30rem]">
+        <header className=" h-[35rem]">
           <figure className='mx-auto w-fit h-24'>
             <Image width={60} height={60} alt='Wiki-logo' src={'wiki-blue.svg'} unoptimized  ></Image>
           </figure>
           <h1 className="mt-[.8rem] text-[2.7rem] font-extrabold text-[#44a6cd] dark:text-[#95e1ff]">Wiki Science</h1> {/* Using Tailwind's text color and font weight utilities */}
           {/* <p className="text-3xl font-extrabold text-[#2d373d] mt-4 px-2">A next-generation educational platform. <span className="text-[#376ba2]">Powered by AI.</span></p>  */}
-          <div className=" absolute top-[27rem] left-0 right-0">
+          <div className=" absolute top-[29rem] left-0 right-0">
             <TextHeroHome></TextHeroHome>
           </div>
         </header>
