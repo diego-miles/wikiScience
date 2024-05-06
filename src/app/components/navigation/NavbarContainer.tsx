@@ -129,7 +129,10 @@ const NavBarContainer: FC<NavbarProps> = memo(({ title, title2, title3, domain, 
         <div className={`fixed top-0 right-0 left-0 w-full max-w-[120rem] min-h-[5rem] mx-auto px-4 bg-gray-100 dark:bg-background1dark shadow-md z-50 flex justify-between items-center content-center ${showNavbar ? '' : 'hidden'}`}>
                 <NavigationLinks title={title} title2={title2} title3={title3} domain={domain} active={active} />
             <div className='flex items-center content-center pt-1'>
+                <div className='px-5'>
+
                 <DarkModeTooggle></DarkModeTooggle>
+                </div>
                 <MenuToggle onClick={toggleMenu} isMenuVisible={isMenuVisible} />
             </div>
 
