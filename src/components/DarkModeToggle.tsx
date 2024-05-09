@@ -17,7 +17,7 @@ export default function ModeToggle() {
         aria-readonly={true} 
       />
 
-        <Moon className="h-[1.8rem] w-[1.8rem] ml-2 mb-1 rotate-90 scale-100 transition-all dark:rotate-0 dark:scale-100 text-[#90b4dd]" />
+        <Moon className="h-[1.9rem] w-[1.9rem] ml-2 pb-1 rotate-90 scale-100 transition-all dark:rotate-0 dark:scale-100 text-[#90b4dd]" />
 
     </div>
   )
