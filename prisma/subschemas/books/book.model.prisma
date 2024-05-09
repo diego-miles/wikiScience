@@ -59,7 +59,7 @@ model topicRecommendation {
   id           String @id @default(auto()) @map("_id") @db.ObjectId
   field        String
   subField     String
-  topic        String @unique
+  topic        String 
   topicSummary String
   slug         String @unique
   books        Book[]
@@ -69,7 +69,7 @@ model topicRecommendation {
 model subFieldRecommendation {
   id       String @id @default(auto()) @map("_id") @db.ObjectId
   field    String
-  subField String @unique
+  subField String 
   slug     String @unique
   books    Book[]
   @@map("subfieldsRecommendation")

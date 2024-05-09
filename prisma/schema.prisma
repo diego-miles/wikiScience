@@ -1,4 +1,4 @@
-//🧩Don't Edit this file.✨Generated in Sat Apr 27 2024 07:19:26 GMT-0600 (Central Standard Time)✨
+//🧩Don't Edit this file.✨Generated in Thu May 09 2024 01:26:07 GMT-0600 (Central Standard Time)✨
 
 generator client {
   provider = "prisma-client-js"
@@ -68,7 +68,7 @@ model topicRecommendation {
   id           String @id @default(auto()) @map("_id") @db.ObjectId
   field        String
   subField     String
-  topic        String @unique
+  topic        String
   topicSummary String
   slug         String @unique
   books        Book[]
@@ -79,7 +79,7 @@ model topicRecommendation {
 model subFieldRecommendation {
   id       String @id @default(auto()) @map("_id") @db.ObjectId
   field    String
-  subField String @unique
+  subField String
   slug     String @unique
   books    Book[]
 
@@ -88,7 +88,8 @@ model subFieldRecommendation {
 
 model Word {
   id                     String                   @id @map("_id") @db.ObjectId
-  word                   String                   @unique
+  word                   String
+  slug                   String                   @unique
   pronunciation          String?
   definitions            Definition[]
   etymology              String?
@@ -420,7 +421,7 @@ model EventParticipant {
 model ChemicalElement {
   id                           String                               @id @default(auto()) @map("_id") @db.ObjectId
   symbol                       String                               @unique
-  name                         String                               @unique
+  name                         String
   slug                         String                               @unique
   atomicNumber                 String?
   atomicWeight                 String?

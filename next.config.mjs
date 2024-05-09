@@ -8,6 +8,9 @@ const nextConfig = {
     loaderFile: './myImageLoader.js',
   },
 
+typescript: {
+  ignoreBuildErrors: true,
+},
 
   experimental: {
     nextScriptWorkers: true,

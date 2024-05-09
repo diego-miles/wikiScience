@@ -3,50 +3,23 @@
 import * as React from "react"
 import { Moon, Sun } from "lucide-react"
 import { useTheme } from "next-themes"
-
-import { Switch } from "@/components/ui/switch" // Import your custom switch component
-
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
-import { Button } from "@/components/ui/button"
+import { Switch } from "@/components/ui/switch" 
 
 export default function ModeToggle() {
   const { theme, setTheme } = useTheme()
 
   return (
-    <DropdownMenu>
-      <DropdownMenuTrigger asChild>
-        {/* Use the Switch component to toggle between light and dark themes */}
-      </DropdownMenuTrigger>
-      <Button variant="outline" size="icon" onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark') }>
-        <Switch
-          checked={theme === 'dark'} // Set the checked state based on the current theme
-          onChange={() => setTheme(theme === 'dark' ? 'light' : 'dark')} // Toggle between light and dark themes
-          // className="bg-[#54677c]" 
-        />
-        {theme === 'dark' ? (
-          <Sun className="absolute h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0 text-black" />
-        ) : (
-          <Moon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100 text-white" />
-        )}
-        <span className="sr-only">Toggle theme</span>
-      </Button>
-      <DropdownMenuContent align="end">
-        <DropdownMenuItem onClick={() => setTheme("light")}>
-          Light
-        </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setTheme("dark")}>
-          Dark
-        </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setTheme("system")}>
-          System
-        </DropdownMenuItem>
-      </DropdownMenuContent>
-    </DropdownMenu>
+    <div className="flex">
+      <Switch
+        checked={theme === 'dark'} 
+        onCheckedChange={() => setTheme(theme === 'dark' ? 'light' : 'dark')} 
+        disabled={false} 
+        aria-readonly={true} 
+      />
+
+        <Moon className="h-[1.8rem] w-[1.8rem] ml-2 mb-1 rotate-90 scale-100 transition-all dark:rotate-0 dark:scale-100 text-[#90b4dd]" />
+
+    </div>
   )
 }
 

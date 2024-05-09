@@ -5,12 +5,28 @@ import NavBar from '@/components/navigation/NavbarContainer';
 import data from '@/data/data';
 import ScrollTopButton from '@/components/ScrollTopButton';
 import Link from 'next/link';
-import { AspectRatio } from '@/components/ui/aspect-ratio';
+import { unstable_cache } from 'next/cache';
+import { PrismaClient } from '@prisma/client';
 
 
 const toSlug = (title: string) => {
   return title.toLowerCase().replace(/\s+/g, '_');
 };
+
+
+
+const prisma = new PrismaClient();
+
+const myDic = unstable_cache(async(slug: string)=>{
+  const upperSlug = slug.toUpperCase()
+  const dictData = await prisma.word.findUnique({
+    where: { slug },
+  })
+})
+
+
+
+
 
 const HomePage: React.FC = () => {
   return (

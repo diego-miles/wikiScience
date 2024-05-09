@@ -1,7 +1,8 @@
 
 model Word {
   id          String    @id @map("_id") @db.ObjectId
-  word        String    @unique
+  word        String    
+  slug        String    @unique
   pronunciation String?
   definitions  Definition[]
   etymology    String?

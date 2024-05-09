@@ -1,7 +1,7 @@
 model ChemicalElement {
     id                           String                         @id @default(auto()) @map("_id") @db.ObjectId
     symbol                       String                         @unique
-    name                         String                         @unique
+    name                         String                         
     slug                         String                         @unique
     atomicNumber                 String?
     atomicWeight                 String?
