@@ -55,6 +55,7 @@ const config = {
         h4: 'var(--color-h4)',
         h5: 'var(--color-h5)',
         p: 'var(--color-p)',
+        pdark: 'var(--color-p-dark)',
         strong: 'var(--color-strong)',
         a: 'var(--color-a)',
         a2: 'var(--color-a2)',

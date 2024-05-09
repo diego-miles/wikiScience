@@ -74,40 +74,35 @@ const NavigationMenu: React.FC<NavigationMenuProps> = ({ className, style }) => 
 
 
 
-              <section className={"-mt-12 "}>
-                {/* <div className={styles.header}>~ Top Science Books ~</div> */}
+<section className="mt-12">
+  {/* <div className="text-center text-xl font-medium text-gray-400 rounded-md mx-auto max-w-xs p-2 mb-4">~ Top Science Books ~</div> */}
 
-
-                <div className={styles.navContainer}>
-                  {data.map((field, idx) => (
-                    <div className={styles.branchContainer} key={idx}>
-                      <div>
-                        <li className={styles.titleField}>{field.title}</li>
-                      </div>
-                      <div className={styles.gridLayout}>
-                        {field.subFields.map((subField, sIdx) => (
-                          <ul key={sIdx}>
-                            <li className={styles.subField}>
-                              {/* Use toSlug to convert subField.title into a slug */}
-                              <Link href={`/top-science-books/${toSlug(subField.title)}`} className='menu-link'>
-                                {subField.title}
-                              </Link>
-                            </li>
-                            {subField.topics.map((topic, tIdx) => (
-                              <li className={styles.subTopic} key={tIdx}>
-                                {/* Use toSlug for both subField.title and topic to create a nested slug */}
-                                <Link href={`/top-science-books/${toSlug(subField.title)}/${toSlug(topic)}`} >
-                                  {topic}
-                                </Link>
-                              </li>
-                            ))}
-                          </ul>
-                        ))}
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </section>
+  <div className="container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-4">
+    {data.map((field, idx) => (
+      <div key={idx} className=" rounded-lg p-6">
+        <h2 className="text-center text-lg font-bold text-teal-700 pb-8 pt-12">{field.title}</h2>
+        <div className="grid grid-cols-2 gap-4">
+          {field.subFields.map((subField, sIdx) => (
+            <ul key={sIdx}>
+              <li className="font-medium text-blue-700 dark:text-white pb-2">
+                <Link href={`/top-science-books/${toSlug(subField.title)}`} className="hover:underline">
+                  {subField.title}
+                </Link>
+              </li>
+              {subField.topics.map((topic, tIdx) => (
+                <li key={tIdx} className="pl-4 border-l-4 border-gray-300 pb-2">
+                  <Link href={`/top-science-books/${toSlug(subField.title)}/${toSlug(topic)}`} className="text-gray-700 dark:text-pdark hover:underline">
+                    {topic}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          ))}
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
 
 
 
@@ -117,10 +112,10 @@ const NavigationMenu: React.FC<NavigationMenuProps> = ({ className, style }) => 
         </Accordion>
 
 
-        <h2 className='font-semibold text-base text-slate-300 pt-16'>Biographies</h2>
-        <h2 className='font-semibold text-base text-slate-300'>Concepts</h2>
-        <h2 className='font-semibold text-base text-slate-300'>Biological organisms</h2>
-        <h2 className='font-semibold text-base text-slate-300'>Electronics Encyclopedia</h2>
+        <h2 className='font-semibold text-base text-slate-300 pt-20 dark:text-slate-500 '>Biographies</h2>
+        <h2 className='font-semibold text-base text-slate-300 dark:text-slate-500 '>Concepts</h2>
+        <h2 className='font-semibold text-base text-slate-300 dark:text-slate-500'>Biological organisms</h2>
+        <h2 className='font-semibold text-base text-slate-300 dark:text-slate-500'>Electronics Encyclopedia</h2>
         {/* <div className={styles.header}>~ Top Science Books ~</div> */}
         <section className='text-center'>
         </section>
