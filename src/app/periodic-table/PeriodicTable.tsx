@@ -75,7 +75,7 @@ const renderElement = (element: Element) => {
   return (
     <div
       key={element.atomicNumber}
-      className={`grid-item m-1 rounded-lg px-0 py-3 w-fit min-w-[7rem] text-center relative group ${getBackgroundColor(
+      className={`grid-item m-[.1rem] rounded-lg px-0 py-2 w-fit min-w-[7.2rem] text-center relative group ${getBackgroundColor(
         element.family
       )}`}
       style={style} onMouseEnter={handleHover} onMouseLeave={handleMouseLeave}>

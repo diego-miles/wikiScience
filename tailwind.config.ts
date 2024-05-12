@@ -111,15 +111,14 @@ colors: {
         'relaxed': "1.75",
         'loose': "2",
       },
-      screens: {
-        'sm': '480px',      
-        'md': '768px',      
-        'lg': '768px',     
-        'xl': '768px',     
-        '2xl': '768px',   
-        '3xl': '768px',   
-        '4xl': '768px',   
-      },
+screens: {
+  'sm': '480px',      
+  'md': '768px',      
+  'lg': '1024px',     
+  'xl': '1280px',     
+  '2xl': '1536px',   
+},
+
       
     container: {
       center: true,

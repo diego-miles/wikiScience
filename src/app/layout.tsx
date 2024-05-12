@@ -58,12 +58,12 @@ export default function RootLayout({
 <body
   className={cn(
     "min-h-screen font-sans antialiased ",
-    "bg-grid-black/[0.04] dark:bg-grid-[#082d52] ",
+    "bg-grid-black/[0.04] dark:bg-none ",
     noto_sans_georgian.variable,
     noto_serif_georgian.variable
   )}
 >
-<GridBackgroundDemo/>
+{/* <GridBackgroundDemo/> */}
 
 
         <CookieConsent />
