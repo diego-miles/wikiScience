@@ -81,13 +81,14 @@ colors: {
   'alkali-metal': 'var(--color-alkali-metal)',
   'alkali-earth': 'var(--color-alkali-earth)',
   'transition-metal': 'var(--color-transition-metal)',
-  actinides: 'var(--color-actinides)',
+  'post-transition-metal': 'var(--color-post-transition-metal)',
   metalloids: 'var(--color-metalloids)',
   'non-metals': 'var(--color-non-metals)',
   'halogens': 'var(--color-halogens)',
   'noble-gases': 'var(--color-noble-gases)',
   'lanthanides': 'var(--color-lanthanides)',
-  'noble-gas': 'var(--color-noble-gas)'
+  'noble-gas': 'var(--color-noble-gas)',
+  'actinide': 'var(--color-actinide)'
 },
 
       fontSize: {

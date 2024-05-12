@@ -7,8 +7,12 @@ const Home: React.FC = () => {
   return (
     <div>
       <NavbarContainer></NavbarContainer>
-      <h1 className="text-center text-3xl my-4">Tabla Periódica de los Elementos</h1>
+      <main className='h-[120rem]'>
+      <h1 className="text-center te my-4">Periodic Table of the Chemical Elements</h1>
+      <div className='absolute left-0 right-0 '>
       <PeriodicTable />
+      </div>
+      </main>
     </div>
   );
 };

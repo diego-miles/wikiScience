@@ -53,13 +53,13 @@
   --color-alkali-metal: #BF1929;
   --color-alkali-earth: #D56D05;
   --color-transition-metal: #0080F8;
-  --color-actinides: #00AC62;
+  --color-post-transition-metal: #00AC62;
   --color-metalloids: #0367AB;
   --color-non-metals: #6D6D6D;
   --color-halogens: #DC0BB4;
-  --color-noble-gases: #BB9600;
+  --color-noble-gas: #BB9600;
   --color-lanthanides: #00878B;
-  --color-noble-gas: #8E44AD;
+  --color-actinide: #8E44AD;
 
   --font-size-p: 1.5rem;
   --font-size-small-p: 1.5rem;

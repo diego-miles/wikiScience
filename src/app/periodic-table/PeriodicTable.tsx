@@ -1,6 +1,6 @@
 "use client";
 import { useState } from 'react';
-import elementsData from '@/data/elementsData.json'; // Assuming this file now contains all elements
+import elementsData from '@/data/elementsData.json';
 
 interface Element {
   symbol: string;
@@ -24,9 +24,11 @@ const PeriodicTable: React.FC = () => {
       case 'Transition metal':
         return 'bg-transition-metal';
       case 'Lanthanides':
-        return 'bg-lanthanides';
-      case 'Actinides':
-        return 'bg-actinides';
+        return 'bg-lanthanide';
+      case 'Post-transition metal':
+        return 'bg-post-transition-metal';
+      case 'Actinide':
+        return 'bg-actinide';
       case 'Metalloids':
         return 'bg-metalloids';
       case 'Non-metal':
@@ -34,97 +36,56 @@ const PeriodicTable: React.FC = () => {
       case 'Halogens':
         return 'bg-halogens';
       case 'Noble gas':
-        return 'bg-noble-gas'; 
+        return 'bg-noble-gas';
       default:
-        return 'bg-gray-200'; // You might want to change this to a neutral background variable
+        return 'bg-gray-200';
     }
   };
 
-  const renderElement = (element: Element) => (
-    <td
-      key={element.atomicNumber}
-      className={`border border-gray-300 px-2 py-1 text-center ${getBackgroundColor(element.family)}`}
-    >
-      <span className="font-bold text-black block">{element.symbol}</span>
-      <span className="text-sm text-black block">{element.name}</span>
-      <span className="text-xs text-gray-400 block">{element.atomicNumber}</span>
-    </td>
-  );
+  const getElementPosition = (period: number, group: number, atomicNumber: number): { row: number, col: number } => {
+    if (atomicNumber >= 57 && atomicNumber <= 71) {
+      // Lanthanides
+      return { row: 9, col: atomicNumber - 54 };
+    } else if (atomicNumber >= 89 && atomicNumber <= 103) {
+      // Actinides
+      return { row: 10, col: atomicNumber - 86 };
+    } else {
+      // Regular elements
+      return { row: period, col: group };
+    }
+  };
 
-  const renderEmptyCell = () => (
-    <td className=" py-1" />
-  );
+const renderElement = (element: Element) => {
+  const { row, col } = getElementPosition(element.period, element.group, element.atomicNumber);
+  const style = {
+    gridRow: row,
+    gridColumn: col,
+  };
 
   return (
-    <div className="p-4 rounded-lg shadow-md">
-      <h2 className="text-2xl font-bold text-center mb-4 text-h2">Periodic Table</h2>
-      <table className="w-full border-collapse border border-gray-300">
-        <thead>
-          <tr>
-            <th colSpan={2} className="border px-2 py-1 text-center"></th>
-            {[...Array(18)].map((_, i) => (
-              <th key={i} className="border px-2 py-1 text-center text-black">
-                {i + 1}
-              </th>
-            ))}
-          </tr>
-          <tr>
-            <th colSpan={2} className="border px-2 py-1 text-center"></th>
-            {[...Array(18)].map((_, i) => {
-              const group = i + 1;
-              const block = elements.find((el) => el.group === group)?.block || '';
-              return (
-                <th key={i} className="border px-2 py-1 text-center text-black">
-                  {block}
-                </th>
-              );
-            })}
-          </tr>
-        </thead>
-        <tbody>
-          {/* Periods 1-7 */}
-          {[1, 2, 3, 4, 5, 6, 7].map((period) => (
-            <tr key={period}>
-              <td className="border px-1 py-1 text-center text-black">{period}</td>
-              <td className="border px-1 py-1 text-center text-black"></td> 
-              {[...Array(18)].map((_, group) => {
-                const element = elements.find(
-                  (el) => el.period === period && el.group === group + 1
-                );
-                return element ? renderElement(element) : renderEmptyCell();
-              })}
-            </tr>
-          ))}
+    <div
+      key={element.atomicNumber}
+      className={`grid-item m-1 rounded-lg px-0 py-5 w-fit min-w-[8rem]  text-center relative group ${getBackgroundColor(element.family)}`}
+      style={style}
+    >
+      {/* Brillo en hover */}
+      <div className="absolute inset-0 bg-gradient-to-br from-transparent to-white opacity-0 group-hover:opacity-30 transition duration-300 rounded-lg  "></div>
+      {/* Borde brillante en hover */}
+      <div className="absolute inset-0 border-4 border-transparent group-hover:border-white group-hover:shadow-lg rounded-xl transition duration-300 group-hover:-m-[.3rem] "></div>
+      {/* Sombra en hover */}
+      <div className="absolute inset-0 shadow-lg opacity-0 group-hover:opacity-100 transition duration-300 rounded-lg"></div>
+      <span className="text-base font-bold text-black block">{element.symbol}</span>
+      <span className="text-[1.1rem] px-0 font-medium text-black block">{element.name}</span>
+      <span className="text-2xs text-gray-300 block">{element.atomicNumber}</span>
+    </div>
+  );
+};
 
-          {/* Lanthanides */}
-          <tr>
-            <td colSpan={3} className="border px-1 py-1 text-center"></td>
-            {[57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71].map(
-              (atomicNumber) => {
-                const element = elements.find(
-                  (el) => el.atomicNumber === atomicNumber
-                );
-                return element ? renderElement(element) : renderEmptyCell();
-              }
-            )}
-            <td colSpan={2} className="border px-1 py-1 text-center"></td>
-          </tr>
-
-          {/* Actinides */}
-          <tr>
-            <td colSpan={3} className="border px-1 py-1 text-center"></td>
-            {[89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103].map(
-              (atomicNumber) => {
-                const element = elements.find(
-                  (el) => el.atomicNumber === atomicNumber
-                );
-                return element ? renderElement(element) : renderEmptyCell();
-              }
-            )}
-            <td colSpan={2} className="border px-1 py-1 text-center"></td>
-          </tr>
-        </tbody>
-      </table>
+  return (
+    <div className="p-1 rounded-lg shadow-md mx-auto w-fit ">
+      <div className="grid grid-cols-18 grid-rows-10 gap-0 mx-auto">
+        {elements.map((element) => renderElement(element))}
+      </div>
     </div>
   );
 };
