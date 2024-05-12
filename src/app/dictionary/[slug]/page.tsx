@@ -59,7 +59,7 @@ const WordPage: React.FC<WordPageProps> = ({ params: { slug } }) => {
     <>
       <NavBar />
       <main className="container mx-auto mt-12">
-        <h1>{wordData.word}</h1>
+        {/* <h1>{wordData.word}</h1>
         <p>Pronunciation: {wordData.pronunciation}</p>
         <p>Slug: {wordData.slug}</p>
         <p>Etymology: {wordData.etymology}</p>
@@ -79,7 +79,7 @@ const WordPage: React.FC<WordPageProps> = ({ params: { slug } }) => {
             <li key={index}><img src={image} alt={`Image ${index}`} /></li>
           ))}
         </ul>
-        <p>Audio: {wordData.audio}</p>
+        <p>Audio: {wordData.audio}</p> */}
         {/* Render other related data similarly */}
       </main>
       <ScrollTopButton />
@@ -87,5 +87,4 @@ const WordPage: React.FC<WordPageProps> = ({ params: { slug } }) => {
   );
 };
 
-export { generateMetadata };
 export default WordPage;
