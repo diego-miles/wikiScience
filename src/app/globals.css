@@ -17,7 +17,7 @@
   --color-h4: #1a6157;
   --color-h5: #2E4053;
   --color-p: #000b12;
-  --color-p-dark: #dcedf8;
+  --color-p-dark: #f9f9f9;
   --color-strong: #090909;
   /* --color-p: #243b48; */
   --color-a: #ad0048;
@@ -28,7 +28,7 @@
   --color-accent-3: #16a085;
   --color-gold: #5d4a15;
   --color-background-1: #f4f6f6;
-  --color-background-dark: rgb(20, 34, 56);
+  --color-background-dark: #192536;
   /* --color-background1-dark: #172330; */
   --color-background-2: #cfd3d3;
   --color-background-3: #B0B6B9;
@@ -208,7 +208,7 @@ p {
 
 
 h1 {
-  @apply dark:text-sky-300;
+  @apply dark:text-[#9aebff];
   font-family: var(--font-noto-serif-georgian);
   font-size: var(--font-size-h1);
   font-weight: 900;
@@ -216,7 +216,7 @@ h1 {
   text-align: center;
   line-height: 1.3;
   padding-bottom: 5rem;
-  letter-spacing: -0.025em;
+  letter-spacing: 1.2;
 }
 
 h2 {

@@ -38,7 +38,7 @@ const PeriodicTable: React.FC = () => {
       case 'Noble gas':
         return 'bg-noble-gas';
       default:
-        return 'bg-gray-200';
+        return 'bg-gray-400';
     }
   };
 
@@ -62,27 +62,39 @@ const renderElement = (element: Element) => {
     gridColumn: col,
   };
 
+  const handleHover = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+    const target = event.currentTarget;
+    target.style.transform = 'scale(1.1)'; // Increase size by 10%
+  };
+
+  const handleMouseLeave = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+    const target = event.currentTarget;
+    target.style.transform = 'scale(1)'; // Restore original size
+  };
+
   return (
     <div
       key={element.atomicNumber}
-      className={`grid-item m-1 rounded-lg px-0 py-5 w-fit min-w-[8rem]  text-center relative group ${getBackgroundColor(element.family)}`}
-      style={style}
-    >
+      className={`grid-item m-1 rounded-lg px-0 py-3 w-fit min-w-[7rem] text-center relative group ${getBackgroundColor(
+        element.family
+      )}`}
+      style={style} onMouseEnter={handleHover} onMouseLeave={handleMouseLeave}>
       {/* Brillo en hover */}
-      <div className="absolute inset-0 bg-gradient-to-br from-transparent to-white opacity-0 group-hover:opacity-30 transition duration-300 rounded-lg  "></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-transparent to-white opacity-0 group-hover:opacity-30 transition duration-300 rounded-lg"></div>
       {/* Borde brillante en hover */}
-      <div className="absolute inset-0 border-4 border-transparent group-hover:border-white group-hover:shadow-lg rounded-xl transition duration-300 group-hover:-m-[.3rem] "></div>
+      <div className="absolute z-50 inset-0 border-4 border-transparent group-hover:border-[#eae9c6] group-hover:shadow-lg rounded-xl transition duration-300 group-hover:-m-[.3rem] "></div>
       {/* Sombra en hover */}
-      <div className="absolute inset-0 shadow-lg opacity-0 group-hover:opacity-100 transition duration-300 rounded-lg"></div>
-      <span className="text-base font-bold text-black block">{element.symbol}</span>
-      <span className="text-[1.1rem] px-0 font-medium text-black block">{element.name}</span>
-      <span className="text-2xs text-gray-300 block">{element.atomicNumber}</span>
+      <div className="absolute inset-0 shadow-lg opacity-0 group-hover:opacity-100 transition duration-300 rounded-lg "></div >
+      <span className="text-base font-black text-black block">{element.symbol}</span>
+      <span className="text-[1rem] px-0 font-bold  text-black block ">{element.name}</span>
+      <span className="text-2xs text-gray-200 block">{element.atomicNumber}</span>
     </div>
   );
 };
 
+
   return (
-    <div className="p-1 rounded-lg shadow-md mx-auto w-fit ">
+    <div className="p-1 rounded-lg shadow-md mx-auto w-fit">
       <div className="grid grid-cols-18 grid-rows-10 gap-0 mx-auto">
         {elements.map((element) => renderElement(element))}
       </div>
@@ -90,4 +102,4 @@ const renderElement = (element: Element) => {
   );
 };
 
-export default PeriodicTable;
+export default PeriodicTable; 
