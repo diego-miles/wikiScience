@@ -23,15 +23,15 @@
   --color-a: #ad0048;
   --color-a2: #0077b7;
   /* --color-accent1: #0075c3; */
-  --color-accent1: #3498db;
-  --color-accent2: #cf4336;
-  --color-accent3: #16a085;
+  --color-accent-1: #3498db;
+  --color-accent-2: #cf4336;
+  --color-accent-3: #16a085;
   --color-gold: #5d4a15;
-  --color-background1: #f4f6f6;
-  --color-background1-dark: rgb(20, 34, 56);
+  --color-background-1: #f4f6f6;
+  --color-background-dark: rgb(20, 34, 56);
   /* --color-background1-dark: #172330; */
-  --color-background2: #cfd3d3;
-  --color-background3: #B0B6B9;
+  --color-background-2: #cfd3d3;
+  --color-background-3: #B0B6B9;
   --color-border: #2a9edd;
   /* --color-border: #9bc1d6; */
   --color-button: #EAF0F3;
@@ -50,6 +50,16 @@
   --color-soft-green: #BAE9D2;
   --color-green-text: #197D4F;
   --color-darkgreen-text: #71a5a2;
+  --color-alkali-metal: #BF1929;
+  --color-alkali-earth: #D56D05;
+  --color-transition-metal: #0080F8;
+  --color-actinides: #00AC62;
+  --color-metalloids: #0367AB;
+  --color-non-metals: #6D6D6D;
+  --color-halogens: #DC0BB4;
+  --color-noble-gases: #BB9600;
+  --color-lanthanides: #00878B;
+  --color-noble-gas: #8E44AD;
 
   --font-size-p: 1.5rem;
   --font-size-small-p: 1.5rem;
@@ -103,7 +113,7 @@
 }
 
 html::-webkit-scrollbar-thumb {
-  background: var(--color-accent1);
+  background: var(--color-accent-1);
   border-radius: 0.6rem;
 }
 
@@ -128,12 +138,12 @@ body::-webkit-scrollbar-thumb {
 }
 
 body::-webkit-scrollbar-track {
-  background: var(--color-background2);
+  background: var(--color-background-2);
 }
 
 body {
-  @apply dark:bg-[var(--color-background1-dark)] ;
-  background-color: var(--color-background1);
+  @apply dark:bg-[var(--color-background-dark)] ;
+  background-color: var(--color-background-1);
   height: 100%;
   margin: 0 auto;
   /* background-image: linear-gradient(#F1F1F1 2px, transparent 2px),
@@ -284,7 +294,7 @@ strong {
 }
 
 .active-color {
-  color: var(--color-active-element);
+  color: var(--color-active);
 }
 
 .max-width {
@@ -370,7 +380,7 @@ li {
 }
 
 .active-color:hover {
-  color: var(--color-accent1);
+  color: var(--color-accent-1);
 }
 
 .shadow-effect {
@@ -385,7 +395,7 @@ li {
 
 .button:hover {
   background-color: transparent;
-  border-color: var(--color-accent1);
+  border-color: var(--color-accent-1);
 }
 
 input,

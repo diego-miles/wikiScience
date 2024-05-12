@@ -4,6 +4,7 @@ import ScrollTopButton from '@/components/ScrollTopButton';
 import { PrismaClient } from '@prisma/client';
 import { Metadata } from 'next';
 import { unstable_cache } from 'next/cache';
+import { notFound } from 'next/navigation';
 
 const prisma = new PrismaClient();
 
@@ -18,6 +19,7 @@ const getWordData = unstable_cache(async (slug: string) => {
       historicalSignificance: true,
     },
   });
+  if (!wordData) notFound();
   return wordData;
 });
 

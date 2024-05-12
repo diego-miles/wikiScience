@@ -1,4 +1,4 @@
-//🧩Don't Edit this file.✨Generated in Thu May 09 2024 03:59:30 GMT-0600 (Central Standard Time)✨
+//🧩Don't Edit this file.✨Generated in Fri May 10 2024 02:26:34 GMT-0600 (Central Standard Time)✨
 
 datasource db {
   provider = "mongodb"
@@ -98,7 +98,7 @@ model Word {
   examples               String[]
   images                 String[]
   audio                  String?
-  language               String
+  language               String?
   tags                   String[]
   relatedConcepts        RelatedConcept[]
   applications           Application[]
@@ -112,7 +112,7 @@ model Word {
 
 model RelatedConcept {
   id        String   @id @map("_id") @db.ObjectId
-  concept   String
+  concept   String?
   word      Word     @relation(fields: [wordId], references: [id])
   wordId    String   @db.ObjectId
   createdAt DateTime @default(now())
@@ -121,7 +121,7 @@ model RelatedConcept {
 
 model Application {
   id          String   @id @map("_id") @db.ObjectId
-  application String
+  application String?
   word        Word     @relation(fields: [wordId], references: [id])
   wordId      String   @db.ObjectId
   createdAt   DateTime @default(now())
@@ -130,7 +130,7 @@ model Application {
 
 model MeasurementUnit {
   id        String   @id @map("_id") @db.ObjectId
-  unit      String
+  unit      String?
   word      Word     @relation(fields: [wordId], references: [id])
   wordId    String   @db.ObjectId
   createdAt DateTime @default(now())
@@ -139,7 +139,7 @@ model MeasurementUnit {
 
 model HistoricalSignificance {
   id        String   @id @map("_id") @db.ObjectId
-  event     String
+  event     String?
   word      Word     @relation(fields: [wordId], references: [id])
   wordId    String   @db.ObjectId
   createdAt DateTime @default(now())
@@ -148,8 +148,8 @@ model HistoricalSignificance {
 
 model Definition {
   id           String   @id @map("_id") @db.ObjectId
-  partOfSpeech String
-  meaning      String
+  partOfSpeech String?
+  meaning      String?
   example      String?
   word         Word     @relation(fields: [wordId], references: [id])
   wordId       String   @db.ObjectId

@@ -3,708 +3,1062 @@
         "symbol": "H",
         "name": "Hydrogen",
         "family": "Non-metal",
-        "atomicNumber": 1
+        "atomicNumber": 1,
+        "group": 1,
+        "period": 1,
+        "block": "s"
     },
     {
         "symbol": "He",
         "name": "Helium",
         "family": "Noble gas",
-        "atomicNumber": 2
+        "atomicNumber": 2,
+        "group": 18,
+        "period": 1,
+        "block": "s"
     },
     {
         "symbol": "Li",
         "name": "Lithium",
         "family": "Alkali metal",
-        "atomicNumber": 3
+        "atomicNumber": 3,
+        "group": 1,
+        "period": 2,
+        "block": "s"
     },
     {
         "symbol": "Be",
         "name": "Beryllium",
         "family": "Alkaline earth metal",
-        "atomicNumber": 4
+        "atomicNumber": 4,
+        "group": 2,
+        "period": 2,
+        "block": "s"
     },
     {
         "symbol": "B",
         "name": "Boron",
         "family": "Metalloid",
-        "atomicNumber": 5
+        "atomicNumber": 5,
+        "group": 13,
+        "period": 2,
+        "block": "p"
     },
     {
         "symbol": "C",
         "name": "Carbon",
         "family": "Non-metal",
-        "atomicNumber": 6
+        "atomicNumber": 6,
+        "group": 14,
+        "period": 2,
+        "block": "p"
     },
     {
         "symbol": "N",
         "name": "Nitrogen",
         "family": "Non-metal",
-        "atomicNumber": 7
+        "atomicNumber": 7,
+        "group": 15,
+        "period": 2,
+        "block": "p"
     },
     {
         "symbol": "O",
         "name": "Oxygen",
         "family": "Non-metal",
-        "atomicNumber": 8
+        "atomicNumber": 8,
+        "group": 16,
+        "period": 2,
+        "block": "p"
     },
     {
         "symbol": "F",
         "name": "Fluorine",
         "family": "Halogen",
-        "atomicNumber": 9
+        "atomicNumber": 9,
+        "group": 17,
+        "period": 2,
+        "block": "p"
     },
     {
         "symbol": "Ne",
         "name": "Neon",
         "family": "Noble gas",
-        "atomicNumber": 10
+        "atomicNumber": 10,
+        "group": 18,
+        "period": 2,
+        "block": "p"
     },
     {
         "symbol": "Na",
         "name": "Sodium",
         "family": "Alkali metal",
-        "atomicNumber": 11
+        "atomicNumber": 11,
+        "group": 1,
+        "period": 3,
+        "block": "s"
     },
     {
         "symbol": "Mg",
         "name": "Magnesium",
         "family": "Alkaline earth metal",
-        "atomicNumber": 12
+        "atomicNumber": 12,
+        "group": 2,
+        "period": 3,
+        "block": "s"
     },
     {
         "symbol": "Al",
         "name": "Aluminum",
         "family": "Post-transition metal",
-        "atomicNumber": 13
+        "atomicNumber": 13,
+        "group": 13,
+        "period": 3,
+        "block": "p"
     },
     {
         "symbol": "Si",
         "name": "Silicon",
         "family": "Metalloid",
-        "atomicNumber": 14
+        "atomicNumber": 14,
+        "group": 14,
+        "period": 3,
+        "block": "p"
     },
     {
         "symbol": "P",
         "name": "Phosphorus",
         "family": "Non-metal",
-        "atomicNumber": 15
+        "atomicNumber": 15,
+        "group": 15,
+        "period": 3,
+        "block": "p"
     },
     {
         "symbol": "S",
         "name": "Sulfur",
         "family": "Non-metal",
-        "atomicNumber": 16
+        "atomicNumber": 16,
+        "group": 16,
+        "period": 3,
+        "block": "p"
     },
     {
         "symbol": "Cl",
         "name": "Chlorine",
         "family": "Halogen",
-        "atomicNumber": 17
+        "atomicNumber": 17,
+        "group": 17,
+        "period": 3,
+        "block": "p"
     },
     {
         "symbol": "Ar",
         "name": "Argon",
         "family": "Noble gas",
-        "atomicNumber": 18
+        "atomicNumber": 18,
+        "group": 18,
+        "period": 3,
+        "block": "p"
     },
     {
         "symbol": "K",
         "name": "Potassium",
         "family": "Alkali metal",
-        "atomicNumber": 19
+        "atomicNumber": 19,
+        "group": 1,
+        "period": 4,
+        "block": "s"
     },
     {
         "symbol": "Ca",
         "name": "Calcium",
         "family": "Alkaline earth metal",
-        "atomicNumber": 20
+        "atomicNumber": 20,
+        "group": 2,
+        "period": 4,
+        "block": "s"
     },
     {
         "symbol": "Sc",
         "name": "Scandium",
         "family": "Transition metal",
-        "atomicNumber": 21
+        "atomicNumber": 21,
+        "group": 3,
+        "period": 4,
+        "block": "d"
     },
     {
         "symbol": "Ti",
         "name": "Titanium",
         "family": "Transition metal",
-        "atomicNumber": 22
+        "atomicNumber": 22,
+        "group": 4,
+        "period": 4,
+        "block": "d"
     },
     {
         "symbol": "V",
         "name": "Vanadium",
         "family": "Transition metal",
-        "atomicNumber": 23
+        "atomicNumber": 23,
+        "group": 5,
+        "period": 4,
+        "block": "d"
     },
     {
         "symbol": "Cr",
         "name": "Chromium",
         "family": "Transition metal",
-        "atomicNumber": 24
+        "atomicNumber": 24,
+        "group": 6,
+        "period": 4,
+        "block": "d"
     },
     {
         "symbol": "Mn",
         "name": "Manganese",
         "family": "Transition metal",
-        "atomicNumber": 25
+        "atomicNumber": 25,
+        "group": 7,
+        "period": 4,
+        "block": "d"
     },
     {
         "symbol": "Fe",
         "name": "Iron",
         "family": "Transition metal",
-        "atomicNumber": 26
+        "atomicNumber": 26,
+        "group": 8,
+        "period": 4,
+        "block": "d"
     },
     {
         "symbol": "Co",
         "name": "Cobalt",
         "family": "Transition metal",
-        "atomicNumber": 27
+        "atomicNumber": 27,
+        "group": 9,
+        "period": 4,
+        "block": "d"
     },
     {
         "symbol": "Ni",
         "name": "Nickel",
         "family": "Transition metal",
-        "atomicNumber": 28
+        "atomicNumber": 28,
+        "group": 10,
+        "period": 4,
+        "block": "d"
     },
     {
         "symbol": "Cu",
         "name": "Copper",
         "family": "Transition metal",
-        "atomicNumber": 29
+        "atomicNumber": 29,
+        "group": 11,
+        "period": 4,
+        "block": "d"
     },
     {
         "symbol": "Zn",
         "name": "Zinc",
         "family": "Transition metal",
-        "atomicNumber": 30
+        "atomicNumber": 30,
+        "group": 12,
+        "period": 4,
+        "block": "d"
     },
     {
         "symbol": "Ga",
         "name": "Gallium",
         "family": "Post-transition metal",
-        "atomicNumber": 31
+        "atomicNumber": 31,
+        "group": 13,
+        "period": 4,
+        "block": "p"
     },
     {
         "symbol": "Ge",
         "name": "Germanium",
         "family": "Metalloid",
-        "atomicNumber": 32
+        "atomicNumber": 32,
+        "group": 14,
+        "period": 4,
+        "block": "p"
     },
     {
         "symbol": "As",
         "name": "Arsenic",
         "family": "Metalloid",
-        "atomicNumber": 33
+        "atomicNumber": 33,
+        "group": 15,
+        "period": 4,
+        "block": "p"
     },
     {
         "symbol": "Se",
         "name": "Selenium",
         "family": "Non-metal",
-        "atomicNumber": 34
+        "atomicNumber": 34,
+        "group": 16,
+        "period": 4,
+        "block": "p"
     },
     {
         "symbol": "Br",
         "name": "Bromine",
         "family": "Halogen",
-        "atomicNumber": 35
+        "atomicNumber": 35,
+        "group": 17,
+        "period": 4,
+        "block": "p"
     },
     {
         "symbol": "Kr",
         "name": "Krypton",
         "family": "Noble gas",
-        "atomicNumber": 36
+        "atomicNumber": 36,
+        "group": 18,
+        "period": 4,
+        "block": "p"
     },
     {
         "symbol": "Rb",
         "name": "Rubidium",
         "family": "Alkali metal",
-        "atomicNumber": 37
+        "atomicNumber": 37,
+        "group": 1,
+        "period": 5,
+        "block": "s"
     },
     {
         "symbol": "Sr",
         "name": "Strontium",
         "family": "Alkaline earth metal",
-        "atomicNumber": 38
+        "atomicNumber": 38,
+        "group": 2,
+        "period": 5,
+        "block": "s"
     },
     {
         "symbol": "Y",
         "name": "Yttrium",
         "family": "Transition metal",
-        "atomicNumber": 39
+        "atomicNumber": 39,
+        "group": 3,
+        "period": 5,
+        "block": "d"
     },
     {
         "symbol": "Zr",
         "name": "Zirconium",
         "family": "Transition metal",
-        "atomicNumber": 40
+        "atomicNumber": 40,
+        "group": 4,
+        "period": 5,
+        "block": "d"
     },
     {
         "symbol": "Nb",
         "name": "Niobium",
         "family": "Transition metal",
-        "atomicNumber": 41
+        "atomicNumber": 41,
+        "group": 5,
+        "period": 5,
+        "block": "d"
     },
     {
         "symbol": "Mo",
         "name": "Molybdenum",
         "family": "Transition metal",
-        "atomicNumber": 42
+        "atomicNumber": 42,
+        "group": 6,
+        "period": 5,
+        "block": "d"
     },
     {
         "symbol": "Tc",
         "name": "Technetium",
         "family": "Transition metal",
-        "atomicNumber": 43
+        "atomicNumber": 43,
+        "group": 7,
+        "period": 5,
+        "block": "d"
     },
     {
         "symbol": "Ru",
         "name": "Ruthenium",
         "family": "Transition metal",
-        "atomicNumber": 44
+        "atomicNumber": 44,
+        "group": 8,
+        "period": 5,
+        "block": "d"
     },
     {
         "symbol": "Rh",
         "name": "Rhodium",
         "family": "Transition metal",
-        "atomicNumber": 45
+        "atomicNumber": 45,
+        "group": 9,
+        "period": 5,
+        "block": "d"
     },
     {
         "symbol": "Pd",
         "name": "Palladium",
         "family": "Transition metal",
-        "atomicNumber": 46
+        "atomicNumber": 46,
+        "group": 10,
+        "period": 5,
+        "block": "d"
     },
     {
         "symbol": "Ag",
         "name": "Silver",
         "family": "Transition metal",
-        "atomicNumber": 47
+        "atomicNumber": 47,
+        "group": 11,
+        "period": 5,
+        "block": "d"
     },
     {
         "symbol": "Cd",
         "name": "Cadmium",
         "family": "Transition metal",
-        "atomicNumber": 48
+        "atomicNumber": 48,
+        "group": 12,
+        "period": 5,
+        "block": "d"
     },
     {
         "symbol": "In",
         "name": "Indium",
         "family": "Post-transition metal",
-        "atomicNumber": 49
+        "atomicNumber": 49,
+        "group": 13,
+        "period": 5,
+        "block": "p"
     },
     {
         "symbol": "Sn",
         "name": "Tin",
         "family": "Post-transition metal",
-        "atomicNumber": 50
+        "atomicNumber": 50,
+        "group": 14,
+        "period": 5,
+        "block": "p"
     },
     {
         "symbol": "Sb",
         "name": "Antimony",
         "family": "Metalloid",
-        "atomicNumber": 51
+        "atomicNumber": 51,
+        "group": 15,
+        "period": 5,
+        "block": "p"
     },
     {
         "symbol": "Te",
         "name": "Tellurium",
         "family": "Metalloid",
-        "atomicNumber": 52
+        "atomicNumber": 52,
+        "group": 16,
+        "period": 5,
+        "block": "p"
     },
     {
         "symbol": "I",
         "name": "Iodine",
         "family": "Halogen",
-        "atomicNumber": 53
+        "atomicNumber": 53,
+        "group": 17,
+        "period": 5,
+        "block": "p"
     },
     {
         "symbol": "Xe",
         "name": "Xenon",
         "family": "Noble gas",
-        "atomicNumber": 54
+        "atomicNumber": 54,
+        "group": 18,
+        "period": 5,
+        "block": "p"
     },
     {
         "symbol": "Cs",
         "name": "Cesium",
         "family": "Alkali metal",
-        "atomicNumber": 55
+        "atomicNumber": 55,
+        "group": 1,
+        "period": 6,
+        "block": "s"
     },
     {
         "symbol": "Ba",
         "name": "Barium",
         "family": "Alkaline earth metal",
-        "atomicNumber": 56
+        "atomicNumber": 56,
+        "group": 2,
+        "period": 6,
+        "block": "s"
     },
     {
         "symbol": "La",
         "name": "Lanthanum",
         "family": "Lanthanide",
-        "atomicNumber": 57
+        "atomicNumber": 57,
+        "group": 3,
+        "period": 6,
+        "block": "f"
     },
     {
         "symbol": "Ce",
         "name": "Cerium",
         "family": "Lanthanide",
-        "atomicNumber": 58
+        "atomicNumber": 58,
+        "group": 3,
+        "period": 6,
+        "block": "f"
     },
     {
         "symbol": "Pr",
         "name": "Praseodymium",
         "family": "Lanthanide",
-        "atomicNumber": 59
+        "atomicNumber": 59,
+        "group": 3,
+        "period": 6,
+        "block": "f"
     },
     {
         "symbol": "Nd",
         "name": "Neodymium",
         "family": "Lanthanide",
-        "atomicNumber": 60
+        "atomicNumber": 60,
+        "group": 3,
+        "period": 6,
+        "block": "f"
     },
     {
         "symbol": "Pm",
         "name": "Promethium",
         "family": "Lanthanide",
-        "atomicNumber": 61
+        "atomicNumber": 61,
+        "group": 3,
+        "period": 6,
+        "block": "f"
     },
     {
         "symbol": "Sm",
         "name": "Samarium",
         "family": "Lanthanide",
-        "atomicNumber": 62
+        "atomicNumber": 62,
+        "group": 3,
+        "period": 6,
+        "block": "f"
     },
     {
         "symbol": "Eu",
         "name": "Europium",
         "family": "Lanthanide",
-        "atomicNumber": 63
+        "atomicNumber": 63,
+        "group": 3,
+        "period": 6,
+        "block": "f"
     },
     {
         "symbol": "Gd",
         "name": "Gadolinium",
         "family": "Lanthanide",
-        "atomicNumber": 64
+        "atomicNumber": 64,
+        "group": 3,
+        "period": 6,
+        "block": "f"
     },
     {
         "symbol": "Tb",
         "name": "Terbium",
         "family": "Lanthanide",
-        "atomicNumber": 65
+        "atomicNumber": 65,
+        "group": 3,
+        "period": 6,
+        "block": "f"
     },
     {
         "symbol": "Dy",
         "name": "Dysprosium",
         "family": "Lanthanide",
-        "atomicNumber": 66
+        "atomicNumber": 66,
+        "group": 3,
+        "period": 6,
+        "block": "f"
     },
     {
         "symbol": "Ho",
         "name": "Holmium",
         "family": "Lanthanide",
-        "atomicNumber": 67
+        "atomicNumber": 67,
+        "group": 3,
+        "period": 6,
+        "block": "f"
     },
     {
         "symbol": "Er",
         "name": "Erbium",
         "family": "Lanthanide",
-        "atomicNumber": 68
+        "atomicNumber": 68,
+        "group": 3,
+        "period": 6,
+        "block": "f"
     },
     {
         "symbol": "Tm",
         "name": "Thulium",
         "family": "Lanthanide",
-        "atomicNumber": 69
+        "atomicNumber": 69,
+        "group": 3,
+        "period": 6,
+        "block": "f"
     },
     {
         "symbol": "Yb",
         "name": "Ytterbium",
         "family": "Lanthanide",
-        "atomicNumber": 70
+        "atomicNumber": 70,
+        "group": 3,
+        "period": 6,
+        "block": "f"
     },
     {
         "symbol": "Lu",
         "name": "Lutetium",
         "family": "Lanthanide",
-        "atomicNumber": 71
+        "atomicNumber": 71,
+        "group": 3,
+        "period": 6,
+        "block": "d"
     },
     {
         "symbol": "Hf",
         "name": "Hafnium",
         "family": "Transition metal",
-        "atomicNumber": 72
+        "atomicNumber": 72,
+        "group": 4,
+        "period": 6,
+        "block": "d"
     },
     {
         "symbol": "Ta",
         "name": "Tantalum",
         "family": "Transition metal",
-        "atomicNumber": 73
+        "atomicNumber": 73,
+        "group": 5,
+        "period": 6,
+        "block": "d"
     },
     {
         "symbol": "W",
         "name": "Tungsten",
         "family": "Transition metal",
-        "atomicNumber": 74
+        "atomicNumber": 74,
+        "group": 6,
+        "period": 6,
+        "block": "d"
     },
     {
         "symbol": "Re",
         "name": "Rhenium",
         "family": "Transition metal",
-        "atomicNumber": 75
+        "atomicNumber": 75,
+        "group": 7,
+        "period": 6,
+        "block": "d"
     },
     {
         "symbol": "Os",
         "name": "Osmium",
         "family": "Transition metal",
-        "atomicNumber": 76
+        "atomicNumber": 76,
+        "group": 8,
+        "period": 6,
+        "block": "d"
     },
     {
         "symbol": "Ir",
         "name": "Iridium",
         "family": "Transition metal",
-        "atomicNumber": 77
+        "atomicNumber": 77,
+        "group": 9,
+        "period": 6,
+        "block": "d"
     },
     {
         "symbol": "Pt",
         "name": "Platinum",
         "family": "Transition metal",
-        "atomicNumber": 78
+        "atomicNumber": 78,
+        "group": 10,
+        "period": 6,
+        "block": "d"
     },
     {
         "symbol": "Au",
         "name": "Gold",
         "family": "Transition metal",
-        "atomicNumber": 79
+        "atomicNumber": 79,
+        "group": 11,
+        "period": 6,
+        "block": "d"
     },
     {
         "symbol": "Hg",
         "name": "Mercury",
         "family": "Transition metal",
-        "atomicNumber": 80
+        "atomicNumber": 80,
+        "group": 12,
+        "period": 6,
+        "block": "d"
     },
     {
         "symbol": "Tl",
         "name": "Thallium",
         "family": "Post-transition metal",
-        "atomicNumber": 81
+        "atomicNumber": 81,
+        "group": 13,
+        "period": 6,
+        "block": "p"
     },
     {
         "symbol": "Pb",
         "name": "Lead",
         "family": "Post-transition metal",
-        "atomicNumber": 82
+        "atomicNumber": 82,
+        "group": 14,
+        "period": 6,
+        "block": "p"
     },
     {
         "symbol": "Bi",
         "name": "Bismuth",
         "family": "Post-transition metal",
-        "atomicNumber": 83
+        "atomicNumber": 83,
+        "group": 15,
+        "period": 6,
+        "block": "p"
     },
     {
         "symbol": "Po",
         "name": "Polonium",
         "family": "Post-transition metal",
-        "atomicNumber": 84
+        "atomicNumber": 84,
+        "group": 16,
+        "period": 6,
+        "block": "p"
     },
     {
         "symbol": "At",
         "name": "Astatine",
         "family": "Halogen",
-        "atomicNumber": 85
+        "atomicNumber": 85,
+        "group": 17,
+        "period": 6,
+        "block": "p"
     },
     {
         "symbol": "Rn",
         "name": "Radon",
         "family": "Noble gas",
-        "atomicNumber": 86
+        "atomicNumber": 86,
+        "group": 18,
+        "period": 6,
+        "block": "p"
     },
     {
         "symbol": "Fr",
         "name": "Francium",
         "family": "Alkali metal",
-        "atomicNumber": 87
+        "atomicNumber": 87,
+        "group": 1,
+        "period": 7,
+        "block": "s"
     },
     {
         "symbol": "Ra",
         "name": "Radium",
         "family": "Alkaline earth metal",
-        "atomicNumber": 88
+        "atomicNumber": 88,
+        "group": 2,
+        "period": 7,
+        "block": "s"
     },
     {
         "symbol": "Ac",
         "name": "Actinium",
         "family": "Actinide",
-        "atomicNumber": 89
+        "atomicNumber": 89,
+        "group": 3,
+        "period": 7,
+        "block": "f"
     },
     {
         "symbol": "Th",
         "name": "Thorium",
         "family": "Actinide",
-        "atomicNumber": 90
+        "atomicNumber": 90,
+        "group": 3,
+        "period": 7,
+        "block": "f"
     },
     {
         "symbol": "Pa",
         "name": "Protactinium",
         "family": "Actinide",
-        "atomicNumber": 91
+        "atomicNumber": 91,
+        "group": 3,
+        "period": 7,
+        "block": "f"
     },
     {
         "symbol": "U",
         "name": "Uranium",
         "family": "Actinide",
-        "atomicNumber": 92
+        "atomicNumber": 92,
+        "group": 3,
+        "period": 7,
+        "block": "f"
     },
     {
         "symbol": "Np",
         "name": "Neptunium",
         "family": "Actinide",
-        "atomicNumber": 93
+        "atomicNumber": 93,
+        "group": 3,
+        "period": 7,
+        "block": "f"
     },
     {
         "symbol": "Pu",
         "name": "Plutonium",
         "family": "Actinide",
-        "atomicNumber": 94
+        "atomicNumber": 94,
+        "group": 3,
+        "period": 7,
+        "block": "f"
     },
     {
         "symbol": "Am",
         "name": "Americium",
         "family": "Actinide",
-        "atomicNumber": 95
+        "atomicNumber": 95,
+        "group": 3,
+        "period": 7,
+        "block": "f"
     },
     {
         "symbol": "Cm",
         "name": "Curium",
         "family": "Actinide",
-        "atomicNumber": 96
+        "atomicNumber": 96,
+        "group": 3,
+        "period": 7,
+        "block": "f"
     },
     {
         "symbol": "Bk",
         "name": "Berkelium",
         "family": "Actinide",
-        "atomicNumber": 97
+        "atomicNumber": 97,
+        "group": 3,
+        "period": 7,
+        "block": "f"
     },
     {
         "symbol": "Cf",
         "name": "Californium",
         "family": "Actinide",
-        "atomicNumber": 98
+        "atomicNumber": 98,
+        "group": 3,
+        "period": 7,
+        "block": "f"
     },
     {
         "symbol": "Es",
         "name": "Einsteinium",
         "family": "Actinide",
-        "atomicNumber": 99
+        "atomicNumber": 99,
+        "group": 3,
+        "period": 7,
+        "block": "f"
     },
     {
         "symbol": "Fm",
         "name": "Fermium",
         "family": "Actinide",
-        "atomicNumber": 100
+        "atomicNumber": 100,
+        "group": 3,
+        "period": 7,
+        "block": "f"
     },
     {
         "symbol": "Md",
         "name": "Mendelevium",
         "family": "Actinide",
-        "atomicNumber": 101
+        "atomicNumber": 101,
+        "group": 3,
+        "period": 7,
+        "block": "f"
     },
     {
         "symbol": "No",
         "name": "Nobelium",
         "family": "Actinide",
-        "atomicNumber": 102
+        "atomicNumber": 102,
+        "group": 3,
+        "period": 7,
+        "block": "f"
     },
     {
         "symbol": "Lr",
         "name": "Lawrencium",
         "family": "Actinide",
-        "atomicNumber": 103
+        "atomicNumber": 103,
+        "group": 3,
+        "period": 7,
+        "block": "d"
     },
     {
         "symbol": "Rf",
         "name": "Rutherfordium",
         "family": "Transition metal",
-        "atomicNumber": 104
+        "atomicNumber": 104,
+        "group": 4,
+        "period": 7,
+        "block": "d"
     },
     {
         "symbol": "Db",
         "name": "Dubnium",
         "family": "Transition metal",
-        "atomicNumber": 105
+        "atomicNumber": 105,
+        "group": 5,
+        "period": 7,
+        "block": "d"
     },
     {
         "symbol": "Sg",
         "name": "Seaborgium",
         "family": "Transition metal",
-        "atomicNumber": 106
+        "atomicNumber": 106,
+        "group": 6,
+        "period": 7,
+        "block": "d"
     },
     {
         "symbol": "Bh",
         "name": "Bohrium",
         "family": "Transition metal",
-        "atomicNumber": 107
+        "atomicNumber": 107,
+        "group": 7,
+        "period": 7,
+        "block": "d"
     },
     {
         "symbol": "Hs",
         "name": "Hassium",
         "family": "Transition metal",
-        "atomicNumber": 108
+        "atomicNumber": 108,
+        "group": 8,
+        "period": 7,
+        "block": "d"
     },
     {
         "symbol": "Mt",
         "name": "Meitnerium",
         "family": "Transition metal",
-        "atomicNumber": 109
+        "atomicNumber": 109,
+        "group": 9,
+        "period": 7,
+        "block": "d"
     },
     {
         "symbol": "Ds",
         "name": "Darmstadtium",
         "family": "Transition metal",
-        "atomicNumber": 110
+        "atomicNumber": 110,
+        "group": 10,
+        "period": 7,
+        "block": "d"
     },
     {
         "symbol": "Rg",
         "name": "Roentgenium",
         "family": "Transition metal",
-        "atomicNumber": 111
+        "atomicNumber": 111,
+        "group": 11,
+        "period": 7,
+        "block": "d"
     },
     {
         "symbol": "Cn",
         "name": "Copernicium",
         "family": "Transition metal",
-        "atomicNumber": 112
+        "atomicNumber": 112,
+        "group": 12,
+        "period": 7,
+        "block": "d"
     },
     {
         "symbol": "Nh",
         "name": "Nihonium",
         "family": "Transition metal",
-        "atomicNumber": 113
+        "atomicNumber": 113,
+        "group": 13,
+        "period": 7,
+        "block": "p"
     },
     {
         "symbol": "Fl",
         "name": "Flerovium",
         "family": "Post-transition metal",
-        "atomicNumber": 114
+        "atomicNumber": 114,
+        "group": 14,
+        "period": 7,
+        "block": "p"
     },
     {
         "symbol": "Mc",
         "name": "Moscovium",
         "family": "Post-transition metal",
-        "atomicNumber": 115
+        "atomicNumber": 115,
+        "group": 15,
+        "period": 7,
+        "block": "p"
     },
     {
         "symbol": "Lv",
         "name": "Livermorium",
         "family": "Post-transition metal",
-        "atomicNumber": 116
+        "atomicNumber": 116,
+        "group": 16,
+        "period": 7,
+        "block": "p"
     },
     {
         "symbol": "Ts",
         "name": "Tennessine",
         "family": "Halogen",
-        "atomicNumber": 117
+        "atomicNumber": 117,
+        "group": 17,
+        "period": 7,
+        "block": "p"
     },
     {
         "symbol": "Og",
         "name": "Oganesson",
         "family": "Noble gas",
-        "atomicNumber": 118
+        "atomicNumber": 118,
+        "group": 18,
+        "period": 7,
+        "block": "p"
     }
 ]

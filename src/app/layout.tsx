@@ -58,7 +58,7 @@ export default function RootLayout({
 <body
   className={cn(
     "min-h-screen font-sans antialiased ",
-    "bg-grid-black/[0.04] dark:bg-grid-[#1c2a44] ",
+    "bg-grid-black/[0.04] dark:bg-grid-[#0B2B4B] ",
     noto_sans_georgian.variable,
     noto_serif_georgian.variable
   )}

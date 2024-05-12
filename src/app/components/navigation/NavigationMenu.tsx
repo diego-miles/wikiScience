@@ -74,10 +74,10 @@ const NavigationMenu: React.FC<NavigationMenuProps> = ({ className, style }) => 
 
 
 
-<section className="mt-12">
+<section>
   {/* <div className="text-center text-xl font-medium text-gray-400 rounded-md mx-auto max-w-xs p-2 mb-4">~ Top Science Books ~</div> */}
 
-  <div className="container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-4">
+  <div className="container mx-auto px-3 grid grid-cols-1 md:grid-cols-2 gap-4">
     {data.map((field, idx) => (
       <div key={idx} className=" rounded-lg p-6">
         <h2 className="text-center text-lg font-bold text-teal-700 pb-8 pt-12">{field.title}</h2>
