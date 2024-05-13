@@ -5,13 +5,9 @@ import NavBar from '@/components/navigation/NavbarContainer';
 import data from '@/data/data';
 import ScrollTopButton from '@/components/ScrollTopButton';
 import Link from 'next/link';
-import { AspectRatio } from '@/components/ui/aspect-ratio';
-// import TextGenerateEffectDemo from './HeroHomeText'
 import dynamic from 'next/dynamic';
 import Accordion from '@/AccordionHome'
-import logoSvg from '/head-background.svg';
-import { CardWithForm } from '@/components/ChemistryCards';
-import ChemestrCards from './CarrouselElements'
+import CarouselSpacing from './CarrouselElements'
 
 
 
@@ -27,7 +23,7 @@ const HomePage: React.FC = () => {
   return (
     <div>
       <NavBar />
-      <main className="flex min-h-screen flex-col items-center justify-between mx-auto my-12 text-center
+      <main className="flex min-h-screen flex-col items-center justify-between mx-auto my-32 text-center
       
       "> 
 
@@ -35,9 +31,9 @@ const HomePage: React.FC = () => {
           <figure className='mx-auto w-fit h-24'>
             <Image width={60} height={60} alt='Wiki-logo' src={'wiki-blue.svg'} unoptimized  ></Image>
           </figure>
-          <h1 className="mt-[.8rem] text-[2.7rem] font-extrabold text-[#44a6cd] dark:text-[#FFF8E2]">Wiki Science</h1> {/* Using Tailwind's text color and font weight utilities */}
+          <h1 className="mt-[1rem] text-[3.2rem] tracking-wider font-black text-[#44a6cd] dark:text-[#FFF8E2]">Wiki Science</h1> {/* Using Tailwind's text color and font weight utilities */}
           {/* <p className="text-3xl font-extrabold text-[#2d373d] mt-4 px-2">A next-generation educational platform. <span className="text-[#376ba2]">Powered by AI.</span></p>  */}
-          <div className=" absolute top-[29rem] left-0 right-0">
+          <div className=" absolute top-[35rem] left-0 right-0">
             <TextHeroHome></TextHeroHome>
           </div>
         </header>
@@ -53,7 +49,7 @@ const HomePage: React.FC = () => {
             >
             </div>
           </div>
-          <h2 className=" text-[2rem] font-bold text-center mb-20 text-h1">Chemichal Elemets</h2>
+          <h2 className=" text-[2rem] font-bold text-center mb-20 text-h1">Chemical Elemets</h2>
           {/* <p className="text-lg text-center mt-4 font-normal">  Explore a community-curated collection of top science books </p> */}
           {/* <CardWithForm></CardWithForm> */}
 
@@ -62,13 +58,27 @@ const HomePage: React.FC = () => {
           </div>
 
         </section>
-          <ChemestrCards></ChemestrCards>
+          <CarouselSpacing></CarouselSpacing>
+          {/* <p className=" text-[1.6rem] font-medium  text-center mb-0 text-accent2 dark:text-[#ffcfe5]">Watch Periodic Table   </p> */}
+
+
+
+<Link className='z-30' href={'/periodic-table'}>
+        <button className=" relative top-[15rem] lg:top-[20rem] inline-flex animate-shimmer items-center justify-center rounded-3xl border border-slate-800 bg-[linear-gradient(110deg,#0020c0,45%,#ff78e2,55%,#0020c0)] bg-[length:200%_100%] px-6 font-medium text-pink-100 transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 text-xl py-4 shadow-lg">
+          Watch Periodic Table
+        </button>
+</Link>
+
+
+
+          <figure className='mx-auto w-fit h-24'>
+            <Image width={600} height={200} alt='Wiki-logo' src={'periodic-table.png'} unoptimized  ></Image>
+          </figure>
 
 
 
 
-
-        <section className="pt-28">
+        <section className="pt-[20rem] sm:pt-[35rem]">
           <div className='relative '>
             <div
               className=" overflow-hidden bg-cover w-[34rem] h-28 mx-auto absolute top-2 left-0 right-0 bottom-0 flex items-center justify-center dark:opacity-[2%]"

@@ -42,10 +42,19 @@ const config = {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
+                  shimmer: {
+              from: {
+                "backgroundPosition": "0 0"
+              },
+              to: {
+                "backgroundPosition": "-200% 0"
+              }
+            },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+                    shimmer: "shimmer 2s linear infinite",
 
       },
 colors: {
@@ -59,9 +68,9 @@ colors: {
   strong: 'var(--color-strong)',
   a: 'var(--color-a)',
   a2: 'var(--color-a2)',
-  accent1: 'var(--color-accent1)',
-  accent2: 'var(--color-accent2)',
-  accent3: 'var(--color-accent3)',
+  accent1: 'var(--color-accent-1)',
+  accent2: 'var(--color-accent-2)',
+  accent3: 'var(--color-accent-3)',
   gold: 'var(--color-gold)',
   background1: 'var(--color-background-1)',
   background1dark: 'var(--color-background-dark)',
@@ -161,3 +170,4 @@ screens: {
 } satisfies Config
 
 export default config
+

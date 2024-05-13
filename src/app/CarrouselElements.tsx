@@ -31,15 +31,15 @@ export default function CarouselSpacing() {
       <Carousel className="w-[75vw] " setApi={setApi}>
         <CarouselContent className="-ml-1 " >
           {chemicalElements.map((element, index) => (
-            <CarouselItem key={element.atomicNumber} className="pl-1 basis-1/3 min-w-52 max-w-52">
+            <CarouselItem key={element.atomicNumber} className="pl-1 basis-1/3 min-w-[12rem] max-w-[12rem]">
               <div className="p-1">
                 <Link href={`periodic-table/${element.name.toLowerCase()}`}>   
-                <Card className="bg-background1 dark:bg-background1dark  shadow-lg my-5 border-[4px] border-[#c7b19a]"  >
+                <Card className="bg-background1 dark:bg-background1dark  shadow-lg my-5 border-[2px] border-[#b2b2b2]"  >
                   <CardContent className="flex aspect-square items-center justify-center py-4 px-3">
                     <div>
-                      <p className="text-xs font-base py-0 my-0 text-slate-400"># <strong className="text-slate-400">{element.atomicNumber}</strong></p>
-                      <p className="text-xl font-extrabold py-0">{element.symbol}</p>
-                      <p className=" font-bold py-0">{element.name}</p>
+                      <p className="text-2xs font-base py-0 my-0 text-slate-400"># <strong className="text-slate-400">{element.atomicNumber}</strong></p>
+                      <p className="text-base font-extrabold py-0">{element.symbol}</p>
+                      <p className=" font-bold text-xs py-0">{element.name}</p>
                       <p className="font-medium text-2xs  mt-2 h-2 mb-3 leading-4 text-[#7e729e]">{element.family}</p>
                       <div className=""></div>
                     </div>
