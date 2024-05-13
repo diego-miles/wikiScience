@@ -14,21 +14,21 @@ const elements: ElementInfo[] = [
 
 const ChemicalElements: React.FC = () => {
   return (
-    <div className="flex   relative top-10 left-80 xl:left-40   h-20">
+    <div className="flex   relative -top-10 left-[25rem] xl:left-[16rem]     h-20">
       <div className="flex flex-col ">
         {elements.map((element, index) => (
           <div
             key={index}
-            className="flex items-center justify-center h-12 w-12 border  rounded-lg mr-4 mb-4"
+            className="flex items-center justify-center h-12 w-12 border border-[#2e76c8]  rounded-lg mr-4 mb-4"
           >
-            <p className="text-sm py-4 font-medium">{element.symbol}</p>
+            <p className="text-xs py-3 font-medium">{element.symbol}</p>
           </div>
         ))}
       </div>
-      <div className="absolute left-20 flex flex-col pt-2">
+      <div className="absolute left-16 flex flex-col pt-2">
         {elements.map((element, index) => (
           <div key={index} className="flex items-center">
-            <p className=" text-sm  pb-8">{element.state}</p>
+            <p className=" font-medium text-sm  pb-8">{element.state}</p>
           </div>
         ))}
       </div>

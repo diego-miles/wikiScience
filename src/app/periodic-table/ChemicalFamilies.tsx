@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 
 interface ChemicalFamily {
   name: string;
@@ -22,10 +23,12 @@ const chemicalFamilies: ChemicalFamily[] = [
 const ChemicalFamilies: React.FC = () => {
   return (
     <div className="flex items-stretch">
+
       {chemicalFamilies.map((family, index) => (
+        
         <div
           key={index}
-          className={`flex items-center justify-center py-4 px-3 shadow-xl  rounded-sm text-white font-medium min-w-[11rem] text-[1.2rem] bg-${family.color} `}
+          className={`flex items-center justify-center py-4 px-3 shadow-xl  rounded-sm text-white font-medium min-w-[11rem] text-[1.2rem]  bg-${family.color} `}
         >
           {family.name}
         </div>

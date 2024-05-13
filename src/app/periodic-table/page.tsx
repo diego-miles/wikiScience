@@ -4,6 +4,7 @@ import PeriodicTable from './PeriodicTable';
 import NavbarContainer from '@/components/navigation/NavbarContainer';
 import ChemicalFamilies from './ChemicalFamilies';
 import States from './ElementStates'
+import HydrogenElement from './Element'
 
 const Home: React.FC = () => {
   return (
@@ -12,9 +13,10 @@ const Home: React.FC = () => {
       <main className='h-[120rem]'>
       <h1 className="text-center te my-4">Periodic Table of the Chemical Elements</h1>
 
-      <div className='absolute left-0 right-0 mb-20'>
-        <div className='mx-auto  w-full max-w-[115rem] text-center'>
+      <div className='absolute left-0 right-0 '>
+        <div className='mx-auto  w-full max-w-[115rem] max-h-40  text-center'>
             <ChemicalFamilies></ChemicalFamilies>
+          <HydrogenElement></HydrogenElement>
             <States></States>
         </div>
         <PeriodicTable />
