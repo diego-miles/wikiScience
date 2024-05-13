@@ -1,6 +1,6 @@
 
 import type { Metadata } from 'next'
-import { Noto_Sans_Georgian, Noto_Serif_Georgian } from 'next/font/google'
+import { Noto_Sans_Georgian, Noto_Serif_Georgian, IBM_Plex_Mono } from 'next/font/google'
 import './globals.css'
 import Footer from './Footer'
 // import { Analytics as AnalyticsVercel } from '@vercel/analytics/react';
@@ -32,6 +32,16 @@ const noto_serif_georgian = Noto_Serif_Georgian({
   display: 'swap'
 })
 
+const ibm_plex_mono = IBM_Plex_Mono({
+  weight: ['400', '500', '600', '700'],
+  variable: '--font-ibm-plex-mono',
+  subsets: ['latin'],
+  display: 'swap'
+})
+
+
+
+
 
 export const metadata: Metadata = {
   // metadataBase: new URL('https://storage.cloud.google.com/bestbooks/covers/'),
@@ -60,7 +70,8 @@ export default function RootLayout({
     "min-h-screen font-sans antialiased ",
     "bg-grid-[#ecf1f9] dark:bg-none ",
     noto_sans_georgian.variable,
-    noto_serif_georgian.variable
+    ibm_plex_mono.variable,
+    noto_serif_georgian.variable,
   )}
 >
 <GridBackgroundDemo/>

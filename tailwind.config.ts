@@ -32,6 +32,7 @@ const config = {
       fontFamily: {
         sans: ["var(--font-noto-sans-georgian)", ...fontFamily.sans],
         serif: ["var(--font-noto-serif-georgian)", ...fontFamily.serif],
+        mono: ["var(--font-ibm-plex-mono)", ...fontFamily.serif],
       },
       keyframes: {
         "accordion-down": {
