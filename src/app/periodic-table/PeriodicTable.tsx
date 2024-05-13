@@ -98,8 +98,9 @@ const PeriodicTable: React.FC = () => {
   };
 
   return (
-    <div className="  mx-auto w-fit">
-      <div className="grid grid-cols-18 grid-rows-10 gap-0 mx-auto ">
+    <div className="mx-auto w-fit overflow-auto py-12">
+      {/* Agrega la clase "overflow-auto" para permitir el desplazamiento */}
+      <div className="grid grid-cols-18 grid-rows-10 gap-0 mx-auto">
         {elements.map((element) => renderElement(element))}
       </div>
     </div>

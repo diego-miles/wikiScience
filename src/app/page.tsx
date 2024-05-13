@@ -64,7 +64,7 @@ const HomePage: React.FC = () => {
 
 
 <Link className='z-30' href={'/periodic-table'}>
-        <button className=" relative top-[15rem] lg:top-[20rem] inline-flex animate-shimmer items-center justify-center rounded-3xl border border-slate-800 bg-[linear-gradient(110deg,#3498db,45%,#ffbcf0,55%,#3498db)] bg-[length:200%_100%] px-8 font-medium text-white transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 text-xl py-4  shadow-xl">
+        <button className=" relative top-[11rem] lg:top-[20rem] inline-flex animate-shimmer items-center justify-center rounded-3xl border border-slate-800 bg-[linear-gradient(110deg,#3498db,45%,#ffbcf0,55%,#3498db)] bg-[length:200%_100%] px-8 font-medium text-white transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 text-xl py-4  shadow-xl">
           Watch Periodic Table
         </button>
 </Link>
