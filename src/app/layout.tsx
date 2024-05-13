@@ -36,7 +36,7 @@ const noto_serif_georgian = Noto_Serif_Georgian({
 export const metadata: Metadata = {
   // metadataBase: new URL('https://storage.cloud.google.com/bestbooks/covers/'),
   title: 'Wiki Science',
-  description: 'a compendium of scientific human knowladge',
+  description: 'A compendium of scientific human knowladge',
 }
 
 const GTM_ID = process.env.GTM_ID;
@@ -58,12 +58,12 @@ export default function RootLayout({
 <body
   className={cn(
     "min-h-screen font-sans antialiased ",
-    "bg-grid-black/[0.04] dark:bg-none ",
+    "bg-grid-[#ecf1f9] dark:bg-none ",
     noto_sans_georgian.variable,
     noto_serif_georgian.variable
   )}
 >
-{/* <GridBackgroundDemo/> */}
+<GridBackgroundDemo/>
 
 
         <CookieConsent />
