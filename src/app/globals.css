@@ -345,20 +345,20 @@ svg,
 span,
 h6,
 .animate {
-  animation: fadeUp .4s ease forwards;
+  animation: fadeUp .0s ease forwards;
   opacity: 0;
   transform: translateY(10px);
   animation-delay: calc(1 * 100ms);
 }
 
 
-figure, 
+/* figure, 
 .animate {
   animation: fadeUp 1.5s ease forwards;
   opacity: 0;
   transform: translateY(10px);
   animation-delay: calc(1 * 100ms);
-}
+} */
 
 
 

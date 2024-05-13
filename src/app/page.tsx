@@ -8,8 +8,8 @@ import Link from 'next/link';
 import dynamic from 'next/dynamic';
 import Accordion from '@/AccordionHome'
 import CarouselSpacing from './CarrouselElements'
-
-
+import { Suspense } from 'react';
+import LoadingPage from './loading';
 
 
 const TextHeroHome = dynamic(() => import('./TextHeroHome'), { ssr: false })
@@ -58,8 +58,10 @@ const HomePage: React.FC = () => {
           </div>
 
         </section>
-          <CarouselSpacing></CarouselSpacing>
           {/* <p className=" text-[1.6rem] font-medium  text-center mb-0 text-accent2 dark:text-[#ffcfe5]">Watch Periodic Table   </p> */}
+
+{/* <Suspense fallback={<p>Loading feed...</p>}> */}
+          <CarouselSpacing></CarouselSpacing>
 
 
 
@@ -116,6 +118,9 @@ const HomePage: React.FC = () => {
           </div>
 
         </section>
+
+{/* </Suspense> */}
+
 
         <ScrollTopButton />
       </main>

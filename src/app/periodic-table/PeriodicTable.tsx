@@ -3,6 +3,7 @@ import { useState } from 'react';
 import elementsData from '@/data/elementsData.json';
 import Link from 'next/link';
 
+
 interface Element {
   symbol: string;
   name: string;
@@ -58,6 +59,9 @@ const PeriodicTable: React.FC = () => {
     }
   };
 
+
+  
+
   const renderElement = (element: Element) => {
     const { row, col } = getElementPosition(element.period, element.group, element.atomicNumber);
     const style = {
@@ -97,8 +101,10 @@ const PeriodicTable: React.FC = () => {
     );
   };
 
+  
+
   return (
-    <div className="mx-auto w-fit overflow-auto py-12">
+    <div className="mx-auto w-fit overflow-auto py-12 px-4">
       {/* Agrega la clase "overflow-auto" para permitir el desplazamiento */}
       <div className="grid grid-cols-18 grid-rows-10 gap-0 mx-auto">
         {elements.map((element) => renderElement(element))}

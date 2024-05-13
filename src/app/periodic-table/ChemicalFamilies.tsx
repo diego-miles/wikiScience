@@ -28,7 +28,7 @@ const ChemicalFamilies: React.FC = () => {
         
         <div
           key={index}
-          className={`flex items-center justify-center py-4 px-3 shadow-xl  rounded-sm text-white font-medium min-w-[11rem] text-[1.2rem]  bg-${family.color} `}
+          className={`flex items-center justify-center py-4 px-2 shadow-xl  rounded-sm text-white font-medium min-w-[11rem] text-[1.2rem]  bg-${family.color} `}
         >
           {family.name}
         </div>

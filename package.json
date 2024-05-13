@@ -27,6 +27,7 @@
     "prisma-multischema": "^1.1.4",
     "react": "^18",
     "react-dom": "^18",
+    "react-pinch-zoom": "^0.1.4",
     "react-svg": "^16.1.34",
     "tailwind-merge": "^2.3.0",
     "tailwindcss-animate": "^1.0.7"

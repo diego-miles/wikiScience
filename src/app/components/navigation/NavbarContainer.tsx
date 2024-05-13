@@ -136,7 +136,7 @@ const NavBarContainer: FC<NavbarProps> = memo(({ title, title2, title3, domain, 
             </div>
 
             </div>
-            <Suspense fallback={<div>Loading menu...</div>}>
+            <Suspense>
                 <NavigationMenu style={menuStyle} />
             </Suspense>
         </div>
