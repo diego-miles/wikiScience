@@ -10,7 +10,7 @@ const Home: React.FC = () => {
   return (
     <div>
       <NavbarContainer></NavbarContainer>
-      <main className='h-[130rem]'>
+      <main className='h-[140rem] md:h-[140rem]'>
       <h1 className="text-center te my-4">Periodic Table of the Chemical Elements</h1>
 
       <div className='absolute left-0 right-0 overflow-auto'>
