@@ -10,6 +10,7 @@ import Accordion from '@/AccordionHome'
 import CarouselSpacing from './CarrouselElements'
 import { Suspense } from 'react';
 import LoadingPage from './loading';
+import { useTheme } from 'next-themes';
 
 
 const TextHeroHome = dynamic(() => import('./TextHeroHome'), { ssr: false })
@@ -18,6 +19,9 @@ const TextHeroHome = dynamic(() => import('./TextHeroHome'), { ssr: false })
 const toSlug = (title: string) => {
   return title.toLowerCase().replace(/\s+/g, '_');
 };
+
+
+
 
 const HomePage: React.FC = () => {
   return (
@@ -29,7 +33,8 @@ const HomePage: React.FC = () => {
 
         <header className=" h-[35rem]">
           <figure className='mx-auto w-fit h-24'>
-            <Image width={60} height={60} alt='Wiki-logo' src={'wiki-blue.svg'} unoptimized  ></Image>
+  <Image width={60} height={60} alt="Wiki-logo" src="wiki-blue.svg" className="dark:invisible" unoptimized />
+        <Image width={60} height={60} alt="Wiki-logo-dark" src="wiki-yellow.svg" className="dark:visible invisible absolute top-72" unoptimized />
           </figure>
           <h1 className="mt-[1rem] text-[3.2rem] tracking-wider font-black text-[#44a6cd] dark:text-[#FFF8E2]">Wiki Science</h1> {/* Using Tailwind's text color and font weight utilities */}
           {/* <p className="text-3xl font-extrabold text-[#2d373d] mt-4 px-2">A next-generation educational platform. <span className="text-[#376ba2]">Powered by AI.</span></p>  */}
