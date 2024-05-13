@@ -1,6 +1,7 @@
 "use client";
 import { useState } from 'react';
 import elementsData from '@/data/elementsData.json';
+import Link from 'next/link';
 
 interface Element {
   symbol: string;
@@ -10,6 +11,8 @@ interface Element {
   period: number;
   group: number;
   block: string;
+  electronicConfiguration: string;
+  atomicMass: number;
 }
 
 const PeriodicTable: React.FC = () => {
@@ -29,7 +32,7 @@ const PeriodicTable: React.FC = () => {
         return 'bg-post-transition-metal';
       case 'Actinide':
         return 'bg-actinide';
-      case 'Metalloids':
+      case 'Metalloid':
         return 'bg-metalloids';
       case 'Non-metal':
         return 'bg-non-metals';
@@ -62,40 +65,42 @@ const renderElement = (element: Element) => {
     gridColumn: col,
   };
 
-  const handleHover = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
-    const target = event.currentTarget;
-    target.style.transform = 'scale(1.1)'; // Increase size by 10%
-  };
-
-  const handleMouseLeave = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
-    const target = event.currentTarget;
-    target.style.transform = 'scale(1)'; // Restore original size
+  // Define hover styles for scaling and z-index
+  const hoverStyles = {
+    transform: 'scale(1.2)', // Increased scaling for better UX
+    zIndex: 1, // Ensure hovered element is on top
   };
 
   return (
-    <div
-      key={element.atomicNumber}
-      className={`grid-item m-[.1rem] rounded-lg px-0 py-2 w-fit min-w-[7.2rem] text-center relative group ${getBackgroundColor(
-        element.family
-      )}`}
-      style={style} onMouseEnter={handleHover} onMouseLeave={handleMouseLeave}>
+    <div className={`grid-item m-[.1rem] rounded-lg px-0 py-2 w-fit min-w-[7.2rem] 
+        text-center relative group transition-transform duration-300 ease-in-out 
+        ${getBackgroundColor(element.family)}`}
+        style={style}
+        onMouseEnter={(e) => Object.assign(e.currentTarget.style, hoverStyles)}
+        onMouseLeave={(e) => { e.currentTarget.style.transform = ''; e.currentTarget.style.zIndex = '' }} 
+      >
       {/* Brillo en hover */}
-      <div className="absolute inset-0 bg-gradient-to-br from-transparent to-white opacity-0 group-hover:opacity-30 transition duration-300 rounded-lg"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-transparent to-white opacity-0 group-hover:opacity-30 transition duration-500 rounded-lg"></div>
+
       {/* Borde brillante en hover */}
-      <div className="absolute z-50 inset-0 border-4 border-transparent group-hover:border-[#eae9c6] group-hover:shadow-lg rounded-xl transition duration-300 group-hover:-m-[.3rem] "></div>
+      <div className="absolute inset-0 border-4 border-transparent group-hover:border-[#eae9c6] group-hover:shadow-lg rounded-xl transition duration-100 group-hover:-m-[.3rem] "></div>
+
       {/* Sombra en hover */}
-      <div className="absolute inset-0 shadow-lg opacity-0 group-hover:opacity-100 transition duration-300 rounded-lg "></div >
-      <span className="text-base font-black text-black block">{element.symbol}</span>
-      <span className="text-[1rem] px-0 font-bold  text-black block ">{element.name}</span>
-      <span className="text-2xs text-gray-200 block">{element.atomicNumber}</span>
+      <div className="absolute inset-0 shadow-lg opacity-0 group-hover:opacity-100 transition duration-100 rounded-lg "></div >
+
+      <Link href={`/periodic-table/${element.name}`} passHref key={element.atomicNumber}>
+        <div>
+          <span className="text-base font-black text-black block">{element.symbol}</span>
+          <span className="text-[1rem] px-0 font-bold  text-black block ">{element.name}</span>
+          <span className="text-2xs text-gray-200 block">{element.atomicNumber}</span>
+        </div>
+      </Link>
     </div>
   );
 };
-
-
   return (
     <div className="p-1 rounded-lg shadow-md mx-auto w-fit">
-      <div className="grid grid-cols-18 grid-rows-10 gap-0 mx-auto">
+      <div className="grid grid-cols-18 grid-rows-10 gap-0 mx-auto ">
         {elements.map((element) => renderElement(element))}
       </div>
     </div>

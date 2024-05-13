@@ -84,13 +84,15 @@ const NavigationMenu: React.FC<NavigationMenuProps> = ({ className, style }) => 
         <div className="grid grid-cols-2 gap-4">
           {field.subFields.map((subField, sIdx) => (
             <ul key={sIdx}>
-              <li className="font-medium text-blue-700 dark:text-white pb-2">
-                <Link href={`/top-science-books/${toSlug(subField.title)}`} className="hover:underline">
+              <li className=" dark:text-h1 pb-2">
+                <Link href={`/top-science-books/${toSlug(subField.title)}`} className="font-semibold">
+                  <strong>
                   {subField.title}
+                  </strong>
                 </Link>
               </li>
               {subField.topics.map((topic, tIdx) => (
-                <li key={tIdx} className="pl-4 border-l-4 border-gray-300 pb-2">
+                <li key={tIdx} className="pl-4  border-l-4 border-gray-300 pb-2">
                   <Link href={`/top-science-books/${toSlug(subField.title)}/${toSlug(topic)}`} className="text-gray-700 dark:text-pdark hover:underline">
                     {topic}
                   </Link>

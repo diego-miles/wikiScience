@@ -86,7 +86,7 @@ colors: {
   'non-metals': 'var(--color-non-metals)',
   'halogens': 'var(--color-halogens)',
   'noble-gases': 'var(--color-noble-gases)',
-  'lanthanides': 'var(--color-lanthanides)',
+  'lanthanide': 'var(--color-lanthanide)',
   'noble-gas': 'var(--color-noble-gas)',
   'actinide': 'var(--color-actinide)'
 },

@@ -6,7 +6,9 @@
         "atomicNumber": 1,
         "group": 1,
         "period": 1,
-        "block": "s"
+        "block": "s",
+        "electronicConfiguration": "1s1",
+        "atomicMass": 1.00794
     },
     {
         "symbol": "He",
@@ -15,7 +17,9 @@
         "atomicNumber": 2,
         "group": 18,
         "period": 1,
-        "block": "s"
+        "block": "s",
+        "electronicConfiguration": "1s2",
+        "atomicMass": 4.002602
     },
     {
         "symbol": "Li",
@@ -24,7 +28,9 @@
         "atomicNumber": 3,
         "group": 1,
         "period": 2,
-        "block": "s"
+        "block": "s",
+        "electronicConfiguration": "[He] 2s1",
+        "atomicMass": 6.939
     },
     {
         "symbol": "Be",
@@ -33,7 +39,9 @@
         "atomicNumber": 4,
         "group": 2,
         "period": 2,
-        "block": "s"
+        "block": "s",
+        "electronicConfiguration": "[He] 2s2",
+        "atomicMass": 9.012182
     },
     {
         "symbol": "B",
@@ -42,7 +50,9 @@
         "atomicNumber": 5,
         "group": 13,
         "period": 2,
-        "block": "p"
+        "block": "p",
+        "electronicConfiguration": "[He] 2s2 2p1",
+        "atomicMass": 10.811
     },
     {
         "symbol": "C",
@@ -51,7 +61,9 @@
         "atomicNumber": 6,
         "group": 14,
         "period": 2,
-        "block": "p"
+        "block": "p",
+        "electronicConfiguration": "[He] 2s2 2p2",
+        "atomicMass": 12.0107
     },
     {
         "symbol": "N",
@@ -60,7 +72,9 @@
         "atomicNumber": 7,
         "group": 15,
         "period": 2,
-        "block": "p"
+        "block": "p",
+        "electronicConfiguration": "[He] 2s2 2p3",
+        "atomicMass": 14.0067
     },
     {
         "symbol": "O",
@@ -69,16 +83,20 @@
         "atomicNumber": 8,
         "group": 16,
         "period": 2,
-        "block": "p"
+        "block": "p",
+        "electronicConfiguration": "[He] 2s2 2p4",
+        "atomicMass": 15.9994
     },
     {
         "symbol": "F",
         "name": "Fluorine",
-        "family": "Halogen",
+        "family": "Halogens",
         "atomicNumber": 9,
         "group": 17,
         "period": 2,
-        "block": "p"
+        "block": "p",
+        "electronicConfiguration": "[He] 2s2 2p5",
+        "atomicMass": 18.9984032
     },
     {
         "symbol": "Ne",
@@ -87,7 +105,9 @@
         "atomicNumber": 10,
         "group": 18,
         "period": 2,
-        "block": "p"
+        "block": "p",
+        "electronicConfiguration": "[He] 2s2 2p6",
+        "atomicMass": 20.1797
     },
     {
         "symbol": "Na",
@@ -96,7 +116,9 @@
         "atomicNumber": 11,
         "group": 1,
         "period": 3,
-        "block": "s"
+        "block": "s",
+        "electronicConfiguration": "[Ne] 3s1",
+        "atomicMass": 22.98976928
     },
     {
         "symbol": "Mg",
@@ -105,16 +127,20 @@
         "atomicNumber": 12,
         "group": 2,
         "period": 3,
-        "block": "s"
+        "block": "s",
+        "electronicConfiguration": "[Ne] 3s2",
+        "atomicMass": 24.305
     },
     {
         "symbol": "Al",
-        "name": "Aluminum",
-        "family": "Post-transition metal",
+        "name": "Aluminium",
+        "family": "Metal",
         "atomicNumber": 13,
         "group": 13,
         "period": 3,
-        "block": "p"
+        "block": "p",
+        "electronicConfiguration": "[Ne] 3s2 3p1",
+        "atomicMass": 26.9815386
     },
     {
         "symbol": "Si",
@@ -123,7 +149,9 @@
         "atomicNumber": 14,
         "group": 14,
         "period": 3,
-        "block": "p"
+        "block": "p",
+        "electronicConfiguration": "[Ne] 3s2 3p2",
+        "atomicMass": 28.0855
     },
     {
         "symbol": "P",
@@ -132,7 +160,9 @@
         "atomicNumber": 15,
         "group": 15,
         "period": 3,
-        "block": "p"
+        "block": "p",
+        "electronicConfiguration": "[Ne] 3s2 3p3",
+        "atomicMass": 30.973762
     },
     {
         "symbol": "S",
@@ -141,16 +171,20 @@
         "atomicNumber": 16,
         "group": 16,
         "period": 3,
-        "block": "p"
+        "block": "p",
+        "electronicConfiguration": "[Ne] 3s2 3p4",
+        "atomicMass": 32.065
     },
     {
         "symbol": "Cl",
         "name": "Chlorine",
-        "family": "Halogen",
+        "family": "Halogens",
         "atomicNumber": 17,
         "group": 17,
         "period": 3,
-        "block": "p"
+        "block": "p",
+        "electronicConfiguration": "[Ne] 3s2 3p5",
+        "atomicMass": 35.453
     },
     {
         "symbol": "Ar",
@@ -159,7 +193,9 @@
         "atomicNumber": 18,
         "group": 18,
         "period": 3,
-        "block": "p"
+        "block": "p",
+        "electronicConfiguration": "[Ne] 3s2 3p6",
+        "atomicMass": 39.9483
     },
     {
         "symbol": "K",
@@ -168,7 +204,9 @@
         "atomicNumber": 19,
         "group": 1,
         "period": 4,
-        "block": "s"
+        "block": "s",
+        "electronicConfiguration": "[Ar] 4s1",
+        "atomicMass": 39.0983
     },
     {
         "symbol": "Ca",
@@ -177,7 +215,9 @@
         "atomicNumber": 20,
         "group": 2,
         "period": 4,
-        "block": "s"
+        "block": "s",
+        "electronicConfiguration": "[Ar] 4s2",
+        "atomicMass": 40.078
     },
     {
         "symbol": "Sc",
@@ -186,7 +226,9 @@
         "atomicNumber": 21,
         "group": 3,
         "period": 4,
-        "block": "d"
+        "block": "d",
+        "electronicConfiguration": "[Ar] 3d1 4s2",
+        "atomicMass": 44.955912
     },
     {
         "symbol": "Ti",
@@ -195,7 +237,9 @@
         "atomicNumber": 22,
         "group": 4,
         "period": 4,
-        "block": "d"
+        "block": "d",
+        "electronicConfiguration": "[Ar] 3d2 4s2",
+        "atomicMass": 47.867
     },
     {
         "symbol": "V",
@@ -204,7 +248,9 @@
         "atomicNumber": 23,
         "group": 5,
         "period": 4,
-        "block": "d"
+        "block": "d",
+        "electronicConfiguration": "[Ar] 3d3 4s2",
+        "atomicMass": 50.9415
     },
     {
         "symbol": "Cr",
@@ -213,7 +259,9 @@
         "atomicNumber": 24,
         "group": 6,
         "period": 4,
-        "block": "d"
+        "block": "d",
+        "electronicConfiguration": "[Ar] 3d5 4s1",
+        "atomicMass": 51.9961
     },
     {
         "symbol": "Mn",
@@ -222,7 +270,9 @@
         "atomicNumber": 25,
         "group": 7,
         "period": 4,
-        "block": "d"
+        "block": "d",
+        "electronicConfiguration": "[Ar] 3d5 4s2",
+        "atomicMass": 54.938045
     },
     {
         "symbol": "Fe",
@@ -231,7 +281,9 @@
         "atomicNumber": 26,
         "group": 8,
         "period": 4,
-        "block": "d"
+        "block": "d",
+        "electronicConfiguration": "[Ar] 3d6 4s2",
+        "atomicMass": 55.847
     },
     {
         "symbol": "Co",
@@ -240,7 +292,9 @@
         "atomicNumber": 27,
         "group": 9,
         "period": 4,
-        "block": "d"
+        "block": "d",
+        "electronicConfiguration": "[Ar] 3d7 4s2",
+        "atomicMass": 58.933195
     },
     {
         "symbol": "Ni",
@@ -249,7 +303,9 @@
         "atomicNumber": 28,
         "group": 10,
         "period": 4,
-        "block": "d"
+        "block": "d",
+        "electronicConfiguration": "[Ar] 3d8 4s2",
+        "atomicMass": 58.6934
     },
     {
         "symbol": "Cu",
@@ -258,7 +314,9 @@
         "atomicNumber": 29,
         "group": 11,
         "period": 4,
-        "block": "d"
+        "block": "d",
+        "electronicConfiguration": "[Ar] 3d10 4s1",
+        "atomicMass": 63.546
     },
     {
         "symbol": "Zn",
@@ -267,16 +325,20 @@
         "atomicNumber": 30,
         "group": 12,
         "period": 4,
-        "block": "d"
+        "block": "d",
+        "electronicConfiguration": "[Ar] 3d10 4s2",
+        "atomicMass": 65.409
     },
     {
         "symbol": "Ga",
         "name": "Gallium",
-        "family": "Post-transition metal",
+        "family": "Metal",
         "atomicNumber": 31,
         "group": 13,
         "period": 4,
-        "block": "p"
+        "block": "p",
+        "electronicConfiguration": "[Ar] 3d10 4s2 4p1",
+        "atomicMass": 69.723
     },
     {
         "symbol": "Ge",
@@ -285,7 +347,9 @@
         "atomicNumber": 32,
         "group": 14,
         "period": 4,
-        "block": "p"
+        "block": "p",
+        "electronicConfiguration": "[Ar] 3d10 4s2 4p2",
+        "atomicMass": 72.59
     },
     {
         "symbol": "As",
@@ -294,7 +358,9 @@
         "atomicNumber": 33,
         "group": 15,
         "period": 4,
-        "block": "p"
+        "block": "p",
+        "electronicConfiguration": "[Ar] 3d10 4s2 4p3",
+        "atomicMass": 74.9216
     },
     {
         "symbol": "Se",
@@ -303,16 +369,20 @@
         "atomicNumber": 34,
         "group": 16,
         "period": 4,
-        "block": "p"
+        "block": "p",
+        "electronicConfiguration": "[Ar] 3d10 4s2 4p4",
+        "atomicMass": 78.971
     },
     {
         "symbol": "Br",
         "name": "Bromine",
-        "family": "Halogen",
+        "family": "Halogens",
         "atomicNumber": 35,
         "group": 17,
         "period": 4,
-        "block": "p"
+        "block": "p",
+        "electronicConfiguration": "[Ar] 3d10 4s2 4p5",
+        "atomicMass": 79.904
     },
     {
         "symbol": "Kr",
@@ -321,7 +391,9 @@
         "atomicNumber": 36,
         "group": 18,
         "period": 4,
-        "block": "p"
+        "block": "p",
+        "electronicConfiguration": "[Ar] 3d10 4s2 4p6",
+        "atomicMass": 83.803
     },
     {
         "symbol": "Rb",
@@ -330,7 +402,9 @@
         "atomicNumber": 37,
         "group": 1,
         "period": 5,
-        "block": "s"
+        "block": "s",
+        "electronicConfiguration": "[Kr] 5s1",
+        "atomicMass": 85.4678
     },
     {
         "symbol": "Sr",
@@ -339,7 +413,9 @@
         "atomicNumber": 38,
         "group": 2,
         "period": 5,
-        "block": "s"
+        "block": "s",
+        "electronicConfiguration": "[Kr] 5s2",
+        "atomicMass": 87.62
     },
     {
         "symbol": "Y",
@@ -348,7 +424,9 @@
         "atomicNumber": 39,
         "group": 3,
         "period": 5,
-        "block": "d"
+        "block": "d",
+        "electronicConfiguration": "[Kr] 4d1 5s2",
+        "atomicMass": 88.90585
     },
     {
         "symbol": "Zr",
@@ -357,7 +435,9 @@
         "atomicNumber": 40,
         "group": 4,
         "period": 5,
-        "block": "d"
+        "block": "d",
+        "electronicConfiguration": "[Kr] 4d2 5s2",
+        "atomicMass": 91.224
     },
     {
         "symbol": "Nb",
@@ -366,7 +446,9 @@
         "atomicNumber": 41,
         "group": 5,
         "period": 5,
-        "block": "d"
+        "block": "d",
+        "electronicConfiguration": "[Kr] 4d4 5s1",
+        "atomicMass": 92.90638
     },
     {
         "symbol": "Mo",
@@ -375,7 +457,9 @@
         "atomicNumber": 42,
         "group": 6,
         "period": 5,
-        "block": "d"
+        "block": "d",
+        "electronicConfiguration": "[Kr] 4d5 5s1",
+        "atomicMass": 95.94
     },
     {
         "symbol": "Tc",
@@ -384,7 +468,9 @@
         "atomicNumber": 43,
         "group": 7,
         "period": 5,
-        "block": "d"
+        "block": "d",
+        "electronicConfiguration": "[Kr] 4d5 5s2",
+        "atomicMass": 98
     },
     {
         "symbol": "Ru",
@@ -393,7 +479,9 @@
         "atomicNumber": 44,
         "group": 8,
         "period": 5,
-        "block": "d"
+        "block": "d",
+        "electronicConfiguration": "[Kr] 4d7 5s1",
+        "atomicMass": 101.07
     },
     {
         "symbol": "Rh",
@@ -402,7 +490,9 @@
         "atomicNumber": 45,
         "group": 9,
         "period": 5,
-        "block": "d"
+        "block": "d",
+        "electronicConfiguration": "[Kr] 4d8 5s1",
+        "atomicMass": 102.9055
     },
     {
         "symbol": "Pd",
@@ -411,7 +501,9 @@
         "atomicNumber": 46,
         "group": 10,
         "period": 5,
-        "block": "d"
+        "block": "d",
+        "electronicConfiguration": "[Kr] 4d10 5s0",
+        "atomicMass": 106.42
     },
     {
         "symbol": "Ag",
@@ -420,7 +512,9 @@
         "atomicNumber": 47,
         "group": 11,
         "period": 5,
-        "block": "d"
+        "block": "d",
+        "electronicConfiguration": "[Kr] 4d10 5s1",
+        "atomicMass": 107.8682
     },
     {
         "symbol": "Cd",
@@ -429,25 +523,31 @@
         "atomicNumber": 48,
         "group": 12,
         "period": 5,
-        "block": "d"
+        "block": "d",
+        "electronicConfiguration": "[Kr] 4d10 5s2",
+        "atomicMass": 112.414
     },
     {
         "symbol": "In",
         "name": "Indium",
-        "family": "Post-transition metal",
+        "family": "Metal",
         "atomicNumber": 49,
         "group": 13,
         "period": 5,
-        "block": "p"
+        "block": "p",
+        "electronicConfiguration": "[Kr] 4d10 5s2 5p1",
+        "atomicMass": 114.818
     },
     {
         "symbol": "Sn",
         "name": "Tin",
-        "family": "Post-transition metal",
+        "family": "Metal",
         "atomicNumber": 50,
         "group": 14,
         "period": 5,
-        "block": "p"
+        "block": "p",
+        "electronicConfiguration": "[Kr] 4d10 5s2 5p2",
+        "atomicMass": 118.710
     },
     {
         "symbol": "Sb",
@@ -456,7 +556,9 @@
         "atomicNumber": 51,
         "group": 15,
         "period": 5,
-        "block": "p"
+        "block": "p",
+        "electronicConfiguration": "[Kr] 4d10 5s2 5p3",
+        "atomicMass": 121.760
     },
     {
         "symbol": "Te",
@@ -465,16 +567,20 @@
         "atomicNumber": 52,
         "group": 16,
         "period": 5,
-        "block": "p"
+        "block": "p",
+        "electronicConfiguration": "[Kr] 4d10 5s2 5p4",
+        "atomicMass": 127.60
     },
     {
         "symbol": "I",
         "name": "Iodine",
-        "family": "Halogen",
+        "family": "Halogens",
         "atomicNumber": 53,
         "group": 17,
         "period": 5,
-        "block": "p"
+        "block": "p",
+        "electronicConfiguration": "[Kr] 4d10 5s2 5p5",
+        "atomicMass": 126.90447
     },
     {
         "symbol": "Xe",
@@ -483,7 +589,9 @@
         "atomicNumber": 54,
         "group": 18,
         "period": 5,
-        "block": "p"
+        "block": "p",
+        "electronicConfiguration": "[Kr] 4d10 5s2 5p6",
+        "atomicMass": 131.293
     },
     {
         "symbol": "Cs",
@@ -492,7 +600,9 @@
         "atomicNumber": 55,
         "group": 1,
         "period": 6,
-        "block": "s"
+        "block": "s",
+        "electronicConfiguration": "[Xe] 6s1",
+        "atomicMass": 132.90545196
     },
     {
         "symbol": "Ba",
@@ -501,142 +611,174 @@
         "atomicNumber": 56,
         "group": 2,
         "period": 6,
-        "block": "s"
+        "block": "s",
+        "electronicConfiguration": "[Xe] 6s2",
+        "atomicMass": 137.327
     },
     {
         "symbol": "La",
         "name": "Lanthanum",
-        "family": "Lanthanide",
+        "family": "Lanthanides",
         "atomicNumber": 57,
-        "group": 3,
+        "group": 0,
         "period": 6,
-        "block": "f"
+        "block": "f",
+        "electronicConfiguration": "[Xe] 5d1 6s2",
+        "atomicMass": 138.90547
     },
     {
         "symbol": "Ce",
         "name": "Cerium",
-        "family": "Lanthanide",
+        "family": "Lanthanides",
         "atomicNumber": 58,
-        "group": 3,
+        "group": 0,
         "period": 6,
-        "block": "f"
+        "block": "f",
+        "electronicConfiguration": "[Xe] 4f1 5d1 6s2",
+        "atomicMass": 140.116
     },
     {
         "symbol": "Pr",
         "name": "Praseodymium",
-        "family": "Lanthanide",
+        "family": "Lanthanides",
         "atomicNumber": 59,
-        "group": 3,
+        "group": 0,
         "period": 6,
-        "block": "f"
+        "block": "f",
+        "electronicConfiguration": "[Xe] 4f3 6s2",
+        "atomicMass": 140.90766
     },
     {
         "symbol": "Nd",
         "name": "Neodymium",
-        "family": "Lanthanide",
+        "family": "Lanthanides",
         "atomicNumber": 60,
-        "group": 3,
+        "group": 0,
         "period": 6,
-        "block": "f"
+        "block": "f",
+        "electronicConfiguration": "[Xe] 4f4 6s2",
+        "atomicMass": 144.242
     },
     {
         "symbol": "Pm",
         "name": "Promethium",
-        "family": "Lanthanide",
+        "family": "Lanthanides",
         "atomicNumber": 61,
-        "group": 3,
+        "group": 0,
         "period": 6,
-        "block": "f"
+        "block": "f",
+        "electronicConfiguration": "[Xe] 4f5 6s2",
+        "atomicMass": 145
     },
     {
         "symbol": "Sm",
         "name": "Samarium",
-        "family": "Lanthanide",
+        "family": "Lanthanides",
         "atomicNumber": 62,
-        "group": 3,
+        "group": 0,
         "period": 6,
-        "block": "f"
+        "block": "f",
+        "electronicConfiguration": "[Xe] 4f6 6s2",
+        "atomicMass": 150.36
     },
     {
         "symbol": "Eu",
         "name": "Europium",
-        "family": "Lanthanide",
+        "family": "Lanthanides",
         "atomicNumber": 63,
-        "group": 3,
+        "group": 0,
         "period": 6,
-        "block": "f"
+        "block": "f",
+        "electronicConfiguration": "[Xe] 4f7 6s2",
+        "atomicMass": 151.964
     },
     {
         "symbol": "Gd",
         "name": "Gadolinium",
-        "family": "Lanthanide",
+        "family": "Lanthanides",
         "atomicNumber": 64,
-        "group": 3,
+        "group": 0,
         "period": 6,
-        "block": "f"
+        "block": "f",
+        "electronicConfiguration": "[Xe] 4f7 5d1 6s2",
+        "atomicMass": 157.25
     },
     {
         "symbol": "Tb",
         "name": "Terbium",
-        "family": "Lanthanide",
+        "family": "Lanthanides",
         "atomicNumber": 65,
-        "group": 3,
+        "group": 0,
         "period": 6,
-        "block": "f"
+        "block": "f",
+        "electronicConfiguration": "[Xe] 4f9 6s2",
+        "atomicMass": 158.92535
     },
     {
         "symbol": "Dy",
         "name": "Dysprosium",
-        "family": "Lanthanide",
+        "family": "Lanthanides",
         "atomicNumber": 66,
-        "group": 3,
+        "group": 0,
         "period": 6,
-        "block": "f"
+        "block": "f",
+        "electronicConfiguration": "[Xe] 4f10 6s2",
+        "atomicMass": 162.500
     },
     {
         "symbol": "Ho",
         "name": "Holmium",
-        "family": "Lanthanide",
+        "family": "Lanthanides",
         "atomicNumber": 67,
-        "group": 3,
+        "group": 0,
         "period": 6,
-        "block": "f"
+        "block": "f",
+        "electronicConfiguration": "[Xe] 4f11 6s2",
+        "atomicMass": 164.93033
     },
     {
         "symbol": "Er",
         "name": "Erbium",
-        "family": "Lanthanide",
+        "family": "Lanthanides",
         "atomicNumber": 68,
-        "group": 3,
+        "group": 0,
         "period": 6,
-        "block": "f"
+        "block": "f",
+        "electronicConfiguration": "[Xe] 4f12 6s2",
+        "atomicMass": 167.259
     },
     {
         "symbol": "Tm",
         "name": "Thulium",
-        "family": "Lanthanide",
+        "family": "Lanthanides",
         "atomicNumber": 69,
-        "group": 3,
+        "group": 0,
         "period": 6,
-        "block": "f"
+        "block": "f",
+        "electronicConfiguration": "[Xe] 4f13 6s2",
+        "atomicMass": 168.93422
     },
     {
         "symbol": "Yb",
         "name": "Ytterbium",
-        "family": "Lanthanide",
+        "family": "Lanthanides",
         "atomicNumber": 70,
-        "group": 3,
+        "group": 0,
         "period": 6,
-        "block": "f"
+        "block": "f",
+        "electronicConfiguration": "[Xe] 4f14 6s2",
+        "atomicMass": 173.045
     },
     {
         "symbol": "Lu",
         "name": "Lutetium",
-        "family": "Lanthanide",
+        "family": "Lanthanides",
         "atomicNumber": 71,
-        "group": 3,
+        "group": 0,
         "period": 6,
-        "block": "d"
+        "block": "f",
+        "electronicConfiguration": "[Xe] 4f14 5d1 6s2",
+        "atomicMass": 174.9668
     },
     {
         "symbol": "Hf",
@@ -645,7 +787,9 @@
         "atomicNumber": 72,
         "group": 4,
         "period": 6,
-        "block": "d"
+        "block": "d",
+        "electronicConfiguration": "[Xe] 4f14 5d2 6s2",
+        "atomicMass": 178.49
     },
     {
         "symbol": "Ta",
@@ -654,7 +798,9 @@
         "atomicNumber": 73,
         "group": 5,
         "period": 6,
-        "block": "d"
+        "block": "d",
+        "electronicConfiguration": "[Xe] 4f14 5d3 6s2",
+        "atomicMass": 180.94788
     },
     {
         "symbol": "W",
@@ -663,7 +809,9 @@
         "atomicNumber": 74,
         "group": 6,
         "period": 6,
-        "block": "d"
+        "block": "d",
+        "electronicConfiguration": "[Xe] 4f14 5d4 6s2",
+        "atomicMass": 183.84
     },
     {
         "symbol": "Re",
@@ -672,7 +820,9 @@
         "atomicNumber": 75,
         "group": 7,
         "period": 6,
-        "block": "d"
+        "block": "d",
+        "electronicConfiguration": "[Xe] 4f14 5d5 6s2",
+        "atomicMass": 186.207
     },
     {
         "symbol": "Os",
@@ -681,7 +831,9 @@
         "atomicNumber": 76,
         "group": 8,
         "period": 6,
-        "block": "d"
+        "block": "d",
+        "electronicConfiguration": "[Xe] 4f14 5d6 6s2",
+        "atomicMass": 190.23
     },
     {
         "symbol": "Ir",
@@ -690,7 +842,9 @@
         "atomicNumber": 77,
         "group": 9,
         "period": 6,
-        "block": "d"
+        "block": "d",
+        "electronicConfiguration": "[Xe] 4f14 5d7 6s2",
+        "atomicMass": 192.217
     },
     {
         "symbol": "Pt",
@@ -699,7 +853,9 @@
         "atomicNumber": 78,
         "group": 10,
         "period": 6,
-        "block": "d"
+        "block": "d",
+        "electronicConfiguration": "[Xe] 4f14 5d9 6s1",
+        "atomicMass": 195.084
     },
     {
         "symbol": "Au",
@@ -708,7 +864,9 @@
         "atomicNumber": 79,
         "group": 11,
         "period": 6,
-        "block": "d"
+        "block": "d",
+        "electronicConfiguration": "[Xe] 4f14 5d10 6s1",
+        "atomicMass": 196.966569
     },
     {
         "symbol": "Hg",
@@ -717,52 +875,64 @@
         "atomicNumber": 80,
         "group": 12,
         "period": 6,
-        "block": "d"
+        "block": "d",
+        "electronicConfiguration": "[Xe] 4f14 5d10 6s2",
+        "atomicMass": 200.592
     },
     {
         "symbol": "Tl",
         "name": "Thallium",
-        "family": "Post-transition metal",
+        "family": "Metal",
         "atomicNumber": 81,
         "group": 13,
         "period": 6,
-        "block": "p"
+        "block": "p",
+        "electronicConfiguration": "[Xe] 4f14 5d10 6s2 6p1",
+        "atomicMass": 204.38
     },
     {
         "symbol": "Pb",
         "name": "Lead",
-        "family": "Post-transition metal",
+        "family": "Metal",
         "atomicNumber": 82,
         "group": 14,
         "period": 6,
-        "block": "p"
+        "block": "p",
+        "electronicConfiguration": "[Xe] 4f14 5d10 6s2 6p2",
+        "atomicMass": 207.2
     },
     {
         "symbol": "Bi",
         "name": "Bismuth",
-        "family": "Post-transition metal",
+        "family": "Metal",
         "atomicNumber": 83,
         "group": 15,
         "period": 6,
-        "block": "p"
+        "block": "p",
+        "electronicConfiguration": "[Xe] 4f14 5d10 6s2 6p3",
+        "atomicMass": 208.98040
     },
     {
         "symbol": "Po",
         "name": "Polonium",
-        "family": "Post-transition metal",
+        "family": "Metalloid",
         "atomicNumber": 84,
         "group": 16,
         "period": 6,
-        "block": "p"
+        "block": "p",
+        "electronicConfiguration": "[Xe] 4f14 5d10 6s2 6p4",
+        "atomicMass": 209
     },
     {
         "symbol": "At",
         "name": "Astatine",
-        "family": "Halogen",
+        "family": "Halogens",
         "atomicNumber": 85,
         "group": 17,
         "period": 6,
-        "block": "p"
+        "block": "p",
+        "electronicConfiguration": "[Xe] 4f14 5d10 6s2 6p5",
+        "atomicMass": 210
     },
     {
         "symbol": "Rn",
@@ -771,7 +941,9 @@
         "atomicNumber": 86,
         "group": 18,
         "period": 6,
-        "block": "p"
+        "block": "p",
+        "electronicConfiguration": "[Xe] 4f14 5d10 6s2 6p6",
+        "atomicMass": 222
     },
     {
         "symbol": "Fr",
@@ -780,7 +952,9 @@
         "atomicNumber": 87,
         "group": 1,
         "period": 7,
-        "block": "s"
+        "block": "s",
+        "electronicConfiguration": "[Rn] 7s1",
+        "atomicMass": 223
     },
     {
         "symbol": "Ra",
@@ -789,142 +963,174 @@
         "atomicNumber": 88,
         "group": 2,
         "period": 7,
-        "block": "s"
+        "block": "s",
+        "electronicConfiguration": "[Rn] 7s2",
+        "atomicMass": 226
     },
     {
         "symbol": "Ac",
         "name": "Actinium",
-        "family": "Actinide",
+        "family": "Actinides",
         "atomicNumber": 89,
-        "group": 3,
+        "group": 0,
         "period": 7,
-        "block": "f"
+        "block": "f",
+        "electronicConfiguration": "[Rn] 6d1 7s2",
+        "atomicMass": 227
     },
     {
         "symbol": "Th",
         "name": "Thorium",
-        "family": "Actinide",
+        "family": "Actinides",
         "atomicNumber": 90,
-        "group": 3,
+        "group": 0,
         "period": 7,
-        "block": "f"
+        "block": "f",
+        "electronicConfiguration": "[Rn] 6d2 7s2",
+        "atomicMass": 232.0377
     },
     {
         "symbol": "Pa",
         "name": "Protactinium",
-        "family": "Actinide",
+        "family": "Actinides",
         "atomicNumber": 91,
-        "group": 3,
+        "group": 0,
         "period": 7,
-        "block": "f"
+        "block": "f",
+        "electronicConfiguration": "[Rn] 5f2 6d1 7s2",
+        "atomicMass": 231.03588
     },
     {
         "symbol": "U",
         "name": "Uranium",
-        "family": "Actinide",
+        "family": "Actinides",
         "atomicNumber": 92,
-        "group": 3,
+        "group": 0,
         "period": 7,
-        "block": "f"
+        "block": "f",
+        "electronicConfiguration": "[Rn] 5f3 6d1 7s2",
+        "atomicMass": 238.02891
     },
     {
         "symbol": "Np",
         "name": "Neptunium",
-        "family": "Actinide",
+        "family": "Actinides",
         "atomicNumber": 93,
-        "group": 3,
+        "group": 0,
         "period": 7,
-        "block": "f"
+        "block": "f",
+        "electronicConfiguration": "[Rn] 5f4 6d1 7s2",
+        "atomicMass": 237
     },
     {
         "symbol": "Pu",
         "name": "Plutonium",
-        "family": "Actinide",
+        "family": "Actinides",
         "atomicNumber": 94,
-        "group": 3,
+        "group": 0,
         "period": 7,
-        "block": "f"
+        "block": "f",
+        "electronicConfiguration": "[Rn] 5f6 7s2",
+        "atomicMass": 244
     },
     {
         "symbol": "Am",
         "name": "Americium",
-        "family": "Actinide",
+        "family": "Actinides",
         "atomicNumber": 95,
-        "group": 3,
+        "group": 0,
         "period": 7,
-        "block": "f"
+        "block": "f",
+        "electronicConfiguration": "[Rn] 5f7 7s2",
+        "atomicMass": 243
     },
     {
         "symbol": "Cm",
         "name": "Curium",
-        "family": "Actinide",
+        "family": "Actinides",
         "atomicNumber": 96,
-        "group": 3,
+        "group": 0,
         "period": 7,
-        "block": "f"
+        "block": "f",
+        "electronicConfiguration": "[Rn] 5f7 6d1 7s2",
+        "atomicMass": 247
     },
     {
         "symbol": "Bk",
         "name": "Berkelium",
-        "family": "Actinide",
+        "family": "Actinides",
         "atomicNumber": 97,
-        "group": 3,
+        "group": 0,
         "period": 7,
-        "block": "f"
+        "block": "f",
+        "electronicConfiguration": "[Rn] 5f9 7s2",
+        "atomicMass": 247
     },
     {
         "symbol": "Cf",
         "name": "Californium",
-        "family": "Actinide",
+        "family": "Actinides",
         "atomicNumber": 98,
-        "group": 3,
+        "group": 0,
         "period": 7,
-        "block": "f"
+        "block": "f",
+        "electronicConfiguration": "[Rn] 5f10 7s2",
+        "atomicMass": 251
     },
     {
         "symbol": "Es",
         "name": "Einsteinium",
-        "family": "Actinide",
+        "family": "Actinides",
         "atomicNumber": 99,
-        "group": 3,
+        "group": 0,
         "period": 7,
-        "block": "f"
+        "block": "f",
+        "electronicConfiguration": "[Rn] 5f11 7s2",
+        "atomicMass": 252
     },
     {
         "symbol": "Fm",
         "name": "Fermium",
-        "family": "Actinide",
+        "family": "Actinides",
         "atomicNumber": 100,
-        "group": 3,
+        "group": 0,
         "period": 7,
-        "block": "f"
+        "block": "f",
+        "electronicConfiguration": "[Rn] 5f12 7s2",
+        "atomicMass": 257
     },
     {
         "symbol": "Md",
         "name": "Mendelevium",
-        "family": "Actinide",
+        "family": "Actinides",
         "atomicNumber": 101,
-        "group": 3,
+        "group": 0,
         "period": 7,
-        "block": "f"
+        "block": "f",
+        "electronicConfiguration": "[Rn] 5f13 7s2",
+        "atomicMass": 258
     },
     {
         "symbol": "No",
         "name": "Nobelium",
-        "family": "Actinide",
+        "family": "Actinides",
         "atomicNumber": 102,
-        "group": 3,
+        "group": 0,
         "period": 7,
-        "block": "f"
+        "block": "f",
+        "electronicConfiguration": "[Rn] 5f14 7s2",
+        "atomicMass": 259
     },
     {
         "symbol": "Lr",
         "name": "Lawrencium",
-        "family": "Actinide",
+        "family": "Actinides",
         "atomicNumber": 103,
-        "group": 3,
+        "group": 0,
         "period": 7,
-        "block": "d"
+        "block": "d",
+        "electronicConfiguration": "[Rn] 5f14 7s2 7p1",
+        "atomicMass": 262
     },
     {
         "symbol": "Rf",
@@ -933,7 +1139,9 @@
         "atomicNumber": 104,
         "group": 4,
         "period": 7,
-        "block": "d"
+        "block": "d",
+        "electronicConfiguration": "[Rn] 5f14 6d2 7s2",
+        "atomicMass": 267
     },
     {
         "symbol": "Db",
@@ -942,7 +1150,9 @@
         "atomicNumber": 105,
         "group": 5,
         "period": 7,
-        "block": "d"
+        "block": "d",
+        "electronicConfiguration": "[Rn] 5f14 6d3 7s2",
+        "atomicMass": 268
     },
     {
         "symbol": "Sg",
@@ -951,7 +1161,9 @@
         "atomicNumber": 106,
         "group": 6,
         "period": 7,
-        "block": "d"
+        "block": "d",
+        "electronicConfiguration": "[Rn] 5f14 6d4 7s2",
+        "atomicMass": 269
     },
     {
         "symbol": "Bh",
@@ -960,7 +1172,9 @@
         "atomicNumber": 107,
         "group": 7,
         "period": 7,
-        "block": "d"
+        "block": "d",
+        "electronicConfiguration": "[Rn] 5f14 6d5 7s2",
+        "atomicMass": 270
     },
     {
         "symbol": "Hs",
@@ -969,7 +1183,9 @@
         "atomicNumber": 108,
         "group": 8,
         "period": 7,
-        "block": "d"
+        "block": "d",
+        "electronicConfiguration": "[Rn] 5f14 6d6 7s2",
+        "atomicMass": 269
     },
     {
         "symbol": "Mt",
@@ -978,7 +1194,9 @@
         "atomicNumber": 109,
         "group": 9,
         "period": 7,
-        "block": "d"
+        "block": "d",
+        "electronicConfiguration": "[Rn] 5f14 6d7 7s2",
+        "atomicMass": 278
     },
     {
         "symbol": "Ds",
@@ -987,7 +1205,9 @@
         "atomicNumber": 110,
         "group": 10,
         "period": 7,
-        "block": "d"
+        "block": "d",
+        "electronicConfiguration": "[Rn] 5f14 6d9 7s1",
+        "atomicMass": 281
     },
     {
         "symbol": "Rg",
@@ -996,7 +1216,9 @@
         "atomicNumber": 111,
         "group": 11,
         "period": 7,
-        "block": "d"
+        "block": "d",
+        "electronicConfiguration": "[Rn] 5f14 6d10 7s1",
+        "atomicMass": 282
     },
     {
         "symbol": "Cn",
@@ -1005,16 +1227,20 @@
         "atomicNumber": 112,
         "group": 12,
         "period": 7,
-        "block": "d"
+        "block": "d",
+        "electronicConfiguration": "[Rn] 5f14 6d10 7s2",
+        "atomicMass": 285
     },
     {
         "symbol": "Nh",
         "name": "Nihonium",
-        "family": "Transition metal",
+        "family": "Post-transition metal",
         "atomicNumber": 113,
         "group": 13,
         "period": 7,
-        "block": "p"
+        "block": "p",
+        "electronicConfiguration": "[Rn] 5f14 6d10 7s2 7p1",
+        "atomicMass": 286
     },
     {
         "symbol": "Fl",
@@ -1023,7 +1249,9 @@
         "atomicNumber": 114,
         "group": 14,
         "period": 7,
-        "block": "p"
+        "block": "p",
+        "electronicConfiguration": "[Rn] 5f14 6d10 7s2 7p2",
+        "atomicMass": 289
     },
     {
         "symbol": "Mc",
@@ -1032,7 +1260,9 @@
         "atomicNumber": 115,
         "group": 15,
         "period": 7,
-        "block": "p"
+        "block": "p",
+        "electronicConfiguration": "[Rn] 5f14 6d10 7s2 7p3",
+        "atomicMass": 290
     },
     {
         "symbol": "Lv",
@@ -1041,16 +1271,20 @@
         "atomicNumber": 116,
         "group": 16,
         "period": 7,
-        "block": "p"
+        "block": "p",
+        "electronicConfiguration": "[Rn] 5f14 6d10 7s2 7p4",
+        "atomicMass": 293
     },
     {
         "symbol": "Ts",
         "name": "Tennessine",
-        "family": "Halogen",
+        "family": "Post-transition metal",
         "atomicNumber": 117,
         "group": 17,
         "period": 7,
-        "block": "p"
+        "block": "p",
+        "electronicConfiguration": "[Rn] 5f14 6d10 7s2 7p5",
+        "atomicMass": 294
     },
     {
         "symbol": "Og",
@@ -1059,6 +1293,8 @@
         "atomicNumber": 118,
         "group": 18,
         "period": 7,
-        "block": "p"
+        "block": "p",
+        "electronicConfiguration": "[Rn] 5f14 6d10 7s2 7p6",
+        "atomicMass": 294
     }
 ]

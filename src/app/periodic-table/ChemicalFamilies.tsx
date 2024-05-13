@@ -13,8 +13,8 @@ const chemicalFamilies: ChemicalFamily[] = [
   { name: 'Metalloids', color: 'metalloids' },
   { name: 'Non-Metals', color: 'non-metals' },
   { name: 'Halogens', color: 'halogens' },
-  { name: 'Noble Gases', color: 'noble-gases' },
-  { name: 'Lanthanides', color: 'lanthanides' },
+  // { name: 'Noble Gases', color: 'noble-gases' },
+  { name: 'Lanthanides', color: 'lanthanide' },
   { name: 'Noble Gas', color: 'noble-gas' },
   { name: 'Actinide', color: 'actinide' },
 ];
@@ -25,7 +25,7 @@ const ChemicalFamilies: React.FC = () => {
       {chemicalFamilies.map((family, index) => (
         <div
           key={index}
-          className={`flex items-center justify-center py-4 px-1 shadow-xl  rounded-sm text-white font-medium min-w-40 text-[1.2rem] bg-${family.color} `}
+          className={`flex items-center justify-center py-4 px-3 shadow-xl  rounded-sm text-white font-medium min-w-[11rem] text-[1.2rem] bg-${family.color} `}
         >
           {family.name}
         </div>
