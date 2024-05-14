@@ -1,4 +1,3 @@
-import { Syllabus } from "..\..\schema"
 
 type Ratings {
   amazon    RatingDetail

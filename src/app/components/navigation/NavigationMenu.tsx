@@ -44,12 +44,12 @@ const NavigationMenu: React.FC<NavigationMenuProps> = ({ className, style }) => 
         </Link>
         <Accordion type="single" collapsible className="w-full" >
           <AccordionItem value="item-1">
-            <AccordionTrigger>
-              <h2 className='py-6 mb-0  text-center text-base w-full font-extrabold text-h1'>Chemical Elements</h2>
+            {/* <AccordionTrigger> */}
+              <a className='py-10 mb-0 text-center text-base w-full  '><Link href={'/periodic-table'} className='text-h1  font-extrabold'>Periodic Table</Link></a>
 
-            </AccordionTrigger>
-            <AccordionContent>
-              <div className="grid grid-cols-3 md:grid-cols-3 gap-1 ">
+            {/* </AccordionTrigger> */}
+            {/* <AccordionContent>
+              <div className="grid grid-cols-3 md:grid-cols-3 gap-1 px-12 ">
                 {chemicalElements.map((element) => (
                   <div key={element.symbol}>
                     <Link href={`/periodic-table/${element.name.toLowerCase()}`}>
@@ -63,7 +63,7 @@ const NavigationMenu: React.FC<NavigationMenuProps> = ({ className, style }) => 
                   </div>
                 ))}
               </div>
-            </AccordionContent>
+            </AccordionContent> */}
           </AccordionItem>
           <AccordionItem value="item-2">
             <AccordionTrigger>

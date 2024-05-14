@@ -1,736 +1,611 @@
-generator client {
-  provider = "prisma-client-js"
-}
+//🧩Don't Edit this file.✨Generated in Tue May 14 2024 06:44:10 GMT-0600 (Central Standard Time)✨
 
 datasource db {
   provider = "mongodb"
   url      = env("DATABASE_URL")
 }
 
-type BookRatings {
-  amazon    BookRatingsAmazon
-  goodreads BookRatingsGoodreads
-  google    BookRatingsGoogle
+generator client {
+  provider = "prisma-client-js"
 }
 
-type BookRatingsAmazon {
-  /// Multiple data types found: Float: 99.8%, Int: 0.2% out of 460 sampled entries
-  average Json
-  link    String
-  number  Int
+type Ratings {
+  amazon    RatingDetail
+  goodreads RatingDetail
+  google    RatingDetail
 }
 
-type BookRatingsGoodreads {
-  /// Multiple data types found: Float: 99.8%, Int: 0.2% out of 460 sampled entries
-  average Json
-  link    String
-  number  Int
-}
-
-type BookRatingsGoogle {
+type RatingDetail {
   average Float
-  link    String
   number  Int
+  link    String
 }
 
-type BookSyllabus {
-  Appendix    String[]
-  Authors     String[]
-  Chapter     String?
-  /// Multiple data types found: Array(String): 40%, Array(BookSyllabusChapters): 60% out of 46 sampled entries
-  Chapters    Json?
-  Page        Int?
-  Pages       String[]
-  /// Multiple data types found: Array(String): 92.5%, Array(BookSyllabusSections): 7.5% out of 257 sampled entries
-  Sections    Json?
-  Subsections String[]
-  Tales       String[]
-  Topics      String[]
-  addenda     String[]
-  chapter     String
-  /// Multiple data types found: Array(String): 65%, Array(BookSyllabusChapters): 35% out of 26 sampled entries
-  chapters    Json?
-  content     String[]
-  indexes     String[]
-  /// Multiple data types found: Array(String): 0.6%, Array(BookSyllabusSections): 99.4% out of 1773 sampled entries
-  sections    Json?
-  subsections String[]
-  title       String?
+model Book {
+  id                         String                  @id @default(auto()) @map("_id") @db.ObjectId
+  englishTitle               String
+  spanishTitle               String?
+  authors                    String[]
+  difficulty                 String?
+  keywords                   String[]
+  span                       String[]
+  coverImage                 String?
+  syllabusImages             String[]
+  pages                      Int?
+  lastEditionYear            Int?
+  lastEditionNumber          Int?
+  publicationDate            Int?
+  originCountry              String?
+  spanishEdition             Boolean?
+  summary                    String[]
+  amazonLink                 String?
+  ratings                    Ratings?
+  topicRecommendation        topicRecommendation?    @relation(fields: [topicRecommendationSlug], references: [slug])
+  topicRecommendationSlug    String?
+  subFieldRecommendation     subFieldRecommendation? @relation(fields: [subFieldRecommendationSlug], references: [slug])
+  subFieldRecommendationSlug String?
+  syllabus                   Syllabus[]
+  slug                       String                  @unique
+
+  @@map("book")
 }
 
-type BookSyllabusChapters {
-  Authors  String?
-  Chapter  String?
-  Page     Int?
-  Sections String[]
-  sections String[]
-  title    String?
+type Syllabus {
+  chapter  String
+  sections Section[]
 }
 
-type BookSyllabusSections {
-  Chapter     String?
-  Sections    String[]
-  Subsections String[]
-  Title       String?
-  content     String[]
-  page        Int?
-  sections    String[]
-  subsections BookSyllabusSectionsSubsections[]
-  title       String?
-}
-
-type BookSyllabusSectionsSubsections {
-  subsections String[]
+type Section {
   title       String
+  subsections Subsection[]
 }
 
-type ChemicalElementAllotropes {
-  description      String
-  name             String
-  temperatureRange String?
+type Subsection {
+  title String
 }
 
-type ChemicalElementAtomicStructure {
-  atomicPolarization       String?
-  atomicRadius             String
-  covalentRadius           String?
-  description              String?
-  electronAffinity         String
-  electronConfiguration    String?
-  electronShellModel       ChemicalElementAtomicStructureElectronShellModel?
-  electronegativity        String?
-  electrons                String
-  /// Multiple data types found: Array(String): 25%, Array(ChemicalElementAtomicStructureEnergyLevels): 75% out of 4 sampled entries
-  energyLevels             Json?
-  firstIonizationPotential String?
-  ionizationEnergy         String
-  /// Multiple data types found: String: 99.2%, Array(String): 0.8% out of 118 sampled entries
-  neutrons                 Json
-  protons                  String
-  quantumNumbers           ChemicalElementAtomicStructureQuantumNumbers?
-  vanDerWaalsRadius        String?
-}
-
-type ChemicalElementAtomicStructureElectronShellModel {
-  shells         String[]
-  totalElectrons String
-}
-
-type ChemicalElementAtomicStructureEnergyLevels {
-  energy String
-  level  String
-}
-
-type ChemicalElementAtomicStructureQuantumNumbers {
-  azimuthal String
-  magnetic  String?
-  principal String
-  spin      String?
-}
-
-type ChemicalElementBiologicalRole {
-  description String
-  importance  String?
-  role        String
-}
-
-type ChemicalElementChemicalProperties {
-  chemicalBehavior           String?
-  chemicalBonding            String?
-  chemicalReactions          String?
-  commonOxidationStates      String
-  description                String?
-  electronegativity          String?
-  ionizationPotential        String?
-  oxidationStates            ChemicalElementChemicalPropertiesOxidationStates[]
-  reactivity                 String
-  standardReductionPotential String?
-}
-
-type ChemicalElementChemicalPropertiesOxidationStates {
-  description String
-  state       String
-}
-
-type ChemicalElementClassifications {
-  classification String
-  description    String
-}
-
-type ChemicalElementCompounds {
-  /// Multiple data types found: String: 76.9%, Array(String): 23.1% out of 13 sampled entries
-  applications Json?
-  compound     String?
-  description  String
-  formula      String?
-  name         String?
-  /// Multiple data types found: String: 70%, ChemicalElementCompoundsProperties: 30% out of 30 sampled entries
-  properties   Json?
-}
-
-type ChemicalElementCompoundsProperties {
-  appearance   String?
-  boilingPoint String?
-  color        String?
-  density      String?
-  meltingPoint String?
-  solubility   String?
-}
-
-type ChemicalElementCrystalStructures {
-  description String
-  temperature String?
-  type        String
-}
-
-type ChemicalElementEconomicData {
-  description        String?
-  industrialUse      String?
-  marketPrice        String
-  producingCountries String
-}
-
-type ChemicalElementElectronConfig {
-  configuration String
-  description   String
-}
-
-type ChemicalElementEnvironmentalSafety {
-  environmentalImpact  String?
-  healthHazards        String
-  safetyPrecautions    String
-  sustainablePractices String?
-}
-
-type ChemicalElementFuturePredictions {
-  description        String?
-  prediction         String
-  researchDirections String?
-}
-
-type ChemicalElementHealthEnvironmentalImpact {
-  description         String?
-  environmentalImpact String
-  healthImpact        String
-  safetyDataSheet     ChemicalElementHealthEnvironmentalImpactSafetyDataSheet?
-  safetyMeasures      String?
-}
-
-type ChemicalElementHealthEnvironmentalImpactSafetyDataSheet {
-  firstAidMeasures String
-  handling         String
-  storage          String
-}
-
-type ChemicalElementHistory {
-  description        String
-  details            String?
-  event              String
-  scientistsInvolved String?
-  significance       String?
-  year               String?
-}
-
-type ChemicalElementImageGallery {
-  description String
-  imageUrl    String
-}
-
-type ChemicalElementInterdisciplinaryConnections {
-  astrophysics         String?
-  biology              String?
-  catalysis            String?
-  chemistry            String?
-  description          String?
-  electronics          String?
-  engineering          String?
-  environmentalScience String?
-  geology              String?
-  greenTechnologies    String?
-  healthScience        String?
-  materialScience      String?
-  materialsScience     String?
-  medicalScience       String?
-  medicine             String?
-  nuclearEngineering   String?
-  nuclearMedicine      String?
-  nuclearPhysics       String?
-  nuclearScience       String?
-  nutrition            String?
-  physics              String?
-  publicHealth         String?
-}
-
-type ChemicalElementIsotopes {
-  abundance     String
-  /// Multiple data types found: String: 99.9%, Array(String): 0.1% out of 732 sampled entries
-  decayMode     Json?
-  description   String?
-  halfLife      String
-  isotopeNumber String
-  name          String?
-}
-
-type ChemicalElementLegalStatus {
-  description       String?
-  legalRestrictions String
-  regulations       String
-}
-
-type ChemicalElementMagneticElectricalProperties {
-  description            String?
-  electricalResistivity  String
-  hallCoefficient        String?
-  magneticSusceptibility String
-}
-
-type ChemicalElementNaturalOccurrence {
-  description    String
-  distribution   String?
-  occurrenceType String
-}
-
-type ChemicalElementOpticalProperties {
-  absorptionSpectrum String?
-  description        String?
-  reflectivity       String?
-  refractiveIndex    String
-}
-
-type ChemicalElementOxidationStates {
-  description String
-  state       String
-}
-
-type ChemicalElementPhysicalProperties {
-  atomicRadius                String?
-  atomicVolume                String?
-  boilingPoint                String
-  brinellHardness             String?
-  covalentRadius              String?
-  density                     String
-  description                 String?
-  ductility                   String?
-  malleability                String?
-  meltingPoint                String
-  mohsHardness                String?
-  molarHeat                   String?
-  molarHeatCapacity           String?
-  phaseTransitionTemperatures String?
-  soundVelocity               String?
-  specificHeatCapacity        String?
-  thermalConductivity         String?
-  thermalExpansionCoefficient String?
-  vanDerWaalsRadius           String?
-}
-
-type ChemicalElementPracticalApplications {
-  application   String
-  description   String
-  /// Multiple data types found: String: 77.8%, Array(String): 22.2% out of 27 sampled entries
-  examples      Json?
-  researchAreas String?
-}
-
-type ChemicalElementQuantumProperties {
-  electronShellModel ChemicalElementQuantumPropertiesElectronShellModel?
-  /// Multiple data types found: String: 0.9%, Array(String): 88.6%, Array(ChemicalElementQuantumPropertiesEnergyLevels): 10.5% out of 114 sampled entries
-  energyLevels       Json?
-  quantumNumbers     ChemicalElementQuantumPropertiesQuantumNumbers
-}
-
-type ChemicalElementQuantumPropertiesElectronShellModel {
-  description    String?
-  /// Multiple data types found: String: 0.9%, Array(String): 99.1% out of 116 sampled entries
-  shells         Json
-  totalElectrons String
-}
-
-type ChemicalElementQuantumPropertiesEnergyLevels {
-  energy String
-  level  String
-}
-
-type ChemicalElementQuantumPropertiesQuantumNumbers {
-  azimuthal   String
-  description String?
-  magnetic    String?
-  principal   String
-  spin        String?
-}
-
-type ChemicalElementSafetyDataSheet {
-  description      String?
-  firstAidMeasures String?
-  handling         String
-  storage          String
-}
-
-type ChemicalElementSpectralLines {
-  color       String?
-  description String?
-  intensity   String?
-  lineType    String?
-  type        String?
-  wavelength  String
-}
-
-type ChemicalElementSynthesisProduction {
-  description       String?
-  extractionMethods String?
-  globalProduction  String?
-  synthesisMethods  String
-}
-
-type ChemicalElementUserInteractions {
-  contribution String?
-  description  String?
-  discussion   String?
-  interaction  String?
-  question     String?
-}
-
-type RatingsAmazon {
-  average Float
-  link    String
-  number  Int
-}
-
-type RatingsGoodreads {
-  average Float
-  link    String
-  number  Int
-}
-
-type RatingsGoogle {
-  average Float
-  link    String
-  number  Int
-}
-
-type SubfieldRecommendationsBooks {
-  amazonLink        String
-  authors           String[]
-  coverImage        String?
-  difficulty        String
-  englishTitle      String
-  keywords          String[]
-  keywordsSpan      String[]
-  /// Multiple data types found: String: 14.5%, Int: 85.5% out of 276 sampled entries
-  lastEditionNumber Json
-  /// Multiple data types found: String: 14.5%, Int: 85.5% out of 276 sampled entries
-  lastEditionYear   Json
-  originCountry     String
-  /// Multiple data types found: String: 15.9%, Int: 84.1% out of 276 sampled entries
-  pages             Json
-  /// Multiple data types found: String: 15.9%, Int: 84.1% out of 276 sampled entries
-  publicationDate   Json
-  ratings           SubfieldRecommendationsBooksRatings
-  slug              String
-  span              String[]
-  spanishEdition    Boolean
-  spanishTitle      String?
-  summary           String[]
-  /// Could not determine type: the field only had null or empty values in the sample set.
-  syllabusImages    Json?
-}
-
-type SubfieldRecommendationsBooksRatings {
-  amazon    SubfieldRecommendationsBooksRatingsAmazon
-  goodreads SubfieldRecommendationsBooksRatingsGoodreads
-  google    SubfieldRecommendationsBooksRatingsGoogle
-}
-
-type SubfieldRecommendationsBooksRatingsAmazon {
-  average Float
-  link    String
-  /// Multiple data types found: String: 8.7%, Int: 91.3% out of 276 sampled entries
-  number  Json
-}
-
-type SubfieldRecommendationsBooksRatingsGoodreads {
-  average Float
-  link    String
-  /// Multiple data types found: String: 8%, Int: 92% out of 276 sampled entries
-  number  Json
-}
-
-type SubfieldRecommendationsBooksRatingsGoogle {
-  average Float
-  link    String
-  number  Int
-}
-
-type TopicsRecommendationBooks {
-  amazonLink        String
-  authors           String[]
-  difficulty        String
-  englishTitle      String
-  keywords          String[]
-  lastEditionNumber Int?
-  lastEditionYear   Int?
-  originCountry     String?
-  /// Multiple data types found: Int: 99.7%, BigInt: 0.3% out of 388 sampled entries
-  pages             Json?
-  publicationDate   Int?
-  ratings           TopicsRecommendationBooksRatings
-  slug              String
-  span              String[]
-  spanishEdition    Boolean
-  spanishTitle      String?
-  summary           String[]
-}
-
-type TopicsRecommendationBooksRatings {
-  amazon    TopicsRecommendationBooksRatingsAmazon
-  goodreads TopicsRecommendationBooksRatingsGoodreads
-  google    TopicsRecommendationBooksRatingsGoogle
-}
-
-type TopicsRecommendationBooksRatingsAmazon {
-  average Float
-  link    String
-  number  Int
-}
-
-type TopicsRecommendationBooksRatingsGoodreads {
-  average Float
-  link    String
-  number  Int
-}
-
-type TopicsRecommendationBooksRatingsGoogle {
-  average Float
-  link    String
-  number  Int
-}
-
-type WordApplications {
-  application String
-}
-
-type WordDefinitions {
-  example      String
-  meaning      String
-  partOfSpeech String
-  source       WordDefinitionsSource
-}
-
-type WordDefinitionsSource {
-  author              String
-  publicationYearDate String
-  sourceType          String
-  title               String
-}
-
-type WordHistoricalSignificance {
-  event String
-}
-
-type WordMeasurementUnits {
-  unit String
-}
-
-type WordRelatedConcepts {
-  concept String
-}
-
-model ChemicalElement {
-  id                           String                                      @id @default(auto()) @map("_id") @db.ObjectId
-  allotropes                   ChemicalElementAllotropes[]
-  appearance                   String
-  atomicNumber                 String
-  atomicStructure              ChemicalElementAtomicStructure
-  /// Multiple data types found: String: 97.5%, Array(String): 2.5% out of 118 sampled entries
-  atomicWeight                 Json
-  biologicalRole               ChemicalElementBiologicalRole
-  boilingPoint                 String
-  chemicalProperties           ChemicalElementChemicalProperties
-  classifications              ChemicalElementClassifications[]
-  compounds                    ChemicalElementCompounds[]
-  crystalStructures            ChemicalElementCrystalStructures[]
-  density                      String
-  description                  String
-  discoveryYear                String
-  economicData                 ChemicalElementEconomicData
-  electronConfig               ChemicalElementElectronConfig?
-  environmentalSafety          ChemicalElementEnvironmentalSafety
-  futurePredictions            ChemicalElementFuturePredictions[]
-  healthEnvironmentalImpact    ChemicalElementHealthEnvironmentalImpact
-  history                      ChemicalElementHistory[]
-  imageGallery                 ChemicalElementImageGallery[]
-  interdisciplinaryConnections ChemicalElementInterdisciplinaryConnections
-  isotopes                     ChemicalElementIsotopes[]
-  legalStatus                  ChemicalElementLegalStatus
-  magneticElectricalProperties ChemicalElementMagneticElectricalProperties
-  meltingPoint                 String
-  name                         String
-  naturalOccurrence            ChemicalElementNaturalOccurrence
-  opticalProperties            ChemicalElementOpticalProperties?
-  oxidationStates              ChemicalElementOxidationStates[]
-  physicalProperties           ChemicalElementPhysicalProperties
-  practicalApplications        ChemicalElementPracticalApplications[]
-  quantumProperties            ChemicalElementQuantumProperties
-  safetyDataSheet              ChemicalElementSafetyDataSheet?
-  slug                         String                                      @unique
-  spectralLines                ChemicalElementSpectralLines[]
-  symbol                       String                                      @unique
-  synthesisProduction          ChemicalElementSynthesisProduction
-  userInteractions             ChemicalElementUserInteractions[]
-}
-
-model ElectronicComponent {
-  id   String @id @default(auto()) @map("_id") @db.ObjectId
-  /// Field referred in an index, but found no data to define the type.
-  name Json?  @unique
-  /// Field referred in an index, but found no data to define the type.
-  slug Json?  @unique
-}
-
-model ElectronicComponentAdditionalResource {
-  id String @id @default(auto()) @map("_id") @db.ObjectId
-}
-
-model ElectronicComponentApplication {
-  id String @id @default(auto()) @map("_id") @db.ObjectId
-}
-
-model ElectronicComponentDatasheet {
-  id String @id @default(auto()) @map("_id") @db.ObjectId
-}
+model topicRecommendation {
+  id           String @id @default(auto()) @map("_id") @db.ObjectId
+  field        String
+  subField     String
+  topic        String
+  topicSummary String
+  slug         String @unique
+  books        Book[]
 
-model ElectronicComponentFunction {
-  id                      String @id @default(auto()) @map("_id") @db.ObjectId
-  /// Field referred in an index, but found no data to define the type.
-  electronicComponentName Json?  @unique
+  @@map("topicsRecommendation")
 }
 
-model ElectronicComponentKeyParameter {
-  id String @id @default(auto()) @map("_id") @db.ObjectId
-}
-
-model ElectronicComponentMeasurements {
-  id String @id @default(auto()) @map("_id") @db.ObjectId
-}
-
-model ElectronicComponentOperation {
-  id                      String @id @default(auto()) @map("_id") @db.ObjectId
-  /// Field referred in an index, but found no data to define the type.
-  electronicComponentName Json?  @unique
-}
-
-model ElectronicComponentThermalSpecifications {
-  id                      String @id @default(auto()) @map("_id") @db.ObjectId
-  /// Field referred in an index, but found no data to define the type.
-  electronicComponentName Json?  @unique
-}
-
-model ElectronicComponentVariant {
-  id String @id @default(auto()) @map("_id") @db.ObjectId
-}
-
-model Event {
-  id   String @id @default(auto()) @map("_id") @db.ObjectId
-  /// Field referred in an index, but found no data to define the type.
-  name Json?  @unique
-}
-
-model EventParticipant {
-  id String @id @default(auto()) @map("_id") @db.ObjectId
-}
-
-model Field {
-  id   String @id @default(auto()) @map("_id") @db.ObjectId
-  /// Field referred in an index, but found no data to define the type.
-  name Json?  @unique
-}
-
-model Person {
-  id String @id @default(auto()) @map("_id") @db.ObjectId
-}
+model subFieldRecommendation {
+  id       String @id @default(auto()) @map("_id") @db.ObjectId
+  field    String
+  subField String
+  slug     String @unique
+  books    Book[]
 
-model Reference {
-  id String @id @default(auto()) @map("_id") @db.ObjectId
+  @@map("subfieldsRecommendation")
 }
 
 model Word {
-  id                     String                       @id @default(auto()) @map("_id") @db.ObjectId
-  /// Could not determine type: the field only had null or empty values in the sample set.
-  antonyms               Json?
-  applications           WordApplications[]
-  audio                  String
-  createdAt              DateTime                     @db.Date
-  definitions            WordDefinitions[]
-  etymology              String
-  examples               String[]
-  historicalSignificance WordHistoricalSignificance[]
-  images                 String[]
-  language               String
-  measurementUnits       WordMeasurementUnits[]
-  pronunciation          String
-  relatedConcepts        WordRelatedConcepts[]
-  slug                   String                       @unique
-  synonyms               String[]
-  tags                   String[]
+  id                     String                   @id @map("_id") @db.ObjectId
   word                   String
+  slug                   String                   @unique
+  pronunciation          String?
+  definitions            Definition[]
+  etymology              String?
+  synonyms               String[]
+  antonyms               String[]
+  examples               String[]
+  images                 String[]
+  audio                  String?
+  language               String?
+  tags                   String[]
+  relatedConcepts        RelatedConcept[]
+  applications           Application[]
+  measurementUnits       MeasurementUnit[]
+  historicalSignificance HistoricalSignificance[]
+  createdAt              DateTime                 @default(now())
+  updatedAt              DateTime?                @updatedAt
 }
 
-model book {
-  id                         String         @id @default(auto()) @map("_id") @db.ObjectId
-  amazonLink                 String
-  authors                    String[]
-  difficulty                 String
-  englishTitle               String
-  keywords                   String[]
-  lastEditionNumber          Int?
-  lastEditionYear            Int?
-  originCountry              String?
-  pages                      Int?
-  publicationDate            Int?
-  ratings                    BookRatings
-  slug                       String         @unique
-  span                       String[]
-  spanishEdition             Boolean
-  spanishTitle               String?
-  subFieldRecommendationSlug String?
-  summary                    String[]
-  syllabus                   BookSyllabus[]
-  topicRecommendationSlug    String?
+type RelatedConcept {
+  concept String?
+  wordId  String
 }
 
-model ratings {
-  id           String           @id @default(auto()) @map("_id") @db.ObjectId
-  amazon       RatingsAmazon
-  englishTitle String
-  goodreads    RatingsGoodreads
-  google       RatingsGoogle
+type Application {
+  application String?
+  wordId      String
 }
 
-model subfieldRecommendations {
-  id       String                         @id @default(auto()) @map("_id") @db.ObjectId
-  books    SubfieldRecommendationsBooks[]
-  field    String
-  slug     String
-  /// Could not determine type: the field only had null or empty values in the sample set.
-  span     Json?
-  subField String
-  summary  String
+type MeasurementUnit {
+  unit   String?
+  wordId String
 }
 
-model subfieldsRecommendation {
-  id       String @id @default(auto()) @map("_id") @db.ObjectId
-  field    String
-  slug     String @unique
-  subField String
+type HistoricalSignificance {
+  event String?
 }
 
-model topicsRecommendation {
-  id           String                      @id @default(auto()) @map("_id") @db.ObjectId
-  books        TopicsRecommendationBooks[]
-  field        String
-  keywords     String?
-  slug         String                      @unique
-  subField     String
-  topic        String?
-  topicSummary String?
+type Definition {
+  partOfSpeech String?
+  meaning      String?
+  example      String?
+  source       Source
+}
+
+type Source {
+  author                          String? // Last name, First initial. Middle initial (if applicable) 
+  publicationYearDate             String? // Year of publication
+  title                           String
+  url                             String? // Include DOI if available
+  sourceType                      String? // Book, Journal Article, Website, etc. (use controlled vocabulary) 
+  // Book-Specific Fields
+  bookEdition                     String?
+  publisher                       String?
+  placeOfPublication              String?
+  // Journal Article-Specific Fields
+  journalName                     String?
+  volume                          String?
+  issue                           String?
+  pages                           String?
+  // Website-Specific Fields
+  websiteName                     String?
+  publicationDateofWebPublication String? // Can be more specific than year, e.g., "2023-11-20" 
+  accessDate                      String?
+}
+
+// Model for the Electronic Component
+model ElectronicComponent {
+  id                      String                                    @id @default(auto()) @map("_id") @db.ObjectId
+  name                    String                                    @unique
+  slug                    String                                    @unique
+  category                String?
+  type                    String?
+  subtype                 String?
+  manufacturers           String[]
+  description             String?
+  lifeSpan                String?
+  history                 Json
+  Glossary                String[]
+  functionDiagram         String?
+  operationDiagram        String?
+  applicationDiagram      String?
+  availability            Boolean?
+  // eolDate               DateTime
+  pricing                 Float?
+  // packageType           String
+  footprint               String?
+  standardsAndRegulations String[]
+  relatedDocuments        String[]
+  createdAt               DateTime                                  @default(now()) @map("createdAt")
+  updatedAt               DateTime                                  @updatedAt @map("updatedAt")
+  // Relationships
+  variants                ElectronicComponentVariant[]
+  Measurements            ElectronicComponentMeasurements[]
+  function                ElectronicComponentFunction?
+  operation               ElectronicComponentOperation?
+  applications            ElectronicComponentApplication[]
+  // technicalSpecs                  ElectronicComponentTechnicalSpecifications?
+  thermalSpecifications   ElectronicComponentThermalSpecifications?
+  datasheets              ElectronicComponentDatasheet[]
+  additionalResources     ElectronicComponentAdditionalResource[]
+}
+
+// type History {
+//   year String
+//   event String
+// }
+
+// Model for Electronic Component Variants
+model ElectronicComponentVariant {
+  id                      String              @id @default(auto()) @map("_id") @db.ObjectId
+  name                    String
+  description             String
+  diagram                 String?
+  electronicComponent     ElectronicComponent @relation(fields: [electronicComponentName], references: [name])
+  electronicComponentName String
+}
+
+// Model for Measurements in Science about Electronic Components
+model ElectronicComponentMeasurements {
+  id                      String              @id @default(auto()) @map("_id") @db.ObjectId
+  electronicComponent     ElectronicComponent @relation(fields: [electronicComponentName], references: [name])
+  electronicComponentName String
+  temperature             String
+  voltage                 String
+  current                 String
+  resistance              String
+  capacitance             String
+  inductance              String
+  frequency               String
+  power                   String
+  signalToNoiseRatio      String
+  impedance               String
+  gain                    String
+  distortion              String
+  bandwidth               String
+  efficiency              String
+  otherVariables          String
+  toleranceAccuracy       String
+}
+
+// Model for Electronic Component Functions
+model ElectronicComponentFunction {
+  id                      String               @id @default(auto()) @map("_id") @db.ObjectId
+  primaryFunction         String
+  physicalPrinciples      Json
+  chemistryPrinciples     String[]
+  comparisons             String[]
+  capabilities            String[]
+  limitations             String[]
+  diagrams                String?
+  electronicComponent     ElectronicComponent? @relation(fields: [electronicComponentName], references: [name])
+  electronicComponentName String               @unique
+}
+
+// Model for Electronic Component Operations
+model ElectronicComponentOperation {
+  id                         String                            @id @default(auto()) @map("_id") @db.ObjectId
+  internalStructure          String
+  operatingMechanisms        String
+  keyParameters              ElectronicComponentKeyParameter[]
+  inputOutputCharacteristics String
+  functionalRelationships    String
+  equations                  String?
+  diagrams                   String?
+  electronicComponent        ElectronicComponent?              @relation(fields: [electronicComponentName], references: [name])
+  electronicComponentName    String                            @unique
+}
+
+// Model for Key Parameters of Electronic Components
+model ElectronicComponentKeyParameter {
+  id                      String                       @id @default(auto()) @map("_id") @db.ObjectId
+  name                    String
+  description             String
+  operation               ElectronicComponentOperation @relation(fields: [electronicComponentName], references: [electronicComponentName])
+  electronicComponentName String
+}
+
+// Model for Electronic Component Applications
+model ElectronicComponentApplication {
+  id                      String              @id @default(auto()) @map("_id") @db.ObjectId
+  field                   String
+  examples                String[]
+  designConsiderations    String
+  challenges              String[]
+  electronicComponent     ElectronicComponent @relation(fields: [electronicComponentName], references: [name])
+  electronicComponentName String
+}
+
+// Model for Thermal Specifications of Electronic Components
+model ElectronicComponentThermalSpecifications {
+  id                                 String               @id @default(auto()) @map("_id") @db.ObjectId
+  thermalResistanceJunctionToCase    String
+  thermalResistanceJunctionToAmbient String
+  maximumOperatingTemperature        String
+  minimumOperatingTemperature        String
+  electronicComponent                ElectronicComponent? @relation(fields: [electronicComponentName], references: [name])
+  electronicComponentName            String               @unique
+}
+
+// Model for Additional Resources of Electronic Components
+model ElectronicComponentAdditionalResource {
+  id                      String              @id @default(auto()) @map("_id") @db.ObjectId
+  type                    String
+  description             String
+  link                    String
+  electronicComponent     ElectronicComponent @relation(fields: [electronicComponentName], references: [name])
+  electronicComponentName String
+}
+
+// Model for Datasheets of Electronic Components
+model ElectronicComponentDatasheet {
+  id                      String               @id @default(auto()) @map("_id") @db.ObjectId
+  name                    String
+  description             String
+  url                     String
+  // electronicComponentTechnicalSpecifications   ElectronicComponentTechnicalSpecifications? @relation(fields: [electronicComponentTechnicalSpecificationsId], references: [electronicComponentName])
+  // electronicComponentTechnicalSpecificationsId String?
+  electronicComponent     ElectronicComponent? @relation(fields: [electronicComponentName], references: [name])
+  electronicComponentName String?
+}
+
+model Event {
+  id           String             @id @map("_id") @db.ObjectId
+  name         String             @unique
+  description  String?
+  date         DateTime?
+  fieldId      String?            @db.ObjectId
+  references   Reference[]
+  participants EventParticipant[]
+  createdAt    DateTime           @default(now())
+  updatedAt    DateTime           @updatedAt
+}
+
+model Person {
+  id        String             @id @map("_id") @db.ObjectId
+  name      String
+  birthYear Int?
+  deathYear Int?
+  events    EventParticipant[]
+  createdAt DateTime           @default(now())
+  updatedAt DateTime           @updatedAt
+}
+
+model Field {
+  id          String   @id @map("_id") @db.ObjectId
+  name        String   @unique
+  description String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Reference {
+  id                  String  @id @map("_id") @db.ObjectId
+  title               String
+  author              String? // Last name, First initial. Middle initial (if applicable) 
+  publicationDateYear String? // Year of publication
+  url                 String? // Include DOI if available
+  sourceType          String? // Book, Journal Article, Website, etc. (use controlled vocabulary) 
+
+  // Book-Specific Fields
+  bookEdition        String?
+  publisher          String?
+  placeOfPublication String?
+
+  // Journal Article-Specific Fields
+  journalName String?
+  volume      String?
+  issue       String?
+  pages       String?
+
+  // Website-Specific Fields
+  websiteName                 String?
+  publicationDateOntheWebsite String? // Can be more specific than year, e.g., "2023-11-20" 
+  accessDate                  String?
+
+  // Other Source Types (add as needed)
+  // ...
+
+  event     Event    @relation(fields: [eventId], references: [id])
+  eventId   String   @db.ObjectId
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model EventParticipant {
+  id        String   @id @map("_id") @db.ObjectId
+  event     Event    @relation(fields: [eventId], references: [id])
+  eventId   String   @db.ObjectId
+  person    Person   @relation(fields: [personId], references: [id])
+  personId  String   @db.ObjectId
+  // ... other fields
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model ChemicalElement {
+  id                           String                               @id @default(auto()) @map("_id") @db.ObjectId
+  symbol                       String                               @unique
+  name                         String
+  slug                         String                               @unique
+  atomicNumber                 String?
+  atomicWeight                 String?
+  description                  String?
+  history                      History[]
+  discoveryYear                String
+  meltingPoint                 String?
+  boilingPoint                 String?
+  density                      String?
+  appearance                   String?
+  classifications              ChemicalElementClassification[]
+  atomicStructure              ElementAtomicStructure?
+  isotopes                     ElementIsotope[]
+  compounds                    ElementCompound[]
+  crystalStructures            ElementCrystalStructure[]
+  allotropes                   ElementAllotrope[]
+  electronConfig               ElementElectronConfiguration? // ElementElectronConfiguration
+  oxidationStates              ElementOxidationState[]
+  physicalProperties           ElementPhysicalProperties?
+  chemicalProperties           ElementChemicalProperties?
+  environmentalSafety          ElementEnvironmentalSafety?
+  practicalApplications        ElementPracticalApplication[] // Array of ElementPracticalApplication
+  spectralLines                ElementSpectralLine[]
+  naturalOccurrence            ElementNaturalOccurrence?
+  biologicalRole               ElementBiologicalRole?
+  economicData                 ElementEconomicData?
+  imageGallery                 ImageGallery[]
+  healthEnvironmentalImpact    ElementHealthEnvironmentalImpact?
+  futurePredictions            ElementFuturePrediction[]
+  userInteractions             ElementuserInteractions[]
+  externalResources            ElementExternalResource[]
+  magneticElectricalProperties ElementMagneticElectricalProperties?
+  opticalProperties            ElementOpticalProperties?
+  quantumProperties            ElementQuantumProperties?
+  synthesisProduction          ElementSynthesisProduction?
+  safetyDataSheet              ElementSafetyDataSheet?
+  legalStatus                  ElementLegalStatus?
+  interdisciplinaryConnections Json?
+}
+
+type ElementPracticalApplication {
+  application String?
+  description String?
+}
+
+type ElementElectronConfiguration {
+  configuration String?
+  description   String?
+}
+
+// type ElementStringerdisciplinaryConnection {
+//     connectionDetails String
+// }
+
+type ElementLegalStatus {
+  regulations       String?
+  legalRestrictions String?
+}
+
+type ElementSafetyDataSheet {
+  handling         String?
+  storage          String?
+  firstAidMeasures String?
+}
+
+type ElementSynthesisProduction {
+  synthesisMethods  String?
+  extractionMethods String?
+  globalProduction  String?
+}
+
+type ElementQuantumProperties {
+  quantumNumbers     Json?
+  electronShellModel Json?
+  energyLevels       Json?
+}
+
+type ElementOpticalProperties {
+  refractiveIndex    String?
+  reflectivity       String?
+  absorptionSpectrum String?
+}
+
+type ElementMagneticElectricalProperties {
+  magneticSusceptibility String?
+  electricalResistivity  String?
+  hallCoefficient        String?
+}
+
+type ElementExternalResource {
+  resourceType String?
+  link         String?
+  description  String?
+}
+
+type ElementFuturePrediction {
+  prediction  String?
+  description String?
+}
+
+type ElementHealthEnvironmentalImpact {
+  healthImpact        String?
+  environmentalImpact String?
+}
+
+type ChemicalElementClassification {
+  classification String?
+  description    String?
+}
+
+type ElementAtomicStructure {
+  electrons                String?
+  protons                  String?
+  neutrons                 String?
+  ionizationEnergy         String?
+  electronAffinity         String?
+  atomicRadius             String?
+  atomicPolarization       String?
+  electronegativity        String?
+  firstIonizationPotential String?
+}
+
+type ElementIsotope {
+  isotopeNumber String?
+  abundance     String?
+  halfLife      String?
+  decayMode     String?
+  description   String?
+}
+
+type ElementCompound {
+  name        String?
+  formula     String?
+  description String?
+}
+
+type History {
+  event       String?
+  year        String?
+  description String?
+}
+
+type ElementCrystalStructure {
+  type        String?
+  temperature String?
+  description String?
+}
+
+type ElementAllotrope {
+  name        String?
+  description String?
+}
+
+type ElementOxidationState {
+  state       String?
+  description String?
+}
+
+type ElementPhysicalProperties {
+  meltingPoint                String?
+  boilingPoint                String?
+  density                     String?
+  atomicRadius                String?
+  atomicVolume                String?
+  covalentRadius              String?
+  molarHeat                   String?
+  thermalConductivity         String?
+  soundVelocity               String?
+  mohsHardness                String?
+  brinellHardness             String?
+  specificHeatCapacity        String?
+  thermalExpansionCoefficient String?
+  phaseTransitionTemperatures String?
+}
+
+type ElementChemicalProperties {
+  reactivity                 String?
+  commonOxidationStates      String?
+  standardReductionPotential String?
+  description                String?
+}
+
+type ElementEnvironmentalSafety {
+  healthHazards     String?
+  safetyPrecautions String?
+}
+
+type ImageGallery {
+  imageUrl    String?
+  description String?
+}
+
+type ElementSpectralLine {
+  wavelength String?
+  intensity  String?
+  lineType   String?
+}
+
+type ElementNaturalOccurrence {
+  occurrenceType String?
+  description    String?
+}
+
+type ElementBiologicalRole {
+  role        String?
+  description String?
+}
+
+type ElementEconomicData {
+  marketPrice        String?
+  producingCountries String?
+  industrialUse      String?
+  description        String?
+}
+
+type ElementuserInteractions {
+  contribution String?
+  question     String?
+  discussion   String?
 }

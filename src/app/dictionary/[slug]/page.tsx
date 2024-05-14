@@ -24,6 +24,16 @@ interface WordPageProps {
   };
 }
 
+
+
+
+
+
+
+
+
+
+
 const WordPage: React.FC<WordPageProps> = async ({ params: { slug } }) => {
   const wordData = await getWordData(slug);
   if (!wordData) {
