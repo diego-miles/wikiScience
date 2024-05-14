@@ -52,7 +52,7 @@ const NavigationMenu: React.FC<NavigationMenuProps> = ({ className, style }) => 
               <div className="grid grid-cols-3 md:grid-cols-3 gap-1 ">
                 {chemicalElements.map((element) => (
                   <div key={element.symbol}>
-                    <Link href={`periodic-table/${element.name.toLowerCase()}`}>
+                    <Link href={`/periodic-table/${element.name.toLowerCase()}`}>
                       <h3 className='font-normal text-black text-xs '>
                         {element.name} {' '}
                         <span className='text-[#6084b6]'>

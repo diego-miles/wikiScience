@@ -12,7 +12,7 @@
   /* --color-h2: #003c85; */
   --color-h2: #030303;
   /* --color-h2: #006fa7; */
-  --color-h3: #744c1c;
+  --color-h3: #805420;
   /* --color-h3: #766246; */
   --color-h4: #1a6157;
   --color-h5: #2E4053;
@@ -26,7 +26,7 @@
   --color-accent-1: #3498db;
   --color-accent-2: #cf4336;
   --color-accent-3: #16a085;
-  --color-gold: #5d4a15;
+  --color-gold: #493708;
   --color-background-1: #f4f6f6;
   --color-background-dark: #0B2B4B;
   /* --color-background1-dark: #172330; */
@@ -36,7 +36,7 @@
   /* --color-border: #9bc1d6; */
   --color-button: #EAF0F3;
   --color-menu: #e9edef;
-  --color-span: rgb(154, 174, 185);
+  --color-span: rgb(95, 156, 189);
   /* --color-span: rgb(45, 132, 175); */
   /* --color-span: rgb(138, 184, 205); */
   /* --color-span: #7497a8; */
@@ -65,8 +65,8 @@
   --font-size-small-p: 1.5rem;
   --font-size-h1: 3.2rem;
   --font-size-h2: 2.3rem;
-  --font-size-h3: 1.7rem;
   --font-size-h4: 1.6rem;
+  --font-size-h3: 1.8rem;
   --font-size-h5: 1.3rem;
   --font-size-a: 1.5rem;
   --font-size-h6: 1.3rem;
@@ -168,13 +168,16 @@ main {
 }
 
 section {
-  text-align: left;
+  @apply dark:text-[#3698d9];
+  text-align: center;
   width: 100%;
 }
 
 li {
     @apply dark:text-[#dcedf8];
-  font-size: 1.5rem;
+  /* font-size: 1.5rem; */
+  /* line-height: 2rem; */
+  margin-bottom: .7rem;
 }
 
 
@@ -212,7 +215,7 @@ p {
 
 
 h1 {
-  @apply dark:text-[#FFF8E2];
+  @apply dark:text-[#f4f0e2];
   font-family: var(--font-noto-serif-georgian);
   font-size: var(--font-size-h1);
   font-weight: 900;
@@ -234,19 +237,23 @@ h2 {
   /* margin-top: 2rem; */
     /* border-bottom: 1px solid #e5e7eb; */
     /* Adjust color as needed */
-    letter-spacing: -0.020em;
+    letter-spacing: -0.010em;
     /* Equivalent to tracking-tight in Tailwind CSS */
 
 }
 
 h3 {
-    @apply dark:text-[#ffffff];
+      @apply dark:text-[#93ddff];
   font-size: var(--font-size-h3);
   color: var(--color-h3);
   font-weight: 600;
   margin-bottom: 1rem;
-  letter-spacing: -0.025em;
+    text-decoration: none;
+  margin-top: 4rem;
+  
 }
+
+
 
 h4 {
     @apply dark:text-white;
@@ -276,11 +283,14 @@ h6 {
 li {
   list-style: none;
   font-family: var(--font-family-nav-subfield);
-  font-size: 1.2rem;
-}
+  font-size: 1.5rem;
+  /* line-height: 1.7; */
+  padding-bottom: .5rem;
+  }
 
 
 span {
+      @apply dark:text-[#67cfff];
   color: var(--color-span);
   /* font-weight: 600; */
 }
@@ -428,11 +438,6 @@ a:hover {
   text-decoration: underline;
 }
 
-
-h3:hover {
-  color: var(--color-accent1);
-  text-decoration: underline;
-}
 
 
 .active-gold {

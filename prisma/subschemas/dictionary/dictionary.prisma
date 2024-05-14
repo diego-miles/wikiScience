@@ -18,86 +18,55 @@ model Word {
   measurementUnits  MeasurementUnit[]
   historicalSignificance  HistoricalSignificance[]
   createdAt    DateTime  @default(now())
-  updatedAt    DateTime  @updatedAt
-  @@index([word, language])
+  updatedAt    DateTime?  @updatedAt
 }
 
-model RelatedConcept {
-  id            String    @id @map("_id") @db.ObjectId
+type RelatedConcept {
   concept        String?
-  word           Word      @relation(fields: [wordId], references: [id])
-  wordId         String    @db.ObjectId
-  createdAt    DateTime  @default(now())
-  updatedAt    DateTime  @updatedAt
+  wordId         String    
 }
 
-model Application {
-  id            String    @id @map("_id") @db.ObjectId
+type Application {
   application    String?
-  word           Word      @relation(fields: [wordId], references: [id])
-  wordId         String    @db.ObjectId
-  createdAt    DateTime  @default(now())
-  updatedAt    DateTime  @updatedAt
+  wordId         String   
 }
 
-model MeasurementUnit {
-  id            String    @id @map("_id") @db.ObjectId
+type MeasurementUnit {
   unit          String?
-  word           Word      @relation(fields: [wordId], references: [id])
-  wordId         String    @db.ObjectId
-  createdAt    DateTime  @default(now())
-  updatedAt    DateTime  @updatedAt
+  wordId         String   
 }
 
-model HistoricalSignificance {
-  id            String    @id @map("_id") @db.ObjectId
+type HistoricalSignificance {
   event          String?
-  word           Word      @relation(fields: [wordId], references: [id])
-  wordId         String    @db.ObjectId
-  createdAt    DateTime  @default(now())
-  updatedAt    DateTime  @updatedAt
 }
 
 
 
-model Definition {
-  id            String    @id @map("_id") @db.ObjectId
+type Definition {
   partOfSpeech   String?
   meaning        String?
   example        String?
-  word           Word      @relation(fields: [wordId], references: [id])
-  wordId         String    @db.ObjectId
-  source        Source?    @relation(fields: [sourceId], references: [id])
-  sourceId      String?    @db.ObjectId
-  createdAt    DateTime  @default(now())
-  updatedAt    DateTime  @updatedAt
+    source  Source
 }
 
-model Source {
-  id             String    @id @map("_id") @db.ObjectId
+
+type Source {
   author         String?   // Last name, First initial. Middle initial (if applicable) 
   publicationYearDate String?      // Year of publication
   title          String    
   url            String?   // Include DOI if available
   sourceType     String?   // Book, Journal Article, Website, etc. (use controlled vocabulary) 
-
   // Book-Specific Fields
   bookEdition    String?
   publisher      String?
   placeOfPublication String?
-
   // Journal Article-Specific Fields
   journalName   String?
   volume         String?
   issue          String?
   pages          String? 
-
   // Website-Specific Fields
   websiteName    String?
   publicationDateofWebPublication String? // Can be more specific than year, e.g., "2023-11-20" 
   accessDate      String?
-
-  definitions    Definition[]
-  createdAt    DateTime  @default(now())
-  updatedAt    DateTime  @updatedAt 
 }

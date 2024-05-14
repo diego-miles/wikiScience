@@ -3,7 +3,7 @@ import Link from 'next/link';
 import styles from './Footer.module.css';
 const Footer = () => {
   return (
-    <footer className="bg-[#162b46] dark:bg-background1dark text-center py-32 mt-12">
+    <footer className="bg-[#183045] dark:bg-background1dark text-center py-32 mt-12">
       <ul className='pb-16'>
         <li>
           <Link href="#" className="text-white py-4 font-medium">Periodic Table</Link>
