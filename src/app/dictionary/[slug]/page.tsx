@@ -33,28 +33,28 @@ interface ProductPageProps {
 }
 
 
-// export async function generateMetadata({
-//     params: { slug },
-// }: ProductPageProps): Promise<Metadata> {
-//     const wordData = await getWordData(slug);
+export async function generateMetadata({
+    params: { slug },
+}: ProductPageProps): Promise<Metadata> {
+    const wordData = await getWordData(slug);
 
-//     // const images = (wordData?.books?.map((book) => ({
-//     //     url: `${formatTitleForAmazonImageURL(book.englishTitle)}.png` || '' 
-//     // })) || []).filter(image => image.url !== null) as OGImage[];
+    // const images = (wordData?.books?.map((book) => ({
+    //     url: `${formatTitleForAmazonImageURL(book.englishTitle)}.png` || '' 
+    // })) || []).filter(image => image.url !== null) as OGImage[];
 
-//     const keywords = wordData?.tags?.flatMap((tag) => tag.keywords || []) || [];
-//     const uniqueKeywords = Array.from(new Set(keywords));
-//     const description = `Definitions of ${wordData?.subField}  .`;
+    const keywords = wordData?.tags?.flatMap((tag) => tag || []) || [];
+    const uniqueKeywords = Array.from(new Set(keywords));
+    const description = `Definitions of ${wordData?.word}  .`;
 
-//     return {
-//         title: `Best ${wordData?.subField} books of all time (2024)` ,
-//         description: description,
-//         openGraph: {
-//             images: images,
-//         },
-//         keywords: uniqueKeywords.join(', '),
-//     };
-// }
+    return {
+        title: `${wordData?.word} definitions.` ,
+        description: description,
+        openGraph: {
+            // images: images,
+        },
+        keywords: uniqueKeywords.join(', '),
+    };
+}
 
 
 
@@ -126,13 +126,18 @@ const WordPage: React.FC<WordPageProps> = async ({ params: { slug } }) => {
         </section>
 
 <section className='mt-[5rem]'>
-        {wordData.synonyms.length > 0 && (
-          <p className="text-xl font-serif "><span className='font-serif italic '>Synonyms:</span> {wordData.synonyms.join(', ')}</p>
-        )}
-        {wordData.antonyms.length > 0 && (
-          <p className="text-xl font-serif"> <span>Antonyms:</span>  {wordData.antonyms.join(', ')}</p>
-        )}
+  {Array.isArray(wordData.synonyms) && wordData.synonyms.length > 0 && (
+    <p className="text-xl font-serif">
+      <span className='font-serif italic'>Synonyms:</span> {wordData.synonyms.join(', ')}
+    </p>
+  )}
+  {Array.isArray(wordData.antonyms) && (
+    <p className="text-xl font-serif">
+      <span>Antonyms:</span> {wordData.antonyms.join(', ')}
+    </p>
+  )}
 </section>
+
 
         {wordData.examples.length > 0 && (
           <>
