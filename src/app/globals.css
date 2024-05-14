@@ -177,7 +177,7 @@ li {
     @apply dark:text-[#dcedf8];
   /* font-size: 1.5rem; */
   /* line-height: 2rem; */
-  margin-bottom: .7rem;
+  padding-top: .7rem;
 }
 
 

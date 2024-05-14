@@ -6,6 +6,7 @@ import { unstable_cache } from 'next/cache';
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import { Separator } from "@/components/ui/separator"
+import { Metadata } from 'next';
 
 
 const prisma = new PrismaClient();
@@ -25,8 +26,35 @@ interface WordPageProps {
 }
 
 
+interface ProductPageProps {
+    params: {
+        slug: string;
+    }
+}
 
 
+// export async function generateMetadata({
+//     params: { slug },
+// }: ProductPageProps): Promise<Metadata> {
+//     const wordData = await getWordData(slug);
+
+//     // const images = (wordData?.books?.map((book) => ({
+//     //     url: `${formatTitleForAmazonImageURL(book.englishTitle)}.png` || '' 
+//     // })) || []).filter(image => image.url !== null) as OGImage[];
+
+//     const keywords = wordData?.tags?.flatMap((tag) => tag.keywords || []) || [];
+//     const uniqueKeywords = Array.from(new Set(keywords));
+//     const description = `Definitions of ${wordData?.subField}  .`;
+
+//     return {
+//         title: `Best ${wordData?.subField} books of all time (2024)` ,
+//         description: description,
+//         openGraph: {
+//             images: images,
+//         },
+//         keywords: uniqueKeywords.join(', '),
+//     };
+// }
 
 
 
