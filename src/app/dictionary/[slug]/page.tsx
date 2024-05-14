@@ -5,6 +5,8 @@ import { PrismaClient } from '@prisma/client';
 import { unstable_cache } from 'next/cache';
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
+import { Separator } from "@/components/ui/separator"
+
 
 const prisma = new PrismaClient();
 
@@ -51,12 +53,14 @@ const WordPage: React.FC<WordPageProps> = async ({ params: { slug } }) => {
         )}
         </header>
 
-        <section className='relative border-[.1rem] bg-[#ffffffa2] dark:bg-[#113153] dark:shadow-xl border-[#d4dde8] rounded-3xl py-8 px-10   max-w-[40rem] mx-auto'>
+        <section >
+
         {wordData.definitions && (
           <>
             {/* <h2 className="">Definitions</h2> */}
             {wordData.definitions.map((definition, index) => (
-              <div key={index}>
+              <div key={index} className='relative border-[.1rem] bg-[#ffffffa2] dark:bg-[#113153] dark:shadow-xl border-[#d4dde8] rounded-3xl py-4 px-12   max-w-[40rem] mx-auto mb-8'>
+                    <Separator className="my-4" />
                 {definition.partOfSpeech && (
                   <p className="text-sm  font-extralight"> Part of Speech: {definition.partOfSpeech}</p>
                 )}
@@ -67,15 +71,16 @@ const WordPage: React.FC<WordPageProps> = async ({ params: { slug } }) => {
 
 
                 {definition.source && (
-                  <p className=" serif italic font-extralight  text-sm px-4 py-6  ">
+                  <p className=" serif italic font-extralight  text-sm px-4 py-3  ">
                     {definition.source.sourceType}: <span className='text-[#545454] dark:text-[#c9f2fe]'>{definition.source.author}</span>, {definition.source.publicationYearDate},{' '} <span className='text-[#0c3240] dark:text-[#c6d7c6] font-medium'>
                     {definition.source.title}.
                     </span>
                   </p>
                 )}
                 {definition.example && (
-                  <p className="py-6 pb-4 px-4  text-sm   "> Example: {definition.example}</p>
+                  <p className="py-6 pb-8 px-4  text-sm   "> Example: {definition.example}</p>
                 )}
+
               </div>
             ))}
           </>
@@ -84,10 +89,10 @@ const WordPage: React.FC<WordPageProps> = async ({ params: { slug } }) => {
 
 <section className='mt-[5rem]'>
         {wordData.synonyms.length > 0 && (
-          <p className="text-xl font-extralight"><span className='font-serif italic '>Synonyms:</span> {wordData.synonyms.join(', ')}</p>
+          <p className="text-xl font-serif "><span className='font-serif italic '>Synonyms:</span> {wordData.synonyms.join(', ')}</p>
         )}
         {wordData.antonyms.length > 0 && (
-          <p className=" ">Antonyms: {wordData.antonyms.join(', ')}</p>
+          <p className="text-xl font-serif"> <span>Antonyms:</span>  {wordData.antonyms.join(', ')}</p>
         )}
 </section>
 
