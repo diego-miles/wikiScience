@@ -91,10 +91,10 @@ const PeriodicTable: React.FC = () => {
         <Link href={`/periodic-table/${element.name}`} passHref key={element.atomicNumber}>
           <div className="flex flex-col items-center">
             {/* Configuración electrónica en la parte superior */}
-            <span className="text-[.9rem]  min-h-8 text-white tracking-wider font-thin">{element.electronicConfiguration}</span> 
-            <span className="text-lg font-black text-black block -mb-2">{element.symbol}</span>
-            <span className="text-[1rem] font-bold text-black block ">{element.name}</span>
-            <span className="text-2xs text-gray-200 block">{element.atomicNumber}</span>
+            <span className="text-[.9rem]  min-h-8 text-white dark:text-white tracking-wider font-thin">{element.electronicConfiguration}</span> 
+            <span className="text-lg font-black text-black block dark:text-black -mb-2">{element.symbol}</span>
+            <span className="text-[1rem] font-bold text-black dark:text-black block ">{element.name}</span>
+            <span className="text-2xs text-gray-200 block dark:text-gray-200">{element.atomicNumber}</span>
           </div>
         </Link>
       </div>
@@ -104,7 +104,7 @@ const PeriodicTable: React.FC = () => {
   
 
   return (
-    <div className="mx-auto w-fit overflow-auto py-12 px-4">
+    <div className="mx-auto w-fit py-12 px-4">
       {/* Agrega la clase "overflow-auto" para permitir el desplazamiento */}
       <div className="grid grid-cols-18 grid-rows-10 gap-0 mx-auto">
         {elements.map((element) => renderElement(element))}

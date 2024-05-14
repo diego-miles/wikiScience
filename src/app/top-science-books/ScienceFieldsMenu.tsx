@@ -11,12 +11,12 @@ export const ScienceFieldsMenu: FC<ScienceFieldsMenuProps> = ({ data }) => {
     <div className={styles.menu}>
       {data.map((field) => (
         <section key={field.title}>
-          <h2 className={styles.branchTitle}>{field.title.toUpperCase()}</h2>
+          <h2 className="text-h4">{field.title.toUpperCase()}</h2>
           <ul>
             {field.subFields.map((item) => (
               <li key={item.title}>
                 <h2 className={styles.subFieldTitle}>
-                  <Link href={`/top-science-books/${toSlug(item.title)}`} className={styles.ScienceFieldsMenu__linkItem}>
+                  <Link href={`/top-science-books/${toSlug(item.title)}`} className="text-center text-h5 text-xl font-bold">
                     {item.title}
                   </Link>
                 </h2>
