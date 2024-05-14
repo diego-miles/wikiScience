@@ -1,7 +1,10 @@
 import { MetadataRoute } from 'next';
 import data from '@/data/ScienceFieldsData'; // Asegúrate de que la ruta de importación sea correcta
+import words from '@/data/words.json'
 
 const baseUrl = 'https://wiki-science.com/top-science-books';
+const wordsBaseUrl = 'https://wiki-science.com/dictionary/'; 
+
 
 const toSlug = (title: string) => {
   const slug = title.replace(/[^a-zA-Z0-9 ,'-()]/g, "").replace(/ /g, "_");
@@ -73,6 +76,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
       changeFrequency: 'monthly' as const,
       priority: 0.7, // Priority can be adjusted as needed
+    });
+  });
+
+
+  //  Logic for dictionary words
+  words.forEach(word => {
+    const wordUrl = `${wordsBaseUrl}${toSlug(word)}`;
+    sitemapEntries.push({
+      url: wordUrl,
+      lastModified: new Date(),
+      changeFrequency: 'monthly', // Adjust as needed
+      priority: 0.7,          // Adjust as needed
     });
   });
 
