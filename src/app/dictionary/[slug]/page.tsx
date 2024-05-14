@@ -38,20 +38,18 @@ export async function generateMetadata({
 }: ProductPageProps): Promise<Metadata> {
     const wordData = await getWordData(slug);
 
-    // const images = (wordData?.books?.map((book) => ({
-    //     url: `${formatTitleForAmazonImageURL(book.englishTitle)}.png` || '' 
+    // const images = (wordData?.?.map((book) => ({
+    //     url: `${()}.png` || '' 
     // })) || []).filter(image => image.url !== null) as OGImage[];
 
     const keywords = wordData?.tags?.flatMap((tag) => tag || []) || [];
     const uniqueKeywords = Array.from(new Set(keywords));
-    const description = `Definitions of ${wordData?.word}  .`;
+const description = `Explore comprehensive definitions, synonyms, and antonyms for ${wordData?.word}. Dive into the world of scientific knowledge and terminology to enhance your understanding and research.`;
 
     return {
         title: `${wordData?.word} definitions.` ,
         description: description,
-        openGraph: {
-            // images: images,
-        },
+
         keywords: uniqueKeywords.join(', '),
     };
 }
