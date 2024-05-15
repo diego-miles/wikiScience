@@ -44,7 +44,7 @@ export async function generateMetadata({
 
     const keywords = wordData?.tags?.flatMap((tag) => tag || []) || [];
     const uniqueKeywords = Array.from(new Set(keywords));
-const description = `Explore comprehensive definitions, synonyms, and antonyms for ${wordData?.word}. Dive into the world of scientific knowledge and terminology to enhance your understanding and research.`;
+const description = `Explore through comprehensive definitions, synonyms, and antonyms for ${wordData?.word} with cited (APA) sources. A compendium of scientific knowledge to enhance your understanding and research. Tracking for exploration. Citation before replication.`;
 
     return {
         title: `${wordData?.word} definitions` ,
