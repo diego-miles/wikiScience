@@ -47,7 +47,7 @@ export async function generateMetadata({
 const description = `Explore comprehensive definitions, synonyms, and antonyms for ${wordData?.word}. Dive into the world of scientific knowledge and terminology to enhance your understanding and research.`;
 
     return {
-        title: `${wordData?.word} definitions.` ,
+        title: `${wordData?.word} definitions` ,
         description: description,
 
         keywords: uniqueKeywords.join(', '),

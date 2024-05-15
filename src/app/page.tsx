@@ -106,7 +106,7 @@ const HomePage: React.FC = () => {
           {/* <p className="text-lg text-center mt-4 font-normal">  Explore a community-curated collection of top science books </p> */}
 
           <div className='max-w-2xl  mx-auto bg-background1 dark:bg-background1dark border-[4px] mb-28 rounded-3xl border-[#98bdd3] shadow-sm'>
-            <ul className="list-none mt-6 px-4">
+            <ul className="list-none mt-6 px-4 ">
               {[
                 "Community-curated collection of top science books ",
                 "Get in-depth insights with expert summaries.",
@@ -118,7 +118,7 @@ const HomePage: React.FC = () => {
               ].map((item, index) => (
                 <li key={index} className="flex items-start mb-4">
                   <div className="w-2 h-2 p-1 rounded-full bg-[#1f71ca] mr-4 mt-4"></div>
-                  <p className="text-sm font-semibold py-1">{item}</p>
+                  <p className="text-sm font-semibold py-1 text-left">{item}</p>
                 </li>
               ))}
             </ul>

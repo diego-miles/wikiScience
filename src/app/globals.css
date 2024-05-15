@@ -351,14 +351,13 @@ h5,
 p,
 a,
 svg,
-
 span,
 h6,
 .animate {
-  animation: fadeUp .0s ease forwards;
+  animation: fadeUp .5s ease forwards;
   opacity: 0;
   transform: translateY(10px);
-  animation-delay: calc(1 * 100ms);
+  animation-delay: calc(.5 * 100ms);
 }
 
 
