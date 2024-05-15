@@ -13,7 +13,7 @@ const prisma = new PrismaClient();
 
 const getWordData = unstable_cache(async (slug: string) => {
   const wordData = await prisma.word.findUnique({
-    where: { slug },
+    where: { slug }
   });
   if (!wordData) notFound();
   return wordData;

@@ -23,17 +23,14 @@ model Word {
 
 type RelatedConcept {
   concept        String?
-  wordId         String    
 }
 
 type Application {
   application    String?
-  wordId         String   
 }
 
 type MeasurementUnit {
   unit          String?
-  wordId         String   
 }
 
 type HistoricalSignificance {
