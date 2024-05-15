@@ -3,7 +3,7 @@ import type { Metadata } from 'next'
 import { Noto_Sans_Georgian, Noto_Serif_Georgian, IBM_Plex_Mono } from 'next/font/google'
 import './globals.css'
 import Footer from './Footer'
-// import { Analytics as AnalyticsVercel } from '@vercel/analytics/react';
+import { Analytics } from '@vercel/analytics/react';
 import Script from 'next/script'
 // import { ConsentProvider } from '../contexts/ConsentContext';
 // import ConsentProvider  from '../contexts/ClientSideWrapper';
@@ -95,7 +95,7 @@ export default function RootLayout({
           {children}
         </ThemeProvider>
 
-        {/* <AnalyticsVercel /> */}
+        <Analytics mode={'production'} />;
         {/* <ScrollTopButton /> */}
         <Footer />
         {/* <Analytics /> */}
