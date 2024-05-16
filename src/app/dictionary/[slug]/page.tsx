@@ -140,18 +140,19 @@ const WordPage: React.FC<WordPageProps> = async ({ params: { slug } }) => {
 
 <section className='mt-[6rem] px-4'>
   {Array.isArray(wordData.synonyms) && wordData.synonyms.length > 0 && (
-    <p className="text-lg font-medium font-serif">
-      <span className='font-serif  text-accent2'>Synonyms:</span> {wordData.synonyms.join(', ')}
+    <p className="text-lg font-normal font-serif">
+      <span className='font-serif font-bold text-h1'>Synonyms:</span> {wordData.synonyms.join(', ')}
     </p>
   )}
   {Array.isArray(wordData.antonyms) && wordData.antonyms.length > 0 && (
-    <p className="text-xl font-serif">
-      <span>Antonyms:</span> {wordData.antonyms.join(', ')}
+    <p className="text-lg font-serif">
+      <span className='font-serif font-bold text-h1'>Antonyms:</span> {wordData.antonyms.join(', ')}
     </p>
   )}
 </section>
 
-
+<section className='text-left lg:grid grid-cols-2 gap-x-20 lg:pl-12'>
+  <div>
         {wordData.examples.length > 0 && (
           <>
             <h3>Examples:</h3>
@@ -162,10 +163,12 @@ const WordPage: React.FC<WordPageProps> = async ({ params: { slug } }) => {
             </ul>
           </>
         )}
+  </div>
+  <div>
         {wordData.measurementUnits.length > 0 && (
           <>
             <h3>Measurement Units</h3>
-            <ul className="list-disc pl-4">
+            <ul className="font-semibold">
               {wordData.measurementUnits.map((unit, index) => (
                 <li key={index}>{unit.unit}</li>
               ))}
@@ -175,27 +178,32 @@ const WordPage: React.FC<WordPageProps> = async ({ params: { slug } }) => {
         {/* {wordData.audio && (
           <p className=" ">Audio: {wordData.audio}</p>
         )} */}
+  </div>
+  <div>
         {wordData.relatedConcepts.length > 0 && (
           <>
             <h3>Related Concepts</h3>
             <ul className="">
               {wordData.relatedConcepts.map((concept, index) => (
-                <li className='font-medium text-[#144b64]' key={index}>{concept.concept} <span className='w-fit pl-4'><RightArrowRigth color='#398839'></RightArrowRigth></span></li>
+                <li className='font-semibold text-[#bb3d76] ' key={index}>{concept.concept} <span className='w-auto pl-2'><RightArrowRigth color='#e90090'></RightArrowRigth></span></li>
               ))}
             </ul>
           </>
         )}
+  </div>
+    <div>
         {wordData.applications.length > 0 && (
           <>
             <h3>Applications</h3>
-            <ul className="list-disc pl-4">
+            <ul className="list-disc">
               {wordData.applications.map((application, index) => (
                 <li key={index}>{application.application}</li>
               ))}
             </ul>
           </>
         )}
-
+    </div>
+    <div>
         {wordData.historicalSignificance.length > 0 && (
           <>
             <h3 >Historical Significance</h3>
@@ -206,6 +214,7 @@ const WordPage: React.FC<WordPageProps> = async ({ params: { slug } }) => {
             </ul>
           </>
         )}
+    </div>
         {wordData.images.length > 0 && (
           <>
             {/* <h2>Images</h2> */}
@@ -221,6 +230,7 @@ const WordPage: React.FC<WordPageProps> = async ({ params: { slug } }) => {
             ))} */}
           </>
         )}
+</section>
       </main>
       <ScrollTopButton />
     </div>

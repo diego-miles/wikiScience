@@ -12,7 +12,7 @@
   /* --color-h2: #003c85; */
   --color-h2: #030303;
   /* --color-h2: #006fa7; */
-  --color-h3: #0f5a4c;
+  --color-h3: #164e50;
   --color-h4: #785427;
   /* --color-h3: #766246; */
   --color-h5: #2E4053;
@@ -248,8 +248,8 @@ h3 {
       @apply dark:text-[#93ddff];
   font-size: var(--font-size-h3);
   color: var(--color-h3);
-  font-weight: 700;
-  margin-bottom: 1rem;
+  font-weight: 800;
+  margin-bottom: .6rem;
     text-decoration: none;
   margin-top: 4rem;
   /* letter-spacing: .2; */
