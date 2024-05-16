@@ -95,19 +95,21 @@ const WordPage: React.FC<WordPageProps> = async ({ params: { slug } }) => {
           <>
             <h2 className="py-2 pt-6">Definitions</h2>
             {wordData.definitions.map((definition, index) => (
-              <div key={index} className='relative border-[.2rem] bg-[#ffffff] dark:bg-[#113153] dark:shadow-xl border-[#d4dde8] rounded-3xl py-4 pt-10 px-12   max-w-[40rem] mx-auto mb-8'>
+              <div key={index} className='relative   dark:bg-[#113153] dark:shadow-xl  rounded-[2.8rem] py-4 pt-10 px-6 shadow-sm  max-w-[35rem] mx-auto mb-8 border-[.15rem] border-[#979fa5] rounded-bl-md bg-background1'>
                 {definition.partOfSpeech && (
                   <p className="text-xs"> Part of Speech: {definition.partOfSpeech}</p>
                 )}
                 
                 {definition.meaning && (
-                  <h2 className="font-semibold pt-0 text-lg  "> {definition.meaning}</h2>
+                  <h2 className="font-semibold pt-0 text-[1.8rem] "> {definition.meaning}</h2>
                 )}
 
 
                 {definition.source && (
-                  <p className=" serif    text-sm px-4 pb-3  ">
-                    {definition.source.sourceType}: <span className='text-[#154a6d] dark:text-[#c9f2fe]'>{definition.source.author}</span>, {definition.source.publicationYearDate},{' '} <span className='text-[#561111] dark:text-[#c6d7c6] font-medium'>
+                  <p className=" serif  font-medium   text-sm px-4 pb-3  ">
+                    {definition.source.sourceType}: <span className='text-[#104c6e] dark:text-[#c9f2fe]'>{definition.source.author}{' '}</span> 
+                    <span  className='text-black tracking-tighter font-medium'>
+                      {definition.source.publicationYearDate}</span>,{' '} <span className='text-[#742424] dark:text-[#ffb8b8] '>
                     {definition.source.title}.
                     </span>
                   </p>
