@@ -26,6 +26,7 @@
   --color-accent-1: #3498db;
   --color-accent-2: #c43326;
   --color-accent-3: #16a085;
+  --color-accent-4: #00ffcc;
   --color-gold: #493708;
   --color-background-1: #f4f6f6;
   --color-background-dark: #0B2B4B;
@@ -207,7 +208,7 @@ p {
   color: var(--color-p);
   padding-bottom: 1.2rem;
   line-height: 1.5;
-  /* text-wrap: balance; */
+  text-wrap: balance;
 }
 
 .p2 {
@@ -245,13 +246,13 @@ h2 {
 }
 
 h3 {
-      @apply dark:text-[#93ddff];
+      @apply dark:text-[#49e1ff];
   font-size: var(--font-size-h3);
   color: var(--color-h3);
   font-weight: 800;
-  margin-bottom: .6rem;
+  margin-bottom: .2rem;
     text-decoration: none;
-  margin-top: 4rem;
+  margin-top: 2rem;
   /* letter-spacing: .2; */
   
 }
@@ -288,7 +289,7 @@ li {
   font-family: var(--font-family-nav-subfield);
   font-size: 1.5rem;
   line-height: 1.4;
-  padding-bottom: .5rem;
+  /* padding-bottom: .1rem; */
   }
 
 

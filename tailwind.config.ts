@@ -72,6 +72,7 @@ colors: {
   accent1: 'var(--color-accent-1)',
   accent2: 'var(--color-accent-2)',
   accent3: 'var(--color-accent-3)',
+  accent4: 'var(--color-accent-4)',
   gold: 'var(--color-gold)',
   background1: 'var(--color-background-1)',
   background1dark: 'var(--color-background-dark)',
