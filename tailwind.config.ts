@@ -100,10 +100,9 @@ colors: {
   'noble-gas': 'var(--color-noble-gas)',
   'actinide': 'var(--color-actinide)'
 },
-
       fontSize: {
         '2xs': '1.1rem', // Tamaño de fuente extra pequeño
-        'xs': '1.3rem', // Tamaño de fuente extra pequeño
+        'xs': '1.2rem', // Tamaño de fuente extra pequeño
         'sm': '1.4rem', // Tamaño de fuente pequeño
         'base': '1.5rem', // Tamaño de fuente base
         'lg': '1.6rem', // Tamaño de fuente grande

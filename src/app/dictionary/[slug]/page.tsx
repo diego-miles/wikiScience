@@ -82,10 +82,10 @@ const WordPage: React.FC<WordPageProps> = async ({ params: { slug } }) => {
         )}
         {/* <p className=" ">Slug: {wordData.slug}</p> */}
         {wordData.etymology && (
-          <p className="font-serif italic">{wordData.etymology}</p>
+          <p className="font-serif">{wordData.etymology}</p>
         )}
         {wordData.tags.length > 0 && (
-          <p className=" my-4 ">{wordData.tags.join(', ')}</p>
+          <p className=" my-4 text-sm tracking-wide">{wordData.tags.join(', ')}</p>
         )}
         </header>
 
@@ -93,26 +93,26 @@ const WordPage: React.FC<WordPageProps> = async ({ params: { slug } }) => {
 
         {wordData.definitions && (
           <>
-            {/* <h2 className="">Definitions</h2> */}
+            <h2 className="py-2 pt-6">Definitions</h2>
             {wordData.definitions.map((definition, index) => (
-              <div key={index} className='relative border-[.1rem] bg-[#ffffffa2] dark:bg-[#113153] dark:shadow-xl border-[#d4dde8] rounded-3xl py-4 px-12   max-w-[40rem] mx-auto mb-8'>
-                    <Separator className="my-4" />
+              <div key={index} className='relative border-[.2rem] bg-[#ffffff] dark:bg-[#113153] dark:shadow-xl border-[#d4dde8] rounded-3xl py-4 pt-10 px-12   max-w-[40rem] mx-auto mb-8'>
                 {definition.partOfSpeech && (
-                  <p className="text-sm  font-extralight"> Part of Speech: {definition.partOfSpeech}</p>
+                  <p className="text-xs"> Part of Speech: {definition.partOfSpeech}</p>
                 )}
                 
                 {definition.meaning && (
-                  <h2 className="font-semibold pt-2 text-xl  "> {definition.meaning}</h2>
+                  <h2 className="font-semibold pt-0 text-lg  "> {definition.meaning}</h2>
                 )}
 
 
                 {definition.source && (
-                  <p className=" serif italic font-extralight  text-sm px-4 py-3  ">
-                    {definition.source.sourceType}: <span className='text-[#545454] dark:text-[#c9f2fe]'>{definition.source.author}</span>, {definition.source.publicationYearDate},{' '} <span className='text-[#0c3240] dark:text-[#c6d7c6] font-medium'>
+                  <p className=" serif    text-sm px-4 pb-3  ">
+                    {definition.source.sourceType}: <span className='text-[#154a6d] dark:text-[#c9f2fe]'>{definition.source.author}</span>, {definition.source.publicationYearDate},{' '} <span className='text-[#561111] dark:text-[#c6d7c6] font-medium'>
                     {definition.source.title}.
                     </span>
                   </p>
                 )}
+                    <Separator className="my-2 mt-4" />
                 {definition.example && (
                   <p className="py-6 pb-8 px-4  text-sm   "> Example: {definition.example}</p>
                 )}
@@ -125,11 +125,11 @@ const WordPage: React.FC<WordPageProps> = async ({ params: { slug } }) => {
 
 <section className='mt-[5rem]'>
   {Array.isArray(wordData.synonyms) && wordData.synonyms.length > 0 && (
-    <p className="text-xl font-serif">
-      <span className='font-serif italic'>Synonyms:</span> {wordData.synonyms.join(', ')}
+    <p className="text-xl tracking-wider font-serif">
+      <span className='font-serif  text-accent1'>Synonyms:</span> {wordData.synonyms.join(', ')}
     </p>
   )}
-  {Array.isArray(wordData.antonyms) && (
+  {Array.isArray(wordData.antonyms) && wordData.antonyms.length > 0 && (
     <p className="text-xl font-serif">
       <span>Antonyms:</span> {wordData.antonyms.join(', ')}
     </p>
@@ -184,7 +184,7 @@ const WordPage: React.FC<WordPageProps> = async ({ params: { slug } }) => {
         {wordData.historicalSignificance.length > 0 && (
           <>
             <h3 >Historical Significance</h3>
-            <ul className="list-disc pl-4">
+            <ul className="">
               {wordData.historicalSignificance.map((event, index) => (
                 <li key={index}>{event.event}</li>
               ))}

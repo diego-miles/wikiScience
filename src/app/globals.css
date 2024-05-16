@@ -12,9 +12,9 @@
   /* --color-h2: #003c85; */
   --color-h2: #030303;
   /* --color-h2: #006fa7; */
-  --color-h3: #785427;
+  --color-h3: #155f54;
+  --color-h4: #785427;
   /* --color-h3: #766246; */
-  --color-h4: #39635d;
   --color-h5: #2E4053;
   --color-p: #000b12;
   --color-p-dark: #eff2f5;
@@ -65,8 +65,8 @@
   --font-size-small-p: 1.5rem;
   --font-size-h1: 3.2rem;
   --font-size-h2: 2.3rem;
+  --font-size-h3: 1.7rem;
   --font-size-h4: 1.6rem;
-  --font-size-h3: 1.8rem;
   --font-size-h5: 1.3rem;
   --font-size-a: 1.5rem;
   --font-size-h6: 1.3rem;
@@ -246,7 +246,7 @@ h3 {
       @apply dark:text-[#93ddff];
   font-size: var(--font-size-h3);
   color: var(--color-h3);
-  font-weight: 600;
+  font-weight: 700;
   margin-bottom: 1rem;
     text-decoration: none;
   margin-top: 4rem;
@@ -284,7 +284,7 @@ li {
   list-style: none;
   font-family: var(--font-family-nav-subfield);
   font-size: 1.5rem;
-  /* line-height: 1.7; */
+  line-height: 1.4;
   padding-bottom: .5rem;
   }
 
@@ -371,13 +371,13 @@ h6,
 
 
 
-li {
+/* li {
   opacity: 0;
   transform: translateY(20px);
   animation: fadeInUp 0.5s ease forwards;
   animation-delay: calc(var(--animation-order) * 100ms);
   line-height: 1.4rem;
-}
+} */
 
 .button {
   transition: transform 0.2s ease;
@@ -478,7 +478,7 @@ a:hover {
 
 @media only screen and (min-width: 768px) {
   html {
-    font-size: 10px;
+    font-size: 11px;
   }
 
 /* 
@@ -495,7 +495,7 @@ a:hover {
 
 @media only screen and (min-width: 1025px) {
   html {
-    font-size: 10px;
+    font-size: 11px;
   }
 
   /* main {
