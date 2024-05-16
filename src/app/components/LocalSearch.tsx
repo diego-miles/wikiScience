@@ -2,6 +2,7 @@
 // components/SearchBar.tsx
 import React, { useState } from 'react';
 import words from '@/data/words.json';
+import Link from 'next/link';
 
 const LocalSearchBar: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -36,9 +37,10 @@ const LocalSearchBar: React.FC = () => {
           {searchResults.map((result, index) => (
             <li
               key={index}
-              className="px-4 py-2 hover:bg-gray-100 cursor-pointer"
-            >
+              className="px-4 py-2 hover:bg-sky-300 cursor-pointer"
+            ><Link className='text-black/90' href={`/dictionary/${result}`}>
               {result}
+            </Link>
             </li>
           ))}
         </ul>

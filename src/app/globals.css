@@ -194,6 +194,7 @@ a {
 
 a:hover {
   @apply dark:no-underline;
+  text-decoration: none;
   /* Color del enlace al pasar el cursor por encima */
 }
 
@@ -432,12 +433,6 @@ textarea:focus {
   text-shadow: 0.2rem 0.2rem 0.4rem rgba(0, 0, 0, 0.2);
   /* era 2px 2px 4px */
 }
-
-a:hover {
-  color: var(--color-accent1);
-  text-decoration: underline;
-}
-
 
 
 .active-gold {
