@@ -88,7 +88,7 @@ const PeriodicTable: React.FC = () => {
         <div className="absolute inset-0 border-4 border-transparent group-hover:border-[#eae9c6] group-hover:shadow-lg rounded-xl transition duration-100 group-hover:-m-[.3rem] "></div>
         {/* Sombra en hover */}
         <div className="absolute inset-0 shadow-lg opacity-0 group-hover:opacity-100 transition duration-100 rounded-lg "></div >
-        <Link href={`/periodic-table/${element.name}`} className='hover:no-underline' passHref key={element.atomicNumber}>
+        <Link href={`/periodic-table/${element.name.toLowerCase()}`} className='hover:no-underline' passHref key={element.atomicNumber}>
           <div className="flex flex-col items-center">
             {/* Configuración electrónica en la parte superior */}
             <span className="text-[.9rem]  min-h-8 text-white dark:text-white tracking-wider font-thin">{element.electronicConfiguration}</span> 
