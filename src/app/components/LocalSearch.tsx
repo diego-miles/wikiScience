@@ -38,7 +38,7 @@ const LocalSearchBar: React.FC = () => {
             <li
               key={index}
               className="px-4 py-2 hover:bg-sky-300 cursor-pointer"
-            ><Link className='text-black/90' href={`/dictionary/${result}`}>
+            ><Link className='text-black/90' href={`/dictionary/${result.toLowerCase().replace(/ /g, '-')}`}>
               {result}
             </Link>
             </li>

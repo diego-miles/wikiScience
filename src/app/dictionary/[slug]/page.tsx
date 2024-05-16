@@ -66,6 +66,7 @@ const WordPage: React.FC<WordPageProps> = async ({ params: { slug } }) => {
   if (!wordData) {
     return <div className="flex justify-center">Loading...</div>;
   }
+  const childrenCount = wordData.definitions.length;
 
   return (
     <div className="">
@@ -93,12 +94,13 @@ const WordPage: React.FC<WordPageProps> = async ({ params: { slug } }) => {
         <section >
 
         {wordData.definitions && (
+          
           <div >
             <h2 className="py-2 pt-6">Definitions</h2>
-            <div  className='md:grid lg:grid-cols-2 gap-12 w-fit mx-auto'>
+    <div className={`w-fit mx-auto ${childrenCount > 1 ? 'md:grid lg:grid-cols-2 gap-12' : 'flex justify-center'}`}>
 
             {wordData.definitions.map((definition, index) => (
-              <div key={index} className='relative   grid dark:bg-[#113153] dark:shadow-xl  rounded-[2.8rem] py-4 pt-10 px-6 shadow-sm  max-w-[35rem] mx-auto mb-8 border-[.1rem] border-[#979fa5] rounded-bl-[.3rem] bg-background1 lg:mb-0'>
+              <div key={index} className='relative    dark:bg-[#113153] dark:shadow-xl  rounded-[2.8rem] py-4 pt-10 px-6 shadow-sm  max-w-[35rem] mx-auto mb-8 border-[.1rem] border-[#979fa5] rounded-bl-[.3rem] bg-background1 lg:mb-0'>
                 <figure >
                   <Image className='mx-auto pb-4' src={'/booksContext.svg'} unoptimized alt='' width={45} height={30}></Image>
                 </figure>
