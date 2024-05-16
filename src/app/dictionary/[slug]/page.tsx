@@ -8,6 +8,7 @@ import Image from 'next/image';
 import { Separator } from "@/components/ui/separator"
 import { Metadata } from 'next';
 import  RightArrowRigth from '@/components/right-arrow'
+import LocalSearchBar from '@/components/LocalSearch';
 
 
 const prisma = new PrismaClient();
@@ -56,11 +57,6 @@ const description = `Explore through comprehensive definitions, synonyms, and an
 }
 
 
-
-
-
-
-
 const WordPage: React.FC<WordPageProps> = async ({ params: { slug } }) => {
   const wordData = await getWordData(slug);
   if (!wordData) {
@@ -72,13 +68,17 @@ const WordPage: React.FC<WordPageProps> = async ({ params: { slug } }) => {
     <div className="">
       <NavBar />
       <main className="mt-4 pb-24">
-        <header>
+        <div className='-mt-4'>
+
+        <LocalSearchBar></LocalSearchBar>
+        </div>
+        <header className='relative pt-20'>
         {wordData.pronunciation && (
           <p className="pt-4">Pronunciation: <span>{wordData.pronunciation}</span></p>
         )}
         <h1 className="pb-4">{wordData.word}</h1>
         {wordData.language && (
-          <p className="absolute top-32  left-0 right-0 text-center font-extralight text-sm text-span wider">
+          <p className="absolute top-10  left-0 right-0 text-center font-extralight text-sm text-span wider">
             {wordData.language}
           </p>
         )}

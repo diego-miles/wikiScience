@@ -1,4 +1,4 @@
-import LocalSearchBar from './components/LocalSearch';
+import LocalSearchBar from '@/components/LocalSearch';
 import React from 'react';
 import Image from 'next/image';
 import NavBar from '@/components/navigation/NavbarContainer';
