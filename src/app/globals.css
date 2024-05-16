@@ -12,7 +12,7 @@
   /* --color-h2: #003c85; */
   --color-h2: #030303;
   /* --color-h2: #006fa7; */
-  --color-h3: #155f54;
+  --color-h3: #0f5a4c;
   --color-h4: #785427;
   /* --color-h3: #766246; */
   --color-h5: #2E4053;
@@ -24,7 +24,7 @@
   --color-a2: #0077b7;
   /* --color-accent1: #0075c3; */
   --color-accent-1: #3498db;
-  --color-accent-2: #cf4336;
+  --color-accent-2: #c43326;
   --color-accent-3: #16a085;
   --color-gold: #493708;
   --color-background-1: #f4f6f6;
@@ -250,6 +250,7 @@ h3 {
   margin-bottom: 1rem;
     text-decoration: none;
   margin-top: 4rem;
+  /* letter-spacing: .2; */
   
 }
 

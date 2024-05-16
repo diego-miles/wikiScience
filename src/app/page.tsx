@@ -1,4 +1,4 @@
-
+import LocalSearchBar from './components/LocalSearch';
 import React from 'react';
 import Image from 'next/image';
 import NavBar from '@/components/navigation/NavbarContainer';
@@ -31,16 +31,19 @@ const HomePage: React.FC = () => {
       
       "> 
 
-        <header className=" h-[37rem]">
+        <header className=" h-[44rem] w-full">
           <figure className='mx-auto w-fit h-24'>
   <Image width={60} height={60} alt="Wiki-logo" src="wiki-blue.svg" className="dark:invisible" unoptimized />
         <Image width={60} height={60} alt="Wiki-logo-dark" src="wiki-yellow.svg" className="dark:visible invisible absolute top-72" unoptimized />
           </figure>
           <h1 className="mt-[1rem] text-[3.2rem] tracking-wider font-black text-[#44a6cd] dark:text-[#f4f2eb]">Wiki Science</h1> {/* Using Tailwind's text color and font weight utilities */}
           {/* <p className="text-3xl font-extrabold text-[#2d373d] mt-4 px-2">A next-generation educational platform. <span className="text-[#376ba2]">Powered by AI.</span></p>  */}
-          <div className=" absolute top-[35rem] left-0 right-0">
+          <div className=" absolute top-[33rem] left-0 right-0">
             <TextHeroHome></TextHeroHome>
           </div>
+            <div className='mt-60 w-full px-8'>
+        <LocalSearchBar></LocalSearchBar>
+            </div>
         </header>
 
 

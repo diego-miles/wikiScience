@@ -7,6 +7,7 @@ import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import { Separator } from "@/components/ui/separator"
 import { Metadata } from 'next';
+import  RightArrowRigth from '@/components/right-arrow'
 
 
 const prisma = new PrismaClient();
@@ -92,24 +93,33 @@ const WordPage: React.FC<WordPageProps> = async ({ params: { slug } }) => {
         <section >
 
         {wordData.definitions && (
-          <>
+          <div >
             <h2 className="py-2 pt-6">Definitions</h2>
+            <div  className='md:grid lg:grid-cols-2 gap-12 w-fit mx-auto'>
+
             {wordData.definitions.map((definition, index) => (
-              <div key={index} className='relative   dark:bg-[#113153] dark:shadow-xl  rounded-[2.8rem] py-4 pt-10 px-6 shadow-sm  max-w-[35rem] mx-auto mb-8 border-[.15rem] border-[#979fa5] rounded-bl-md bg-background1'>
+              <div key={index} className='relative   grid dark:bg-[#113153] dark:shadow-xl  rounded-[2.8rem] py-4 pt-10 px-6 shadow-sm  max-w-[35rem] mx-auto mb-8 border-[.1rem] border-[#979fa5] rounded-bl-[.3rem] bg-background1 lg:mb-0'>
+                <figure >
+                  <Image className='mx-auto pb-4' src={'/booksContext.svg'} unoptimized alt='' width={45} height={30}></Image>
+                </figure>
                 {definition.partOfSpeech && (
                   <p className="text-xs"> Part of Speech: {definition.partOfSpeech}</p>
                 )}
                 
                 {definition.meaning && (
-                  <h2 className="font-semibold pt-0 text-[1.8rem] "> {definition.meaning}</h2>
+                  <h2 className="font-semibold pt-0 text-[1.8rem] "><span className='  text-black'>{'"'}</span>{definition.meaning}<span className='font-serif  text-black'>{'"'}</span></h2>
                 )}
 
 
                 {definition.source && (
-                  <p className=" serif  font-medium   text-sm px-4 pb-3  ">
-                    {definition.source.sourceType}: <span className='text-[#104c6e] dark:text-[#c9f2fe]'>{definition.source.author}{' '}</span> 
+                  <p className=" serif    text-sm px-4 pb-3  ">
+                    <span className='font-light text-black'>
+                      {definition.source.sourceType}:
+                      </span>
+                       <span className='text-[#164c7c] dark:text-[#c9f2fe] '>{definition.source.author}{' '}</span> 
+                      
                     <span  className='text-black tracking-tighter font-medium'>
-                      {definition.source.publicationYearDate}</span>,{' '} <span className='text-[#742424] dark:text-[#ffb8b8] '>
+                      {definition.source.publicationYearDate}</span>,{' '} <span className='text-[#9d1d1d] dark:text-[#ffcdd8] '>
                     {definition.source.title}.
                     </span>
                   </p>
@@ -121,14 +131,15 @@ const WordPage: React.FC<WordPageProps> = async ({ params: { slug } }) => {
 
               </div>
             ))}
-          </>
+            </div>
+          </div>
         )}
         </section>
 
-<section className='mt-[5rem]'>
+<section className='mt-[6rem] px-4'>
   {Array.isArray(wordData.synonyms) && wordData.synonyms.length > 0 && (
-    <p className="text-xl tracking-wider font-serif">
-      <span className='font-serif  text-accent1'>Synonyms:</span> {wordData.synonyms.join(', ')}
+    <p className="text-lg font-medium font-serif">
+      <span className='font-serif  text-accent2'>Synonyms:</span> {wordData.synonyms.join(', ')}
     </p>
   )}
   {Array.isArray(wordData.antonyms) && wordData.antonyms.length > 0 && (
@@ -167,7 +178,7 @@ const WordPage: React.FC<WordPageProps> = async ({ params: { slug } }) => {
             <h3>Related Concepts</h3>
             <ul className="">
               {wordData.relatedConcepts.map((concept, index) => (
-                <li key={index}>{concept.concept}</li>
+                <li className='font-medium text-[#144b64]' key={index}>{concept.concept} <span className='w-fit pl-4'><RightArrowRigth color='#398839'></RightArrowRigth></span></li>
               ))}
             </ul>
           </>
