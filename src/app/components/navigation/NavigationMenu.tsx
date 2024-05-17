@@ -43,9 +43,10 @@ const NavigationMenu: React.FC<NavigationMenuProps> = ({ className, style }) => 
           {/* <h2 className='font-semibold text-base'>Home</h2> */}
         </Link>
         <Accordion type="single" collapsible className="w-full" >
-          <AccordionItem value="item-1">
+          <AccordionItem value="item-1"  >
             {/* <AccordionTrigger> */}
-              <a className='py-10 mb-0 text-center text-base w-full  '><Link href={'/periodic-table'} className='text-h1  font-extrabold'>Periodic Table</Link></a>
+              <div className='py-10 mb-0 text-center text-base w-full  '>
+                <Link href={'/periodic-table'} className='text-h1  font-extrabold'>Periodic Table</Link></div>
 
             {/* </AccordionTrigger> */}
             {/* <AccordionContent>
@@ -77,7 +78,7 @@ const NavigationMenu: React.FC<NavigationMenuProps> = ({ className, style }) => 
 <section>
   {/* <div className="text-center text-xl font-medium text-gray-400 rounded-md mx-auto max-w-xs p-2 mb-4">~ Top Science Books ~</div> */}
 
-  <div className="container mx-auto px-3 grid grid-cols-1 md:grid-cols-2 gap-4">
+  <div className="container text-left mx-auto px-3 grid grid-cols-1 md:grid-cols-2 gap-4">
     {data.map((field, idx) => (
       <div key={idx} className=" rounded-lg p-6">
         <h2 className="text-center text-lg font-bold text-teal-700 pb-8 pt-12">{field.title}</h2>

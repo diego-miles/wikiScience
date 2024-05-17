@@ -6,21 +6,12 @@ import { Suspense, lazy } from 'react';
 import dynamic from 'next/dynamic';
 import DarkModeTooggle from '@/components/DarkModeToggle'
 import Image from 'next/image'
+import NavigationMenu from './NavigationMenu'
 
 // NavigationMenu
-const NavigationMenu = dynamic(() => import('./NavigationMenu'), { ssr: false });
+// const NavigationMenu = dynamic(() => import('./NavigationMenu'), { ssr: false });
 
 const toSlug = (title: string): string => title.toLowerCase().replace(/\s+/g, '_');
-
-interface NavbarProps {
-    title?: string;
-    title2?: string;
-    title3?: string;
-    domain?: string;
-    active?: boolean;
-    menuPath?: string; // Add the menuPath prop
-}
-
 
 
 const MenuToggle: FC<{ onClick: () => void; isMenuVisible: boolean }> = ({ onClick, isMenuVisible }) => (
@@ -29,7 +20,7 @@ const MenuToggle: FC<{ onClick: () => void; isMenuVisible: boolean }> = ({ onCli
     </button>
 );
 
-const NavBarContainer: FC<NavbarProps> = memo(({ title, title2, title3, domain, active, menuPath }) => {
+const NavBarContainer = memo(() => {
     // const NavigationMenu = lazy(() => import(`${menuPath}`));
     const [isMenuVisible, setIsMenuVisible] = useState<boolean>(false);
     const [lastScrollY, setLastScrollY] = useState<number>(0);
@@ -89,11 +80,13 @@ const NavBarContainer: FC<NavbarProps> = memo(({ title, title2, title3, domain, 
 
     return (
     <div className="absolute w-full top-0 left-0 z-100  ">
-        <div className={`fixed top-0 right-0 left-0 w-full max-w-[120rem] min-h-[5rem] mx-auto px-4 lg:py-3 bg-gray-100 dark:bg-background1dark shadow-md z-40 flex justify-between items-center content-center lg:rounded-b-xl  ${showNavbar ? '' : 'hidden'}`}>
+        <div className={`fixed top-0 right-0 left-0 w-full max-w-[120rem] min-h-[5rem] mx-auto px-4 lg:py-3 bg-gray-100 dark:bg-background1dark shadow-md z-40 flex justify-end items-center content-end lg:rounded-b-xl  ${showNavbar ? '' : 'hidden'}`}>
+            {/* <Link href={'/'}>
 <figure className='py-4'>
-    <Image width={35} height={35} src={"/wiki-blue.svg"} unoptimized alt='' ></Image>
+    <Image width={36} height={36} src={"/wiki-blue.svg"} unoptimized alt='' ></Image>
 </figure>
-            <div className='flex items-center justify-between pt-1'>
+            </Link> */}
+            <div className='flex items-center pt-1'>
                 <div className='px-4 '>
                 <DarkModeTooggle></DarkModeTooggle>
                 </div>
