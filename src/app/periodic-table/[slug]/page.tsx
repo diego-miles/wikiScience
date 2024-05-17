@@ -140,7 +140,7 @@ const sanitizedHistoryData = element.history.map(histItem => ({
 
 
         {/* Discovery and History */}
-        <section id="3-discovery-and-history">
+        <section id="3-discovery-and-history" className='mx-auto w-fit'>
           <h2>3. Discovery and History</h2>
           <History data={sanitizedHistoryData} />
         </section>
