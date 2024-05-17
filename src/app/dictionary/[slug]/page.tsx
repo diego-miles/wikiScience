@@ -10,6 +10,8 @@ import { Metadata } from 'next';
 import RightArrowRigth from '@/components/right-arrow'
 import LocalSearchBar from '@/components/LocalSearch';
 import Link from 'next/link';
+import { generateSlug, generateAmazonImageURL } from '@/utils/slugGenerator';
+
 
 const prisma = new PrismaClient();
 
@@ -63,7 +65,6 @@ const WordPage: React.FC<WordPageProps> = async ({ params: { slug } }) => {
     return <div className="flex justify-center">Loading...</div>;
   }
   const childrenCount = wordData.definitions.length;
-
   return (
     <div className="">
       <NavBar />
@@ -84,7 +85,7 @@ const WordPage: React.FC<WordPageProps> = async ({ params: { slug } }) => {
           )}
           {/* <p className=" ">Slug: {wordData.slug}</p> */}
           {wordData.etymology && (
-            <p className="font-serif">{wordData.etymology}</p>
+            <p className="font-serif font-medium ">{wordData.etymology}</p>
           )}
           {wordData.tags.length > 0 && (
             <p className=" my-4 text-sm tracking-wide">{wordData.tags.join(', ')}</p>
@@ -97,10 +98,10 @@ const WordPage: React.FC<WordPageProps> = async ({ params: { slug } }) => {
 
             <div >
               <h2 className="py-2 pt-6">Definitions</h2>
-              <div className={`w-fit mx-auto ${childrenCount > 1 ? 'md:grid lg:grid-cols-2 gap-12' : 'flex justify-center'}`}>
+              <div className={`w-fit mx-auto ${childrenCount > 1 ? 'md:grid lg:grid-cols-2 gap-16' : 'flex justify-center'}`}>
 
                 {wordData.definitions.map((definition, index) => (
-                  <div key={index} className='relative    dark:bg-background1dark dark:shadow-xl  rounded-[2.8rem] py-4 pt-10 px-6 shadow-sm  max-w-[35rem] mx-auto mb-8 border-[.1rem] border-[#979fa5] rounded-bl-[.3rem] bg-background1 lg:mb-0'>
+                  <div key={index} className='relative    dark:bg-background1dark dark:shadow-xl  rounded-[2.8rem] py-4 pt-10 px-9 shadow-sm  max-w-[35rem] mx-auto mb-8 border-[.1rem] border-[#979fa5]  bg-background1 lg:mb-0'>
                     <figure >
                       <Image className='mx-auto pb-4' src={'/booksContext.svg'} unoptimized alt='' width={45} height={30}></Image>
                     </figure>
@@ -109,7 +110,10 @@ const WordPage: React.FC<WordPageProps> = async ({ params: { slug } }) => {
                     )}
 
                     {definition.meaning && (
-                      <h2 className="font-semibold pt-0 text-[1.8rem] "><span className='  text-black'>{'"'}</span>{definition.meaning}<span className='font-serif  text-black'>{'"'}</span></h2>
+                      <h2 className="font-semibold pt-0 text-[1.8rem] min-h-32 ">
+                        <span className='px-4  text-black'>{'"'}{definition.meaning}
+                        </span>
+                        <span className='font-serif  text-black'>{'"'}</span></h2>
                     )}
 
 
@@ -121,14 +125,14 @@ const WordPage: React.FC<WordPageProps> = async ({ params: { slug } }) => {
                         <span className='text-[#164c7c] dark:text-[#c9f2fe] '>{definition.source.author}{' '}</span>
 
                         <span className='text-black tracking-tighter font-medium'>
-                          {definition.source.publicationYearDate}</span>,{' '} <span className='text-[#9d1d1d] dark:text-[#ffcdd8] '>
+                          {definition.source.publicationYearDate}</span>,{' '} <span className='text-black font-semibold dark:text-[#ffcdd8] '>
                           {definition.source.title}.
                         </span>
                       </p>
                     )}
                     <Separator className="my-2 mt-4" />
                     {definition.example && (
-                      <p className="py-6 pb-8 px-4  text-sm   "> Example: {definition.example}</p>
+                      <p className="py-6 pb-8 px-4  "> Example: {definition.example}</p>
                     )}
 
                   </div>
@@ -145,14 +149,14 @@ const WordPage: React.FC<WordPageProps> = async ({ params: { slug } }) => {
             </p>
           )}
           {Array.isArray(wordData.antonyms) && wordData.antonyms.length > 0 && (
-            <p className="text-lg font-serif">
+            <p className="text-lg mt-4 font-serif">
               <span className='font-serif font-bold text-h1 dark:text-accent4'>Antonyms:</span> {wordData.antonyms.join(', ')}
             </p>
           )}
         </section>
 
         <section className='text-left grid lg:grid-cols-2 gap-y-12 gap-x-20  lg:pl-12 mx-auto max-w-[80rem] pt-16'>
-          <div className='bg-background1 rounded-bl-sm  rounded-[2.8rem] rounded-br-[3rem] border border-black/30 dark:border-white/80 pb-12 dark:bg-background1dark px-10 pt-2'>
+          <div className='bg-background1 rounded-bl-sm  rounded-[2.8rem] rounded-br-[3rem] border border-black/30 dark:border-white/80 pb-[3.5rem] dark:bg-background1dark px-10 pt-2'>
             {wordData.examples.length > 0 && (
               <>
                 <h3>Examples:</h3>
@@ -164,7 +168,7 @@ const WordPage: React.FC<WordPageProps> = async ({ params: { slug } }) => {
               </>
             )}
           </div>
-          <div className='bg-background1 rounded-bl-sm  rounded-[2.8rem] rounded-br-[3rem] border border-black/30 dark:border-white/80 pb-12 dark:bg-background1dark px-10 pt-2'>
+          <div className='bg-background1 rounded-bl-sm  rounded-[2.8rem] rounded-br-[3rem] border border-black/30 dark:border-white/80 pb-[3.5rem] dark:bg-background1dark px-10 pt-2'>
             {wordData.measurementUnits.length > 0 && (
               <>
                 <h3>Measurement Units</h3>
@@ -179,7 +183,7 @@ const WordPage: React.FC<WordPageProps> = async ({ params: { slug } }) => {
           <p className=" ">Audio: {wordData.audio}</p>
         )} */}
           </div>
-          <div className='bg-background1 rounded-bl-sm  rounded-[2.8rem] rounded-br-[3rem] border border-black/30 dark:border-white/80 pb-12 dark:bg-background1dark px-10 pt-2'>
+          <div className='bg-background1 rounded-bl-sm  rounded-[2.8rem] rounded-br-[3rem] border border-black/30 dark:border-white/80 pb-[3.5rem] dark:bg-background1dark px-10 pt-2'>
             {wordData.applications.length > 0 && (
               <>
                 <h3>Applications</h3>
@@ -191,7 +195,7 @@ const WordPage: React.FC<WordPageProps> = async ({ params: { slug } }) => {
               </>
             )}
           </div>
-          <div className='bg-background1 rounded-bl-sm  rounded-[2.8rem] rounded-br-[3rem] border border-black/30 dark:border-white/80 pb-12 dark:bg-background1dark px-10 pt-2'>
+          <div className='bg-background1 rounded-bl-sm  rounded-[2.8rem] rounded-br-[3rem] border border-black/30 dark:border-white/80 pb-[3.5rem] dark:bg-background1dark px-10 pt-2'>
             {wordData.historicalSignificance.length > 0 && (
               <>
                 <h3 >Historical Significance</h3>
@@ -203,22 +207,26 @@ const WordPage: React.FC<WordPageProps> = async ({ params: { slug } }) => {
               </>
             )}
           </div>
-          <div className='pl-8'>
-            {wordData.relatedConcepts.length > 0 && (
-              <>
-                <h3>Related Concepts</h3>
-                <ul className="">
-                  {wordData.relatedConcepts.map((concept, index) => (
-                    <li className='font-semibold text-[#bb3d76] ' key={index}><Link className='inline-block underline w-fit ' href={`/dictionary/${concept.concept?.toLocaleLowerCase()}`}>
-                      {concept.concept} 
-                      </Link>
-                      <span className='w-fit pl-2'><RightArrowRigth color='#ff74ca' ></RightArrowRigth></span>
-                      </li>
-                  ))}
-                </ul>
-              </>
-            )}
-          </div>
+<div className='pl-8'>
+  {wordData.relatedConcepts.length > 0 && (
+    <>
+      <h3>Related Concepts</h3>
+      <ul className="">
+        {wordData.relatedConcepts.map((concept, index) => (
+          <li className='font-semibold text-[#bb3d76]' key={index}>
+            <Link className='inline-block underline w-fit' href={`/dictionary/` + generateSlug(concept.concept || '')}>
+              {concept.concept}
+            </Link>
+            <span className='w-fit pl-2'>
+              <RightArrowRigth color='#ff74ca' />
+            </span>
+          </li>
+        ))}
+      </ul>
+    </>
+  )}
+</div>
+
           {wordData.images.length > 0 && (
             <>
               {/* <h2>Images</h2> */}

@@ -95,7 +95,7 @@ export default function RootLayout({
           {children}
         </ThemeProvider>
 
-        <Analytics mode={'production'} />;
+        <Analytics />;
         {/* <ScrollTopButton /> */}
         <Footer />
         {/* <Analytics /> */}

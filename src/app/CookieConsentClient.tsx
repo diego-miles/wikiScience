@@ -1,46 +1,43 @@
-"use client"
+"use client";
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import styles from './CookieConsentClient.module.css';
 import { create, get } from './CookieAction';
 
 const CookieConsentClient = () => {
-    const [isCookieConsentVisible, setCookieConsentVisible] = useState(true);
-    const [isLoading, setIsLoading] = useState(true); // New state for loading status
+    const [isCookieConsentVisible, setCookieConsentVisible] = useState(false);
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
         const checkCookieConsent = async () => {
             const response = await get();
             if (response) {
-                console.log("Obtuvimos una cookie");
                 setCookieConsentVisible(false);
+            } else {
+                setTimeout(() => {
+                    setCookieConsentVisible(true);
+                }, 3000);
             }
-            setIsLoading(false); // Update loading status after checking consent
+            setIsLoading(false); 
         };
         checkCookieConsent();
     }, []);
 
     const handleConsentChange = async (newConsent: 'true' | 'rejected') => {
-        console.log(`${newConsent} clicked`);
         if (newConsent === 'true') {
-            create();
-            console.log("Creamos una cookie");
+            await create();
         }
         setCookieConsentVisible(false);
     };
 
-    if (isLoading) return null; // Render nothing while loading
-    if (!isCookieConsentVisible) return null; // Existing condition to not show the banner
-
     return (
-        <div className={styles.cookieConsentContainer}>
-            <p className={styles.cookieConsentText}>
+        <div className={`${isLoading || !isCookieConsentVisible ? 'opacity-0 pointer-events-none' : 'opacity-100'} transition-opacity duration-500 bg-[#d2effffd] dark:bg-[#1b3759] z-50 text-center py-8 fixed bottom-0 left-0 w-full`}>
+            <p className="m-0 p-0">
                 We use cookies for functionality, analytics, and personalized advertising to keep this alive :).
-                <Link className={styles.cookieConsentLink} href="/privacy-policy">Learn More</Link>
+                <Link className="text-[#0070f3] underline" href="/privacy-policy" target="_blank">Learn More</Link>
             </p>
-            <button onClick={() => handleConsentChange('true')} className={styles.acceptButton}>Accept</button>
-            <button onClick={() => handleConsentChange('rejected')} className={styles.rejectButton}>Reject</button>
+            <button type="button" onClick={() => handleConsentChange('true')} className="mt-2 mx-2 py-2 px-4 bg-green-500 text-white rounded">Accept</button>
+            <button type="button" onClick={() => handleConsentChange('rejected')} className="mt-2 mx-2 py-2 px-4 bg-red-500 text-white rounded">Reject</button>
         </div>
     );
 };

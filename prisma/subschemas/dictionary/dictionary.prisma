@@ -37,8 +37,6 @@ type HistoricalSignificance {
   event          String?
 }
 
-
-
 type Definition {
   partOfSpeech   String?
   meaning        String?
@@ -46,15 +44,17 @@ type Definition {
     source  Source
 }
 
-
 type Source {
   author         String?   // Last name, First initial. Middle initial (if applicable) 
   publicationYearDate String?      // Year of publication
   title          String    
-  url            String?   // Include DOI if available
+  url            String?
   sourceType     String?   // Book, Journal Article, Website, etc. (use controlled vocabulary) 
   // Book-Specific Fields
+  isbn             String?
+  doi             String?
   bookEdition    String?
+  bookChapter     String?
   publisher      String?
   placeOfPublication String?
   // Journal Article-Specific Fields
