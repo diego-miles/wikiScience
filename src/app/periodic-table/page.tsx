@@ -10,7 +10,7 @@ import HydrogenElement from './Element'
 const Home: React.FC = () => {
   return (
     <div>
-      <NavbarContainer></NavbarContainer>
+      {/* <NavbarContainer></NavbarContainer> */}
       <main className='h-[140rem] md:h-[140rem]'>
       <h1 className="text-center te my-4">Periodic Table of the Chemical Elements</h1>
 

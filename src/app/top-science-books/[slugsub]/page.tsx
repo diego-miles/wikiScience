@@ -102,7 +102,7 @@ async function Page({ params: { slugsub } }: SubFieldPageProps) {
 
     return (
         <div>
-            <NavBar title={subFieldData.field} title2={subFieldData.subField} domain="www.wiki-science.com/" menuPath='./NavigationMenu'/>
+            {/* <NavBar title={subFieldData.field} title2={subFieldData.subField} domain="www.wiki-science.com/" menuPath='./NavigationMenu'/> */}
             <main>
                 <ContextSpace />
                 <ArticleTitle topic={subFieldData.subField || ''} />

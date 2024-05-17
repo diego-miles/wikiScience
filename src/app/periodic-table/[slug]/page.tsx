@@ -101,7 +101,7 @@ const sanitizedHistoryData = element.history.map(histItem => ({
 
   return (
     <>
-      <NavBar domain="www.wiki-science.com/" menuPath='./NavigationMenu' />
+      {/* <NavBar domain="www.wiki-science.com/" menuPath='./NavigationMenu' /> */}
       <main style={{ marginTop: '9rem' }}>
         <h1>{element.name} ({element.symbol})</h1>
         {/* {images.length > 0 && <ImageCarousel images={images} />} */}

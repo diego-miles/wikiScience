@@ -5,7 +5,7 @@ import styles from './NavbarContainer.module.css';
 import { Suspense, lazy } from 'react';
 import dynamic from 'next/dynamic';
 import DarkModeTooggle from '@/components/DarkModeToggle'
-
+import Image from 'next/image'
 
 // NavigationMenu
 const NavigationMenu = dynamic(() => import('./NavigationMenu'), { ssr: false });
@@ -21,43 +21,7 @@ interface NavbarProps {
     menuPath?: string; // Add the menuPath prop
 }
 
-interface LinkProps {
-    title?: string;
-    path: string;
-    active?: boolean;
-    onClick?: () => void;
-    className?: string;  // Add this line
-}
-const LinkComponent: FC<LinkProps> = ({ title, path, active, onClick }) => (
-    <Link href={path} onClick={onClick} style={{ color: active ? 'var(--color-h1)' : '' }}>
-        {title}
-    </Link>
-);
 
-const NavigationLinks: FC<NavbarProps> = ({ title, title2, title3, domain, active }) => {
-    const generateLink = useCallback((_domain: string | undefined, _title: string | undefined, additionalPath: string = ''): string => {
-        const safeTitle = _title ?? '';
-        return `/top-science-books/${toSlug(safeTitle)}${additionalPath}`;
-    }, []);
-    
-    return (
-        <div className={styles.contextualLinks}>
-            <LinkComponent title={title} path="/top-science-books/" />
-            {title2 && (
-                <>
-                    <span className={styles.padding}>{" > "}</span>
-                    <LinkComponent title={title2} path={generateLink(domain, title2)} active={active} />
-                </>
-            )}
-            {title3 && (
-                <>
-                    <span className={styles.padding}>{">"}</span>
-                    <LinkComponent title={title3} path={generateLink(domain, title2, `/${toSlug(title3)}`)} active={true} />
-                </>
-            )}
-        </div>
-    );
-};
 
 const MenuToggle: FC<{ onClick: () => void; isMenuVisible: boolean }> = ({ onClick, isMenuVisible }) => (
     <button className={styles.rightIcon} onClick={onClick} aria-label="Open menu">
@@ -126,10 +90,11 @@ const NavBarContainer: FC<NavbarProps> = memo(({ title, title2, title3, domain, 
     return (
     <div className="absolute w-full top-0 left-0 z-100  ">
         <div className={`fixed top-0 right-0 left-0 w-full max-w-[120rem] min-h-[5rem] mx-auto px-4 lg:py-3 bg-gray-100 dark:bg-background1dark shadow-md z-40 flex justify-between items-center content-center lg:rounded-b-xl  ${showNavbar ? '' : 'hidden'}`}>
-                <NavigationLinks title={title} title2={title2} title3={title3} domain={domain} active={active} />
-            <div className='flex items-center content-center pt-1'>
-                <div className='px-8 '>
-
+<figure className='py-4'>
+    <Image width={35} height={35} src={"/wiki-blue.svg"} unoptimized alt='' ></Image>
+</figure>
+            <div className='flex items-center justify-between pt-1'>
+                <div className='px-4 '>
                 <DarkModeTooggle></DarkModeTooggle>
                 </div>
                 <MenuToggle onClick={toggleMenu} isMenuVisible={isMenuVisible} />

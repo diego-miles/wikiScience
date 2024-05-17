@@ -90,7 +90,7 @@ async function RecommendationPage({
 
     return (
         <div>
-            <NavBar title={recommendations?.field} title2={recommendations?.subField} title3={recommendations?.topic} domain="www.wiki-science.com/" menuPath='./NavigationMenu' />
+            {/* <NavBar title={recommendations?.field} title2={recommendations?.subField} title3={recommendations?.topic} domain="www.wiki-science.com/" menuPath='./NavigationMenu' /> */}
             <main>
                 <ContextSpace />
                 <ArticleTitle topic={recommendations?.topic} />

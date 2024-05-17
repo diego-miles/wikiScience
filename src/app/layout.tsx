@@ -15,6 +15,7 @@ import dynamic from 'next/dynamic';
 import { cn } from "../lib/utils"
 import { ThemeProvider } from "@/ThemProvider"
 import { GridBackgroundDemo } from './GridBackground'
+import NavBar from '@/components/navigation/NavbarContainer';
 
 
 const noto_sans_georgian = Noto_Sans_Georgian({
@@ -92,6 +93,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
+          <NavBar></NavBar>
           {children}
         </ThemeProvider>
 

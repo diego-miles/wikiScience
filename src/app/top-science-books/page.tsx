@@ -13,7 +13,7 @@ export const metadata = {
 const Page: React.FC = () => {
   return (
     <div>
-      <NavBar menuPath='./NavigationMenu'/>
+      {/* <NavBar menuPath='./NavigationMenu'/> */}
       <main className={styles.animatedElement}>
         <section>
 

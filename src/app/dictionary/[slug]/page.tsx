@@ -67,7 +67,7 @@ const WordPage: React.FC<WordPageProps> = async ({ params: { slug } }) => {
   const childrenCount = wordData.definitions.length;
   return (
     <div className="">
-      <NavBar />
+      {/* <NavBar /> */}
       <main className=" pb-24">
         <div className='-mt-4'>
 
