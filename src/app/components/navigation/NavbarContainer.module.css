@@ -76,6 +76,7 @@
   height: 4rem;
   /* era 50px */
   background-image: url('/microscope.svg');
+  @apply dark:bg-[url('/microscope-yellow.svg')];
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;

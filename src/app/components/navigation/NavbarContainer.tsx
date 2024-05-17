@@ -15,7 +15,7 @@ const toSlug = (title: string): string => title.toLowerCase().replace(/\s+/g, '_
 
 
 const MenuToggle: FC<{ onClick: () => void; isMenuVisible: boolean }> = ({ onClick, isMenuVisible }) => (
-    <button className={styles.rightIcon} onClick={onClick} aria-label="Open menu">
+    <button className="bg-[url('/microscope.svg')] dark:bg-[url('/microscope-yellow.svg')] bg-no-repeat bg-contain h-[3.8rem] my-2" onClick={onClick} aria-label="Open menu">
         <div tabIndex={0} className={`${styles.iconWrapper} ${styles.crossIcon} ${isMenuVisible ? styles.crossIconOpen : styles.crossIconClosed}`}></div>
     </button>
 );
@@ -88,7 +88,7 @@ const NavBarContainer = memo(() => {
             </Link> */}
             <div className='flex items-center pt-1'>
                 <div className='px-4 '>
-                <DarkModeTooggle></DarkModeTooggle>
+                    <DarkModeTooggle></DarkModeTooggle>
                 </div>
                 <MenuToggle onClick={toggleMenu} isMenuVisible={isMenuVisible} />
             </div>
