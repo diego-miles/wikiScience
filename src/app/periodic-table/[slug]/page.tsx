@@ -43,12 +43,12 @@ async function ElementPage({ params: { slug } }: ElementPageProps) {
   }
 
 const sectionTitles = [
-    "1. Physical Properties",
-    "2. Chemical Properties",
-    "3. Discovery and History",
-    "4. Natural Occurrence",
+    "1. Atomic Structure",
+    "2. Physical Properties",
+    "3. Chemical Properties",
+    "4. Discovery and History",
     "5. Classifications",
-    "6. Atomic Structure",
+    "6. Natural Occurrence",
     "7. Electron Configuration",
     "8. Crystal Structures",
     "9. Allotropes",
@@ -110,14 +110,29 @@ const sanitizedHistoryData = element.history.map(histItem => ({
         <p><strong>Atomic Number:</strong> {element.atomicNumber}</p>
         <p><strong>Atomic Weight:</strong> {element.atomicWeight}</p>
         <p><strong>Appearance:</strong> {element.appearance}</p>
-        <p className='text-lg'> {element.description}</p>
+        <p className='text-lg max-w-[50rem] mx-auto'> {element.description}</p>
 
 
 <div className='lg:grid lg:grid-cols-2 gap-x-24 gap-y-12 lg:px-12'>
+        {/* Atomic Structure */}
+        <section id="1-atomic-structure">
+          <h2>1. Atomic Structure</h2>
+          <div className='flex'>
+            <p className='text-sm pr-8'><strong>Electrons:</strong> {element.atomicStructure?.electrons}</p>
+            <p className='text-sm pr-8'><strong>Protons:</strong> {element.atomicStructure?.protons}</p>
+            <p className='text-sm'><strong>Neutrons:</strong> {element.atomicStructure?.neutrons}</p>
+          </div>
+          <p><strong>Ionization Energy:</strong> {element.atomicStructure?.ionizationEnergy}</p>
+          <p><strong>Electron Affinity:</strong> {element.atomicStructure?.electronAffinity} </p>
+          <p><strong>Atomic Radius:</strong> {element.atomicStructure?.atomicRadius}</p>
+          <p><strong>Atomic Polarization:</strong> {element.atomicStructure?.atomicPolarization}</p>
+          <p><strong>Electronegativity:</strong> {element.atomicStructure?.electronegativity} eV</p>
+          <p><strong>First Ionization Potential:</strong> {element.atomicStructure?.firstIonizationPotential}</p>
+        </section>
 
         {/* Discovery Year, Melting and Boiling Points, Density, and Appearance */}
-        <section id="1-physical-properties">
-            <h2>1. Physical Properties</h2>
+        <section id="2-physical-properties">
+            <h2>2. Physical Properties</h2>
             <p><strong>Melting Point:</strong> {element.physicalProperties?.meltingPoint ? `${element.physicalProperties.meltingPoint}` : 'N/A'}</p>
             <p><strong>Boiling Point:</strong> {element.physicalProperties?.boilingPoint ? `${element.physicalProperties.boilingPoint}` : 'N/A'}</p>
             <p><strong>Density:</strong> {element.physicalProperties?.density ? `${element.physicalProperties.density} ` : 'N/A'}</p>
@@ -134,8 +149,8 @@ const sanitizedHistoryData = element.history.map(histItem => ({
             <p><strong>Phase Transition Temperatures:</strong> {element.physicalProperties?.phaseTransitionTemperatures || 'N/A'}</p>
         </section>
 
-        <section id="2-chemical-properties">
-            <h2>2. Chemical Properties</h2>
+        <section id="3-chemical-properties">
+            <h2>3. Chemical Properties</h2>
             <p><strong className='dark:text-[#ff7979]'>Reactivity:</strong> {element.chemicalProperties?.reactivity || 'N/A'}</p>
             <p><strong>Common Oxidation States:</strong> {element.chemicalProperties?.commonOxidationStates || 'N/A'}</p>
             <p><strong>Standard Reduction Potential:</strong> {element.chemicalProperties?.standardReductionPotential || 'N/A'}</p>
@@ -144,17 +159,13 @@ const sanitizedHistoryData = element.history.map(histItem => ({
 
 
         {/* Discovery and History */}
-        <section id="3-discovery-and-history" className='mx-auto w-fit'>
-          <h2>3. Discovery and History</h2>
+        <section id="4-discovery-and-history" className='mx-auto w-fit'>
+          <h2>4. Discovery and History</h2>
           <History data={sanitizedHistoryData} />
         </section>
 
 
-        <section id="4-natural-occurrence">
-          <h2>4. Natural Occurrence</h2>
-          <h3>{element.naturalOccurrence?.occurrenceType}  </h3>
-          <p>{element.naturalOccurrence?.description}</p>
-        </section>
+
 
 
 
@@ -169,19 +180,10 @@ const sanitizedHistoryData = element.history.map(histItem => ({
           ))}
         </section>
 
-
-        {/* Atomic Structure */}
-        <section id="6-atomic-structure">
-          <h2>6. Atomic Structure</h2>
-          <p><strong>Electrons:</strong> {element.atomicStructure?.electrons}</p>
-          <p><strong>Protons:</strong> {element.atomicStructure?.protons}</p>
-          <p><strong>Neutrons:</strong> {element.atomicStructure?.neutrons}</p>
-          <p><strong>Ionization Energy:</strong> {element.atomicStructure?.ionizationEnergy} eV</p>
-          <p><strong>Electron Affinity:</strong> {element.atomicStructure?.electronAffinity} eV</p>
-          <p><strong>Atomic Radius:</strong> {element.atomicStructure?.atomicRadius} eV</p>
-          <p><strong>Atomic Polarization:</strong> {element.atomicStructure?.atomicPolarization} eV</p>
-          <p><strong>Electronegativity:</strong> {element.atomicStructure?.electronegativity} eV</p>
-          <p><strong>First Ionization Potential:</strong> {element.atomicStructure?.firstIonizationPotential} eV</p>
+        <section id="6-natural-occurrence">
+          <h2>6. Natural Occurrence</h2>
+          <h3>{element.naturalOccurrence?.occurrenceType}  </h3>
+          <p>{element.naturalOccurrence?.description}</p>
         </section>
 
 
@@ -208,7 +210,7 @@ const sanitizedHistoryData = element.history.map(histItem => ({
         <section id="9-allotropes">
           <h2>9. Allotropes</h2>
           {element.allotropes.map((allotrope, index) => (
-            <div className='border border-black dark:border-white/20 rounded-3xl py-4   my-12 px-7 pb-9 mx-4 md:mx-auto min-h-[17rem] max-w-[32rem]  flex flex-col justify-center'  key={index}>
+            <div className='border border-black dark:border-white/20 rounded-3xl py-4   my-12 px-7 pb-9   min-h-[17rem] max-w-[32rem]  justify-center'  key={index}>
               <h3 className='text-lg'>{allotrope?.name} </h3>
               <p> {allotrope?.description}</p>
             </div>
@@ -295,7 +297,7 @@ const sanitizedHistoryData = element.history.map(histItem => ({
         <section id="16-spectral-lines">
           <h2>16. Spectral Lines</h2>
           {element.spectralLines.map((line, index) => (
-            <div key={index}>
+            <div className='mb-12' key={index}>
               <p><strong>Wavelength:</strong> {line?.wavelength} nm</p>
               <p><strong>Intensity:</strong> {line?.intensity}</p>
               <p><strong>Line Type:</strong> {line?.lineType}</p>
