@@ -104,7 +104,7 @@ const sanitizedHistoryData = element.history.map(histItem => ({
     <>
       {/* <NavBar domain="www.wiki-science.com/" menuPath='./NavigationMenu' /> */}
       <main style={{ marginTop: '9rem' }} className='lg:pt-60'>
-        <h1>{element.name} ({element.symbol})</h1>
+        <h1 >{element.name} ({element.symbol})</h1>
         {/* {images.length > 0 && <ImageCarousel images={images} />} */}
         {/* <LocalContextLinks links={links} /> */}
         <p><strong>Atomic Number:</strong> {element.atomicNumber}</p>
@@ -113,7 +113,7 @@ const sanitizedHistoryData = element.history.map(histItem => ({
         <p className='text-lg'> {element.description}</p>
 
 
-<div className='lg:grid lg:grid-cols-2 gap-x-24 lg:px-12'>
+<div className='lg:grid lg:grid-cols-2 gap-x-24 gap-y-12 lg:px-12'>
 
         {/* Discovery Year, Melting and Boiling Points, Density, and Appearance */}
         <section id="1-physical-properties">
@@ -216,11 +216,11 @@ const sanitizedHistoryData = element.history.map(histItem => ({
         </section>
 
 
-        <section id="10-isotopes-abundances">
+        <section id="10-isotopes-and-abundances">
           <h2>10. Isotopes and Abundances</h2>
             <div className=' lg:grid lg:grid-cols-2  gap-8 max-w-[55rem] mx-auto mt-16'  >
           {element.isotopes.map(isotope => (
-              <div className='border rounded-3xl max-w-[24rem] px-12 py-10 mb-12 mx-auto' key={isotope.isotopeNumber}>
+              <div className='border rounded-3xl max-w-[26rem] px-10 pb-4 mb-12  lg:mb-10 mx-auto' key={isotope.isotopeNumber}>
               <h3> {isotope?.isotopeNumber}</h3>
               <p><strong>Abundance:</strong> {isotope?.abundance}</p>
               <p><strong>Half Life:</strong> {isotope?.halfLife}</p>

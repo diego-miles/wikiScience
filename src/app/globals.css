@@ -29,7 +29,8 @@
   --color-accent-4: #00ffcc;
   --color-gold: #493708;
   --color-background-1: #f4f6f6;
-  --color-background-dark: #0B2B4B;
+  --color-background-dark: #0b2846;
+  /* --color-background-dark: #0B2B4B; */
   /* --color-background1-dark: #172330; */
   --color-background-2: #cfd3d3;
   --color-background-3: #B0B6B9;
@@ -219,7 +220,7 @@ p {
 
 
 h1 {
-  @apply dark:text-[#ffefe3];
+  @apply dark:text-[#c9e9ff];
   font-family: var(--font-noto-serif-georgian);
   font-size: var(--font-size-h1);
   font-weight: 900;
@@ -231,7 +232,8 @@ h1 {
 }
 
 h2 {
-    @apply dark:text-[#4ff3ff];
+    @apply dark:text-[#4ddce6];
+    /* @apply dark:text-[#4ff3ff]; */
   font-size: var(--font-size-h2);
   color: var(--color-h2);
   font-weight: 600;
@@ -247,7 +249,7 @@ h2 {
 }
 
 h3 {
-      @apply dark:text-[#97ffd4];
+      @apply dark:text-[#61edc8];
   font-size: var(--font-size-h3);
   color: var(--color-h3);
   font-weight: 600;
