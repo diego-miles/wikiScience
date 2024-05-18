@@ -92,7 +92,7 @@
 .dropdownScrollContainer::-webkit-scrollbar {
 /* width: .5rem; */
 scrollbar-width: thin;
-height: .4rem;
+height: .5rem;
 }
 
 .dropdownScrollContainer::-webkit-scrollbar-track {

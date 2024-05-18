@@ -129,16 +129,16 @@ html {
 
 
 body::-webkit-scrollbar {
-  width: .6rem;
+  width: .8rem;
 }
 
 body::-webkit-scrollbar-thumb {
-  background: var(--color-soft-blue);
+  background: #bfdff0;
   border-radius: 0.5rem;
 }
 
 body::-webkit-scrollbar-track {
-  background: rgb(226, 235, 247);
+  background: rgb(230, 239, 246);
 }
 
 body {
@@ -230,7 +230,7 @@ h1 {
 }
 
 h2 {
-    @apply dark:text-white;
+    @apply dark:text-[#f8ecdb];
   font-size: var(--font-size-h2);
   color: var(--color-h2);
   font-weight: 600;

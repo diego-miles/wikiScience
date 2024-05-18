@@ -17,6 +17,7 @@ const LocalContextLinks: React.FC<LocalContextLinksProps> = ({ links }) => {
   const [isVisible, setIsVisible] = useState(true);
   const [dropdownActive, setDropdownActive] = useState(false);
   const [lastScrollPosition, setLastScrollPosition] = useState(0);
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     let lastScrollTop = window.pageYOffset || document.documentElement.scrollTop;
@@ -70,41 +71,39 @@ const LocalContextLinks: React.FC<LocalContextLinksProps> = ({ links }) => {
     }
   };
 
+  useEffect(() => {
+    const handleWheel = (event: WheelEvent) => {
+      if (scrollContainerRef.current && event.deltaY !== 0) {
+        scrollContainerRef.current.scrollLeft += event.deltaY;
+        event.preventDefault();
+      }
+    };
+
+    const scrollContainer = scrollContainerRef.current;
+    if (scrollContainer) {
+      scrollContainer.addEventListener('wheel', handleWheel);
+    }
+
+    return () => {
+      if (scrollContainer) {
+        scrollContainer.removeEventListener('wheel', handleWheel);
+      }
+    };
+  }, []);
+
   return (
     <>
       {!dropdownActive && (
         <div
-          className={`flex overflow-x-auto items-center fixed top-0 left-0 right-0 gap-2 py-[3.2rem] px-4 pt-[8rem] lg:pt-40 bg-background1 z-10 whitespace-nowrap dark:bg-background1dark  focus:scroll-auto ${styles.dropdownScrollContainer}`}
+          className={`flex overflow-x-auto items-center fixed top-0 left-0 right-0 gap-2 py-[3rem] px-4 pt-[8rem] lg:pt-40 bg-background1 z-10 whitespace-nowrap dark:bg-background1dark ${styles.dropdownScrollContainer}`}
           style={{ display: isVisible ? 'flex' : 'none' }}
+          ref={scrollContainerRef}
         >
-        {links.map((link, index) => (
-          <a
-            key={index}
-            href={`#${link.id}`}
-            className={styles.linkText}
-            onClick={(e) => {
-              e.preventDefault();
-              smoothScroll(link.id);
-            }}
-            ref={el => { linkRefs.current[index] = el; }} // Updated ref assignment
-          >
-            {link.text}
-          </a>
-        ))}
-          <a className="font-noto-serif-georgian text-accent1 italic px-4 py-2  cursor-pointer fixed top-[12.5rem] lg:top-[14.5rem] right-2 text-xs font-semibold" onClick={toggleDropdown}>
-            See All
-          </a>
-        </div>
-      )}
-      {/* Dropdown container */}
-      {dropdownActive && (
-        <div className={`flex flex-col fixed top-0 pt-44 pb-40 left-0 right-0 z-30  min-h-lvh overflow-y-auto bg-background1 dark:bg-background1dark ${styles.dropdownScrollContainer2}`} >
-          <div>
           {links.map((link, index) => (
             <a
               key={index}
               href={`#${link.id}`}
-              className="font-medium text-base dark:text-sky-300 px-4 py-2 text-center my-2 no-underline" // Added margin for spacing
+              className={styles.linkText}
               onClick={(e) => {
                 e.preventDefault();
                 smoothScroll(link.id);
@@ -114,9 +113,32 @@ const LocalContextLinks: React.FC<LocalContextLinksProps> = ({ links }) => {
               {link.text}
             </a>
           ))}
-          <a className="font-noto-serif-georgian text-accent1 italic px-4 py-2 cursor-pointer fixed top-28 lg:top-40 right-8 md:right-48 text-sm font-semibold" onClick={toggleDropdown}>
-            Close
+          <a className="font-noto-serif-georgian text-accent1 italic px-4 py-2 cursor-pointer fixed top-[12.5rem] lg:top-[14.5rem] right-2 text-xs font-semibold" onClick={toggleDropdown}>
+            See All
           </a>
+        </div>
+      )}
+      {/* Dropdown container */}
+      {dropdownActive && (
+        <div className={`flex flex-col fixed top-0 pt-44 pb-40 left-0 right-0 z-30 min-h-lvh overflow-y-auto bg-background1 dark:bg-background1dark ${styles.dropdownScrollContainer2}`} >
+          <div>
+            {links.map((link, index) => (
+              <a
+                key={index}
+                href={`#${link.id}`}
+                className="font-medium text-base dark:text-sky-300 px-4 py-2 text-center my-2 no-underline"
+                onClick={(e) => {
+                  e.preventDefault();
+                  smoothScroll(link.id);
+                }}
+                ref={el => { linkRefs.current[index] = el; }} // Updated ref assignment
+              >
+                {link.text}
+              </a>
+            ))}
+            <a className="font-noto-serif-georgian text-accent1 italic px-4 py-2 cursor-pointer fixed top-28 lg:top-40 right-8 md:right-48 text-sm font-semibold" onClick={toggleDropdown}>
+              Close
+            </a>
           </div>
         </div>
       )}
