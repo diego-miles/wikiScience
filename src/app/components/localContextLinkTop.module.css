@@ -83,6 +83,39 @@
 
 /* localContextLinkTop.module.css */
 .dropdownScrollContainer {
+    overflow: auto;
+    /* Enable vertical scrolling */
+    /* max-height: 80vh; */
+    /* Maximum height of the container */
+}
+
+.dropdownScrollContainer::-webkit-scrollbar {
+/* width: .5rem; */
+scrollbar-width: thin;
+height: .4rem;
+}
+
+.dropdownScrollContainer::-webkit-scrollbar-track {
+    background: #f1f1f1;
+
+}
+
+.dropdownScrollContainer::-webkit-scrollbar-thumb {
+    background: #c1ddf4;
+    border-radius: 15px;
+    height: .5rem;
+    width: .5rem;
+}
+
+
+
+
+
+
+
+
+/* localContextLinkTop.module.css */
+.dropdownScrollContainer2 {
     overflow-y: auto;
     /* Enable vertical scrolling */
     max-height: 80vh;
@@ -90,27 +123,30 @@
 }
 
 /* Custom scrollbar styles for WebKit browsers (Chrome, Safari, Edge) */
-.dropdownScrollContainer::-webkit-scrollbar {
-    width: 12px;
-}
+.dropdownScrollContainer2::-webkit-scrollbar {
+width: .5rem;
+    /* scrollbar-width: thin; */
+    }
 
-.dropdownScrollContainer::-webkit-scrollbar-track {
+.dropdownScrollContainer2::-webkit-scrollbar-track {
+/* width: .5rem; */
+    /* width: .5rem; */
     background: #f1f1f1;
 }
 
-.dropdownScrollContainer::-webkit-scrollbar-thumb {
-    background: #888;
-    border-radius: 10px;
-}
+/* .dropdownScrollContainer2::-webkit-scrollbar-thumb {
+    background: #d44040;
+    border-radius: 20px;
+} */
 
-.dropdownScrollContainer::-webkit-scrollbar-thumb:hover {
-    background: #555;
+.dropdownScrollContainer2::-webkit-scrollbar-thumb:hover {
+    background: #b28181;
 }
 
 /* Custom scrollbar styles for Firefox */
-.dropdownScrollContainer {
+.dropdownScrollContainer2 {
     scrollbar-width: thin;
     /* Options: auto, thin, none */
-    scrollbar-color: #888 #f1f1f1;
+    scrollbar-color: #0b5084 #eaf0f5;
     /* thumb color and track color */
 }

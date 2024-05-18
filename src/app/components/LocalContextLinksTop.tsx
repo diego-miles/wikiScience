@@ -74,7 +74,7 @@ const LocalContextLinks: React.FC<LocalContextLinksProps> = ({ links }) => {
     <>
       {!dropdownActive && (
         <div
-          className="flex overflow-x-auto items-center fixed top-0 left-0 right-0 gap-2 py-[3.2rem] px-4 pt-[8rem] lg:pt-40 bg-background1 z-10 whitespace-nowrap dark:bg-background1dark"
+          className={`flex overflow-x-auto items-center fixed top-0 left-0 right-0 gap-2 py-[3.2rem] px-4 pt-[8rem] lg:pt-40 bg-background1 z-10 whitespace-nowrap dark:bg-background1dark  focus:scroll-auto ${styles.dropdownScrollContainer}`}
           style={{ display: isVisible ? 'flex' : 'none' }}
         >
         {links.map((link, index) => (
@@ -91,14 +91,14 @@ const LocalContextLinks: React.FC<LocalContextLinksProps> = ({ links }) => {
             {link.text}
           </a>
         ))}
-          <a className="font-noto-serif-georgian text-accent1 italic px-4 py-2  cursor-pointer fixed top-[12.5rem] right-2 text-xs font-semibold" onClick={toggleDropdown}>
+          <a className="font-noto-serif-georgian text-accent1 italic px-4 py-2  cursor-pointer fixed top-[12.5rem] lg:top-[14.5rem] right-2 text-xs font-semibold" onClick={toggleDropdown}>
             See All
           </a>
         </div>
       )}
       {/* Dropdown container */}
       {dropdownActive && (
-        <div className={`flex flex-col fixed top-0 pt-44 pb-40 left-0 right-0 z-30  min-h-lvh overflow-y-auto bg-background1 dark:bg-background1dark ${styles.dropdownScrollContainer}`} >
+        <div className={`flex flex-col fixed top-0 pt-44 pb-40 left-0 right-0 z-30  min-h-lvh overflow-y-auto bg-background1 dark:bg-background1dark ${styles.dropdownScrollContainer2}`} >
           <div>
           {links.map((link, index) => (
             <a
@@ -114,7 +114,7 @@ const LocalContextLinks: React.FC<LocalContextLinksProps> = ({ links }) => {
               {link.text}
             </a>
           ))}
-          <a className="font-noto-serif-georgian text-accent1 italic px-4 py-2 cursor-pointer fixed top-28 right-4 text-sm font-semibold" onClick={toggleDropdown}>
+          <a className="font-noto-serif-georgian text-accent1 italic px-4 py-2 cursor-pointer fixed top-28 lg:top-40 right-8 md:right-48 text-sm font-semibold" onClick={toggleDropdown}>
             Close
           </a>
           </div>

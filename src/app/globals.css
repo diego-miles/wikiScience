@@ -129,16 +129,16 @@ html {
 
 
 body::-webkit-scrollbar {
-  width: 0.6rem;
+  width: .6rem;
 }
 
 body::-webkit-scrollbar-thumb {
   background: var(--color-soft-blue);
-  /* border-radius: 0.6rem; */
+  border-radius: 0.5rem;
 }
 
 body::-webkit-scrollbar-track {
-  background: var(--color-background-2);
+  background: rgb(226, 235, 247);
 }
 
 body {
