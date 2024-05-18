@@ -97,7 +97,7 @@ const WordPage: React.FC<WordPageProps> = async ({ params: { slug } }) => {
           {wordData.definitions && (
 
             <div >
-              <h2 className="py-2 pt-6">Definitions</h2>
+              <h2 className="py-2 pt-6 text-center">Definitions</h2>
               <div className={`w-fit mx-auto ${childrenCount > 1 ? 'md:grid lg:grid-cols-2 gap-16' : 'flex justify-center'}`}>
 
                 {wordData.definitions.map((definition, index) => (
@@ -106,7 +106,7 @@ const WordPage: React.FC<WordPageProps> = async ({ params: { slug } }) => {
                       <Image className='mx-auto pb-4' src={'/booksContext.svg'} unoptimized alt='' width={45} height={30}></Image>
                     </figure>
                     {definition.partOfSpeech && (
-                      <p className="text-xs"> Part of Speech: {definition.partOfSpeech}</p>
+                      <p className="text-xs text-center"> Part of Speech: {definition.partOfSpeech}</p>
                     )}
 
                     {definition.meaning && (
@@ -132,7 +132,7 @@ const WordPage: React.FC<WordPageProps> = async ({ params: { slug } }) => {
                     )}
                     <Separator className="my-2 mt-4" />
                     {definition.example && (
-                      <p className="py-6 pb-8 px-4  "> Example: {definition.example}</p>
+                      <p className="py-6 pb-8 px-4 text-center "> Example: {definition.example}</p>
                     )}
 
                   </div>
@@ -142,7 +142,7 @@ const WordPage: React.FC<WordPageProps> = async ({ params: { slug } }) => {
           )}
         </section>
 
-        <section className='mt-[6rem] px-4'>
+        <section className='mt-[6rem] px-4 text-center'>
           {Array.isArray(wordData.synonyms) && wordData.synonyms.length > 0 && (
             <p className="text-lg font-normal font-serif">
               <span className='font-serif font-bold text-h1 dark:text-accent4'>Synonyms:</span> {wordData.synonyms.join(', ')}
@@ -155,7 +155,7 @@ const WordPage: React.FC<WordPageProps> = async ({ params: { slug } }) => {
           )}
         </section>
 
-        <section className='text-left grid lg:grid-cols-2 gap-y-12 gap-x-20  lg:pl-12 mx-auto max-w-[80rem] pt-16'>
+        <section className='text-left grid lg:grid-cols-2 gap-y-12 gap-x-20  lg:pl-12 mx-auto max-w-[80rem] pt-16 '>
           <div className='bg-background1 rounded-bl-sm  rounded-[2.8rem] rounded-br-[3rem] border border-black/30 dark:border-white/80 pb-[3.5rem] dark:bg-background1dark px-10 pt-2'>
             {wordData.examples.length > 0 && (
               <>

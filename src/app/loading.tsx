@@ -20,7 +20,7 @@ const LoadingPage = () => {
 
     return (
         <div className='dark:bg-background1dark'  style={containerStyle}>
-            <div style={animationStyle}></div>
+            <div className='dark:bg-background1dark' style={animationStyle}></div>
         </div>
     );
 };

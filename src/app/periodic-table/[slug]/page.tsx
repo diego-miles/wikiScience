@@ -113,7 +113,7 @@ const sanitizedHistoryData = element.history.map(histItem => ({
         <p className='text-lg max-w-[50rem] mx-auto'> {element.description}</p>
 
 
-<div className='lg:grid lg:grid-cols-2 gap-x-24 gap-y-12 lg:px-12'>
+<div className='lg:grid lg:grid-cols-2 gap-x-24 gap-y-12 lg:px-12 '>
         {/* Atomic Structure */}
         <section id="1-atomic-structure">
           <h2>1. Atomic Structure</h2>
