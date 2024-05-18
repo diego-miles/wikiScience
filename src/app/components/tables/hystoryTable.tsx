@@ -26,11 +26,11 @@ const HistoryTable: React.FC<{ data: HistoryData[] }> = ({ data }) => {
     <table className="my-12 w-full border rounded-lg overflow-hidden max-w-[55rem] ">
       {/* Header */}
       {/* [#4d433d] */}
-      <thead className="bg-gray-200 dark:bg-[#4d433d] text-sm font-medium">
+      <thead className="bg-gray-200 dark:bg-[#123b5f] text-sm font-medium ">
         {table.getHeaderGroups().map((headerGroup) => (
           <tr key={headerGroup.id}>
             {headerGroup.headers.map((header) => (
-              <th key={header.id} className="px-4 py-2 border-b text-[#ebe8e4] ">
+              <th key={header.id} className="px-4 py-4 border-b  text-[#ebe8e4] ">
                 {flexRender(header.column.columnDef.header, header.getContext())}
               </th>
             ))}
@@ -43,7 +43,7 @@ const HistoryTable: React.FC<{ data: HistoryData[] }> = ({ data }) => {
         {table.getRowModel().rows.map((row) => (
           <tr key={row.id} className="bg-gray-100 dark:bg-background1dark text-sm">
             {row.getVisibleCells().map((cell) => (
-              <td key={cell.id} className="px-4 py-10 border-b dark:text-blue-100">
+              <td key={cell.id} className="px-4 py-10 border-b  dark:text-blue-100">
                 {flexRender(cell.column.columnDef.cell, cell.getContext())}
               </td>
             ))}

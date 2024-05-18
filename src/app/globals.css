@@ -12,7 +12,7 @@
   /* --color-h2: #003c85; */
   --color-h2: #030303;
   /* --color-h2: #006fa7; */
-  --color-h3: #164e50;
+  --color-h3: #01585b;
   --color-h4: #785427;
   /* --color-h3: #766246; */
   --color-h5: #2E4053;
@@ -133,7 +133,7 @@ body::-webkit-scrollbar {
 }
 
 body::-webkit-scrollbar-thumb {
-  background: #bfdff0;
+  background: #8bd7ff;
   border-radius: 0.5rem;
 }
 
@@ -144,7 +144,8 @@ body::-webkit-scrollbar-track {
 body {
   @apply dark:bg-[var(--color-background-dark)] ;
   background-color: var(--color-background-1);
-  height: 100%;
+  /* height: 100%; */
+  min-height: 100vh;
   margin: 0 auto;
   /* background-image: linear-gradient(#F1F1F1 2px, transparent 2px),
     linear-gradient(90deg, #edf3f3 2px, transparent 2px);
@@ -218,7 +219,7 @@ p {
 
 
 h1 {
-  @apply dark:text-[#f4f0e2];
+  @apply dark:text-[#ffeafc];
   font-family: var(--font-noto-serif-georgian);
   font-size: var(--font-size-h1);
   font-weight: 900;
@@ -230,11 +231,11 @@ h1 {
 }
 
 h2 {
-    @apply dark:text-[#f8ecdb];
+    @apply dark:text-[#4ff3ff];
   font-size: var(--font-size-h2);
   color: var(--color-h2);
   font-weight: 600;
-  padding-top: 3.5rem;
+  padding-top: 7rem;
   margin-bottom: 1.7rem;
   line-height: 1.4;
   /* margin-top: 2rem; */
@@ -246,13 +247,14 @@ h2 {
 }
 
 h3 {
-      @apply dark:text-[#49e1ff];
+      @apply dark:text-[#97ffd4];
   font-size: var(--font-size-h3);
   color: var(--color-h3);
-  font-weight: 800;
-  margin-bottom: .2rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
     text-decoration: none;
-  margin-top: 2rem;
+  margin-top: 2.5rem;
+  line-height: 1.1;
   /* letter-spacing: .2; */
   
 }
@@ -294,16 +296,17 @@ li {
 
 
 span {
-      @apply dark:text-[#67cfff];
+      @apply dark:text-[#78ffdb];
   color: var(--color-span);
   /* font-weight: 600; */
 }
 
 strong {
-      @apply dark:text-[#67cfff];
+      @apply dark:text-[#61cdff];
   /* font-size: var(--font-size-p); */
   color: var(--color-strong);
-  font-weight: 700;
+  font-weight: 600;
+  /* line-height: .9; */
 }
 
 .globalHeight {

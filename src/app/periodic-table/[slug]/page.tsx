@@ -8,6 +8,7 @@ import { notFound } from 'next/navigation';
 import LocalContextLinks from '@/components/LocalContextLinksTop'; // Import the component
 import ImageCarousel from '@/components/books-components/ImageCarousel'; // Ajusta la ruta según tu estructura de proyecto
 import History from '@/components/tables/hystoryTable'; // Ajusta la ruta de importación según tu estructura de proyecto
+import { Heading3Icon } from 'lucide-react';
 
 
 
@@ -102,14 +103,17 @@ const sanitizedHistoryData = element.history.map(histItem => ({
   return (
     <>
       {/* <NavBar domain="www.wiki-science.com/" menuPath='./NavigationMenu' /> */}
-      <main style={{ marginTop: '9rem' }}>
+      <main style={{ marginTop: '9rem' }} className='lg:pt-60'>
         <h1>{element.name} ({element.symbol})</h1>
         {/* {images.length > 0 && <ImageCarousel images={images} />} */}
-        <LocalContextLinks links={links} />
+        {/* <LocalContextLinks links={links} /> */}
         <p><strong>Atomic Number:</strong> {element.atomicNumber}</p>
         <p><strong>Atomic Weight:</strong> {element.atomicWeight}</p>
         <p><strong>Appearance:</strong> {element.appearance}</p>
-        <p><strong>General Description:</strong> {element.description}</p>
+        <p className='text-lg'> {element.description}</p>
+
+
+<div>
 
         {/* Discovery Year, Melting and Boiling Points, Density, and Appearance */}
         <section id="1-physical-properties">
@@ -132,10 +136,10 @@ const sanitizedHistoryData = element.history.map(histItem => ({
 
         <section id="2-chemical-properties">
             <h2>2. Chemical Properties</h2>
-            <p><strong>Reactivity:</strong> {element.chemicalProperties?.reactivity || 'N/A'}</p>
+            <p><strong className='dark:text-[#ff7979]'>Reactivity:</strong> {element.chemicalProperties?.reactivity || 'N/A'}</p>
             <p><strong>Common Oxidation States:</strong> {element.chemicalProperties?.commonOxidationStates || 'N/A'}</p>
             <p><strong>Standard Reduction Potential:</strong> {element.chemicalProperties?.standardReductionPotential || 'N/A'}</p>
-            <p><strong>Description:</strong> {element.chemicalProperties?.description || 'N/A'}</p>
+            <p> {element.chemicalProperties?.description || 'N/A'}</p>
         </section>
 
 
@@ -148,8 +152,8 @@ const sanitizedHistoryData = element.history.map(histItem => ({
 
         <section id="4-natural-occurrence">
           <h2>4. Natural Occurrence</h2>
-          <p><strong>Type:</strong> {element.naturalOccurrence?.occurrenceType}</p>
-          <p><strong>Description:</strong> {element.naturalOccurrence?.description}</p>
+          <h3>{element.naturalOccurrence?.occurrenceType}  </h3>
+          <p>z{element.naturalOccurrence?.description}</p>
         </section>
 
 
@@ -159,8 +163,8 @@ const sanitizedHistoryData = element.history.map(histItem => ({
           <h2>5. Classifications</h2>
           {element.classifications.map((cls, index) => (
             <div key={index}>
-              <p><strong>Classification:</strong> {cls.classification}</p>
-              <p><strong>Description:</strong> {cls.description}</p>
+              <p><strong className='text-lg text-accent2'>{cls.classification}</strong> </p>
+              <p> {cls.description}</p>
             </div>
           ))}
         </section>
@@ -185,7 +189,7 @@ const sanitizedHistoryData = element.history.map(histItem => ({
         <section id="7-electron-configuration">
           <h2>7. Electron Configuration</h2>
           <p>{element.electronConfig?.configuration}</p>
-          <p><strong>Description:</strong> {element.electronConfig?.description}</p>
+          <p> {element.electronConfig?.description}</p>
         </section>
 
 
@@ -194,7 +198,7 @@ const sanitizedHistoryData = element.history.map(histItem => ({
           <h2>8. Crystal Structures</h2>
           {element.crystalStructures.map((structure, index) => (
             <div key={index}>
-              <p><strong>Type:</strong> {structure?.type}</p>
+              <p className='text-[#1c6e1c] dark:text-[#ffd6f2]'>{structure?.type}</p>
               <p><strong>Temperature:</strong> {structure?.temperature} K</p>
               <p><strong>Description:</strong> {structure?.description}</p>
             </div>
@@ -204,9 +208,9 @@ const sanitizedHistoryData = element.history.map(histItem => ({
         <section id="9-allotropes">
           <h2>9. Allotropes</h2>
           {element.allotropes.map((allotrope, index) => (
-            <div key={index}>
-              <p><strong>Name:</strong> {allotrope?.name}</p>
-              <p><strong>Description:</strong> {allotrope?.description}</p>
+            <div className='border border-black dark:border-white/20 rounded-3xl py-4   my-12 px-7 pb-9 mx-4 md:mx-auto min-h-[17rem] max-w-[32rem]  flex flex-col justify-center'  key={index}>
+              <h3 className='text-lg'>{allotrope?.name} </h3>
+              <p> {allotrope?.description}</p>
             </div>
           ))}
         </section>
@@ -214,15 +218,17 @@ const sanitizedHistoryData = element.history.map(histItem => ({
 
         <section id="10-isotopes-abundances">
           <h2>10. Isotopes and Abundances</h2>
+            <div className=' lg:grid lg:grid-cols-2  gap-8 max-w-[55rem] mx-auto mt-16'  >
           {element.isotopes.map(isotope => (
-            <div key={isotope.isotopeNumber}>
-              <p><strong>Isotope Number:</strong> {isotope?.isotopeNumber}</p>
-              <p><strong>Abundance:</strong> {isotope?.abundance}%</p>
+              <div className='border rounded-3xl max-w-[24rem] px-12 py-10 mb-12 mx-auto' key={isotope.isotopeNumber}>
+              <h3> {isotope?.isotopeNumber}</h3>
+              <p><strong>Abundance:</strong> {isotope?.abundance}</p>
               <p><strong>Half Life:</strong> {isotope?.halfLife}</p>
               <p><strong>Decay Mode:</strong> {isotope?.decayMode}</p>
               <p><strong>Description:</strong> {isotope?.description}</p>
             </div>
           ))}
+              </div>
         </section>
 
 
@@ -231,7 +237,10 @@ const sanitizedHistoryData = element.history.map(histItem => ({
         <section id="11-oxidation-states">
           <h2>11. Oxidation States</h2>
           {element.oxidationStates.map(state => (
-            <p key={state?.state}>{state?.state}: {state?.description}</p>
+            <div key={state.state}>
+              <p className='mt-8 -mb-3'> <strong>{state?.state}</strong></p>
+              <p>{state?.description}</p>
+            </div>
           ))}
         </section>
 
@@ -239,9 +248,9 @@ const sanitizedHistoryData = element.history.map(histItem => ({
         <section id="12-compounds">
           <h2>12. Compounds</h2>
           {element.compounds.map((compound, index) => (
-            <div key={index}>
-              <p><strong>Name:</strong> {compound?.name}</p>
-              <p><strong>Formula:</strong> {compound?.formula}</p>
+            <div className='mt-16' key={index}>
+              <h3>{compound?.name} </h3>
+              <p><strong>{compound?.formula}</strong> </p>
               <p><strong>Description:</strong> {compound?.description}</p>
             </div>
           ))}
@@ -301,9 +310,9 @@ const sanitizedHistoryData = element.history.map(histItem => ({
         <section id="17-practical-applications">
           <h2>17. Practical Applications</h2>
           {element.practicalApplications.map(app => (
-            <div key={app.application}>
-              <p><strong>Application:</strong> {app?.application}</p>
-              <p><strong>Description:</strong> {app?.description}</p>
+            <div className='mt-12' key={app.application}>
+              <h3>{app?.application} </h3>
+              <p> {app?.description}</p>
             </div>
           ))}
         </section>
@@ -312,14 +321,14 @@ const sanitizedHistoryData = element.history.map(histItem => ({
         {/* Biological Role */}
         <section id="18-biological-role">
           <h2>18. Biological Role</h2>
-          <p><strong>Role:</strong> {element.biologicalRole?.role}</p>
-          <p><strong>Description:</strong> {element.biologicalRole?.description}</p>
+          <h3>{element.biologicalRole?.role}</h3>
+          <p> {element.biologicalRole?.description}</p>
         </section>
 
 
         <section id="19-health-environmental-impact">
           <h2>19. Health and Environmental Impact</h2>
-          <p><strong>Health Impact:</strong> {element.healthEnvironmentalImpact?.healthImpact}</p>
+          <p><span className='font-semibold text-[#ff6262]'>{element.healthEnvironmentalImpact?.healthImpact}</span> </p>
           <p><strong>Environmental Impact:</strong> {element.healthEnvironmentalImpact?.environmentalImpact}</p>
         </section>
 
@@ -362,8 +371,8 @@ const sanitizedHistoryData = element.history.map(histItem => ({
         <section id="23-future-predictions">
           <h2>23. Future Predictions</h2>
           {element.futurePredictions.map((prediction, index) => (
-            <div key={index}>
-              <p><strong>Prediction:</strong> {prediction.prediction}</p>
+            <div className='-scroll-mt-12' key={index}>
+              <h3>{prediction.prediction} </h3>
               <p><strong>Description:</strong> {prediction.description}</p>
             </div>
           ))}
@@ -376,8 +385,8 @@ const sanitizedHistoryData = element.history.map(histItem => ({
             {element.interdisciplinaryConnections ? (
                 Object.entries(element.interdisciplinaryConnections).map(([key, description], index) => (
                     <div key={index}>
-                        <p><strong>Title:</strong> {key.replace(/([A-Z])/g, ' $1').trim()}</p> {/* This will format the key to add spaces before any capital letters */}
-                        <p><strong>Description:</strong> {description}</p>
+                        <p><strong>{key}</strong> </p> {/* This will format the key to add spaces before any capital letters */}
+                        <p><strong> </strong> {description}</p>
                     </div>
                 ))
             ) : (
@@ -401,8 +410,8 @@ const sanitizedHistoryData = element.history.map(histItem => ({
           <h2>26. User Interactions</h2>
           {element.userInteractions && element.userInteractions.map((interaction, index) => (
             <div key={index}>
-              <p><strong>Contribution:</strong> {interaction?.contribution}</p>
-              <p><strong>Question:</strong> {interaction?.question}</p>
+              {/* <p><strong></strong> {interaction?.contribution}</p> */}
+              <p><strong></strong> {interaction?.question}</p>
               <p><strong>Discussion:</strong> {interaction?.discussion}</p>
             </div>
           ))}
@@ -426,6 +435,7 @@ const sanitizedHistoryData = element.history.map(histItem => ({
           <p><strong>Health Hazards:</strong> {element.environmentalSafety?.healthHazards}</p>
           <p><strong>Safety Precautions:</strong> {element.environmentalSafety?.safetyPrecautions}</p>
         </section>
+</div>
 
 
         <ScrollTopButton />

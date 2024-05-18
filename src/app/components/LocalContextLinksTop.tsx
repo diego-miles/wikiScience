@@ -95,7 +95,7 @@ const LocalContextLinks: React.FC<LocalContextLinksProps> = ({ links }) => {
     <>
       {!dropdownActive && (
         <div
-          className={`flex overflow-x-auto items-center fixed top-0 left-0 right-0 gap-2 py-[3rem] px-4 pt-[8rem] lg:pt-40 bg-background1 z-10 whitespace-nowrap dark:bg-background1dark ${styles.dropdownScrollContainer}`}
+          className={`flex overflow-x-auto items-center fixed top-0 left-0 right-0 gap-2 py-[3rem] px-4 pt-[8rem] lg:pt-40 bg-background1 z-10 whitespace-nowrap dark:bg-background1dark   ${styles.dropdownScrollContainer}`}
           style={{ display: isVisible ? 'flex' : 'none' }}
           ref={scrollContainerRef}
         >
@@ -103,7 +103,7 @@ const LocalContextLinks: React.FC<LocalContextLinksProps> = ({ links }) => {
             <a
               key={index}
               href={`#${link.id}`}
-              className={styles.linkText}
+              className={`dark:text-[#ffeef9] ${styles.linkText}`}
               onClick={(e) => {
                 e.preventDefault();
                 smoothScroll(link.id);
