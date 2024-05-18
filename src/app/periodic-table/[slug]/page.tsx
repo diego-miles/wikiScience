@@ -113,7 +113,7 @@ const sanitizedHistoryData = element.history.map(histItem => ({
         <p className='text-lg'> {element.description}</p>
 
 
-<div>
+<div className='lg:grid lg:grid-cols-2 gap-x-24 lg:px-12'>
 
         {/* Discovery Year, Melting and Boiling Points, Density, and Appearance */}
         <section id="1-physical-properties">
@@ -153,7 +153,7 @@ const sanitizedHistoryData = element.history.map(histItem => ({
         <section id="4-natural-occurrence">
           <h2>4. Natural Occurrence</h2>
           <h3>{element.naturalOccurrence?.occurrenceType}  </h3>
-          <p>z{element.naturalOccurrence?.description}</p>
+          <p>{element.naturalOccurrence?.description}</p>
         </section>
 
 
@@ -251,7 +251,7 @@ const sanitizedHistoryData = element.history.map(histItem => ({
             <div className='mt-16' key={index}>
               <h3>{compound?.name} </h3>
               <p><strong>{compound?.formula}</strong> </p>
-              <p><strong>Description:</strong> {compound?.description}</p>
+              <p><strong></strong> {compound?.description}</p>
             </div>
           ))}
         </section>

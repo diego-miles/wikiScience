@@ -172,7 +172,7 @@ main {
 
 section {
   @apply dark:text-[#3698d9];
-  text-align: center;
+  text-align: left;
   width: 100%;
 }
 
@@ -209,7 +209,7 @@ p {
   color: var(--color-p);
   padding-bottom: 1.2rem;
   line-height: 1.5;
-  text-wrap: balance;
+  /* text-wrap: balance; */
 }
 
 .p2 {
@@ -219,7 +219,7 @@ p {
 
 
 h1 {
-  @apply dark:text-[#ffeafc];
+  @apply dark:text-[#ffefe3];
   font-family: var(--font-noto-serif-georgian);
   font-size: var(--font-size-h1);
   font-weight: 900;
