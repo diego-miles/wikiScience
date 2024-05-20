@@ -61,7 +61,7 @@ const PeriodicTable: React.FC = () => {
   };
 
 
-  
+
 
   const renderElement = (element: Element) => {
     const { row, col } = getElementPosition(element.period, element.group, element.atomicNumber);
@@ -75,8 +75,8 @@ const PeriodicTable: React.FC = () => {
       zIndex: 1, // Ensure hovered element is on top
     };
     return (
-      <div 
-        className={`grid-item m-[.1rem] rounded-lg  py-2 w-[7.4rem]
+      <div
+        className={`grid-item m-[.1rem] rounded-lg  py-2 w-[6.5rem]
           text-center relative group transition-transform duration-300 ease-in-out
           ${getBackgroundColor(element.family)}`}
         style={style}
@@ -92,9 +92,9 @@ const PeriodicTable: React.FC = () => {
         <Link href={`/periodic-table/${element.name.toLowerCase()}`} className='hover:no-underline' passHref key={element.atomicNumber}>
           <div className="flex flex-col items-center">
             {/* Configuración electrónica en la parte superior */}
-            <span className="text-[.9rem]  min-h-8 text-white dark:text-white tracking-wider font-thin">{element.electronicConfiguration}</span> 
-            <span className="text-lg font-black text-black block dark:text-black -mb-2 ">{element.symbol}</span>
-            <span className="text-[1rem] font-bold text-black dark:text-black block hover:no-underline'">{element.name}</span>
+            <span className="text-[.9rem]  min-h-8 text-white dark:text-white tracking-wider font-thin">{element.electronicConfiguration}</span>
+            <span className=" font-black text-sm text-black block dark:text-black -mb-2 ">{element.symbol}</span>
+            <span className="text-[.9rem] font-semibold text-black dark:text-black block hover:no-underline'">{element.name}</span>
             <span className="text-2xs text-gray-200 block dark:text-gray-200">{element.atomicNumber}</span>
           </div>
         </Link>
@@ -102,7 +102,7 @@ const PeriodicTable: React.FC = () => {
     );
   };
 
-  
+
 
   return (
     <div className="mx-auto w-fit py-12 px-4">
