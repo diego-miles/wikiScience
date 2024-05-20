@@ -37,8 +37,7 @@ export default async function ContextHoverCard({ buttonText, children, questionM
                 <h4 className="">{buttonText}</h4>
                 <div className="">
                   {contextData?.definition.map((parag) => (<p key={parag}>{parag}</p>))}
-                  <p className="text-sm"></p>
-                  <CalendarDays className="mr-2 h-4 w-4 opacity-70" />{" "}
+                  {/* <CalendarDays className="mr-2 h-4 w-4 opacity-70" />{" "} */}
                   <span className="text-xs text-muted-foreground">
                     {/* Joined {contextData.joinedDate} */}
                   </span>

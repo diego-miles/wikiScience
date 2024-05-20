@@ -60,7 +60,10 @@ const PeriodicTable: React.FC = () => {
     }
   };
 
-
+const formatElectronicConfiguration = (config: string) => {
+  // Usar una expresión regular para encontrar los números al final de las subconfiguraciones y envolverlos en etiquetas <sup>
+  return config.replace(/(\d)(?=\s|$)/g, '<sup>$1</sup>');
+};
 
 
   const renderElement = (element: Element) => {
@@ -92,7 +95,10 @@ const PeriodicTable: React.FC = () => {
         <Link href={`/periodic-table/${element.name.toLowerCase()}`} className='hover:no-underline' passHref key={element.atomicNumber}>
           <div className="flex flex-col items-center">
             {/* Configuración electrónica en la parte superior */}
-            <span className="text-[.9rem]  min-h-8 text-white dark:text-white tracking-wider font-thin">{element.electronicConfiguration}</span>
+      <span
+        className="text-[.9rem]  min-h-8 text-white dark:text-white tracking-wider font-thin"
+        dangerouslySetInnerHTML={{ __html: formatElectronicConfiguration(element.electronicConfiguration) }}
+      />
             <span className=" font-black text-sm text-black block dark:text-black -mb-2 ">{element.symbol}</span>
             <span className="text-[.9rem] font-semibold text-black dark:text-black block hover:no-underline'">{element.name}</span>
             <span className="text-2xs text-gray-200 block dark:text-gray-200">{element.atomicNumber}</span>

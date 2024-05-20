@@ -19,30 +19,33 @@ const HydrogenElement = () => {
 
   return (
     <div
-      className={`relative top-[6rem] left-[40rem] xl:left-[35rem] flex`}
+      className={`relative top-[6rem] left-[40.5rem] xl:left-[35rem] flex`}
     >
       {/* Columna izquierda */}
-      <div className="text-right pt-[3rem] -mr-[.2rem]">
-        <span className="pb-1 left-[19.3rem] border-sky-400 top-0 absolute text-dark font-medium dark:text-gray-100 block mt-1   border-b-[.3rem] px-3 text-xs">Electronic Configuration</span>
+      <div className="text-right pt-[3rem] ">
+        <span className="pb-1 left-[17.2rem] border-sky-400 top-0 absolute text-dark font-medium dark:text-gray-100 block mt-1   border-b-2 px-3 text-2xs">Electronic Configuration</span>
         <div>
-        <span className="  text-dark dark:text-gray-100   border-b-[.3rem] px-3 inline-block border-sky-400 font-medium text-xs">Symbol</span>
+        <span className="  text-dark dark:text-gray-100   border-b-2 px-3 inline-block border-sky-400 font-medium text-2xs">Symbol</span>
         </div>
         <div>
-        <span className="  text-dark dark:text-gray-100 inline-block mt-1   border-b-[.3rem] border-sky-400 px-3 font-medium text-xs" >Name</span>
+        <span className="  text-dark dark:text-gray-100 inline-block mt-2   border-b-[.2rem] border-sky-400 px-3 font-medium text-2xs" >Name</span>
         </div>
-        <span className="  text-dark dark:text-gray-100 inline-block mt-1   border-b-[.3rem] border-sky-400 px-3 font-medium text-xs">Atomic Number</span>
+        <span className="  text-dark dark:text-gray-100 inline-block mt-2   border-b-2 border-sky-400 px-3 font-medium text-2xs">Atomic Number</span>
       </div>
       
       {/* Columna derecha */}
       <div>
-          <div className="border-4 border-sky-400 rounded-lg px-4 py-3">
+          <div className="border-2 border-sky-400 rounded-lg px-4 py-4 min-w-32">
             {/* Configuración electrónica en la parte superior */}
             <span className="text-[.9rem] min-h-8 text-dark dark:text-white tracking-wider ">{hydrogenData.electronicConfiguration}</span>
-            <span className="text-xl font-black text-dark dark:text-white block -mb-1 ">{hydrogenData.symbol}</span>
-            <span className="text-[1.3rem] text-dark font-bold dark:text-white block py-1 pb-2">{hydrogenData.name}</span>
+            <span className="text-base font-black text-dark dark:text-white block -mb-1 ">{hydrogenData.symbol}</span>
+            <span className="text-[1.2rem] text-dark font-bold dark:text-white block py-1 pb-2">{hydrogenData.name}</span>
             <span className="text-dark dark:text-white block">{hydrogenData.atomicNumber}</span>
           </div>
       </div>
+      {/* <div className='absolute top-60'>
+        <p>[He] = 2s <sup>2</sup></p>
+      </div> */}
     </div>
   );
 };
