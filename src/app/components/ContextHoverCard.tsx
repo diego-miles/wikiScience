@@ -11,7 +11,7 @@ import {
 import { Suspense } from 'react';
 import { generateSlug } from "@/utils/slugGenerator";
 import {getContext} from './ContextGetData';
-
+import QuestionMark from '@/components/QuestionMark'
 
 interface ContextData {
   description: string;
@@ -27,9 +27,13 @@ export default async function ContextHoverCard({ buttonText }: ContextHoverCardP
 
 
   return (
+    <div>
+
+
     <HoverCard>
       <HoverCardTrigger asChild>
-        <Button variant="link">{buttonText}</Button>
+        <Button variant="link">{buttonText}         <QuestionMark color='#ffffff' ></QuestionMark>
+</Button>
       </HoverCardTrigger>
       <Suspense fallback={<p>Loading feed...</p>}>
         <HoverCardContent className="lg:min-w-[50rem] bg-background1 dark:bg-background1dark px-10 rounded-3xl border-4">
@@ -50,6 +54,8 @@ export default async function ContextHoverCard({ buttonText }: ContextHoverCardP
         </HoverCardContent>
       </Suspense>
     </HoverCard>
+        </div>
+
   );
 }
 

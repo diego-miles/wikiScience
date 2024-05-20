@@ -9,16 +9,16 @@ interface ChemicalFamily {
 }
 
 const chemicalFamilies: ChemicalFamily[] = [
-  { name: 'Alkali Metal', color: 'alkali-metal' },
-  { name: 'Alkali Earth', color: 'alkali-earth' },
-  { name: 'Transition Metal', color: 'transition-metal' },
+  { name: 'Alkali Metals', color: 'alkali-metal' },
+  { name: 'Alkali earth metals', color: 'alkali-earth' },
+  { name: 'Transition Metals', color: 'transition-metal' },
   { name: 'Post Transition Metal', color: 'post-transition-metal' },
   { name: 'Metalloids', color: 'metalloids' },
   { name: 'Non-Metals', color: 'non-metals' },
   { name: 'Halogens', color: 'halogens' },
   // { name: 'Noble Gases', color: 'noble-gases' },
   { name: 'Lanthanides', color: 'lanthanide' },
-  { name: 'Noble Gas', color: 'noble-gas' },
+  { name: 'Noble Gases', color: 'noble-gas' },
   { name: 'Actinide', color: 'actinide' },
 ];
 
@@ -29,9 +29,9 @@ const ChemicalFamilies: React.FC = () => {
         
         <div
           key={index}
-          className={`flex items-center justify-center py-4 px-2 shadow-xl  rounded-sm text-white font-medium min-w-[11rem] text-[1.2rem]  bg-${family.color} `}
+          className={`flex items-center justify-center py-4 px-2 shadow-xl  rounded-sm text-white font-medium min-w-[11rem] w-fit text-[1.2rem]  bg-${family.color} `}
         >
-      <ContextHoverCard buttonText={family.name}/>
+      <ContextHoverCard  buttonText={family.name}/>
 
       {/* <p  className='text-sm'>{family.name}</p> */}
         </div>

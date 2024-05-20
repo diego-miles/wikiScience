@@ -6,7 +6,7 @@
  * @returns The generated URL slug.
  */
 export const generateSlug = (title: string): string => {
-  return title.replace(/\s+/g, '-').toLowerCase();
+  return title.replace(/\s+/g, '_').toLowerCase();
 };
 
 /**
