@@ -23,7 +23,7 @@ const HydrogenElement = () => {
     >
       {/* Columna izquierda */}
       <div className="text-right pt-[3rem] -mr-[.2rem]">
-        <span className="pb-1 left-[20.2rem] border-sky-400 top-0 absolute text-dark font-medium dark:text-gray-100 block mt-1   border-b-[.3rem] px-3 text-xs">Electronic Configuration</span>
+        <span className="pb-1 left-[19.3rem] border-sky-400 top-0 absolute text-dark font-medium dark:text-gray-100 block mt-1   border-b-[.3rem] px-3 text-xs">Electronic Configuration</span>
         <div>
         <span className="  text-dark dark:text-gray-100   border-b-[.3rem] px-3 inline-block border-sky-400 font-medium text-xs">Symbol</span>
         </div>

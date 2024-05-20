@@ -31,7 +31,7 @@ const PeriodicTable: React.FC = () => {
         return 'bg-lanthanide';
       case 'Post-transition metal':
         return 'bg-post-transition-metal';
-      case 'Actinide':
+      case 'Actinides':
         return 'bg-actinide';
       case 'Metalloid':
         return 'bg-metalloids';

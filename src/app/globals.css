@@ -220,7 +220,7 @@ p {
 
 
 h1 {
-  @apply dark:text-[#c9e9ff];
+  @apply dark:text-[#d5f3ff];
   font-family: var(--font-noto-serif-georgian);
   font-size: var(--font-size-h1);
   font-weight: 900;

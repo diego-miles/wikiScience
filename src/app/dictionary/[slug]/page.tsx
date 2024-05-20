@@ -96,8 +96,8 @@ const WordPage: React.FC<WordPageProps> = async ({ params: { slug } }) => {
 
           {wordData.definitions && (
 
-            <div >
-              <h2 className="py-2 pt-6 text-center">Definitions</h2>
+            <div className='text-center' >
+              <h2 className="py-2 pt-6">Definitions</h2>
               <div className={`w-fit mx-auto ${childrenCount > 1 ? 'md:grid lg:grid-cols-2 gap-16' : 'flex justify-center'}`}>
 
                 {wordData.definitions.map((definition, index) => (
@@ -111,8 +111,8 @@ const WordPage: React.FC<WordPageProps> = async ({ params: { slug } }) => {
 
                     {definition.meaning && (
                       <h2 className="font-semibold pt-0 text-[1.8rem] min-h-32 ">
-                        <span className='px-4  text-black'>{'"'}{definition.meaning}
-                        </span>
+                        <strong className='px-4  text-black'>{'"'}{definition.meaning}
+                        </strong>
                         <span className='font-serif  text-black'>{'"'}</span></h2>
                     )}
 

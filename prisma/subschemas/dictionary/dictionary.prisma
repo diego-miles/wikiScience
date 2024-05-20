@@ -1,3 +1,18 @@
+model ContextDefinition {
+  id          String    @id @map("_id") @db.ObjectId
+  concept     String    
+  formula     String?    
+  definition  String[]
+  types        ContextDefinitionType[]
+  slug        String    @unique
+}
+
+type ContextDefinitionType {
+  type        String?
+  description        String?
+  formula        String?
+}
+
 
 model Word {
   id          String    @id @map("_id") @db.ObjectId

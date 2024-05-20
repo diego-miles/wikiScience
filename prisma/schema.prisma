@@ -1,4 +1,4 @@
-//🧩Don't Edit this file.✨Generated in Tue May 14 2024 19:19:21 GMT-0600 (Central Standard Time)✨
+//🧩Don't Edit this file.✨Generated in Sun May 19 2024 19:16:14 GMT-0600 (Central Standard Time)✨
 
 datasource db {
   provider = "mongodb"
@@ -86,6 +86,21 @@ model subFieldRecommendation {
   @@map("subfieldsRecommendation")
 }
 
+model ContextDefinition {
+  id         String                  @id @map("_id") @db.ObjectId
+  concept    String
+  formula    String?
+  definition String[]
+  types      ContextDefinitionType[]
+  slug       String                  @unique
+}
+
+type ContextDefinitionType {
+  type        String?
+  description String?
+  formula     String?
+}
+
 model Word {
   id                     String                   @id @map("_id") @db.ObjectId
   word                   String
@@ -135,10 +150,13 @@ type Source {
   author                          String? // Last name, First initial. Middle initial (if applicable) 
   publicationYearDate             String? // Year of publication
   title                           String
-  url                             String? // Include DOI if available
+  url                             String?
   sourceType                      String? // Book, Journal Article, Website, etc. (use controlled vocabulary) 
   // Book-Specific Fields
+  isbn                            String?
+  doi                             String?
   bookEdition                     String?
+  bookChapter                     String?
   publisher                       String?
   placeOfPublication              String?
   // Journal Article-Specific Fields
