@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import elementsData from '@/data/elementsData.json';
 import Link from 'next/link';
+// import ContextHoverCard from '@/components/ContextHoverCard'
 
 
 interface Element {

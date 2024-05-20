@@ -29,7 +29,17 @@ const config = {
       },
     },
     extend: {
-      fontFamily: {
+      //      animation: {
+      //   'fade-in-0': 'fade-in 0.05s ease-out',
+      //   'fade-out-0': 'fade-out 0.05s ease-out',
+      //   'zoom-in-0': 'zoom-in 0.05s ease-out',
+      //   'zoom-out-0': 'zoom-out 0.05s ease-out',
+      //   'slide-in-from-top-0': 'slide-in-from-top 0.05s ease-out',
+      //   'slide-in-from-right-0': 'slide-in-from-right 0.05s ease-out',
+      //   'slide-in-from-bottom-0': 'slide-in-from-bottom 0.05s ease-out',
+      //   'slide-in-from-left-0': 'slide-in-from-left 0.05s ease-out',
+      // }, 
+            fontFamily: {
         sans: ["var(--font-noto-sans-georgian)", ...fontFamily.sans],
         serif: ["var(--font-noto-serif-georgian)", ...fontFamily.serif],
         mono: ["var(--font-ibm-plex-mono)", ...fontFamily.serif],

@@ -6,7 +6,6 @@ const LoadingPage = () => {
         alignItems: 'center',
         justifyContent: 'center',
         height: '100vh',
-        backgroundColor: '#f4f6f6',
     };
 
     const animationStyle = {
@@ -19,8 +18,8 @@ const LoadingPage = () => {
     };
 
     return (
-        <div className='dark:bg-background1dark'  style={containerStyle}>
-            <div className='dark:bg-background1dark' style={animationStyle}></div>
+        <div className=''  style={containerStyle}>
+            <div className='' style={animationStyle}></div>
         </div>
     );
 };

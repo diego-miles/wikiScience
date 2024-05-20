@@ -2,13 +2,9 @@ import React from 'react';
 import { PrismaClient } from '@prisma/client';
 import {ChemicalElement} from '@prisma/client';
 import { unstable_cache } from 'next/cache';
-import NavBar from '@/components/navigation/NavbarContainer';
 import ScrollTopButton from '@/components/ScrollTopButton';
 import { notFound } from 'next/navigation';
-import LocalContextLinks from '@/components/LocalContextLinksTop'; // Import the component
-import ImageCarousel from '@/components/books-components/ImageCarousel'; // Ajusta la ruta según tu estructura de proyecto
 import History from '@/components/tables/hystoryTable'; // Ajusta la ruta de importación según tu estructura de proyecto
-import { Heading3Icon } from 'lucide-react';
 
 
 
