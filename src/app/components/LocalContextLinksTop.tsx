@@ -103,7 +103,7 @@ const LocalContextLinks: React.FC<LocalContextLinksProps> = ({ links }) => {
             <a
               key={index}
               href={`#${link.id}`}
-              className={`dark:text-[#ffeef9] ${styles.linkText}`}
+              className={`dark:text-[#eefaff] ${styles.linkText}`}
               onClick={(e) => {
                 e.preventDefault();
                 smoothScroll(link.id);

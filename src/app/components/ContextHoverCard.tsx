@@ -1,51 +1,82 @@
-import { CalendarDays } from "lucide-react";
+"use client"
 import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card";
-import { Suspense } from 'react';
-import { generateSlug } from "@/utils/slugGenerator";
-import { getContext } from './ContextGetData';
+import { useState, useEffect } from 'react';
 import QuestionMark from '@/components/QuestionMark';
+import { generateSlug } from '@/utils/slugGenerator';
+import {ContextDefinition} from '@prisma/client'
 
-interface ContextData {
-  description: string;
-  joinedDate: string;
-}
 
 interface ContextHoverCardProps {
-  buttonText?: string;
+  buttonText: string;
   children: React.ReactNode;
   questionMarkColor?: string;
 }
 
-export default async function ContextHoverCard({ buttonText, children, questionMarkColor }: ContextHoverCardProps) {
-  const contextData = await getContext(generateSlug(buttonText || ""));
+export default function ContextHoverCard({ buttonText, children, questionMarkColor }: ContextHoverCardProps) {
+  const [isHovered, setIsHovered] = useState(false);
+  const [contextData, setContextData] = useState<ContextDefinition | null>(null);
+  const slug = generateSlug(buttonText);
+
+  useEffect(():void => {
+    
+  }, [])
+
+  const fetchData = async () => {
+    try {
+      const response = await fetch(`/api/context/${slug}`);
+    
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      const data = await response.json();
+      console.log('Context data fetched:', data);
+      setContextData(data);
+    } catch (error) {
+      console.error('Error fetching context:', error);
+    }
+  };
+
+  const handleMouseEnter = () => {
+    setIsHovered(true);
+    fetchData();
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovered(false);
+  };
 
   return (
-    <div>
+    <div className="cursor-pointer">
       <HoverCard>
-        <HoverCardTrigger asChild>
-          <div className="relative  ">
+        <HoverCardTrigger
+          asChild
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+        >
+          <div className="relative w-fit mr-4 h-fit">
             {children}
-            <div className="absolute -top-1 -right-[.1rem]">
-            {  <QuestionMark  color={questionMarkColor} />}
+            <div className="absolute -top-[.1rem] -right-[.8rem]">
+              <QuestionMark color={questionMarkColor} />
             </div>
           </div>
         </HoverCardTrigger>
-        <Suspense fallback={<p>Loading feed...</p>}>
-          <HoverCardContent className="w-[36rem] lg:min-w-[50rem] bg-background1 dark:bg-background1dark px-10 rounded-3xl border-4 ">
+        {isHovered &&   (
+          <HoverCardContent className="w-[36rem] lg:min-w-[50rem] bg-background1 dark:bg-background1dark px-10 rounded-3xl border-4">
             <div className="scroll-auto">
               <div className="space-y-1">
-                <h4 className="">{buttonText}</h4>
-                <div className="">
-                  {contextData?.definition.map((parag) => (<p key={parag}>{parag}</p>))}
-                  {/* <CalendarDays className="mr-2 h-4 w-4 opacity-70" />{" "} */}
-                  <span className="text-xs text-muted-foreground">
-                    {/* Joined {contextData.joinedDate} */}
-                  </span>
+                <h4>{buttonText}</h4>
+                <div>
+                  {contextData?.definition.map((parag, index) => (
+                    <p key={index}>{parag}</p>
+                  ))}
+                  {/* <span className="text-xs text-muted-foreground">
+                    Joined Date: {contextData.formula}
+                  </span> */}
                 </div>
               </div>
             </div>
           </HoverCardContent>
-        </Suspense>
+        )}
       </HoverCard>
     </div>
   );

@@ -3,6 +3,9 @@ import Link from 'next/link';
 import ContextHoverCard  from '@/components/ContextHoverCard';
 import {generateSlug} from '@/utils/slugGenerator'
 import { Button } from "@/components/ui/button"
+import dynamic from 'next/dynamic';
+
+
 
 interface ChemicalFamily {
   name: string;
@@ -34,7 +37,7 @@ const ChemicalFamilies: React.FC = () => {
         >
       {/* <ContextHoverCard  buttonText={family.name}> */}
 <ContextHoverCard buttonText={family.name} questionMarkColor="#ffffff">
-      <Button  variant="link" className=' text-xs w-fit leading-tight'>{family.name}</Button>
+      <Button  variant="link" className=' text-xs w-fit leading-tight pl-2'>{family.name}</Button>
 </ContextHoverCard>
 
         </div>
