@@ -1,10 +1,10 @@
 import React from 'react';
 import Link from 'next/link';
-import ContextHoverCard  from '@/components/ContextHoverCard';
+// import ContextHoverCard  from '@/components/ContextHoverCard';
 import {generateSlug} from '@/utils/slugGenerator'
 import { Button } from "@/components/ui/button"
 import dynamic from 'next/dynamic';
-
+  const ContextHoverCard = dynamic(() => import('@/components/ContextHoverCard'), { ssr: false });
 
 
 interface ChemicalFamily {
