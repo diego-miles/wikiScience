@@ -61,8 +61,8 @@ export default function ContextHoverCard({ buttonText, children, questionMarkCol
           </div>
         </HoverCardTrigger>
         {isHovered &&   (
-<HoverCardContent className="min-w-[20rem] max-w-40 lg:min-w-[70rem] bg-background1 dark:bg-background1dark px-10 rounded-3xl border-4">
-  <div className="max-h-[25rem] overflow-y-auto">
+<HoverCardContent className="min-w-[38rem] max-w-40 lg:min-w-[70rem] bg-background1 dark:bg-background1dark px-10 rounded-3xl border-4">
+  <div className="max-h-[28rem] overflow-y-auto">
     <div className="space-y-1">
       <h4>{buttonText}</h4>
       <div>
