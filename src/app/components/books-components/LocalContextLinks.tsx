@@ -31,7 +31,7 @@ const LocalContextLinks: React.FC<LocalContextLinksProps> = ({ links }) => {
   };
 
   return (
-  <div className="p-7 py-8 relative max-w-[40rem] mx-auto text-left rounded-3xl border-[1px] border-[#b3bbc0] dark:border-[#26657f] bg-background1 dark:bg-background1dark shadow-lg">  
+  <div className="p-7 py-8 relative max-w-[40rem] mx-auto text-left rounded-3xl border-[1px] border-[#b3bbc0] dark:border-[#26657f] bg-background1 dark:bg-background1dark">  
       {links.map((link, index) => (
         <div key={index} className="flex items-center px-2 pb-3 ">
           <div className={`${styles.arrow} animate`} />

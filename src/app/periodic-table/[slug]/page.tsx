@@ -63,10 +63,10 @@ const generateSectionHeader: GenerateSectionHeader = (
   buttonColor?,
 
 ) => (
-  <div>
+  <div className=' '>
     <ContextHoverCard buttonText={buttonText} questionMarkColor={buttonColor} >
       <Button variant="link">
-        <h2 className='mt-0 pt-0'>{title}</h2>
+        <h2 className='mt-0 pt-0  block'>{title}</h2>
       </Button>
     </ContextHoverCard>
   </div>
@@ -80,7 +80,7 @@ const generateStrong: GenerateStrong = (
   content,
   buttonColor?,
 ) => (
-  <div className='flex flex-wrap'>
+  <div className=' w-fit'>
     <ContextHoverCard buttonText={buttonText} questionMarkColor={buttonColor}>
       <Button variant="link">
         <strong className='text-base'>{content}</strong>
@@ -164,8 +164,19 @@ async function ElementPage({ params: { slug } }: ElementPageProps) {
         <section className='text-center'>
           {/* {images.length > 0 && <ImageCarousel images={images} />} */}
           {/* <LocalContextLinks links={links} /> */}
-          <p className=''><strong >Atomic Number:</strong> {element.atomicNumber}</p>
-          <p ><strong>Atomic Weight:</strong> {element.atomicWeight}</p>
+          <div className='w-fit mx-auto'>
+            <div className='flex flex-wrap'>
+                          {generateStrong("Atomic Number", "Atomic Number:")}
+            <p className=''> {element.atomicNumber}</p>
+            </div>
+          </div>
+          <div className='w-fit mx-auto'>
+            <div className='flex flex-wrap'>
+                          {generateStrong("Atomic Weight", "Atomic Weight:")}
+          <p > {element.atomicWeight}</p>
+            </div>
+          </div>
+
           <p ><strong>Appearance:</strong> {element.appearance}</p>
           <p className='text-lg max-w-[50rem] mx-auto'> {element.description}</p>
 
@@ -453,7 +464,7 @@ async function ElementPage({ params: { slug } }: ElementPageProps) {
 
 {element.magneticElectricalProperties && (
   <section id="13-magnetic-and-electrical-properties">
-    <div>
+    <div className='w-full'>
       {generateSectionHeader("Magnetic and Electrical Properties", "13. Magnetic and Electrical Properties")}
     </div>
     {generateStrong("Magnetic Susceptibility", "Magnetic Susceptibility:")}
@@ -532,9 +543,7 @@ async function ElementPage({ params: { slug } }: ElementPageProps) {
 </section>
 
 <section id="19-health-environmental-impact">
-  <div>
-    {generateSectionHeader("Health and Environmental Impact", "19. Health and Environmental Impact")}
-  </div>
+            <h2>19. Health and Environmental Impact</h2>
   {generateStrong("Health Impact", "Health Impact:")}
   <p><span className='font-semibold text-[#ff6262]'>{element.healthEnvironmentalImpact?.healthImpact || 'N/A'}</span></p>
   {generateStrong("Environmental Impact", "Environmental Impact:")}

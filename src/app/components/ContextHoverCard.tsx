@@ -46,12 +46,12 @@ export default function ContextHoverCard({ buttonText, children, questionMarkCol
   };
 
   return (
-    <div className="cursor-pointer">
+    <div className="cursor-pointer w-fit">
       <HoverCard>
         <HoverCardTrigger
           asChild
           onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
+          // onMouseLeave={handleMouseLeave}
         >
           <div className="relative w-fit mr-4 h-fit">
             {children}
@@ -61,21 +61,19 @@ export default function ContextHoverCard({ buttonText, children, questionMarkCol
           </div>
         </HoverCardTrigger>
         {isHovered &&   (
-          <HoverCardContent className="w-[36rem] lg:min-w-[50rem] bg-background1 dark:bg-background1dark px-10 rounded-3xl border-4">
-            <div className="scroll-auto">
-              <div className="space-y-1">
-                <h4>{buttonText}</h4>
-                <div>
-                  {contextData?.definition.map((parag, index) => (
-                    <p key={index}>{parag}</p>
-                  ))}
-                  {/* <span className="text-xs text-muted-foreground">
-                    Joined Date: {contextData.formula}
-                  </span> */}
-                </div>
-              </div>
-            </div>
-          </HoverCardContent>
+<HoverCardContent className="min-w-[20rem] max-w-40 lg:min-w-[70rem] bg-background1 dark:bg-background1dark px-10 rounded-3xl border-4">
+  <div className="max-h-[25rem] overflow-y-auto">
+    <div className="space-y-1">
+      <h4>{buttonText}</h4>
+      <div>
+        {contextData?.definition.map((parag, index) => (
+          <p key={index}>{parag}</p>
+        ))}
+      </div>
+    </div>
+  </div>
+</HoverCardContent>
+
         )}
       </HoverCard>
     </div>
