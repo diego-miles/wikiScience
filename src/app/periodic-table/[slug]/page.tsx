@@ -257,7 +257,7 @@ async function ElementPage({ params: { slug } }: ElementPageProps) {
           {/* Physical Properties */}
           <section id="2-physical-properties">
             <div>
-              {generateSectionHeader("Physical Properties", "1. Atomic Structure")}
+              {generateSectionHeader("Physical Properties", "1. Physical Properties")}
             </div>
             <div className='flex flex-wrap text-left'>
               {generateStrong("Melting Point", "Melting Point:")}
