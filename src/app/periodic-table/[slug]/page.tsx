@@ -347,7 +347,7 @@ async function ElementPage({ params: { slug } }: ElementPageProps) {
 
 <section id="4-discovery-and-history" className='mx-auto w-fit'>
   <div>
-    {generateSectionHeader("Discovery and History", "4. Discovery and History")}
+            <h2>4. Discovery and History</h2>
   </div>
   <History data={sanitizedHistoryData} />
 </section>
@@ -368,9 +368,7 @@ async function ElementPage({ params: { slug } }: ElementPageProps) {
   <div>
     {generateSectionHeader("Natural Occurrence", "6. Natural Occurrence")}
   </div>
-  {generateStrong("Occurrence Type", "Occurrence Type:")}
   <h3>{element.naturalOccurrence?.occurrenceType}  </h3>
-  {generateStrong("Description", "Description:")}
   <p>{element.naturalOccurrence?.description}</p>
 </section>
 
@@ -378,9 +376,7 @@ async function ElementPage({ params: { slug } }: ElementPageProps) {
   <div>
     {generateSectionHeader("Electron Configuration", "7. Electron Configuration")}
   </div>
-  {generateStrong("Configuration", "Configuration:")}
   <p>{element.electronConfig?.configuration}</p>
-  {generateStrong("Description", "Description:")}
   <p>{element.electronConfig?.description}</p>
 </section>
 
@@ -390,11 +386,9 @@ async function ElementPage({ params: { slug } }: ElementPageProps) {
   </div>
   {element.crystalStructures.map((structure, index) => (
     <div key={index}>
-{generateStrong("Type", "Type:")}
 <p>{structure?.type || 'N/A'}</p>
 {generateStrong("Temperature", "Temperature:")}
 <p>{structure?.temperature ? `${structure.temperature} K` : 'N/A'}</p>
-{generateStrong("Description", "Description:")}
 <p>{structure?.description || 'N/A'}</p>
 
     </div>
