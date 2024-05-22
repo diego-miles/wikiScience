@@ -14,6 +14,7 @@ import NavigationMenu from './NavigationMenu'
 const toSlug = (title: string): string => title.toLowerCase().replace(/\s+/g, '_');
 
 
+
 const MenuToggle: FC<{ onClick: () => void; isMenuVisible: boolean }> = ({ onClick, isMenuVisible }) => (
     <button className="bg-[url('/microscope.svg')] dark:bg-[url('/microscope-yellow.svg')] bg-no-repeat bg-contain h-[3.8rem] my-2" onClick={onClick} aria-label="Open menu">
         <div tabIndex={0} className={`${styles.iconWrapper} ${styles.crossIcon} ${isMenuVisible ? styles.crossIconOpen : styles.crossIconClosed}`}></div>
@@ -78,24 +79,25 @@ const NavBarContainer = memo(() => {
         transition: 'opacity 0.3s ease-in-out, transform 0.3s ease-in-out',
     };
 
+  const closeMenu = useCallback(() => {
+    setIsMenuVisible(false);
+  }, []);
+
+
+
     return (
     <div className="absolute w-full top-0 left-0 z-100  ">
         <div className={`fixed top-0 right-0 left-0 w-full max-w-[120rem] min-h-[5rem] mx-auto px-4 lg:py-3 bg-gray-100 dark:bg-background1dark shadow-md z-40 flex justify-end items-center content-end lg:rounded-b-xl  ${showNavbar ? '' : 'hidden'}`}>
-            {/* <Link href={'/'}>
-<figure className='py-4'>
-    <Image width={36} height={36} src={"/wiki-blue.svg"} unoptimized alt='' ></Image>
-</figure>
-            </Link> */}
             <div className='flex items-center pt-1'>
                 <div className='px-4 '>
                     <DarkModeTooggle></DarkModeTooggle>
                 </div>
-                <MenuToggle onClick={toggleMenu} isMenuVisible={isMenuVisible} />
+                <MenuToggle onClick={toggleMenu} isMenuVisible={isMenuVisible}  />
             </div>
 
             </div>
             <Suspense>
-                <NavigationMenu style={menuStyle} />
+                <NavigationMenu style={menuStyle} closeMenu={closeMenu}  />
             </Suspense>
         </div>
     );

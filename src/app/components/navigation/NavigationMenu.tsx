@@ -18,6 +18,7 @@ import chemicalElements from '@/data/elementsData.json'; // Importa la lista de 
 
 interface NavigationMenuProps {
   className?: string;
+  closeMenu: () => void; // Debes definir la función closeMenu aquí
   style?: React.CSSProperties;
 }
 
@@ -26,11 +27,18 @@ let slug = data
 
 
 
+
 const toSlug = (title: string) => {
   return title.toLowerCase().replace(/\s+/g, '_');
 };
 
-const NavigationMenu: React.FC<NavigationMenuProps> = ({ className, style }) => {
+const NavigationMenu: React.FC<NavigationMenuProps> = ({ style, closeMenu  }) => {
+
+  const handleClick = () => {
+    closeMenu(); // Cierra el menú cuando se hace clic en un enlace
+  };
+
+
 
   return (
     <div tabIndex={0} className=" dark:bg-background1dark fixed top-0 bottom-0 w-full z-30 pt-36 overflow-y-auto overflow-x-hidden bg-background1"  style={style}>
@@ -46,7 +54,7 @@ const NavigationMenu: React.FC<NavigationMenuProps> = ({ className, style }) => 
           <AccordionItem value="item-1"  >
             {/* <AccordionTrigger> */}
               <div className='py-10 mb-0 text-center text-base w-full  '>
-                <Link href={'/periodic-table'} className='text-h1  font-extrabold'>Periodic Table</Link></div>
+                <Link href={'/periodic-table'} onClick={handleClick} className='text-h1  font-extrabold'>Periodic Table</Link></div>
 
             {/* </AccordionTrigger> */}
             {/* <AccordionContent>
@@ -86,7 +94,7 @@ const NavigationMenu: React.FC<NavigationMenuProps> = ({ className, style }) => 
           {field.subFields.map((subField, sIdx) => (
             <ul key={sIdx}>
               <li className=" dark:text-h1 pb-2">
-                <Link href={`/top-science-books/${toSlug(subField.title)}`} className="font-semibold">
+                <Link onClick={handleClick} href={`/top-science-books/${toSlug(subField.title)}`} className="font-semibold">
                   <strong>
                   {subField.title}
                   </strong>
@@ -94,7 +102,7 @@ const NavigationMenu: React.FC<NavigationMenuProps> = ({ className, style }) => 
               </li>
               {subField.topics.map((topic, tIdx) => (
                 <li key={tIdx} className="pl-4  border-l-4 border-gray-300 pb-2">
-                  <Link href={`/top-science-books/${toSlug(subField.title)}/${toSlug(topic)}`} className="text-gray-700 dark:text-pdark hover:underline">
+                  <Link onClick={handleClick} href={`/top-science-books/${toSlug(subField.title)}/${toSlug(topic)}`} className="text-gray-700 dark:text-pdark hover:underline">
                     {topic}
                   </Link>
                 </li>
