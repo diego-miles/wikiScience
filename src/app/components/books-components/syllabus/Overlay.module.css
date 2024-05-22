@@ -40,7 +40,7 @@
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.2s ease, visibility 0.2s ease;
-    z-index: 10000;
+    z-index: 50;
 }
 
 .crossIconOpen {
@@ -50,19 +50,21 @@
 
 .crossIcon::before,
 .crossIcon::after {
+    z-index: 50;
     content: '';
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 3rem;
-    height: 0.5rem;
-    background-color: var(--color-accent1);
+    width: 3.5rem;
+    height: 0.7rem;
+    background-color: var(--color-accent-1);
     border-radius: 0.5rem;
     transition: transform 0.3s ease;
     transform: translate(-50%, -50%) rotate(0);
 }
 
 .crossIconOpen::before {
+    z-index: 50;
     transform: translate(-50%, -50%) rotate(45deg);
 }
 

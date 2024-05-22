@@ -31,7 +31,8 @@ const Overlay: React.FC<OverlayProps> = ({ isVisible, closeOverlay, syllabusData
 
   if (!isVisible) return null;
   return (
-    <div className={styles.overlayContainer} style={{ overflowY: 'auto' }}>
+<div className="fixed left-0 right-0 top-0 bottom-0 py-12 px-6 bg-background1 dark:bg-background1dark  overflow-y-auto z-40">
+
       <div className={styles.syllabusContent}>
         <figure className={styles.figureOverlay}>
           <Image

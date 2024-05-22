@@ -3,6 +3,7 @@ model ContextDefinition {
   concept     String    
   formula     String?    
   definition  String[]
+  references  String[]
   types        ContextDefinitionType[]
   slug        String    @unique
 }
