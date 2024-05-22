@@ -27,11 +27,11 @@ const HomePage: React.FC = () => {
   return (
     <div>
       <NavBar />
-      <main className="flex min-h-screen flex-col items-center justify-between mx-auto my-32 text-center
+      <main className="flex min-h-screen flex-col items-center justify-between mx-auto text-center
       
       "> 
 
-        <header className=" h-[44rem] w-full">
+        <header className=" h-[44rem] w-full pt-32 mb-32">
           <figure className='mx-auto w-fit h-24'>
   <Image width={60} height={60} alt="Wiki-logo" src="wiki-blue.svg" className="dark:invisible" unoptimized />
         <Image width={60} height={60} alt="Wiki-logo-dark" src="wiki-yellow.svg" className="dark:visible invisible absolute top-72" unoptimized />

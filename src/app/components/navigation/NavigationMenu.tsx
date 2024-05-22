@@ -44,7 +44,7 @@ const NavigationMenu: React.FC<NavigationMenuProps> = ({ style, closeMenu  }) =>
     <div tabIndex={0} className=" dark:bg-background1dark fixed top-0 bottom-0 w-full z-30 pt-36 overflow-y-auto overflow-x-hidden bg-background1"  style={style}>
 
       <div className={styles.menuMain}>
-        <Link href={'/'}>
+        <Link onClick={handleClick} href={'/'}>
           <figure className='text-center w-fit mx-auto mt-6 mb-6'>
             <Image src={'/blue-home.svg'}  alt='Icon-home-blue' width={20} height={20} unoptimized></Image>
           </figure>
