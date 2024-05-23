@@ -31,7 +31,7 @@ const HomePage: React.FC = () => {
       
       "> 
 
-        <header className=" h-[44rem] w-full pt-32 mb-32">
+        <header className=" h-[44rem] w-full pt-32 mb-32 ">
           <figure className='mx-auto w-fit h-24'>
   <Image width={60} height={60} alt="Wiki-logo" src="wiki-blue.svg" className="dark:invisible" unoptimized />
         <Image width={60} height={60} alt="Wiki-logo-dark" src="wiki-yellow.svg" className="dark:visible invisible absolute top-72" unoptimized />
@@ -48,7 +48,7 @@ const HomePage: React.FC = () => {
 
 
         <section className="">
-          <div className='relative '>
+          {/* <div className='relative '>
             <div
               className=" overflow-hidden bg-cover w-[34rem] h-28 mx-auto absolute top-2 left-0 right-0 bottom-0 flex items-center justify-center dark:opacity-[2%]"
               style={{
@@ -56,8 +56,8 @@ const HomePage: React.FC = () => {
               }}
             >
             </div>
-          </div>
-<h2 className="text-[2.3rem] font-bold text-center mb-20 text-h1 
+          </div> */}
+<h2 className="text-[2.3rem] font-bold text-center  mb-20 text-h1 
           bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text dark:text-transparent 
           dark:text-gradient tracking-wide dark:from-[#c6f1ff] dark:to-[#acffff]">
     Chemical Elements
@@ -93,7 +93,7 @@ const HomePage: React.FC = () => {
 
 
         <section className="pt-[20rem] sm:pt-[35rem]">
-          <div className='relative '>
+          {/* <div className='relative '>
             <div
               className=" overflow-hidden bg-cover w-[34rem] h-28 mx-auto absolute top-2 left-0 right-0 bottom-0 flex items-center justify-center dark:opacity-[2%]"
               style={{
@@ -101,7 +101,7 @@ const HomePage: React.FC = () => {
               }}
             >
             </div>
-          </div>
+          </div> */}
 <h2 className="text-[2.3rem] font-bold text-center mb-20 text-h1 
           bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text dark:text-transparent 
           dark:text-gradient tracking-wide dark:from-[#c6f1ff] dark:to-[#acffff]">
