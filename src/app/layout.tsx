@@ -16,10 +16,11 @@ import { cn } from "../lib/utils"
 import { ThemeProvider } from "@/ThemProvider"
 import { GridBackgroundDemo } from './GridBackground'
 import NavBar from '@/components/navigation/NavbarContainer';
+import Head from 'next/head';
 
 
 const noto_sans_georgian = Noto_Sans_Georgian({
-  weight: ['300','400', '500', '600', '700', '800', '900'],
+  weight: ['300', '400', '500', '600', '700', '800', '900'],
   subsets: ['latin'],
   variable: '--font-noto-sans-georgian',
   display: 'swap'
@@ -64,18 +65,26 @@ export default function RootLayout({
   return (
 
     <html lang="en">
-<meta name="monetag" content="053b0d13c07d8b57d5f7d5a161644f91"></meta>
+      <Head>
+      <meta name="monetag" content="053b0d13c07d8b57d5f7d5a161644f91"></meta>
       <meta name="google-adsense-account" content="ca-pub-6831545317289734"></meta>
-<body
-  className={cn(
-    "min-h-screen font-sans antialiased ",
-    "bg-grid-[#eaeef4] dark:bg-none ",
-    noto_sans_georgian.variable,
-    noto_serif_georgian.variable,
-    ibm_plex_mono.variable,
-  )}
->
-<GridBackgroundDemo/>
+        <script
+          src="https://alwingulla.com/88/tag.min.js"
+          data-zone="67790"
+          async
+          data-cfasync="false"
+        ></script>
+      </Head>
+      <body
+        className={cn(
+          "min-h-screen font-sans antialiased ",
+          "bg-grid-[#eaeef4] dark:bg-none ",
+          noto_sans_georgian.variable,
+          noto_serif_georgian.variable,
+          ibm_plex_mono.variable,
+        )}
+      >
+        <GridBackgroundDemo />
 
 
         <CookieConsent />
