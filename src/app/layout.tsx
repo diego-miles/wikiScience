@@ -64,7 +64,7 @@ export default function RootLayout({
   return (
 
     <html lang="en">
-
+<meta name="monetag" content="053b0d13c07d8b57d5f7d5a161644f91"></meta>
       <meta name="google-adsense-account" content="ca-pub-6831545317289734"></meta>
 <body
   className={cn(
