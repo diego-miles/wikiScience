@@ -110,22 +110,22 @@ const WordPage: React.FC<WordPageProps> = async ({ params: { slug } }) => {
                     )}
 
                     {definition.meaning && (
-                      <h2 className="font-semibold pt-0 text-[1.8rem] min-h-32 ">
-                        <strong className='px-4  text-black'>{'"'}{definition.meaning}
-                        </strong>
-                        <span className='font-serif  text-black'>{'"'}</span></h2>
+                      <h2 className="font-semibold pt-0 text-[1.9rem] min-h-32 ">
+                        <strong className='px-4 text-xl  text-black'>{'"'}{definition.meaning}
+                        {'"'}</strong>
+                        <span className='font-serif  text-black'></span></h2>
                     )}
 
 
                     {definition.source && (
                       <p className=" serif    text-sm px-4 pb-3  ">
-                        <span className='font-light text-black'>
-                          {definition.source.sourceType}:
+                        <span className=' text-black dark:text-[#ffabe3]'>
+                          {definition.source.sourceType }{": "} 
                         </span>
-                        <span className='text-[#164c7c] dark:text-[#c9f2fe] '>{definition.source.author}{' '}</span>
+                        <span className='text-[#164c7c] font-bol dark:text-[#c9f2fe] '>{definition.source.author}{' '}</span>
 
                         <span className='text-black tracking-tighter font-medium'>
-                          {definition.source.publicationYearDate}</span>,{' '} <span className='text-black font-semibold dark:text-[#ffcdd8] '>
+                          {definition.source.publicationYearDate}</span>,{' '} <span className='text-black    '>
                           {definition.source.title}.
                         </span>
                       </p>

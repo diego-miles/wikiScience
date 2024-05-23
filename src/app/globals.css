@@ -237,7 +237,7 @@ h1 {
 }
 
 h2 {
-    @apply dark:text-[#4ddce6];
+    @apply dark:text-[#51e7f2];
     /* @apply dark:text-[#4ff3ff]; */
   font-size: var(--font-size-h2);
   color: var(--color-h2);
