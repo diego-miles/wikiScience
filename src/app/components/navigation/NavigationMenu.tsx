@@ -46,7 +46,7 @@ const NavigationMenu: React.FC<NavigationMenuProps> = ({ style, closeMenu  }) =>
       <div className={styles.menuMain}>
         <Link onClick={handleClick} href={'/'}>
           <figure className='text-center w-fit mx-auto mt-6 mb-6'>
-            <Image src={'/blue-home.svg'}  alt='Icon-home-blue' width={20} height={20} unoptimized></Image>
+            <Image src={'/blue-home.svg'} className='dark:text-white' alt='Icon-home-blue' width={20} height={20} unoptimized></Image>
           </figure>
           {/* <h2 className='font-semibold text-base'>Home</h2> */}
         </Link>
@@ -76,7 +76,7 @@ const NavigationMenu: React.FC<NavigationMenuProps> = ({ style, closeMenu  }) =>
           </AccordionItem>
           <AccordionItem value="item-2">
             <AccordionTrigger>
-              <h2 className='text-center py-6 mb-3 w-full text-base font-extrabold pb-4 text-h1'>Top Science Books</h2>
+              <h2 className='text-center py-6 mb-3 w-full text-base dark:text-white font-extrabold pb-4 text-h1'>Top Science Books</h2>
 
             </AccordionTrigger>
             <AccordionContent>
