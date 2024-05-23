@@ -16,7 +16,6 @@ import { cn } from "../lib/utils"
 import { ThemeProvider } from "@/ThemProvider"
 import { GridBackgroundDemo } from './GridBackground'
 import NavBar from '@/components/navigation/NavbarContainer';
-import Head from 'next/head';
 
 
 const noto_sans_georgian = Noto_Sans_Georgian({
@@ -65,9 +64,7 @@ export default function RootLayout({
   return (
 
     <html lang="en">
-      <Head>
       <meta name="google-adsense-account" content="ca-pub-6831545317289734"></meta>
-      </Head>
       <meta name="monetag" content="053b0d13c07d8b57d5f7d5a161644f91"></meta>
         <script
           src="https://alwingulla.com/88/tag.min.js"
