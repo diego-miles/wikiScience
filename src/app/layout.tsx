@@ -65,13 +65,6 @@ export default function RootLayout({
 
     <html lang="en">
       <meta name="google-adsense-account" content="ca-pub-6831545317289734"></meta>
-      <meta name="monetag" content="053b0d13c07d8b57d5f7d5a161644f91"></meta>
-        <script
-          src="https://alwingulla.com/88/tag.min.js"
-          data-zone="67790"
-          async
-          data-cfasync="false"
-        ></script>
       <body
         className={cn(
           "min-h-screen font-sans antialiased ",
