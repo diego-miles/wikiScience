@@ -37,7 +37,7 @@ const ChemicalFamilies: React.FC = () => {
         >
       {/* <ContextHoverCard  buttonText={family.name}> */}
 <ContextHoverCard buttonText={family.name} questionMarkColor="#ffffff">
-      <Button  variant="link" className=' text-xs w-fit leading-tight pl-2'>{family.name}</Button>
+      <Button  variant="link" className=' text-xs w-fit leading-tight pl-4 min-w-28 py-1 lg:py-2 '>{family.name}</Button>
 </ContextHoverCard>
 
         </div>
