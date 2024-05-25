@@ -105,9 +105,9 @@ const WordPage: React.FC<WordPageProps> = async ({ params: { slug } }) => {
                     <figure >
                       <Image className='mx-auto pb-4' src={'/booksContext.svg'} unoptimized alt='' width={45} height={30}></Image>
                     </figure>
-                    {definition.partOfSpeech && (
+                    {/* {definition.partOfSpeech && (
                       <p className="text-xs text-center"> Part of Speech: {definition.partOfSpeech}</p>
-                    )}
+                    )} */}
 
                     {definition.meaning && (
                       <h2 className="font-semibold pt-0 text-[1.9rem] min-h-32 ">

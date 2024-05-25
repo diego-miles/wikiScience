@@ -8,17 +8,16 @@ model ElectronicComponent {
   type                            String?
   subtype                         String?
   manufacturers                   Manufacturers[]
-  lifeSpan                        String?
-  history                         History[]
+  lifeSpan                        LifeSpan?
+  history                         ComponentHistory[]
   functionDiagram                 String?
   operationDiagram                String?
-  applicationDiagram              String?
   availability                    Availability?
   // eolDate               DateTime
   pricing                         Pricing?
   footprint                       Footprint?
   standardsAndRegulations         StandardsAndRegulations[]
-  createdAt                       DateTime                                    @default(now()) @map("createdAt")
+  createdAt                       DateTime?  @default(now())
   updatedAt                       DateTime?                                   @updatedAt @map("updatedAt")
   variants                        ElectronicComponentVariant[]
   Measurements ElectronicComponentMeasurements[]
@@ -28,18 +27,62 @@ model ElectronicComponent {
   thermalSpecifications           ElectronicComponentThermalSpecifications?
   datasheets                      ElectronicComponentDatasheet[]
   additionalResources             ElectronicComponentAdditionalResource[]
-  packageType           String?
-  packageDimensions    String?
+  packageType           PackageTypes?
+  packageDimensions    PackageDimensions?
   pinCount              String?
-  mountingType          String?
+  mountingType          MountingType?
   // Reliability
-  mtbf                 String? // Mean Time Between Failures
-  failureRate          String?
+  mtbf                 Mtbf? // Mean Time Between Failures
+  failureRate          FailureRate?
   // Environmental
-  rohsCompliant         String?
-  reachCompliant        String?
+  rohsCompliant         RohsCompliant?
+  reachCompliant        ReachCompliant?
   leadFree             String?
 }
+
+type PackageTypes {
+  description String?
+  source String?
+}
+
+type MountingType {
+  description String?
+  source String?
+}
+
+type LifeSpan {
+  value String?
+  source String?
+}
+
+type PackageDimensions {
+  description String?
+  source String?
+}
+
+
+type Mtbf {
+  description String?
+  source String?
+}
+
+
+type FailureRate {
+  description String?
+  source String?
+}
+
+type RohsCompliant {
+  description String?
+  source String?
+}
+
+type ReachCompliant {
+  description String?
+  source String?
+}
+
+
 
 type Manufacturers {
   name String?
@@ -62,6 +105,8 @@ type Footprint {
   source String?
 }
 
+
+
 type StandardsAndRegulations {
   name String?
   description String?
@@ -70,10 +115,11 @@ type StandardsAndRegulations {
 
 
 
-type History {
+type ComponentHistory {
   event String?
   year String?
   description String?
+  source String?
 }
 
 // Model for Electronic Component Variants
@@ -90,64 +136,103 @@ type ElectronicComponentMeasurements {
   condition String?
   description String?
   source String?
-  // voltage                 String?
-  // current                 String?
-  // resistance              String?
-  // capacitance             String?
-  // inductance              String?
-  // frequency               String?
-  // power                   String?
-  // signalToNoiseRatio      String?
-  // impedance               String?
-  // gain                    String?
-  // distortion              String?
-  // bandwidth               String?
-  // efficiency              String?
-  // toleranceAccuracy       String?
-  // operatingTemperatureRange String?
-  // storageTemperatureRange String?
-  // humidityTolerance       String?
-  // shockVibrationResistance String?
-  // otherVariables          String?
+
 }
 
 // Model for Electronic Component Functions
 type ElectronicComponentFunction {
-  Functions         String?
+  Function         String?
   physicalPrinciples      String[]
   chemistryPrinciples     String[]
-  comparisons             String[]
+  comparisons             Comparisons[]
   capabilities            String[]
   limitations             String[]
   diagrams                String?
 }
+
+
+type Comparisons {
+comparison      String?
+source          String?
+}
+
 
 // Model for Electronic Component Operations
 type ElectronicComponentOperation {
   internalStructure          String?
   operatingMechanisms        String?
   inputOutputCharacteristics String?
-  functionalRelationships    String[]
-  equations                  String[]
-  diagrams                   String?
+  functionalRelationships    FunctionalRelationships[]
+  equations                  Equations[]
 }
 
+type FunctionalRelationships {
+  relationship String?
+  source String?
+}
+
+
+type Equations {
+  equation String?
+  description String?
+}
 
 // Model for Electronic Component Applications
 type ElectronicComponentApplication {
   field                   String?
   examples                String[]
-  designConsiderations    String?
-  challenges              String[]
+  designConsiderations    DesignConsiderations[]
+  challenges              Challenges[]
+  source              String?
 }
+
+type DesignConsiderations {
+  consideration String?
+  explanation   String?
+}
+
+type Challenges {
+  challenge     String?
+  explanation   String?
+}
+
+
 
 // Model for Thermal Specifications of Electronic Components
 type ElectronicComponentThermalSpecifications {
-  thermalResistanceJunctionToCase    String?
-  thermalResistanceJunctionToAmbient String?
-  maximumOperatingTemperature        String?
-  minimumOperatingTemperature        String?
+  thermalResistanceJunctionToCase    ThermalResistanceJunctionToCase?
+  thermalResistanceJunctionToAmbient ThermalResistanceJunctionToAmbient?
+  maximumOperatingTemperature        MaximumOperatingTemperature?
+  minimumOperatingTemperature        MinimumOperatingTemperature?
 }
+
+
+type ThermalResistanceJunctionToCase {
+  description String?
+  source String?
+}
+
+type ThermalResistanceJunctionToAmbient {
+  description String?
+  source String?
+}
+
+type MaximumOperatingTemperature {
+  value String?
+  condition String?
+  description String?
+  source String?
+}
+
+type MinimumOperatingTemperature {
+  value String?
+  condition String?
+  description String?
+  source String?
+}
+
+
+
 
 // Model for Additional Resources of Electronic Components
 type ElectronicComponentAdditionalResource {
@@ -161,5 +246,6 @@ type ElectronicComponentDatasheet {
   name                                         String?
   description                                  String?
   url                                          String?
-  electronicComponentName                      String?
 }
+
+

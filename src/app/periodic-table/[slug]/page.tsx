@@ -159,7 +159,7 @@ async function ElementPage({ params: { slug } }: ElementPageProps) {
   return (
     <>
       {/* <NavBar domain="www.wiki-science.com/" menuPath='./NavigationMenu' /> */}
-      <main style={{ marginTop: '9rem' }} className='lg:pt-60'>
+      <main  className='lg:pt-60 mt-[9rem]'>
         <h1 >{element.name} ({element.symbol})</h1>
         <section className='text-center'>
           {/* {images.length > 0 && <ImageCarousel images={images} />} */}

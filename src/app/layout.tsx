@@ -67,7 +67,7 @@ export default function RootLayout({
       <meta name="google-adsense-account" content="ca-pub-6831545317289734"></meta>
       <body
         className={cn(
-          "min-h-screen font-sans antialiased ",
+          "min-h-lvh font-sans antialiased ",
           "bg-grid-[#eaeef4] dark:bg-none ",
           noto_sans_georgian.variable,
           noto_serif_georgian.variable,
@@ -93,7 +93,9 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <NavBar></NavBar>
+          <div className='min-h-lvh'>
           {children}
+          </div>
         </ThemeProvider>
 
         <Analytics />;

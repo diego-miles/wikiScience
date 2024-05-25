@@ -1,19 +1,18 @@
-import LocalSearchBar from '@/components/LocalSearch';
 import React from 'react';
 import Image from 'next/image';
 import NavBar from '@/components/navigation/NavbarContainer';
-import data from '@/data/data';
 import ScrollTopButton from '@/components/ScrollTopButton';
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
-import Accordion from '@/AccordionHome'
+// import Accordion from '@/AccordionHome'
 import CarouselSpacing from './CarrouselElements'
-import { Suspense } from 'react';
 import LoadingPage from './loading';
-import { useTheme } from 'next-themes';
+import LocalSearchBar from '@/components/LocalSearch';
 
 
+const Accordion = dynamic(() => import('@/AccordionHome'), { ssr: false })
 const TextHeroHome = dynamic(() => import('./TextHeroHome'), { ssr: false })
+// const LocalSearchBar = dynamic(() => import('@/components/LocalSearch'), { ssr: false })
 
 
 const toSlug = (title: string) => {
@@ -27,12 +26,10 @@ const HomePage: React.FC = () => {
   return (
     <div>
       <NavBar />
-      <main className="flex min-h-screen flex-col items-center justify-between mx-auto text-center
-      
-      "> 
+      <main className="flex min-h-screen flex-col items-center justify-between mx-auto text-center">
 
         <header className=" h-[44rem] w-full pt-32 mb-32 ">
-          <figure className='mx-auto w-fit h-24'>
+        <figure className='mx-auto w-fit h-24'>
   <Image width={60} height={60} alt="Wiki-logo" src="wiki-blue.svg" className="dark:invisible" unoptimized />
         <Image width={60} height={60} alt="Wiki-logo-dark" src="wiki-yellow.svg" className="dark:visible invisible absolute top-72" unoptimized />
           </figure>

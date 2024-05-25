@@ -91,11 +91,29 @@ const LocalContextLinks: React.FC<LocalContextLinksProps> = ({ links }) => {
     };
   }, []);
 
+  useEffect(() => {
+    const handleClickInside = (event: MouseEvent) => {
+      if (scrollContainerRef.current && scrollContainerRef.current.contains(event.target as Node) && !dropdownActive) {
+        if (!linkRefs.current.some(linkRef => linkRef?.contains(event.target as Node))) {
+          setDropdownActive(true);
+        }
+      }
+    };
+
+    if (!dropdownActive) {
+      scrollContainerRef.current?.addEventListener('mousedown', handleClickInside);
+    }
+
+    return () => {
+      scrollContainerRef.current?.removeEventListener('mousedown', handleClickInside);
+    };
+  }, [dropdownActive]);
+
   return (
     <>
       {!dropdownActive && (
         <div
-          className={`flex overflow-x-auto items-center fixed top-0 left-0 right-0 gap-2 py-[3rem] px-4 pt-[8rem] lg:pt-40 bg-background1 z-10 whitespace-nowrap dark:bg-background1dark   ${styles.dropdownScrollContainer}`}
+          className={`flex overflow-x-auto items-center fixed top-0 left-0 right-0 gap-2 py-[3rem] px-4 pt-[8rem] lg:pt-40 bg-background1 z-10 whitespace-nowrap dark:bg-background1dark ${styles.dropdownScrollContainer}`}
           style={{ display: isVisible ? 'flex' : 'none' }}
           ref={scrollContainerRef}
         >
@@ -104,16 +122,16 @@ const LocalContextLinks: React.FC<LocalContextLinksProps> = ({ links }) => {
               key={index}
               href={`#${link.id}`}
               className={`dark:text-[#eefaff] ${styles.linkText}`}
-              onClick={(e) => {
+              onMouseDown={(e) => {
                 e.preventDefault();
                 smoothScroll(link.id);
               }}
-              ref={el => { linkRefs.current[index] = el; }} // Updated ref assignment
+              ref={el => { linkRefs.current[index] = el; }}
             >
               {link.text}
             </a>
           ))}
-          <a className="font-noto-serif-georgian text-accent1 italic px-4 py-2 cursor-pointer fixed top-[12.5rem] lg:top-[14.5rem] right-2 text-xs font-semibold" onClick={toggleDropdown}>
+          <a className="font-noto-serif-georgian text-accent1 italic px-4 py-2 cursor-pointer fixed top-[12.5rem] lg:top-[14.5rem] right-2 text-xs font-semibold" onMouseDown={toggleDropdown}>
             See All
           </a>
         </div>
@@ -127,16 +145,16 @@ const LocalContextLinks: React.FC<LocalContextLinksProps> = ({ links }) => {
                 key={index}
                 href={`#${link.id}`}
                 className="font-medium text-base dark:text-sky-300 px-4 py-2 text-center my-2 no-underline"
-                onClick={(e) => {
+                onMouseDown={(e) => {
                   e.preventDefault();
                   smoothScroll(link.id);
                 }}
-                ref={el => { linkRefs.current[index] = el; }} // Updated ref assignment
+                ref={el => { linkRefs.current[index] = el; }}
               >
                 {link.text}
               </a>
             ))}
-            <a className="font-noto-serif-georgian text-accent1 italic px-4 py-2 cursor-pointer fixed top-28 lg:top-40 right-8 md:right-48 text-sm font-semibold" onClick={toggleDropdown}>
+            <a className="font-noto-serif-georgian text-accent1 italic px-4 py-2 cursor-pointer fixed top-28 lg:top-40 right-8 md:right-48 text-sm font-semibold" onMouseDown={toggleDropdown}>
               Close
             </a>
           </div>
