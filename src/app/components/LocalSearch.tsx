@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import words from '@/data/words.json';
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
-
+import { generateSlug } from '@/utils/slugGenerator';
 
   // const words = dynamic(() => import('@/data/words'), { ssr: false });
 
@@ -13,10 +13,10 @@ const LocalSearchBar: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [searchResults, setSearchResults] = useState<string[]>([]);
 
-  const handleMouseDown = (event: React.MouseEvent<HTMLInputElement>) => {
-    const inputElement = event.target as HTMLInputElement;
-    const term = inputElement.value.toLowerCase();
+  const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const term = event.target.value.toLowerCase();
     setSearchTerm(term);
+
     if (term.trim() === '') {
       setSearchResults([]);
     } else {
@@ -32,7 +32,7 @@ const LocalSearchBar: React.FC = () => {
       <input
         type="text"
         value={searchTerm}
-        onMouseDown={handleMouseDown}
+        onChange={handleSearch}
         placeholder="Search a concept, get citations..."
         className="w-full px-4 py-4 text-gray-900 text-xs bg-background1 border-4  rounded-3xl focus:outline-none focus:ring-2 focus:ring-[#4fcaff] "
       />
@@ -43,7 +43,7 @@ const LocalSearchBar: React.FC = () => {
             <li
               key={index}
               className="px-4 py-2 hover:bg-sky-300 cursor-pointer"
-            ><Link className='text-black dark:text-black' href={`/dictionary/${result.toLowerCase().replace(/ /g, '_')}`}>
+            ><Link className='text-black dark:text-black' href={`/dictionary/${generateSlug(result)}`}>
               {result}
             </Link>
             </li>

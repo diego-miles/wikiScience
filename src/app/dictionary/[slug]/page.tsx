@@ -169,21 +169,6 @@ const WordPage: React.FC<WordPageProps> = async ({ params: { slug } }) => {
             )}
           </div>
           <div className='bg-background1 rounded-bl-sm  rounded-[2.8rem] rounded-br-[3rem] border border-black/30 dark:border-white/80 pb-[3.5rem] dark:bg-background1dark px-10 pt-2'>
-            {wordData.measurementUnits.length > 0 && (
-              <>
-                <h3>Measurement Units</h3>
-                <ul className="font-semibold">
-                  {wordData.measurementUnits.map((unit, index) => (
-                    <li key={index}>{unit.unit}</li>
-                  ))}
-                </ul>
-              </>
-            )}
-            {/* {wordData.audio && (
-          <p className=" ">Audio: {wordData.audio}</p>
-        )} */}
-          </div>
-          <div className='bg-background1 rounded-bl-sm  rounded-[2.8rem] rounded-br-[3rem] border border-black/30 dark:border-white/80 pb-[3.5rem] dark:bg-background1dark px-10 pt-2'>
             {wordData.applications.length > 0 && (
               <>
                 <h3>Applications</h3>
@@ -206,6 +191,23 @@ const WordPage: React.FC<WordPageProps> = async ({ params: { slug } }) => {
                 </ul>
               </>
             )}
+          </div>
+          <div className='bg-background1 rounded-bl-sm  rounded-[2.8rem] rounded-br-[3rem] border border-black/30 dark:border-white/80 pb-[3.5rem] dark:bg-background1dark px-10 pt-2'>
+            {wordData.measurementUnits.length > 0 && (
+              <>
+
+                <h3>Measurement Units</h3>
+                <ul className="font-semibold">
+                  {wordData.measurementUnits.map((unit, index) => (
+                    <li key={index}>{unit.unit}</li>
+                  ))}
+                </ul>
+                
+              </>
+            )}
+            {/* {wordData.audio && (
+          <p className=" ">Audio: {wordData.audio}</p>
+        )} */}
           </div>
 <div className='pl-8'>
   {wordData.relatedConcepts.length > 0 && (

@@ -310,7 +310,7 @@ span {
 }
 
 strong {
-      @apply dark:text-[#61cdff];
+      @apply dark:text-[#83daff];
   font-size: var(--font-size-p);
   color: var(--color-strong);
   font-weight: 600;
