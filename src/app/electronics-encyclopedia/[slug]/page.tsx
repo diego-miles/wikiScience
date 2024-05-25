@@ -70,27 +70,31 @@ const ElectronicComponentPage: React.FC<ProductPageProps> = async ({ params: { s
 
   return (
     <div>
-      <main className='mt-[9rem]'>
-        <h1>{electronicComponent.name}</h1>
+      <main className='mt-[10rem]'>
         <LocalContextLinks links={contextLinks} />
-        <p>Description: {electronicComponent.description}</p>
+        <h1>{electronicComponent.name}</h1>
+          <p className='text-lg max-w-[50rem] mx-auto'> {electronicComponent.description}</p>
 
-        <section id="variants-section">
-          <h2>Variants</h2>
-          {electronicComponent.variants && electronicComponent.variants.map((variant) => (
-            <div key={variant.name}>
-              <h3>{variant.name}</h3>
-              <p>{variant.description}</p>
-              <p>{variant.source}</p>
-            </div>
-          ))}
-        </section>
+        <div className='lg:grid lg:grid-cols-2 gap-x-24 gap-y-12 lg:px-12 '>
+
+          <section id="variants-section">
+            <h2>Variants</h2>
+            {electronicComponent.variants && electronicComponent.variants.map((variant) => (
+              <div key={variant.name}>
+                <h3>{variant.name}</h3>
+                <p>{variant.description}</p>
+                <p>{variant.source}</p>
+              </div>
+            ))}
+          </section>
+
+        
 
         <section id="functions-section">
-          <h2>Functions</h2>
+          <h2>Functioning</h2>
           {electronicComponent.function && (
             <div>
-              <p>Function: {electronicComponent.function.Function}</p>
+              <p>{electronicComponent.function.Function}</p>
               <h3>Physical Principles</h3>
               <ul>
                 {electronicComponent.function.physicalPrinciples.map((principle) => (
@@ -128,10 +132,13 @@ const ElectronicComponentPage: React.FC<ProductPageProps> = async ({ params: { s
         </section>
 
         <section id="operations-section">
-          <h2>Operations</h2>
+          <h2>Operation</h2>
           {electronicComponent.operation && (
             <div>
-              <p>Internal Structure: {electronicComponent.operation.internalStructure}</p>
+              <h3>
+                Internal Structure: 
+              </h3>
+              <p>{electronicComponent.operation.internalStructure}</p>
               <p>Operating Mechanisms: {electronicComponent.operation.operatingMechanisms}</p>
               <p>Input Output Characteristics: {electronicComponent.operation.inputOutputCharacteristics}</p>
               <h3>Functional Relationships</h3>
@@ -181,6 +188,10 @@ const ElectronicComponentPage: React.FC<ProductPageProps> = async ({ params: { s
             </div>
           ))}
         </section>
+
+
+        </div>
+
 
         <section id="thermal-specifications-section">
           <h2>Thermal Specifications</h2>
