@@ -110,7 +110,7 @@ const ElectronicComponentPage: React.FC<ProductPageProps> = async ({ params: { s
         <header className='max-w-[60rem] mx-auto'>
           <h1>{electronicComponent.name}</h1>
           <p className='text-lg max-w-[50rem] mx-auto'> {electronicComponent.description}</p>
-          <Carousel className="w-full mx-auto max-w-xs">
+          <Carousel className="w-full mx-auto max-w-md">
             <CarouselContent className=' '>
               {Array.from({ length: 1 }).map((_, index) => (
                 <CarouselItem key={index}>
