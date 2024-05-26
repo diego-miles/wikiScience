@@ -49,7 +49,7 @@ const StickyH2: React.FC<StickyH2Props> = ({ children, id }) => {
     <div
       ref={ref}
       id={id}
-      className={`sticky top-0 bg-white z-10 ${isSticky ? 'is-sticky' : ''}`}
+      className={`sticky top-0 bg-background1 dark:bg-background1dark z-10 ${isSticky ? 'is-sticky' : ''}`}
     >
       {children}
     </div>
