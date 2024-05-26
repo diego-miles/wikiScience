@@ -34,7 +34,7 @@ const LocalSearchBar: React.FC = () => {
         value={searchTerm}
         onChange={handleSearch}
         placeholder="Search a concept, get citations..."
-        className="w-full px-4 py-4 text-gray-900 text-xs bg-background1 border-4  rounded-3xl focus:outline-none focus:ring-2 focus:ring-[#4fcaff] "
+        className="w-full px-4 py-4 text-gray-900 text-base bg-background1 border-4  rounded-3xl focus:outline-none focus:ring-2 focus:ring-[#4fcaff] "
       />
       <div className='relative -top-2 lg:-left-1 -mr-2 lg:w-[70.4rem]'>
       {searchResults.length > 0 && (

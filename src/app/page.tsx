@@ -28,17 +28,17 @@ const HomePage: React.FC = () => {
       <NavBar />
       <main className="flex min-h-screen flex-col items-center justify-between mx-auto text-center">
 
-        <header className=" h-[44rem] w-full pt-32 mb-32 ">
+        <header className=" h-[44rem] w-full pt-20 mb-32 ">
         <figure className='mx-auto w-fit h-24'>
   <Image width={60} height={60} alt="Wiki-logo" src="wiki-blue.svg" className="dark:invisible" unoptimized />
-        <Image width={60} height={60} alt="Wiki-logo-dark" src="wiki-yellow.svg" className="dark:visible invisible absolute top-72" unoptimized />
+        <Image width={60} height={60} alt="Wiki-logo-dark" src="wiki-yellow.svg" className="dark:visible invisible absolute top-[17rem]" unoptimized />
           </figure>
           <h1 className="mt-[1rem] text-[3.2rem] tracking-wider font-black text-[#32a1cd] dark:text-[#f4f2eb]">Wiki Science</h1> {/* Using Tailwind's text color and font weight utilities */}
           {/* <p className="text-3xl font-extrabold text-[#2d373d] mt-4 px-2">A next-generation educational platform. <span className="text-[#376ba2]">Powered by AI.</span></p>  */}
-          <div className=" absolute top-[33rem] left-0 right-0">
+          <div className=" absolute top-[30rem] left-0 right-0">
             <TextHeroHome></TextHeroHome>
           </div>
-            <div className='mt-60 w-full px-8'>
+            <div className='mt-[16rem] lg:mt-[12rem] w-full px-8'>
         <LocalSearchBar></LocalSearchBar>
             </div>
         </header>

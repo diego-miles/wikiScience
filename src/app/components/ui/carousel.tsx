@@ -8,6 +8,11 @@ import { ArrowLeft, ArrowRight } from "lucide-react"
 
 import { cn } from "../../../lib/utils"
 import { Button } from "@/components/ui/button"
+import RightArrowRigth from '@/components/right-arrow'
+import ChevronLeft from '@/components/ChevronLeft'
+
+
+
 
 type CarouselApi = UseEmblaCarouselType[1]
 type UseCarouselParameters = Parameters<typeof useEmblaCarousel>
@@ -216,7 +221,8 @@ const CarouselPrevious = React.forwardRef<
       onClick={scrollPrev}
       {...props}
     >
-      <ArrowLeft className="h-6 w-7 " />
+
+      <ChevronLeft  color='#f90099' />
       <span className="sr-only  ">Previous slide</span>
     </Button>
   )
@@ -245,7 +251,8 @@ const CarouselNext = React.forwardRef<
       onClick={scrollNext}
       {...props}
     >
-      <ArrowRight className="h-6 w-7 " />
+                              <RightArrowRigth color='#f90099' />
+      {/* <ArrowRight className="h-6 w-7 " /> */}
       <span className="sr-only ">Next slide</span>
     </Button>
   )

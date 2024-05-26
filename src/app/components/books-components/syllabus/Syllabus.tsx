@@ -8,7 +8,6 @@ import { Syllabus, Section, Subsection } from '@prisma/client';
 
 
 
-
 type Props = {
   title: string;
   priority: boolean;

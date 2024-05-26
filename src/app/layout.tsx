@@ -30,14 +30,14 @@ const noto_serif_georgian = Noto_Serif_Georgian({
   weight: ['400', '500', '600', '700', '800', '900'],
   variable: '--font-noto-serif-georgian',
   subsets: ['latin'],
-  // display: 'swap'
+  display: 'swap'
 })
 
 const ibm_plex_mono = IBM_Plex_Mono({
   weight: ['400', '500', '600', '700'],
   variable: '--font-ibm-plex-mono',
   subsets: ['latin'],
-  // display: 'swap'
+  display: 'swap'
 })
 
 

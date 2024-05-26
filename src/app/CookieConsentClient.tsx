@@ -16,7 +16,7 @@ const CookieConsentClient = () => {
             } else {
                 setTimeout(() => {
                     setCookieConsentVisible(true);
-                }, 3000);
+                }, 5000);
             }
             setIsLoading(false); 
         };

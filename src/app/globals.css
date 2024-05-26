@@ -67,8 +67,8 @@
   --font-size-small-p: 1.5rem;
   --font-size-h1: 3rem;
   --font-size-h2: 2.3rem;
-  --font-size-h3: 1.7rem;
-  --font-size-h4: 1.6rem;
+  --font-size-h3: 2rem;
+  --font-size-h4: 1.7rem;
   --font-size-h5: 1.3rem;
   --font-size-a: 1.5rem;
   --font-size-h6: 1.3rem;
@@ -161,14 +161,19 @@ body {
 
 main {
   min-height: 100vh;
-  max-width: 100rem;
+  max-width: 110rem;
   width: auto;
-  padding: 0rem 1.6rem;
+  padding: 0rem 1.7rem;
   padding-top: 10rem;
   padding-bottom: 5rem;
   margin: 0 auto;
   position: static;
   text-align: center;
+}
+
+header {
+  padding: 0 1rem;
+  padding-bottom: 3rem;
 }
 
 section {
@@ -189,7 +194,7 @@ li {
 a {
   @apply dark:text-[var(--color-accent1)];
     color: var(--color-a);
-  text-decoration: none;
+  /* text-decoration: none; */
   display: block;
   /* font-size: var(--font-size-a); */
   /* line-height: 1.5; */
@@ -199,9 +204,9 @@ a {
 
 a:hover {
   @apply dark:no-underline;
-  text-decoration: none;
+  text-decoration: underline;
   /* Color del enlace al pasar el cursor por encima */
-}
+} 
 
 p {
     @apply dark:text-[var(--color-p-dark)];
@@ -232,9 +237,10 @@ h1 {
   color: var(--color-h1);
   text-align: center;
   line-height: 1.3;
-  padding-bottom: 5rem;
+  padding-bottom: 3rem;
   letter-spacing: 1.2;
 }
+
 
 h2 {
     @apply dark:text-[#51e7f2];
@@ -243,8 +249,10 @@ h2 {
   color: var(--color-h2);
   font-weight: 600;
   /* padding-top: 7rem; */
-  margin-bottom: 1.7rem;
+  padding: .3rem 0;
+  margin-bottom: 1.4rem;
   line-height: 1.4;
+  background-color: var(--color-background-1);
   /* text-align: center; */
   /* margin-top: 2rem; */
     /* border-bottom: 1px solid #e5e7eb; */
@@ -254,17 +262,18 @@ h2 {
 
 }
 
+
 h3 {
       @apply dark:text-[#61edc8];
   font-size: var(--font-size-h3);
   /* color: var(--color-h3); */
-  color: #004377;
+  color: #004f98;
   font-weight: 700;
   margin-bottom: 1rem;
     text-decoration: none;
   margin-top: 2.5rem;
   line-height: 1.1;
-  letter-spacing: -.2;
+  /* letter-spacing: -.2; */
   
 }
 
@@ -274,9 +283,10 @@ h4 {
     @apply dark:text-white;
   /* font-family: var(--font-noto-serif-georgian); */
   font-size: var(--font-size-h4);
-  color: var(--color-h3);
+  /* color: var(--color-h3); */
+  color: black;
   /* color: var(--color-h4); */
-  font-weight: 800;
+  font-weight: 700;
   margin-bottom: 1rem;
   margin-top: 2rem;
 }
@@ -285,7 +295,8 @@ h5 {
     @apply dark:text-white;
   /* font-family: var(--font-noto-serif-georgian); */
   font-size: var(--font-size-h5);
-  color: var(--color-h5);
+    color: var(--color-h4);
+  /* color: var(--color-h5); */
   font-weight: 400;
 }
 
@@ -300,8 +311,9 @@ li {
   list-style: none;
   font-family: var(--font-family-nav-subfield);
   font-size: 1.5rem;
-  line-height: 1.4;
-  /* padding-bottom: .1rem; */
+  line-height: 1.5;
+  padding-top: 0rem;
+  padding-bottom: .5rem;
   }
 
 

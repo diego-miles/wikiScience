@@ -448,8 +448,8 @@ async function ElementPage({ params: { slug } }: ElementPageProps) {
     {generateSectionHeader("Compounds", "12. Compounds")}
   </div>
   {element.compounds.map((compound, index) => (
-    <div className='mt-16' key={index}>
-      <h3>{compound?.name || 'N/A'}</h3>
+    <div className='' key={index}>
+      <h3 className=''>{compound?.name }</h3>
                 <p><strong>{compound?.formula}</strong> </p>
                 <p><strong></strong> {compound?.description}</p>
     </div>
