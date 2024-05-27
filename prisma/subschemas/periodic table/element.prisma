@@ -138,10 +138,14 @@ type ElementAtomicStructure {
 
 type ElementIsotope {
     isotopeNumber   String?
+    name            String?
     abundance       String?
     halfLife        String?
     decayMode       String?
-    description     String?
+    nuclearProperties        String?
+    applications        String?
+    source        String?
+    otherDetails     String?
 }
 
 type ElementCompound {

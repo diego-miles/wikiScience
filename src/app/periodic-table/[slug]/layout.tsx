@@ -3,12 +3,12 @@ import LocalContextLinks from "@/components/LocalContextLinksTop"
 
 
 const sectionTitles = [
-    "1. Physical Properties",
-    "2. Chemical Properties",
-    "3. Discovery and History",
-    "4. Natural Occurrence",
+    "1. Atomic Structure",
+    "2. Physical Properties",
+    "3. Chemical Properties",
+    "4. Discovery and History",
     "5. Classifications",
-    "6. Atomic Structure",
+    "6. Natural Occurrence",
     "7. Electron Configuration",
     "8. Crystal Structures",
     "9. Allotropes",
@@ -28,9 +28,9 @@ const sectionTitles = [
     "23. Future Predictions",
     "24. Interdisciplinary Connections",
     "25. External Resources",
-    "26. User Interactions",
-    "27. Synthesis and Production",
-    "28. Environmental Safety"
+    "26. Synthesis and Production",
+    "27. Environmental Safety",
+    "28. User Interactions",
 ];
 
 
