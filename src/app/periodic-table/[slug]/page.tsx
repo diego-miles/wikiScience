@@ -159,9 +159,41 @@ async function ElementPage({ params: { slug } }: ElementPageProps) {
   return (
     <>
       {/* <NavBar domain="www.wiki-science.com/" menuPath='./NavigationMenu' /> */}
-      <main  className='lg:pt-60 mt-[9rem]'>
-        <h1 >{element.name} ({element.symbol})</h1>
+      <main  className='lg:pt-60 mt-[7rem]'>
+
+        {/* <h1 >{element.name} ({element.symbol})</h1> */}
         <section className='text-center'>
+
+            <div
+      className={`relative flex w-fit mx-auto pr-40 mb-20`}
+    >
+      {/* Columna izquierda */}
+      <div className="text-right pt-16 ">
+        <span className="absolute  pb-1 pl-2 -right-12   border-sky-400 top-0  text-dark font-medium dark:text-gray-100 block mt-1   border-b-2  text-[1.1rem]">Electronic Configuration</span>
+        <div>
+        
+        <span className="  text-dark dark:text-gray-100   border-b-2 px-3 inline-block border-sky-400 font-medium text-xs">Symbol</span>
+        </div>
+        <div>
+        <span className="  text-dark dark:text-gray-100 inline-block mt-3   border-b-[.2rem] border-sky-400 px-3 font-medium text-xs" >Name</span>
+        </div>
+        <span className="  text-dark dark:text-gray-100 inline-block mt-4   border-b-2 border-sky-400 px-3 font-medium text-xs">Atomic Number</span>
+      </div>
+      
+      {/* Columna derecha */}
+      <div>
+          <div className="border-4 border-sky-400 rounded-lg px-6 py-2 min-w-32">
+            {/* Configuración electrónica en la parte superior */}
+            <span className=" text-[1.6rem] min-h-8 text-dark dark:text-white tracking-wider ">{element.electronConfig?.configuration}</span>
+            <span className="text-2xl font-black text-dark dark:text-white block -mb-1 pb-0 ">{element.symbol}</span>
+            <span className="text-[2rem] text-dark font-bold dark:text-white block ">{element.name}</span>
+            <span className="text-dark text-lg dark:text-white block"> {element.atomicNumber}</span>
+          </div>
+      </div>
+      {/* <div className='absolute top-60'>
+        <p>[He] = 2s <sup>2</sup></p>
+      </div> */}
+    </div>
           {/* {images.length > 0 && <ImageCarousel images={images} />} */}
           {/* <LocalContextLinks links={links} /> */}
           <div className='w-fit mx-auto'>
@@ -444,7 +476,7 @@ async function ElementPage({ params: { slug } }: ElementPageProps) {
         <p>{isotope?.nuclearProperties  }</p>
         {/* {generateStrong("Decay Mode", "Decay Mode:")} */}
         <p>{isotope?.applications  }</p>
-        <p>{isotope?.description}</p>
+        <p>{isotope?.otherDetails}</p>
       </div>
     ))}
   </div>
