@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import React, { useRef, useEffect, useState } from 'react';
 import styles from './localContextLinkTop.module.css';
@@ -89,7 +89,7 @@ const LocalContextLinks: React.FC<LocalContextLinksProps> = ({ links }) => {
         scrollContainer.removeEventListener('wheel', handleWheel);
       }
     };
-  }, []);
+  }, [dropdownActive]); // Add dropdownActive to dependencies to re-attach listener after state change
 
   useEffect(() => {
     const handleClickInside = (event: MouseEvent) => {
@@ -101,11 +101,13 @@ const LocalContextLinks: React.FC<LocalContextLinksProps> = ({ links }) => {
     };
 
     if (!dropdownActive) {
-      scrollContainerRef.current?.addEventListener('mousedown', handleClickInside);
+      document.addEventListener('mousedown', handleClickInside);
+    } else {
+      document.removeEventListener('mousedown', handleClickInside);
     }
 
     return () => {
-      scrollContainerRef.current?.removeEventListener('mousedown', handleClickInside);
+      document.removeEventListener('mousedown', handleClickInside);
     };
   }, [dropdownActive]);
 
@@ -113,7 +115,7 @@ const LocalContextLinks: React.FC<LocalContextLinksProps> = ({ links }) => {
     <>
       {!dropdownActive && (
         <div
-          className={`flex overflow-x-auto items-center fixed top-0 left-0 right-0 gap-2 py-[3rem] px-4 pt-[8rem] lg:pt-40 bg-background1 z-10 whitespace-nowrap dark:bg-background1dark ${styles.dropdownScrollContainer}`}
+          className={`flex    overflow-x-auto items-center fixed top-0 left-0 right-0 gap-2 py-[3rem] px-4 pt-[8rem] lg:pt-40 bg-background1 z-10 whitespace-nowrap dark:bg-background1dark ${styles.dropdownScrollContainer}`}
           style={{ display: isVisible ? 'flex' : 'none' }}
           ref={scrollContainerRef}
         >
@@ -139,12 +141,13 @@ const LocalContextLinks: React.FC<LocalContextLinksProps> = ({ links }) => {
       {/* Dropdown container */}
       {dropdownActive && (
         <div className={`flex flex-col fixed top-0 pt-44 pb-40 left-0 right-0 z-30 min-h-lvh overflow-y-auto bg-background1 dark:bg-background1dark ${styles.dropdownScrollContainer2}`} >
-          <div>
+          <div className='flex flex-wrap max-h-[50rem] md:px-10  gap-5 pt-12 pl-3 pr-6 max-w-[100rem] mx-auto'>
+            
             {links.map((link, index) => (
               <a
                 key={index}
                 href={`#${link.id}`}
-                className="font-medium text-base dark:text-sky-300 px-4 py-2 text-center my-2 no-underline"
+                className="font-medium text-sm md:text-base   dark:text-sky-300 px-3 py-2 text-center my-2  no-underline"
                 onMouseDown={(e) => {
                   e.preventDefault();
                   smoothScroll(link.id);

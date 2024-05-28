@@ -182,6 +182,10 @@ async function ElementPage({ params: { slug } }: ElementPageProps) {
 
         </section>
 
+
+
+
+
         <div className='lg:grid lg:grid-cols-2 gap-x-24 gap-y-12 lg:px-12 '>
           {/* Atomic Structure */}
 
@@ -407,30 +411,6 @@ async function ElementPage({ params: { slug } }: ElementPageProps) {
   ))}
 </section>
 
-
-
-<section id="10-isotopes-and-abundances">
-  <div>
-    {generateSectionHeader("Isotopes and Abundances", "10. Isotopes and Abundances")}
-  </div>
-  <div className='lg:grid lg:grid-cols-2 gap-8 max-w-[55rem] mx-auto mt-16'>
-    {element.isotopes.map(isotope => (
-      <div className='border rounded-3xl max-w-[26rem] px-10 pb-4 mb-12 lg:mb-10 mx-auto' key={isotope.isotopeNumber}>
-
-        {generateStrong("Isotope Number", "Isotope Number:")}
-        <h3>{isotope?.isotopeNumber || 'N/A'}</h3>
-        {generateStrong("Abundance", "Abundance:")}
-        <p>{isotope?.abundance || 'N/A'}</p>
-        {generateStrong("Half Life", "Half Life:")}
-        <p>{isotope?.halfLife || 'N/A'}</p>
-        {generateStrong("Decay Mode", "Decay Mode:")}
-        <p>{isotope?.decayMode || 'N/A'}</p>
-                  <p>{isotope?.description}</p>
-      </div>
-    ))}
-  </div>
-</section>
-
 <section id="11-oxidation-states">
   <div>
     {generateSectionHeader("Oxidation States", "11. Oxidation States")}
@@ -442,6 +422,35 @@ async function ElementPage({ params: { slug } }: ElementPageProps) {
     </div>
   ))}
 </section>
+
+<section className='col-span-2' id="10-isotopes-and-abundances">
+  <div>
+    {generateSectionHeader("Isotopes and Abundances", "10. Isotopes and Abundances")}
+  </div>
+  <div className='lg:grid lg:grid-cols-2 gap-x-12  max-w-fit mx-auto mt-16'>
+    {element.isotopes.map(isotope => (
+      <div className='border rounded-3xl max-w-[40rem] px-10 py-2 m-10 pt-8 mx-auto' key={isotope.isotopeNumber}>
+
+        <h3 className='mt-2 mb-6'>{isotope?.name  }</h3>
+
+        {generateStrong("Abundance", "Abundance:")}
+        <p>{isotope?.abundance  }</p>
+        {/* {generateStrong("Half Life", "Half Life:")} */}
+                <div className='flex flex-wrap text-left'>
+
+        {generateStrong("Isotope Number", "Isotope Number:")}
+        <h3 className='mt-0'>{isotope?.isotopeNumber }</h3>
+            </div>
+        <p>{isotope?.nuclearProperties  }</p>
+        {/* {generateStrong("Decay Mode", "Decay Mode:")} */}
+        <p>{isotope?.applications  }</p>
+        <p>{isotope?.description}</p>
+      </div>
+    ))}
+  </div>
+</section>
+
+
 
 <section id="12-compounds">
   <div>

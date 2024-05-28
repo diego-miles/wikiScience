@@ -1,4 +1,4 @@
-//🧩Don't Edit this file.✨Generated in Sat May 25 2024 00:29:26 GMT-0600 (Central Standard Time)✨
+//🧩Don't Edit this file.✨Generated in Tue May 28 2024 00:01:58 GMT-0600 (Central Standard Time)✨
 
 datasource db {
   provider = "mongodb"
@@ -402,25 +402,6 @@ type ElectronicComponentDatasheet {
   url         String?
 }
 
-// voltage                 String?
-// current                 String?
-// resistance              String?
-// capacitance             String?
-// inductance              String?
-// frequency               String?
-// power                   String?
-// signalToNoiseRatio      String?
-// impedance               String?
-// gain                    String?
-// distortion              String?
-// bandwidth               String?
-// efficiency              String?
-// toleranceAccuracy       String?
-// operatingTemperatureRange String?
-// storageTemperatureRange String?
-// humidityTolerance       String?
-// shockVibrationResistance String?
-// otherVariables          String?
 model Event {
   id           String             @id @map("_id") @db.ObjectId
   name         String             @unique
@@ -619,11 +600,15 @@ type ElementAtomicStructure {
 }
 
 type ElementIsotope {
-  isotopeNumber String?
-  abundance     String?
-  halfLife      String?
-  decayMode     String?
-  description   String?
+  isotopeNumber     String?
+  name              String?
+  abundance         String?
+  halfLife          String?
+  decayMode         String?
+  nuclearProperties String?
+  applications      String?
+  source            String?
+  otherDetails      String?
 }
 
 type ElementCompound {
