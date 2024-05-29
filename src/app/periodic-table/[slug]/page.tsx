@@ -169,15 +169,32 @@ async function ElementPage({ params: { slug } }: ElementPageProps) {
     >
       {/* Columna izquierda */}
       <div className="text-right pt-16 ">
-        <span className="absolute  pb-1 pl-2 -right-12   border-sky-400 top-0  text-dark font-medium dark:text-gray-100 block mt-1   border-b-2  text-[1.1rem]">Electronic Configuration</span>
+        <div className="absolute  pb-1 pl-2 -right-8   border-sky-400 top-0  text-dark font-medium dark:text-gray-100 block mt-1   border-b-2  text-[1.1rem]">
+           <ContextHoverCard buttonText={"Electronic Configuration"} questionMarkColor={"#232"}>
+      <Button variant="link">
+        <strong className='text-sm'>{"Electronic Config"}</strong>
+      </Button>
+    </ContextHoverCard> 
+          </div>
         <div>
-        
-        <span className="  text-dark dark:text-gray-100   border-b-2 px-3 inline-block border-sky-400 font-medium text-xs">Symbol</span>
+        <div className="  text-dark dark:text-gray-100   border-b-2 px-3 inline-block border-sky-400 font-medium text-xs">
+           <ContextHoverCard buttonText={"Electronic Configuration"} questionMarkColor={"#232"}>
+      <Button variant="link">
+        <strong className='text-sm'>{"Symbol"}</strong>
+      </Button>
+    </ContextHoverCard> 
+        </div>
         </div>
         <div>
         <span className="  text-dark dark:text-gray-100 inline-block mt-3   border-b-[.2rem] border-sky-400 px-3 font-medium text-xs" >Name</span>
         </div>
-        <span className="  text-dark dark:text-gray-100 inline-block mt-4   border-b-2 border-sky-400 px-3 font-medium text-xs">Atomic Number</span>
+        <div className="  text-dark dark:text-gray-100 inline-block mt-4   border-b-2 border-sky-400 px-3 font-medium text-xs">
+           <ContextHoverCard buttonText={"Atomic number"} questionMarkColor={"#232"}>
+      <Button variant="link">
+        <strong className='text-sm'>{"Atomic Number"}</strong>
+      </Button>
+    </ContextHoverCard> 
+          </div>
       </div>
       
       {/* Columna derecha */}
@@ -196,12 +213,12 @@ async function ElementPage({ params: { slug } }: ElementPageProps) {
     </div>
           {/* {images.length > 0 && <ImageCarousel images={images} />} */}
           {/* <LocalContextLinks links={links} /> */}
-          <div className='w-fit mx-auto'>
+          {/* <div className='w-fit mx-auto'>
             <div className='flex flex-wrap'>
                           {generateStrong("Atomic Number", "Atomic Number:")}
             <p className=''> {element.atomicNumber}</p>
             </div>
-          </div>
+          </div> */}
           <div className='w-fit mx-auto'>
             <div className='flex flex-wrap'>
                           {generateStrong("Atomic Weight", "Atomic Weight:")}
