@@ -11,6 +11,7 @@ import RightArrowRigth from '@/components/right-arrow'
 import LocalSearchBar from '@/components/LocalSearch';
 import Link from 'next/link';
 import { generateSlug, generateAmazonImageURL } from '@/utils/slugGenerator';
+import { Badge } from "@/components/ui/badge"
 
 
 const prisma = new PrismaClient();
@@ -73,7 +74,7 @@ const WordPage: React.FC<WordPageProps> = async ({ params: { slug } }) => {
 
           <LocalSearchBar></LocalSearchBar>
         </div>
-        <header className='relative pt-20'>
+        <header className='relative pt-20 pb-4'>
           {wordData.pronunciation && (
             <p className="pt-4">Pronunciation: <span>{wordData.pronunciation}</span></p>
           )}
@@ -88,7 +89,15 @@ const WordPage: React.FC<WordPageProps> = async ({ params: { slug } }) => {
             <p className="font-serif font-medium ">{wordData.etymology}</p>
           )}
           {wordData.tags.length > 0 && (
-            <p className=" my-4 text-sm tracking-wide">{wordData.tags.join(', ')}</p>
+        <div>
+                  {wordData.tags?.map((tag, index) => (
+                  <div key={index} className='inline-block' >
+            <Badge className='m-1' variant="outline">
+                      <p className=" p-1  text-sm tracking-wide">{tag}</p>
+            </Badge>
+                  </div>
+                  ))}
+        </div>
           )}
         </header>
 
@@ -97,7 +106,7 @@ const WordPage: React.FC<WordPageProps> = async ({ params: { slug } }) => {
           {wordData.definitions && (
 
             <div className='text-center' >
-              <h2 className="py-2 pt-6">Definitions</h2>
+              <h2 className="pb-4 pt-4">Definitions</h2>
               <div className={`w-fit mx-auto ${childrenCount > 1 ? 'md:grid lg:grid-cols-2 gap-16' : 'flex justify-center'}`}>
 
                 {wordData.definitions.map((definition, index) => (
@@ -213,13 +222,13 @@ const WordPage: React.FC<WordPageProps> = async ({ params: { slug } }) => {
   {wordData.relatedConcepts.length > 0 && (
     <>
       <h3>Related Concepts</h3>
-      <ul className="">
+      <ul className="pt-1">
         {wordData.relatedConcepts.map((concept, index) => (
-          <li className='font-semibold text-[#bb3d76]' key={index}>
+          <li className='flex py-5 font-semibold text-[#bb3d76]' key={index}>
             <Link className='inline-block underline w-fit' href={`/dictionary/` + generateSlug(concept.concept || '')}>
               {concept.concept}
             </Link>
-            <span className='w-fit pl-2'>
+            <span className='w-fit pl-2  '>
               <RightArrowRigth color='#ff74ca' />
             </span>
           </li>

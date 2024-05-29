@@ -1,0 +1,138 @@
+model Compound {
+  id          String    @id @map("_id") @db.ObjectId
+  chemicalFormula     String
+  compoundName        String
+  physicalProperties  PhysicalProperties
+  chemicalProperties  ChemicalProperties
+  electromagneticProperties  ElectromagneticProperties
+  structuralProperties  StructuralProperties
+  mechanicalProperties  MechanicalProperties
+  electricalProperties  ElectricalProperties
+  thermalProperties  ThermalProperties
+  materialProperties  MaterialProperties
+}
+
+type PhysicalProperties {
+  apaSources          String[]
+  physicalState      String
+  meltingPoint       Temperature
+  boilingPoint       Temperature
+  solubility         String
+  density            Measurement
+  color              String
+  odor               String
+  hardness           Measurement
+  refractiveIndex    Measurement
+  viscosity          Measurement
+  surfaceTension     Measurement
+  volatility         Measurement
+  hygroscopicity     Measurement
+  combustibility     String
+  thermalConductivity Measurement
+  specificHeat       Measurement
+  vaporPressure      Measurement
+  thermalExpansion   Measurement
+  compressibility    Measurement
+  elasticity         Measurement
+}
+
+type Temperature {
+  value  String
+  unit   String
+}
+
+type Measurement {
+  value  String
+  unit   String
+}
+
+type ChemicalProperties {
+  apaSources          String[]
+  reactivity         String
+  toxicity           String
+  flammability       String
+  stability          String
+  corrosiveness      String
+  biodegradability   String
+  ionizationPotential Measurement
+  electronAffinity   Measurement
+  redoxPotential     Measurement
+  enthalpy           Measurement
+  entropy            Measurement
+  gibbsFreeEnergy    Measurement
+}
+
+type ElectromagneticProperties {
+  apaSources             String[]
+  electricalConductivity Measurement
+  magneticProperties    String
+  radioactivity         String
+  absorptionSpectrum    String
+  emissionSpectrum      String
+  conductivity          Measurement
+  magnetization         Measurement
+}
+
+type StructuralProperties {
+  apaSources          String[]
+  crystalStructure   String
+  polarity           String
+  isomerism          String
+  chirality          String
+  stereochemistry    String
+  bondLength         Measurement
+  bondAngle          Measurement
+  bondEnergy         Measurement
+}
+
+type MechanicalProperties {
+  apaSources            String[]
+  tensileStrength     Measurement
+  ductility           Measurement
+  fatigueResistance   Measurement
+  creepResistance     Measurement
+  fractureToughness   Measurement
+  impactStrength      Measurement
+  hardness            Measurement
+  flexibility         Measurement
+  resilience          Measurement
+  brittleness         Measurement
+}
+
+type ElectricalProperties {
+  apaSources              String[]
+  voltage               Measurement
+  electricCurrent       Measurement
+  resistance            Measurement
+  capacitance           Measurement
+  inductance            Measurement
+  impedance             Measurement
+  dielectricStrength    Measurement
+  insulationResistance Measurement
+  conductance           Measurement
+}
+
+type ThermalProperties {
+  apaSources               String[]
+  thermalConductivity    Measurement
+  heatCapacity           Measurement
+  thermalExpansion       Measurement
+  thermalShockResistance Measurement
+}
+
+type MaterialProperties {
+  apaSources                 String[]
+  corrosionResistance      String
+  biocompatibility         String
+  materialStrength         Measurement
+  materialDensity          Measurement
+  materialToughness        Measurement
+  materialElasticity       Measurement
+  materialHardness         Measurement
+  materialDuctility        Measurement
+  materialConductivity     Measurement
+  materialThermalConductivity Measurement
+  materialChemicalStability String
+  materialOpticalProperties String
+  materialMagneticProperties String
+}
