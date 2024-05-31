@@ -120,7 +120,7 @@ const LocalContextLinksPeriodicTable: React.FC<LocalContextLinksProps> = ({ link
         
           <div className=''>
         <div
-          className={`f  overflow-x-auto items-center fixed top-0 left-0 right-0 gap-2 py-[3.5rem] px-4 pt-[8rem]   lg:pt-40 bg-background1 z-10 whitespace-nowrap dark:bg-background1dark ${styles.dropdownScrollContainer}`}
+          className={`  overflow-x-auto items-center fixed top-0 left-0 right-0 gap-2 py-[3.5rem] px-4 pt-[8rem]   lg:pt-40 bg-background1 z-10 whitespace-nowrap dark:bg-background1dark ${styles.dropdownScrollContainer}`}
           style={{ display: isVisible ? ' flex' : 'none' }}
           ref={scrollContainerRef}
         >
@@ -146,7 +146,7 @@ const LocalContextLinksPeriodicTable: React.FC<LocalContextLinksProps> = ({ link
   </a>
 ))}
 
-          <a className="font-noto-serif-georgian text-accent1 italic px-4 py-2 cursor-pointer fixed top-[12rem] lg:top-[14.5rem] right-2 text-xs font-semibold" onMouseDown={toggleDropdown}>
+          <a className="font-noto-serif-georgian text-accent1 italic px-4 py-2 cursor-pointer fixed top-[11.5rem] lg:top-[14.5rem] right-2 text-xs font-semibold" onMouseDown={toggleDropdown}>
             See All
           </a>
         </div>

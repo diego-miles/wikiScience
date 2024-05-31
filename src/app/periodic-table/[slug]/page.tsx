@@ -104,36 +104,35 @@ async function ElementPage({ params: { slug } }: ElementPageProps) {
     return <div>Error fetching element data</div>;
   }
 
-  const sectionTitles = [
-    "1. Atomic Structure",
-    "2. Physical Properties",
-    "3. Chemical Properties",
-    "4. Discovery and History",
-    "5. Classifications",
-    "6. Natural Occurrence",
-    "7. Electron Configuration",
-    "8. Crystal Structures",
-    "9. Allotropes",
-    "10. Isotopes and Abundances",
-    "11. Oxidation States",
-    "12. Compounds",
-    "13. Magnetic and Electrical Properties",
-    "14. Optical Properties",
-    "15. Quantum Properties",
-    "16. Spectral Lines",
-    "17. Practical Applications",
-    "18. Biological Role",
-    "19. Health and Environmental Impact",
-    "20. Economic Data",
-    "21. Legal Status",
-    "22. Safety Data Sheet",
-    "23. Future Predictions",
-    "24. Interdisciplinary Connections",
-    "25. External Resources",
-    "26. Synthesis and Production",
-    "27. Environmental Safety",
-    "28. User Interactions",
-  ];
+const sectionTitles = [
+  "1. Atomic Structure",
+  "2. History",
+  "3. Physical Properties",
+  "4. Chemical Properties",
+  "5. Electron Configuration",
+  "6. Natural Occurrence",
+  "7. Crystal Structures",
+  "8. Isotopes and Abundances",
+  "9. Oxidation States",
+  "10. Compounds",
+  "11. Spectral Lines",
+  "12. Allotropes",
+  "13. Magnetic and Electrical Properties",
+  "14. Optical Properties",
+  "15. Quantum Properties",
+  "16. Practical Applications",
+  "17. Biological Role",
+  "18. Legal Status",
+  "19. Safety Data Sheet",
+  "20. Synthesis and Production",
+  "21. Health and Environmental Impact",
+  "22. Environmental Safety",
+  "23. Economic Data",
+  "24. Interdisciplinary Connections",
+  "25. Future Predictions",
+  "26. External Resources",
+  "27. User Interactions",
+];
 
 const chemicalFamilies: ChemicalFamily[] = [
   { name: 'Alkali Metals', color: 'alkali-metal' },
@@ -150,11 +149,11 @@ const chemicalFamilies: ChemicalFamily[] = [
 ];
 
 
-  // Crear enlaces a partir de los títulos de sección
-  const links = sectionTitles.map(title => ({
-    text: title,
-    id: title.toLowerCase().replace(/ /g, '-').replace(/[^a-z0-9-]/g, '')
-  }));
+  // // Crear enlaces a partir de los títulos de sección
+  // const links = sectionTitles.map(title => ({
+  //   text: title,
+  //   id: title.toLowerCase().replace(/ /g, '-').replace(/[^a-z0-9-]/g, '')
+  // }));
 
   // Check and map over the gallery only if it's an array of the expected type
   const images = element?.imageGallery?.map((img: ImageGalleryItem) => ({
@@ -180,18 +179,21 @@ const chemicalFamilies: ChemicalFamily[] = [
       {/* <NavBar domain="www.wiki-science.com/" menuPath='./NavigationMenu' /> */}
       <main  className='lg:pt-60 mt-[5rem]'>
         {/* <h1 >{element.name} ({element.symbol})</h1> */}
+        <div className='max-w-90 overflow-x-auto pb-2'>
+
         <ChemicalFamilies></ChemicalFamilies>
+        </div>
         <section className='text-center pt-20'>
 
             <div
       className={`relative flex w-fit mx-auto pr-40 mb-20`}
     >
       {/* Columna izquierda */}
-      <div className="text-right pt-14 ">
-        <div className="absolute  pb-1 pl-2 -right-8   border-[#168cc7]  top-0  text-dark font-medium dark:text-gray-100 block mt-1   border-b-2  text-[1.1rem]">
+      <div className="text-right pt-10 ">
+        <div className="absolute  pb-1 pl-2 -right-5   border-[#168cc7]  top-0  text-dark font-medium dark:text-gray-100 block mt-1   border-b-2  text-[1.1rem]">
            <ContextHoverCard buttonText={"Electronic Configuration"} questionMarkColor={"#85a985"}>
       <Button variant="link">
-        <strong className='text-sm'>{"Electronic Config"}</strong>
+        <strong className='text-xs'>{"Electronic Config"}</strong>
       </Button>
     </ContextHoverCard> 
           </div>
@@ -199,7 +201,7 @@ const chemicalFamilies: ChemicalFamily[] = [
         <div className="  text-dark dark:text-gray-100   border-b-2 px-3 inline-block border-[#168cc7]  font-medium text-xs">
            <ContextHoverCard buttonText={"Electronic Configuration"} questionMarkColor={"#729c72"}>
       <Button variant="link">
-        <strong className='text-sm'>{"Symbol"}</strong>
+        <strong className='text-xs'>{"Symbol"}</strong>
       </Button>
     </ContextHoverCard> 
         </div>
@@ -210,7 +212,7 @@ const chemicalFamilies: ChemicalFamily[] = [
         <div className="  text-dark dark:text-gray-100 inline-block mt-4   border-b-2 border-[#168cc7]  px-3 font-medium text-xs">
            <ContextHoverCard buttonText={"Atomic number"} questionMarkColor={"#80ac80"}>
       <Button variant="link">
-        <strong className='text-sm'>{"Atomic Number"}</strong>
+        <strong className='text-xs'>{"Atomic Number"}</strong>
       </Button>
     </ContextHoverCard> 
           </div>
@@ -220,10 +222,10 @@ const chemicalFamilies: ChemicalFamily[] = [
       <div>
           <div className={`border-4 border-[#1380b6] bg-background1 rounded-lg px-4 py-2 min-w-32 bg-${element.classifications}`}>
             {/* Configuración electrónica en la parte superior */}
-            <span className=" text-[1.6rem] min-h-8 text-dark dark:text-white tracking-wider ">{element.electronConfig?.configuration}</span>
-            <span className="text-2xl font-black text-dark dark:text-white block -mb-1 pb-0 ">{element.symbol}</span>
-            <span className="text-[1.7rem] text-dark font-extrabold dark:text-white block ">{element.name}</span>
-            <span className="text-dark text-lg dark:text-white block"> {element.atomicNumber}</span>
+            <span className=" text-[1.4rem] min-h-8 text-dark dark:text-white tracking-wider ">{element.electronConfig?.configuration}</span>
+            <span className="text-xl font-black text-dark dark:text-white block -mb-1 pb-0 ">{element.symbol}</span>
+            <span className="text-[1.5rem] text-dark font-extrabold dark:text-white block ">{element.name}</span>
+            <span className="text-dark text-base dark:text-white block"> {element.atomicNumber}</span>
           </div>
       </div>
       {/* <div className='absolute top-60'>
@@ -240,11 +242,11 @@ const chemicalFamilies: ChemicalFamily[] = [
           </div> */}
 
   <div className=' pb-12'>
-            <p className='font-semibold text-[#234981]'>Classification: </p>
+            <p className='font-semibold text-h4'>CLASSIFICATION: </p>
   {element.classifications.map((cls, index) => (
     <div className='pl-2' key={index}>
       <div className='max-w-40 mx-auto'>
-{generateStrong(cls.classification || '', cls.classification ? cls.classification + ":" : '')}
+
       </div>
       <p>{cls.description}</p>
     </div>
@@ -336,9 +338,19 @@ const chemicalFamilies: ChemicalFamily[] = [
             </div>
           </section>
 
+
+<section id="2-history" className='mx-auto w-fit'>
+  <div>
+            <h2>4. Discovery and History</h2>
+  </div>
+  <History data={sanitizedHistoryData} />
+</section>
+
+
+
           {/* Discovery Year, Melting and Boiling Points, Density, and Appearance */}
           {/* Physical Properties */}
-          <section id="2-physical-properties">
+          <section id="3-physical-properties">
             <div>
               {generateSectionHeader("Physical Properties", "2. Physical Properties")}
             </div>
@@ -407,7 +419,7 @@ const chemicalFamilies: ChemicalFamily[] = [
           </section>
 
 
-<section id="3-chemical-properties">
+<section id="4-chemical-properties">
   <div>
     {generateSectionHeader("Chemical Properties", "3. Chemical Properties")}
   </div>
@@ -428,22 +440,50 @@ const chemicalFamilies: ChemicalFamily[] = [
   </div>
 </section>
 
-<section id="4-discovery-and-history" className='mx-auto w-fit'>
+
+{element.magneticElectricalProperties && (
+  <section id="5-magnetic-and-electrical-properties">
+    <div className='w-full'>
+      {generateSectionHeader("Magnetic and Electrical Properties", "13. Magnetic and Electrical Properties")}
+    </div>
+    {generateStrong("Magnetic Susceptibility", "Magnetic Susceptibility:")}
+    <p>{element.magneticElectricalProperties?.magneticSusceptibility || 'N/A'}</p>
+    {generateStrong("Electrical Resistivity", "Electrical Resistivity:")}
+    <p>{element.magneticElectricalProperties?.electricalResistivity || 'N/A'}</p>
+    {generateStrong("Hall Coefficient", "Hall Coefficient:")}
+    <p>{element.magneticElectricalProperties?.hallCoefficient || 'N/A'}</p>
+  </section>
+)}
+
+<section id="6-optical-properties">
   <div>
-            <h2>4. Discovery and History</h2>
+    {generateSectionHeader("Optical Properties", "14. Optical Properties")}
   </div>
-  <History data={sanitizedHistoryData} />
+  {generateStrong("Refractive Index", "Refractive Index:")}
+  <p>{element.opticalProperties?.refractiveIndex || 'N/A'}</p>
+  {generateStrong("Reflectivity", "Reflectivity:")}
+  <p>{element.opticalProperties?.reflectivity || 'N/A'}</p>
+  {generateStrong("Absorption Spectrum", "Absorption Spectrum:")}
+  <p>{element.opticalProperties?.absorptionSpectrum || 'N/A'}</p>
 </section>
 
-<section id="6-natural-occurrence">
+<section id="7-quantum-properties">
   <div>
-    {generateSectionHeader("Natural Occurrence", "6. Natural Occurrence")}
+    {generateSectionHeader("Quantum Properties", "15. Quantum Properties")}
   </div>
-  <h3>{element.naturalOccurrence?.occurrenceType}  </h3>
-  <p>{element.naturalOccurrence?.description}</p>
+  {element.quantumProperties && (
+    <>
+      {generateStrong("Quantum Numbers", "Quantum Numbers:")}
+      <p>{JSON.stringify(element.quantumProperties?.quantumNumbers)}</p>
+      {generateStrong("Electron Shell Model", "Electron Shell Model:")}
+      <p>{JSON.stringify(element.quantumProperties?.electronShellModel)}</p>
+      {generateStrong("Energy Levels", "Energy Levels:")}
+      <p>{JSON.stringify(element.quantumProperties?.energyLevels)}</p>
+    </>
+  )}
 </section>
 
-<section id="7-electron-configuration">
+<section id="8-electron-configuration">
   <div>
     {generateSectionHeader("Electron Configuration", "7. Electron Configuration")}
   </div>
@@ -451,7 +491,20 @@ const chemicalFamilies: ChemicalFamily[] = [
   <p>{element.electronConfig?.description}</p>
 </section>
 
-<section id="8-crystal-structures">
+
+
+
+
+
+<section id="9-natural-occurrence">
+  <div>
+    {generateSectionHeader("Natural Occurrence", "6. Natural Occurrence")}
+  </div>
+  <h3>{element.naturalOccurrence?.occurrenceType}  </h3>
+  <p>{element.naturalOccurrence?.description}</p>
+</section>
+
+<section id="10-crystal-structures">
   <div>
     {generateSectionHeader("Crystal Structures", "8. Crystal Structures")}
   </div>
@@ -466,31 +519,8 @@ const chemicalFamilies: ChemicalFamily[] = [
   ))}
 </section>
 
-<section id="9-allotropes">
-  <div>
-    {generateSectionHeader("Allotropes", "9. Allotropes")}
-  </div>
-  {element.allotropes.map((allotrope, index) => (
-    <div className='border border-black dark:border-white/20 rounded-3xl py-4 my-12 px-7 pb-9 min-h-[17rem] max-w-[32rem] justify-center' key={index}>
-{generateStrong(allotrope?.name || '', allotrope?.name ? allotrope.name + ":" : '')}
-      <p>{allotrope?.description}</p>
-    </div>
-  ))}
-</section>
 
-<section id="11-oxidation-states">
-  <div>
-    {generateSectionHeader("Oxidation States", "11. Oxidation States")}
-  </div>
-  {element.oxidationStates.map(state => (
-    <div key={state.state}>
-      <p className='mt-8 -mb-3'><strong>{state?.state}</strong></p>
-      <p>{state?.description || 'N/A'}</p>
-    </div>
-  ))}
-</section>
-
-<section className='col-span-2' id="10-isotopes-and-abundances">
+<section className='col-span-2' id="11-isotopes-and-abundances">
   <div>
     {generateSectionHeader("Isotopes and Abundances", "10. Isotopes and Abundances")}
   </div>
@@ -518,8 +548,20 @@ const chemicalFamilies: ChemicalFamily[] = [
 </section>
 
 
+<section id="12-oxidation-states">
+  <div>
+    {generateSectionHeader("Oxidation States", "11. Oxidation States")}
+  </div>
+  {element.oxidationStates.map(state => (
+    <div key={state.state}>
+      <p className='mt-8 -mb-3'><strong>{state?.state}</strong></p>
+      <p>{state?.description || 'N/A'}</p>
+    </div>
+  ))}
+</section>
 
-<section id="12-compounds">
+
+<section id="13-compounds">
   <div>
     {generateSectionHeader("Compounds", "12. Compounds")}
   </div>
@@ -532,49 +574,7 @@ const chemicalFamilies: ChemicalFamily[] = [
   ))}
 </section>
 
-{element.magneticElectricalProperties && (
-  <section id="13-magnetic-and-electrical-properties">
-    <div className='w-full'>
-      {generateSectionHeader("Magnetic and Electrical Properties", "13. Magnetic and Electrical Properties")}
-    </div>
-    {generateStrong("Magnetic Susceptibility", "Magnetic Susceptibility:")}
-    <p>{element.magneticElectricalProperties?.magneticSusceptibility || 'N/A'}</p>
-    {generateStrong("Electrical Resistivity", "Electrical Resistivity:")}
-    <p>{element.magneticElectricalProperties?.electricalResistivity || 'N/A'}</p>
-    {generateStrong("Hall Coefficient", "Hall Coefficient:")}
-    <p>{element.magneticElectricalProperties?.hallCoefficient || 'N/A'}</p>
-  </section>
-)}
-
-<section id="14-optical-properties">
-  <div>
-    {generateSectionHeader("Optical Properties", "14. Optical Properties")}
-  </div>
-  {generateStrong("Refractive Index", "Refractive Index:")}
-  <p>{element.opticalProperties?.refractiveIndex || 'N/A'}</p>
-  {generateStrong("Reflectivity", "Reflectivity:")}
-  <p>{element.opticalProperties?.reflectivity || 'N/A'}</p>
-  {generateStrong("Absorption Spectrum", "Absorption Spectrum:")}
-  <p>{element.opticalProperties?.absorptionSpectrum || 'N/A'}</p>
-</section>
-
-<section id="15-quantum-properties">
-  <div>
-    {generateSectionHeader("Quantum Properties", "15. Quantum Properties")}
-  </div>
-  {element.quantumProperties && (
-    <>
-      {generateStrong("Quantum Numbers", "Quantum Numbers:")}
-      <p>{JSON.stringify(element.quantumProperties?.quantumNumbers)}</p>
-      {generateStrong("Electron Shell Model", "Electron Shell Model:")}
-      <p>{JSON.stringify(element.quantumProperties?.electronShellModel)}</p>
-      {generateStrong("Energy Levels", "Energy Levels:")}
-      <p>{JSON.stringify(element.quantumProperties?.energyLevels)}</p>
-    </>
-  )}
-</section>
-
-<section id="16-spectral-lines">
+<section id="14-spectral-lines">
   <div>
     {generateSectionHeader("Spectral Lines", "16. Spectral Lines")}
   </div>
@@ -590,7 +590,28 @@ const chemicalFamilies: ChemicalFamily[] = [
   ))}
 </section>
 
-<section id="17-practical-applications">
+
+
+<section id="15-allotropes">
+  <div>
+    {generateSectionHeader("Allotropes", "9. Allotropes")}
+  </div>
+  {element.allotropes.map((allotrope, index) => (
+    <div className='border border-black dark:border-white/20 rounded-3xl py-4 my-12 px-7 pb-9 min-h-[17rem] max-w-[32rem] justify-center' key={index}>
+{generateStrong(allotrope?.name || '', allotrope?.name ? allotrope.name + ":" : '')}
+      <p>{allotrope?.description}</p>
+    </div>
+  ))}
+</section>
+
+
+
+
+
+
+
+
+<section id="16-practical-applications">
   <div>
             <h2>17. Practical Applications</h2>
   </div>
@@ -602,7 +623,7 @@ const chemicalFamilies: ChemicalFamily[] = [
   ))}
 </section>
 
-<section id="18-biological-role">
+<section id="17-biological-role">
   <div>
             <h2>18. Biological Role</h2>
   </div>
@@ -611,6 +632,26 @@ const chemicalFamilies: ChemicalFamily[] = [
   {/* {generateStrong("Description", "Description:")} */}
   <p>{element.biologicalRole?.description || 'N/A'}</p>
 </section>
+
+
+<section id="18-legal-status">
+  <div>
+    {generateSectionHeader("Legal Status", "21. Legal Status")}
+  </div>
+  {element.legalStatus && (
+    <>
+      {generateStrong("Regulations", "Regulations:")}
+      <p>{element.legalStatus?.regulations || 'N/A'}</p>
+      {generateStrong("Legal Restrictions", "Legal Restrictions:")}
+      <p>{element.legalStatus?.legalRestrictions || 'N/A'}</p>
+    </>
+  )}
+</section>
+
+
+
+
+
 
 <section id="19-health-environmental-impact">
             <h2>19. Health and Environmental Impact</h2>
@@ -630,19 +671,6 @@ const chemicalFamilies: ChemicalFamily[] = [
             <p><strong>Description:</strong> {element.economicData?.description}</p>
 </section>
 
-<section id="21-legal-status">
-  <div>
-    {generateSectionHeader("Legal Status", "21. Legal Status")}
-  </div>
-  {element.legalStatus && (
-    <>
-      {generateStrong("Regulations", "Regulations:")}
-      <p>{element.legalStatus?.regulations || 'N/A'}</p>
-      {generateStrong("Legal Restrictions", "Legal Restrictions:")}
-      <p>{element.legalStatus?.legalRestrictions || 'N/A'}</p>
-    </>
-  )}
-</section>
 
 <section id="22-safety-data-sheet">
   <div>
