@@ -7,13 +7,19 @@ import { notFound } from 'next/navigation';
 import History from '@/components/tables/hystoryTable'; // Ajusta la ruta de importación según tu estructura de proyecto
 import { Button } from "@/components/ui/button"
 import ContextHoverCard from '@/components/ContextHoverCard';
-
-
+import { PeriodicDrawer } from '@/components/Drawer'
+import ChemicalFamilies from '../ChemicalFamilies'
 
 type ImageGalleryItem = {
   imageUrl: string | null;
   description: string | null;
 };
+interface ChemicalFamily {
+  name: string;
+  color: string;
+}
+
+
 
 
 const prisma = new PrismaClient();
@@ -129,6 +135,19 @@ async function ElementPage({ params: { slug } }: ElementPageProps) {
     "28. User Interactions",
   ];
 
+const chemicalFamilies: ChemicalFamily[] = [
+  { name: 'Alkali Metals', color: 'alkali-metal' },
+  { name: 'Alkali earth metals', color: 'alkali-earth' },
+  { name: 'Transition Metals', color: 'transition-metal' },
+  { name: 'Post-Transition Metals', color: 'post-transition-metal' },
+  { name: 'Metalloids', color: 'metalloids' },
+  { name: 'Non-Metals', color: 'non-metals' },
+  { name: 'Halogens', color: 'halogens' },
+  // { name: 'Noble Gases', color: 'noble-gases' },
+  { name: 'Lanthanides', color: 'lanthanide' },
+  { name: 'Noble Gases', color: 'noble-gas' },
+  { name: 'Actinides', color: 'actinide' },
+];
 
 
   // Crear enlaces a partir de los títulos de sección
@@ -159,26 +178,26 @@ async function ElementPage({ params: { slug } }: ElementPageProps) {
   return (
     <>
       {/* <NavBar domain="www.wiki-science.com/" menuPath='./NavigationMenu' /> */}
-      <main  className='lg:pt-60 mt-[7rem]'>
-
+      <main  className='lg:pt-60 mt-[5rem]'>
         {/* <h1 >{element.name} ({element.symbol})</h1> */}
-        <section className='text-center'>
+        <ChemicalFamilies></ChemicalFamilies>
+        <section className='text-center pt-20'>
 
             <div
       className={`relative flex w-fit mx-auto pr-40 mb-20`}
     >
       {/* Columna izquierda */}
-      <div className="text-right pt-16 ">
-        <div className="absolute  pb-1 pl-2 -right-8   border-sky-400 top-0  text-dark font-medium dark:text-gray-100 block mt-1   border-b-2  text-[1.1rem]">
-           <ContextHoverCard buttonText={"Electronic Configuration"} questionMarkColor={"#232"}>
+      <div className="text-right pt-14 ">
+        <div className="absolute  pb-1 pl-2 -right-8   border-[#168cc7]  top-0  text-dark font-medium dark:text-gray-100 block mt-1   border-b-2  text-[1.1rem]">
+           <ContextHoverCard buttonText={"Electronic Configuration"} questionMarkColor={"#85a985"}>
       <Button variant="link">
         <strong className='text-sm'>{"Electronic Config"}</strong>
       </Button>
     </ContextHoverCard> 
           </div>
         <div>
-        <div className="  text-dark dark:text-gray-100   border-b-2 px-3 inline-block border-sky-400 font-medium text-xs">
-           <ContextHoverCard buttonText={"Electronic Configuration"} questionMarkColor={"#232"}>
+        <div className="  text-dark dark:text-gray-100   border-b-2 px-3 inline-block border-[#168cc7]  font-medium text-xs">
+           <ContextHoverCard buttonText={"Electronic Configuration"} questionMarkColor={"#729c72"}>
       <Button variant="link">
         <strong className='text-sm'>{"Symbol"}</strong>
       </Button>
@@ -186,10 +205,10 @@ async function ElementPage({ params: { slug } }: ElementPageProps) {
         </div>
         </div>
         <div>
-        <span className="  text-dark dark:text-gray-100 inline-block mt-3   border-b-[.2rem] border-sky-400 px-3 font-medium text-xs" >Name</span>
+        <span className="  text-dark dark:text-gray-100 inline-block mt-3   border-b-[.2rem] border-[#168cc7]  px-3 font-medium text-xs" >Name</span>
         </div>
-        <div className="  text-dark dark:text-gray-100 inline-block mt-4   border-b-2 border-sky-400 px-3 font-medium text-xs">
-           <ContextHoverCard buttonText={"Atomic number"} questionMarkColor={"#232"}>
+        <div className="  text-dark dark:text-gray-100 inline-block mt-4   border-b-2 border-[#168cc7]  px-3 font-medium text-xs">
+           <ContextHoverCard buttonText={"Atomic number"} questionMarkColor={"#80ac80"}>
       <Button variant="link">
         <strong className='text-sm'>{"Atomic Number"}</strong>
       </Button>
@@ -199,11 +218,11 @@ async function ElementPage({ params: { slug } }: ElementPageProps) {
       
       {/* Columna derecha */}
       <div>
-          <div className="border-4 border-sky-400 rounded-lg px-6 py-2 min-w-32">
+          <div className={`border-4 border-[#1380b6] bg-background1 rounded-lg px-4 py-2 min-w-32 bg-${element.classifications}`}>
             {/* Configuración electrónica en la parte superior */}
             <span className=" text-[1.6rem] min-h-8 text-dark dark:text-white tracking-wider ">{element.electronConfig?.configuration}</span>
             <span className="text-2xl font-black text-dark dark:text-white block -mb-1 pb-0 ">{element.symbol}</span>
-            <span className="text-[2rem] text-dark font-bold dark:text-white block ">{element.name}</span>
+            <span className="text-[1.7rem] text-dark font-extrabold dark:text-white block ">{element.name}</span>
             <span className="text-dark text-lg dark:text-white block"> {element.atomicNumber}</span>
           </div>
       </div>
@@ -219,13 +238,24 @@ async function ElementPage({ params: { slug } }: ElementPageProps) {
             <p className=''> {element.atomicNumber}</p>
             </div>
           </div> */}
+
+  <div className=' pb-12'>
+            <p className='font-semibold text-[#234981]'>Classification: </p>
+  {element.classifications.map((cls, index) => (
+    <div className='pl-2' key={index}>
+      <div className='max-w-40 mx-auto'>
+{generateStrong(cls.classification || '', cls.classification ? cls.classification + ":" : '')}
+      </div>
+      <p>{cls.description}</p>
+    </div>
+  ))}
+  </div>
           <div className='w-fit mx-auto'>
             <div className='flex flex-wrap'>
                           {generateStrong("Atomic Weight", "Atomic Weight:")}
           <p > {element.atomicWeight}</p>
             </div>
           </div>
-
           <p ><strong>Appearance:</strong> {element.appearance}</p>
           <p className='text-lg max-w-[50rem] mx-auto'> {element.description}</p>
 
@@ -403,18 +433,6 @@ async function ElementPage({ params: { slug } }: ElementPageProps) {
             <h2>4. Discovery and History</h2>
   </div>
   <History data={sanitizedHistoryData} />
-</section>
-
-<section id="5-classifications">
-  <div>
-            <h2>5. Classifications</h2>
-  </div>
-  {element.classifications.map((cls, index) => (
-    <div key={index}>
-{generateStrong(cls.classification || '', cls.classification ? cls.classification + ":" : '')}
-      <p>{cls.description}</p>
-    </div>
-  ))}
 </section>
 
 <section id="6-natural-occurrence">

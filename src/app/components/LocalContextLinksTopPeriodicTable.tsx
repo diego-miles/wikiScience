@@ -2,6 +2,8 @@
 
 import React, { useRef, useEffect, useState } from 'react';
 import styles from './localContextLinkTop.module.css';
+import { PeriodicDrawer } from '@/components/Drawer'
+
 
 type LocalContextLink = {
   text: string;
@@ -13,7 +15,7 @@ type LocalContextLinksProps = {
   children?: React.ReactNode; // Añadir children a las props
 };
 
-const LocalContextLinks: React.FC<LocalContextLinksProps> = ({ links, children }) => {
+const LocalContextLinksPeriodicTable: React.FC<LocalContextLinksProps> = ({ links, children }) => {
   const linkRefs = useRef<(HTMLAnchorElement | null)[]>([]);
   const [isVisible, setIsVisible] = useState(true);
   const [dropdownActive, setDropdownActive] = useState(false);
@@ -115,39 +117,54 @@ const LocalContextLinks: React.FC<LocalContextLinksProps> = ({ links, children }
   return (
     <>
       {!dropdownActive && (
+        
+          <div className=''>
         <div
-          className={`flex overflow-x-auto items-center fixed top-0 left-0 right-0 gap-2 py-[3rem] px-4 pt-[8rem] lg:pt-40 bg-background1 z-10 whitespace-nowrap dark:bg-background1dark ${styles.dropdownScrollContainer}`}
-          style={{ display: isVisible ? 'flex' : 'none' }}
+          className={`f  overflow-x-auto items-center fixed top-0 left-0 right-0 gap-2 py-[3.5rem] px-4 pt-[8rem]   lg:pt-40 bg-background1 z-10 whitespace-nowrap dark:bg-background1dark ${styles.dropdownScrollContainer}`}
+          style={{ display: isVisible ? ' flex' : 'none' }}
           ref={scrollContainerRef}
         >
-          {links.map((link, index) => (
-            <a
-              key={index}
-              href={`#${link.id}`}
-              className={`dark:text-[#eefaff] ${styles.linkText}`}
-              onMouseDown={(e) => {
-                e.preventDefault();
-                smoothScroll(link.id);
-              }}
-              ref={el => { linkRefs.current[index] = el; }}
-            >
-              {link.text}
-            </a>
-          ))}
-          <a className="font-noto-serif-georgian text-accent1 italic px-4 py-2 cursor-pointer fixed top-[12.5rem] lg:top-[14.5rem] right-2 text-xs font-semibold" onMouseDown={toggleDropdown}>
+
+
+
+              {/* <div className="w-fit mx-auto  top-80  z-50 absolute ">
+<PeriodicDrawer></PeriodicDrawer>
+    </div> */}
+
+{links.map((link, index) => (
+  <a
+    key={index}
+    href={`#${link.id}`}
+    className={`dark:text-[#eefaff] border border-[#1d6aaa] rounded-2xl  p-1 px-3 text-[1.3rem] font-semibold text-[#204671] border-b-[.4rem] shadow-sm transform transition-all duration-200 hover:translate-y-1 active:border-b-4 active:shadow-inner active:translate-y-2`}
+    onMouseDown={(e) => {
+      e.preventDefault();
+      smoothScroll(link.id);
+    }}
+    ref={el => { linkRefs.current[index] = el; }}
+  >
+    {link.text}
+  </a>
+))}
+
+          <a className="font-noto-serif-georgian text-accent1 italic px-4 py-2 cursor-pointer fixed top-[12rem] lg:top-[14.5rem] right-2 text-xs font-semibold" onMouseDown={toggleDropdown}>
             See All
           </a>
         </div>
+          </div>
+
+
+
+
       )}
       {/* Dropdown container */}
       {dropdownActive && (
-        <div className={`flex flex-col fixed top-0 pt-44 pb-40 left-0 right-0 z-30 min-h-lvh overflow-y-auto bg-background1 dark:bg-background1dark ${styles.dropdownScrollContainer2}`} >
-          <div className='flex flex-wrap max-h-[50rem] md:px-10 gap-5 pt-12 pl-3 pr-6 max-w-[100rem] mx-auto'>
+        <div className={`flex flex-col fixed top-0 pt-32 pb-40 left-0 right-0 z-30 min-h-lvh overflow-y-auto bg-background1 dark:bg-background1dark ${styles.dropdownScrollContainer2}`} >
+          <div className='    md:px-10 gap-5 pt-6 pl-3 pr-6   mx-auto'>
             {links.map((link, index) => (
               <a
                 key={index}
                 href={`#${link.id}`}
-                className="font-medium text-sm md:text-base dark:text-sky-300 px-3 py-2 text-center my-2 no-underline"
+                className="font-semibold text-base md:text-base text-[#00326f] dark:text-sky-300 px-3 py-4 my-1  text-center no-underline"
                 onMouseDown={(e) => {
                   e.preventDefault();
                   smoothScroll(link.id);
@@ -157,7 +174,7 @@ const LocalContextLinks: React.FC<LocalContextLinksProps> = ({ links, children }
                 {link.text}
               </a>
             ))}
-            <a className="font-noto-serif-georgian text-accent1 italic px-4 py-2 cursor-pointer fixed top-28 lg:top-40 right-8 md:right-48 text-sm font-semibold" onMouseDown={toggleDropdown}>
+            <a className="font-noto-serif-georgian text-h1 italic px-4 py-2 cursor-pointer fixed top-28 lg:top-40 right-8 md:right-48 text-sm font-semibold " onMouseDown={toggleDropdown}>
               Close
             </a>
           </div>
@@ -168,4 +185,4 @@ const LocalContextLinks: React.FC<LocalContextLinksProps> = ({ links, children }
   );
 };
 
-export default LocalContextLinks;
+export default LocalContextLinksPeriodicTable;

@@ -33,7 +33,7 @@ const ChemicalFamilies: React.FC = () => {
         
         <div
           key={index}
-          className={`flex items-center py-3    shadow-xl pr-2  rounded-lg text-white font-medium   bg-${family.color} `}
+          className={`flex items-center py-3    shadow-sm pr-2  rounded-lg text-white font-medium   bg-${family.color} `}
         >
       {/* <ContextHoverCard  buttonText={family.name}> */}
 <ContextHoverCard buttonText={family.name} questionMarkColor="#ffffff">

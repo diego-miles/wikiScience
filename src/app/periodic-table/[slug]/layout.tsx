@@ -1,5 +1,6 @@
 
-import LocalContextLinks from "@/components/LocalContextLinksTop"
+import LocalContextLinksPeriodicTable from "@/components/LocalContextLinksTopPeriodicTable"
+import { PeriodicDrawer } from '@/components/Drawer'
 
 
 const sectionTitles = [
@@ -58,12 +59,17 @@ export default function DashboardLayout({
   children: React.ReactNode
 }) {
   return (
-    <section>
+    <>
       {/* Include shared UI here e.g. a header or sidebar */}
       {/* <nav></nav> */}
-    <LocalContextLinks links={links}></LocalContextLinks>
+    <LocalContextLinksPeriodicTable links={links}>
+    {/* <div className=" mt-[30rem] mx-auto w-fit ">
+<PeriodicDrawer></PeriodicDrawer>
+    </div> */}
+    </LocalContextLinksPeriodicTable>
+
       {children}
-    </section>
+    </>
   )
 }
 
