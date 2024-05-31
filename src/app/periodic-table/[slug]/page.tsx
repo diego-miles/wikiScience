@@ -623,7 +623,38 @@ const chemicalFamilies: ChemicalFamily[] = [
   ))}
 </section>
 
-<section id="17-biological-role">
+
+
+<section id="17-synthesis-and-production">
+  <div>
+            <h2>26. Synthesis and Production</h2>
+  </div>
+  {element.synthesisProduction && (
+    <>
+      {generateStrong("Synthesis Methods", "Synthesis Methods:")}
+      <p>{element?.synthesisProduction?.synthesisMethods || 'N/A'}</p>
+      {generateStrong("Extraction Methods", "Extraction Methods:")}
+      <p>{element?.synthesisProduction?.extractionMethods || 'N/A'}</p>
+      {generateStrong("Global Production", "Global Production:")}
+      <p>{element?.synthesisProduction?.globalProduction || 'N/A'}</p>
+    </>
+  )}
+</section>
+
+
+<section id="18-economic-data">
+  <div>
+            <h2>20. Economic Data</h2>
+  </div>
+            <p><strong>Market Price:</strong> {element.economicData?.marketPrice}</p>
+            <p><strong>Producing Countries:</strong> {element.economicData?.producingCountries}</p>
+            <p><strong>Industrial Use:</strong> {element.economicData?.industrialUse}</p>
+            <p><strong>Description:</strong> {element.economicData?.description}</p>
+</section>
+
+
+
+<section id="19-biological-role">
   <div>
             <h2>18. Biological Role</h2>
   </div>
@@ -634,7 +665,7 @@ const chemicalFamilies: ChemicalFamily[] = [
 </section>
 
 
-<section id="18-legal-status">
+<section id="20-legal-status">
   <div>
     {generateSectionHeader("Legal Status", "21. Legal Status")}
   </div>
@@ -653,7 +684,7 @@ const chemicalFamilies: ChemicalFamily[] = [
 
 
 
-<section id="19-health-environmental-impact">
+<section id="21-health-environmental-impact">
             <h2>19. Health and Environmental Impact</h2>
   {generateStrong("Health Impact", "Health Impact:")}
   <p><span className='font-semibold text-[#ff6262]'>{element.healthEnvironmentalImpact?.healthImpact || 'N/A'}</span></p>
@@ -661,18 +692,25 @@ const chemicalFamilies: ChemicalFamily[] = [
   <p>{element.healthEnvironmentalImpact?.environmentalImpact || 'N/A'}</p>
 </section>
 
-<section id="20-economic-data">
+
+<section id="22-environmental-safety">
   <div>
-            <h2>20. Economic Data</h2>
+            <h2>27. Environmental Safety</h2>
   </div>
-            <p><strong>Market Price:</strong> {element.economicData?.marketPrice}</p>
-            <p><strong>Producing Countries:</strong> {element.economicData?.producingCountries}</p>
-            <p><strong>Industrial Use:</strong> {element.economicData?.industrialUse}</p>
-            <p><strong>Description:</strong> {element.economicData?.description}</p>
+  {generateStrong("Health Hazards", "Health Hazards:")}
+  <p>{element.environmentalSafety?.healthHazards || 'N/A'}</p>
+  {generateStrong("Safety Precautions", "Safety Precautions:")}
+  <p>{element.environmentalSafety?.safetyPrecautions || 'N/A'}</p>
 </section>
 
 
-<section id="22-safety-data-sheet">
+
+
+
+
+
+
+<section id="23-safety-data-sheet">
   <div>
     {generateSectionHeader("Safety Data Sheet", "22. Safety Data Sheet")}
   </div>
@@ -685,7 +723,7 @@ const chemicalFamilies: ChemicalFamily[] = [
             )}
 </section>
 
-<section id="23-future-predictions">
+<section id="24-future-predictions">
   <div>
             <h2>23. Future Predictions</h2>
   </div>
@@ -697,7 +735,7 @@ const chemicalFamilies: ChemicalFamily[] = [
   ))}
 </section>
 
-<section id="24-interdisciplinary-connections">
+<section id="25-interdisciplinary-connections">
             <h2>24. Interdisciplinary Connections</h2>
 
   {element.interdisciplinaryConnections ? (
@@ -712,7 +750,7 @@ const chemicalFamilies: ChemicalFamily[] = [
   )}
 </section>
 
-<section id="25-external-resources">
+<section id="26-external-resources">
             <h2>25. External Resources</h2>
   {element.externalResources && element.externalResources.map((resource, index) => (
     <div key={index}>
@@ -723,31 +761,7 @@ const chemicalFamilies: ChemicalFamily[] = [
   ))}
 </section>
 
-<section id="26-synthesis-and-production">
-  <div>
-            <h2>26. Synthesis and Production</h2>
-  </div>
-  {element.synthesisProduction && (
-    <>
-      {generateStrong("Synthesis Methods", "Synthesis Methods:")}
-      <p>{element?.synthesisProduction?.synthesisMethods || 'N/A'}</p>
-      {generateStrong("Extraction Methods", "Extraction Methods:")}
-      <p>{element?.synthesisProduction?.extractionMethods || 'N/A'}</p>
-      {generateStrong("Global Production", "Global Production:")}
-      <p>{element?.synthesisProduction?.globalProduction || 'N/A'}</p>
-    </>
-  )}
-</section>
 
-<section id="27-environmental-safety">
-  <div>
-            <h2>27. Environmental Safety</h2>
-  </div>
-  {generateStrong("Health Hazards", "Health Hazards:")}
-  <p>{element.environmentalSafety?.healthHazards || 'N/A'}</p>
-  {generateStrong("Safety Precautions", "Safety Precautions:")}
-  <p>{element.environmentalSafety?.safetyPrecautions || 'N/A'}</p>
-</section>
 
 {/* <section id="26-user-interactions">
             <h2>26. User Interactions</h2>
