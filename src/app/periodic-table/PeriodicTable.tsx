@@ -61,8 +61,8 @@ const PeriodicTable: React.FC = () => {
   };
 
 const formatElectronicConfiguration = (config: string) => {
-  // Usar una expresión regular para encontrar los números al final de las subconfiguraciones y envolverlos en etiquetas <sup>
-  return config.replace(/(\d)(?=\s|$)/g, '<sup>$1</sup>');
+  // Usar una expresión regular para encontrar uno o dos números al final de cada subconfiguración
+  return config.replace(/(\d{1,2})(?=\s|$)/g, '<sup>$1</sup>');
 };
 
 
