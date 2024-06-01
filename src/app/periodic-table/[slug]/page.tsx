@@ -172,7 +172,10 @@ const chemicalFamilies: ChemicalFamily[] = [
   }));
 
 
-
+const formatElectronicConfiguration = (config: string) => {
+  // Usar una expresión regular para encontrar uno o dos números al final de cada subconfiguración
+  return config.replace(/(\d{1,2})(?=\s|$)/g, '<sup>$1</sup>');
+};
 
 
 
@@ -200,7 +203,7 @@ const chemicalFamilies: ChemicalFamily[] = [
         <div className="absolute  pb-1 pl-2 -right-5   border-[#168cc7]  top-0  text-dark font-medium dark:text-gray-100 block mt-1   border-b-2  text-[1.1rem]">
            <ContextHoverCard buttonText={"Electronic Configuration"} questionMarkColor={"#85a985"}>
       <Button variant="link">
-        <strong className='text-xs'>{"Electronic Config"}</strong>
+        <strong className='text-xs'>Electronic Config</strong>
       </Button>
     </ContextHoverCard> 
           </div>
@@ -229,7 +232,11 @@ const chemicalFamilies: ChemicalFamily[] = [
       <div>
           <div className={`border-4 border-[#1380b6] bg-background1 rounded-lg px-4 py-2 min-w-32 bg-${element.classifications}`}>
             {/* Configuración electrónica en la parte superior */}
-            <span className=" text-[1.4rem] min-h-8 text-dark dark:text-white tracking-wider ">{element.electronConfig?.configuration}</span>
+            <span className=" text-[1.4rem] min-h-8 text-dark dark:text-white tracking-wider 
+            "
+              dangerouslySetInnerHTML={{ __html: formatElectronicConfiguration(element.electronConfig?.configuration || "")}}
+            >
+              </span>
             <span className="text-xl font-black text-dark dark:text-white block -mb-1 pb-0 ">{element.symbol}</span>
             <span className="text-[1.5rem] text-dark font-extrabold dark:text-white block ">{element.name}</span>
             <span className="text-dark text-base dark:text-white block"> {element.atomicNumber}</span>
