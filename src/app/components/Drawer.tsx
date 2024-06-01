@@ -3,7 +3,7 @@
 import * as React from "react"
 import { Minus, Plus } from "lucide-react"
 import Image from 'next/image'
-
+import PeriodicTable from '@/periodic-table/PeriodicTable2'
 import { Button } from "@/components/ui/button"
 import {
   Drawer,
@@ -58,7 +58,7 @@ const data = [
   },
 ]
 
-export function PeriodicDrawer() {
+export default function PeriodicDrawer() {
   const [goal, setGoal] = React.useState(350)
 
   function onClick(adjustment: number) {
@@ -70,52 +70,21 @@ export function PeriodicDrawer() {
       <DrawerTrigger asChild>
         <Button variant="outline">
             <figure>
-                <Image src={"/periodic-table.svg"} alt="" width={70} height={50} unoptimized>
+                <Image src={"/periodic-table.svg"} alt="" width={25} height={30} unoptimized>
 
                 </Image>
             </figure>
             </Button>
       </DrawerTrigger>
       <DrawerContent>
-        <div className="mx-auto w-full max-w-sm">
+        <div className="mx-auto  ">
           <DrawerHeader>
             <DrawerTitle>Move Goal</DrawerTitle>
             <DrawerDescription>Set your daily activity goal.</DrawerDescription>
           </DrawerHeader>
-          <div className="p-4 pb-0">
-            <div className="flex items-center justify-center space-x-2">
-              <Button
-                variant="outline"
-                size="icon"
-                className="h-8 w-8 shrink-0 rounded-full"
-                onClick={() => onClick(-10)}
-                disabled={goal <= 200}
-              >
-                <Minus className="h-4 w-4" />
-                <span className="sr-only">Decrease</span>
-              </Button>
-              <div className="flex-1 text-center">
-                <div className="text-7xl font-bold tracking-tighter">
-                  {goal}
-                </div>
-                <div className="text-[0.70rem] uppercase text-muted-foreground">
-                  Calories/day
-                </div>
-              </div>
-              <Button
-                variant="outline"
-                size="icon"
-                className="h-8 w-8 shrink-0 rounded-full"
-                onClick={() => onClick(10)}
-                disabled={goal >= 400}
-              >
-                <Plus className="h-4 w-4" />
-                <span className="sr-only">Increase</span>
-              </Button>
-            </div>
-            <div className="mt-3 h-[120px]">
-            </div>
-          </div>
+<PeriodicTable></PeriodicTable>
+
+
           <DrawerFooter>
             <Button>Submit</Button>
             <DrawerClose asChild>

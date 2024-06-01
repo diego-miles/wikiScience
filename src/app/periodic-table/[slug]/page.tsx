@@ -7,8 +7,9 @@ import { notFound } from 'next/navigation';
 import History from '@/components/tables/hystoryTable'; // Ajusta la ruta de importación según tu estructura de proyecto
 import { Button } from "@/components/ui/button"
 import ContextHoverCard from '@/components/ContextHoverCard';
-import { PeriodicDrawer } from '@/components/Drawer'
 import ChemicalFamilies from '../ChemicalFamilies'
+import PeriodicTable from '../PeriodicTable'
+
 
 type ImageGalleryItem = {
   imageUrl: string | null;
@@ -177,7 +178,7 @@ const chemicalFamilies: ChemicalFamily[] = [
   return (
     <>
       {/* <NavBar domain="www.wiki-science.com/" menuPath='./NavigationMenu' /> */}
-      <main  className='lg:pt-60 mt-[7rem] lg:mt-[5rem]'>
+      <main  className='lg:pt-60 mt-[12rem] lg:mt-[8rem]'>
         {/* <h1 >{element.name} ({element.symbol})</h1> */}
         <div className='max-w-90 overflow-x-auto pb-2'>
 

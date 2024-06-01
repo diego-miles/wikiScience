@@ -1,7 +1,6 @@
 
 import LocalContextLinksPeriodicTable from "@/components/LocalContextLinksTopPeriodicTable"
-import { PeriodicDrawer } from '@/components/Drawer'
-
+ 
 
 const sectionTitles = [
   "1. Atomic Structure",
