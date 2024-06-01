@@ -31,7 +31,7 @@ const HomePage: React.FC = () => {
         <header className=" h-[44rem] w-full pt-20 mb-32 ">
         <figure className='mx-auto w-fit h-24'>
   <Image width={60} height={60} alt="Wiki-logo" src="wiki-blue.svg" className="dark:invisible" unoptimized />
-        <Image width={60} height={60} alt="Wiki-logo-dark" src="wiki-yellow.svg" className="dark:visible invisible absolute top-[17rem]" unoptimized />
+        <Image width={60} height={60} alt="Wiki-logo-dark" src="wiki-yellow.svg" className="dark:visible invisible absolute top-[15.5rem]" unoptimized />
           </figure>
           <h1 className="mt-[1rem] text-[3.2rem] tracking-wider font-black text-[#32a1cd] dark:text-[#f4f2eb]">Wiki Science</h1> {/* Using Tailwind's text color and font weight utilities */}
           {/* <p className="text-3xl font-extrabold text-[#2d373d] mt-4 px-2">A next-generation educational platform. <span className="text-[#376ba2]">Powered by AI.</span></p>  */}
