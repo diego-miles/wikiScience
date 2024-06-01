@@ -69,8 +69,8 @@ export default function PeriodicDrawer() {
     <Drawer>
       <DrawerTrigger asChild>
         <Button variant="outline">
-            <figure>
-                <Image src={"/periodic-table.svg"} alt="" width={25} height={30} unoptimized>
+            <figure> 
+                <Image src={"/periodic-table.svg"} alt="" width={22} height={30} unoptimized>
 
                 </Image>
             </figure>
@@ -82,14 +82,13 @@ export default function PeriodicDrawer() {
             <DrawerTitle>Move Goal</DrawerTitle>
             <DrawerDescription>Set your daily activity goal.</DrawerDescription>
           </DrawerHeader>
+          <div className="overflow-x-auto w-lvw px-2  ">
+
 <PeriodicTable></PeriodicTable>
+          </div>
 
 
           <DrawerFooter>
-            <Button>Submit</Button>
-            <DrawerClose asChild>
-              <Button variant="outline">Cancel</Button>
-            </DrawerClose>
           </DrawerFooter>
         </div>
       </DrawerContent>

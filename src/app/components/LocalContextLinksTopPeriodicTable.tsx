@@ -4,10 +4,10 @@ import React, { useRef, useEffect, useState } from 'react';
 import styles from './localContextLinkTop.module.css';
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
-// import { PeriodicDrawer } from '@/components/Drawer';
+import  PeriodicDrawer  from '@/components/Drawer';
 
 
-  const PeriodicDrawer = dynamic(() => import('@/components/Drawer'), { ssr: false });
+  // const PeriodicDrawer = dynamic(() => import('@/components/Drawer'), { ssr: false });
 
 type LocalContextLink = {
   text: string;
@@ -133,12 +133,6 @@ const LocalContextLinksPeriodicTable: React.FC<LocalContextLinksProps> = ({ link
             style={{ display: isVisible ? 'flex' : 'none' }}
             ref={scrollContainerRef}
           >
-            <div
-              className="pt-2 px-2 pb-0 mb-0 border-2 border-[#1d6aaa] top-56 lg:top-64 left-2/4 -ml-8 z-50 p-1 bg-background1 rounded-xl absolute border-b-[.6rem] shadow-2xl transform transition-all duration-200 hover:translate-y-1 active:border-b-4 active:shadow-inner active:translate-y-2"
-              ref={drawerRef} // Add ref to the PeriodicDrawer container
-            >
-              <PeriodicDrawer />
-            </div>
             {links.map((link, index) => (
               <a
                 key={index}

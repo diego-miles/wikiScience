@@ -5,6 +5,14 @@ import Link from 'next/link';
 // import ContextHoverCard from '@/components/ContextHoverCard'
 
 
+
+// const elementsdata = 
+
+
+
+
+
+
 interface Element {
   symbol: string;
   name: string;
@@ -12,9 +20,6 @@ interface Element {
   atomicNumber: number;
   period: number;
   group: number;
-  block: string;
-  electronicConfiguration: string;
-  atomicMass: number;
 }
 
 const PeriodicTable: React.FC = () => {
@@ -79,7 +84,7 @@ const formatElectronicConfiguration = (config: string) => {
     };
     return (
       <div
-        className={`grid-item m-[.1rem] rounded-lg  py-2 w-[6.5rem]
+        className={`grid-item m-[.1rem] rounded-lg  py-2 w-[5.5rem]
           text-center relative group transition-transform duration-300 ease-in-out
           ${getBackgroundColor(element.family)}`}
         style={style}
@@ -95,7 +100,7 @@ const formatElectronicConfiguration = (config: string) => {
         <Link href={`/periodic-table/${element.name.toLowerCase()}`} className='hover:no-underline' passHref key={element.atomicNumber}>
           <div className="flex flex-col items-center">
             {/* Configuración electrónica en la parte superior */}
-            <span className=" font-black text-sm text-black block dark:text-black -mb-2 ">{element.symbol}</span>
+            <span className=" font-black pb-2 text-sm text-black block dark:text-black -mb-2 ">{element.symbol}</span>
             <span className="text-[.8rem] font-semibold text-black dark:text-black block hover:no-underline'">{element.name}</span>
           </div>
         </Link>
@@ -108,7 +113,7 @@ const formatElectronicConfiguration = (config: string) => {
   return (
     <div className="mx-auto w-fit  px-4">
       {/* Agrega la clase "overflow-auto" para permitir el desplazamiento */}
-      <div className="grid grid-cols-18 grid-rows-10 gap-0 mx-auto">
+      <div className="grid grid-cols-18 grid-rows-10 gap-0 mx-auto overflow-x-auto">
         {elements.map((element) => renderElement(element))}
       </div>
     </div>

@@ -86,7 +86,7 @@ const NavBarContainer = memo(() => {
 
 
     return (
-    <div className="absolute w-full top-0 left-0 z-50  ">
+    <div className="absolute w-full top-0 left-0 z-40  ">
         <div className={`fixed top-0 right-0 left-0 w-full max-w-[120rem] min-h-[5rem] mx-auto px-4 lg:py-3 bg-gray-100 dark:bg-background1dark shadow-sm z-40 flex justify-end items-center content-end lg:rounded-b-xl  ${showNavbar ? '' : 'hidden'}`}>
             <div className='flex items-center pt-1'>
                 <div className='px-4 '>

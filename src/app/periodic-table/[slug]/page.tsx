@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button"
 import ContextHoverCard from '@/components/ContextHoverCard';
 import ChemicalFamilies from '../ChemicalFamilies'
 import PeriodicTable from '../PeriodicTable'
+import  PeriodicDrawer  from '@/components/Drawer';
 
 
 type ImageGalleryItem = {
@@ -178,13 +179,18 @@ const chemicalFamilies: ChemicalFamily[] = [
   return (
     <>
       {/* <NavBar domain="www.wiki-science.com/" menuPath='./NavigationMenu' /> */}
-      <main  className='lg:pt-60 mt-[12rem] lg:mt-[8rem]'>
-        {/* <h1 >{element.name} ({element.symbol})</h1> */}
-        <div className='max-w-90 overflow-x-auto pb-2'>
+        <div className='max-w-full overflow-x-auto  mt-80 w-fit mx-auto '>
 
         <ChemicalFamilies></ChemicalFamilies>
         </div>
-        <section className='text-center pt-20'>
+      <main  className=' pt-20  '>
+        {/* <h1 >{element.name} ({element.symbol})</h1> */}
+                <div
+              className="pt-1 px-2 pb-0 mb-0 border-2 border-[#1d6aaa] top-4  left-3/4   -ml-28  p-1 bg-background1 rounded-xl absolute border-b-[.6rem] shadow-2xl transform transition-all duration-200 hover:translate-y-1 active:border-b-4 active:shadow-inner active:translate-y-2  z-50"
+            >
+              <PeriodicDrawer />
+            </div>
+        <section className='text-center  '>
 
             <div
       className={`relative flex w-fit mx-auto pr-40 mb-20`}

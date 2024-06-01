@@ -111,9 +111,9 @@ const formatElectronicConfiguration = (config: string) => {
 
 
   return (
-    <div className="mx-auto w-fit py-12 px-4">
+    <div className="mx-auto w-fit py-12 px-8">
       {/* Agrega la clase "overflow-auto" para permitir el desplazamiento */}
-      <div className="grid grid-cols-18 grid-rows-10 gap-0 mx-auto">
+      <div className="grid grid-cols-18 grid-rows-10 gap-0 mx-auto ">
         {elements.map((element) => renderElement(element))}
       </div>
     </div>
