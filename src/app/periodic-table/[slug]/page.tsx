@@ -177,7 +177,7 @@ const chemicalFamilies: ChemicalFamily[] = [
   return (
     <>
       {/* <NavBar domain="www.wiki-science.com/" menuPath='./NavigationMenu' /> */}
-      <main  className='lg:pt-60 mt-[5rem]'>
+      <main  className='lg:pt-60 mt-[7rem] lg:mt-[5rem]'>
         {/* <h1 >{element.name} ({element.symbol})</h1> */}
         <div className='max-w-90 overflow-x-auto pb-2'>
 
@@ -241,13 +241,11 @@ const chemicalFamilies: ChemicalFamily[] = [
             </div>
           </div> */}
 
-  <div className=' pb-12'>
-            <p className='font-semibold text-h4'>CLASSIFICATION: </p>
+  <div className='max-w-[50rem] mx-auto pb-12'>
+            <p className='font-semibold text-h4 pb-0'>CLASSIFICATION: </p>
   {element.classifications.map((cls, index) => (
-    <div className='pl-2' key={index}>
-      <div className='max-w-40 mx-auto'>
-
-      </div>
+    <div className=' ' key={index}>
+      <p className='font-bold text-lg '>{cls.classification}</p>
       <p>{cls.description}</p>
     </div>
   ))}
@@ -597,7 +595,7 @@ const chemicalFamilies: ChemicalFamily[] = [
     {generateSectionHeader("Allotropes", "9. Allotropes")}
   </div>
   {element.allotropes.map((allotrope, index) => (
-    <div className='border border-black dark:border-white/20 rounded-3xl py-4 my-12 px-7 pb-9 min-h-[17rem] max-w-[32rem] justify-center' key={index}>
+    <div className='border border-black dark:border-white/20 rounded-3xl py-8 my-12 px-7 min-h-[17rem] max-w-[32rem] justify-center' key={index}>
 {generateStrong(allotrope?.name || '', allotrope?.name ? allotrope.name + ":" : '')}
       <p>{allotrope?.description}</p>
     </div>
