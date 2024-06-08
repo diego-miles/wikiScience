@@ -74,7 +74,7 @@ const formatElectronicConfiguration = (config: string) => {
     };
     // Define hover styles for scaling and z-index
     const hoverStyles = {
-      transform: 'scale(1.2)', // Increased scaling for better UX
+      transform: 'scale(2)', // Increased scaling for better UX
       zIndex: 1, // Ensure hovered element is on top
     };
     return (
@@ -88,7 +88,6 @@ const formatElectronicConfiguration = (config: string) => {
       >
         {/* Brillo en hover */}
         <div className="absolute inset-0 bg-gradient-to-br from-transparent to-white opacity-0 group-hover:opacity-20 transition duration-200 rounded-lg"></div>
-        {/* Borde brillante en hover */}
         <div className="absolute inset-0 border-4 border-transparent group-hover:border-[#eae9c6] group-hover:shadow-lg rounded-xl transition duration-200 group-hover:-m-[.3rem] "></div>
         {/* Sombra en hover */}
         {/* <div className="absolute inset-0 shadow-lg opacity-0 group-hover:opacity-100 transition duration-100 rounded-lg "></div > */}
