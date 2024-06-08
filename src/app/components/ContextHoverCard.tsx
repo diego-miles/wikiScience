@@ -1,6 +1,6 @@
 "use client"
 import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card";
-import { useState, useEffect } from 'react';
+import { useState, useEffect, ReactNode } from 'react';
 import QuestionMark from '@/components/QuestionMark';
 import { generateSlug } from '@/utils/slugGenerator';
 import { contextDefinition } from '@/db/schema/elements';
@@ -8,10 +8,10 @@ import { contextDefinition } from '@/db/schema/elements';
 
 
 
-interface contextData {
-  definition: string[];
+// interface contextData {
+//   definition: string[];
 
-}
+// }
 
 interface ContextHoverCardProps {
   buttonText: string;
@@ -72,15 +72,18 @@ export default function ContextHoverCard({ buttonText, children, questionMarkCol
   <div className="max-h-[28rem] overflow-y-auto">
     <div className="space-y-1">
       <h4>{buttonText}</h4>
+      <h4>x</h4>
       <div>
 
-          {/* {Array.isArray(contextData?.definition) && contextData.definition.length > 0 && (
+          {Array.isArray(contextData?.definition) && contextData.definition.length > 0 && (
             <p className="text-2xl font-normal font-serif">
                {contextData.definition.join(', ')}
             </p>
           )}
- */}
 
+<p>
+        {contextData?.definition as ReactNode }
+</p>
         {/* {contextData?.definition.map((parag, index) => (
           <p key={index}>{parag}</p>
         ))} */}

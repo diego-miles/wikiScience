@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import { unstable_cache } from 'next/cache';
 import ScrollTopButton from '@/components/ScrollTopButton';
 import { notFound } from 'next/navigation';
@@ -9,13 +9,20 @@ import ChemicalFamilies from '../ChemicalFamilies'
 import  PeriodicDrawer  from '@/components/Drawer';
 import { eq } from 'drizzle-orm';
 // Import your existing schema file (replace with the actual path)
-import { chemical_element } from '@/db/schema/elements'; // Replace with the actual path to your schema
+import { chemical_element} from '@/db/schema/elements'; // Reemplaza con la ruta real a tu esquema
 import {db} from '@/db/index'
 // Create a LibSQL client
 // const client = createClient({ url: process.env.DATABASE_URL!, authToken: process.env.DATABASE_TOKEN! });
 
+type ChemicalElement = typeof chemical_element;
+
 // Initialize Drizzle with the client
 // const db = drizzle(client);
+// interface ExtendedChemicalElement extends ChemicalElement {
+//   interdisciplinaryConnections: { }, // Nueva propiedad que deseas agregar
+// }
+
+
 
 type ImageGalleryItem = {
   imageUrl: string | null;
@@ -567,16 +574,18 @@ async function ElementPage({ params: { slug } }: ElementPageProps) {
   </section>
   <section id="25-interdisciplinary-connections">
     <h2>24. Interdisciplinary Connections</h2>
-{/* {element.interdisciplinaryConnections && (
+{element.interdisciplinaryConnections && (
   <div>
-    {Object.entries(element.interdisciplinaryConnections).map(([key, description], index) => (
-      <div key={index}>
-        <p>{generateStrong(key, key + ":")}</p> 
-        <p>{description}</p>
-      </div>
-    ))}
+    {Object.entries(JSON.parse(element.interdisciplinaryConnections)).map(
+      ([key, description], index) => (
+        <div key={index}>
+          <p>{generateStrong(key, key + ":")}</p> 
+          <p>{description as ReactNode}</p> {/* Type Assertion */}
+        </div>
+      )
+    )}
   </div>
-)} */}
+)}
   </section>
   <section id="26-external-resources">
     <h2>25. External Resources</h2>

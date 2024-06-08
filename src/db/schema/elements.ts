@@ -118,7 +118,7 @@ export const chemical_element = sqliteTable('chemical_element', {
   legalStatus_legalRestrictions: text('legal_status_legal_restrictions'),
 
   // Interdisciplinary Connections
-  interdisciplinaryConnections: text('interdisciplinary_connections', { mode: 'json' })
+  interdisciplinaryConnections: text('interdisciplinary_connections')
 });
 
 
@@ -175,7 +175,7 @@ export const contextDefinition = sqliteTable('contextDefinition', {
   concept: text('concept').primaryKey(),
   formula: text('formula'),
   pronunciation: text('pronunciation'),
-  definition: text('definition', { mode: 'json' }),
+  definition: text('definition' ),
   references: text('references', { mode: 'json' }),
   types: text('types', { mode: 'json' }),
   createdAt: text('created_at').default('CURRENT_TIMESTAMP'),
