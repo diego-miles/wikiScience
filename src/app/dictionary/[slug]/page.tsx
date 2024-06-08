@@ -1,7 +1,6 @@
 import React from 'react';
 import NavBar from '@/components/navigation/NavbarContainer';
 import ScrollTopButton from '@/components/ScrollTopButton';
-import { PrismaClient } from '@prisma/client';
 import { unstable_cache } from 'next/cache';
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
