@@ -1,6 +1,5 @@
-import { sqliteTable, text, integer, primaryKey} from 'drizzle-orm/sqlite-core';
-import {  unique,   foreignKey } from 'drizzle-orm/sqlite-core';
-
+import { sqliteTable, AnySQLiteColumn, text } from "drizzle-orm/sqlite-core"
+  import { sql } from "drizzle-orm"
 
 export const chemical_element = sqliteTable("chemical_element", {
 	slug: text("slug").primaryKey(),
@@ -86,26 +85,6 @@ export const chemical_element = sqliteTable("chemical_element", {
 	isotopes: text("isotopes"),
 });
 
-
-
-// Definición de la tabla Event
-  const events = sqliteTable('events', {
-  id: text('id').primaryKey(),
-  name: text('name').unique(),
-  date: text('date'), // Usamos text para la fecha en formato ISO
-  persons: text('persons'),
-  description: text('description'),
-  fields: text('fields'),
-  eventParticipants: text('eventParticipants'),
-  references: text('references'),
-  createdAt: text('created_at').default('CURRENT_TIMESTAMP'),
-  updatedAt: text('updated_at').default('CURRENT_TIMESTAMP')
-});
-
-
-
-
- // Define the Word table
 export const citations = sqliteTable("citations", {
 	word: text("word").primaryKey(),
 	slug: text("slug"),
@@ -126,36 +105,3 @@ export const citations = sqliteTable("citations", {
 	created_at: text("created_at").default("sql`(CURRENT_TIMESTAMP)`"),
 	updated_at: text("updated_at").default("sql`(CURRENT_TIMESTAMP)`"),
 });
-
-
-
- // Define the Word table
-export const contextDefinition = sqliteTable('contextDefinition', {
-  slug: text('slug').unique(),
-  concept: text('concept').primaryKey(),
-  formula: text('formula'),
-  pronunciation: text('pronunciation'),
-  definition: text('definition', { mode: 'json' }),
-  references: text('references', { mode: 'json' }),
-  types: text('types', { mode: 'json' }),
-  createdAt: text('created_at').default('CURRENT_TIMESTAMP'),
-  updatedAt: text('updated_at').default('CURRENT_TIMESTAMP')
-});
-
-
-
-// model ContextDefinition {
-//   id          String    @id @map("_id") @db.ObjectId
-//   concept     String    
-//   formula     String?    
-//   definition  String[]
-//   references  String[]
-//   types        ContextDefinitionType[]
-//   slug        String    @unique
-// }
-
-// type ContextDefinitionType {
-//   type        String?
-//   description        String?
-//   formula        String?
-// }

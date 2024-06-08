@@ -79,7 +79,7 @@ const formatElectronicConfiguration = (config: string) => {
     };
     // Define hover styles for scaling and z-index
     const hoverStyles = {
-      transform: 'scale(1.2)', // Increased scaling for better UX
+      transform: 'scale(2)', // Increased scaling for better UX
       zIndex: 1, // Ensure hovered element is on top
     };
     return (
@@ -111,9 +111,9 @@ const formatElectronicConfiguration = (config: string) => {
 
 
   return (
-    <div className="mx-auto w-fit  px-4">
+    <div className="mx-auto w-fit  px-12">
       {/* Agrega la clase "overflow-auto" para permitir el desplazamiento */}
-      <div className="grid grid-cols-18 grid-rows-10 gap-0 mx-auto overflow-x-auto">
+      <div className="grid grid-cols-18 grid-rows-10 gap-0 mx-auto overflow-x-auto px-12 py-12">
         {elements.map((element) => renderElement(element))}
       </div>
     </div>
