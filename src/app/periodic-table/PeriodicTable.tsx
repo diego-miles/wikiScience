@@ -87,11 +87,11 @@ const formatElectronicConfiguration = (config: string) => {
         onMouseLeave={(e) => { e.currentTarget.style.transform = ''; e.currentTarget.style.zIndex = '' }}
       >
         {/* Brillo en hover */}
-        <div className="absolute inset-0 bg-gradient-to-br from-transparent to-white opacity-0 group-hover:opacity-30 transition duration-500 rounded-lg"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-transparent to-white opacity-0 group-hover:opacity-20 transition duration-200 rounded-lg"></div>
         {/* Borde brillante en hover */}
-        <div className="absolute inset-0 border-4 border-transparent group-hover:border-[#eae9c6] group-hover:shadow-lg rounded-xl transition duration-100 group-hover:-m-[.3rem] "></div>
+        <div className="absolute inset-0 border-4 border-transparent group-hover:border-[#eae9c6] group-hover:shadow-lg rounded-xl transition duration-200 group-hover:-m-[.3rem] "></div>
         {/* Sombra en hover */}
-        <div className="absolute inset-0 shadow-lg opacity-0 group-hover:opacity-100 transition duration-100 rounded-lg "></div >
+        {/* <div className="absolute inset-0 shadow-lg opacity-0 group-hover:opacity-100 transition duration-100 rounded-lg "></div > */}
         <Link href={`/periodic-table/${element.name.toLowerCase()}`} className='hover:no-underline' passHref key={element.atomicNumber}>
           <div className="flex flex-col items-center">
             {/* Configuración electrónica en la parte superior */}
