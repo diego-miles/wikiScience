@@ -13,7 +13,6 @@ import Link from 'next/link';
 import { generateSlug, generateAmazonImageURL } from '@/utils/slugGenerator';
 import { Badge } from "@/components/ui/badge";
 import { eq } from 'drizzle-orm';
-// Import your existing schema file (replace with the actual path)
 import { citations } from '@/db/schema/elements'; // Replace with the actual path to your schema
 import {db} from '@/db/index';
 
@@ -69,8 +68,6 @@ export async function generateMetadata({
   // Accessing the nested 'tags' array
   const keywords = wordData?.tags?.map((tag) => tag) || [];
 
-  // Accessing the nested 'definitions' array
-  const childrenCount = wordData.definitions?.length || 0; // Check if definitions exists before accessing its length
 
   const description = `Explore through comprehensive definitions, synonyms, and antonyms for ${wordData?.word} with cited (APA) sources. A compendium of scientific knowledge to enhance your understanding and research. Tracking for exploration. Citation before replication.`;
 
@@ -130,7 +127,7 @@ const WordPage: React.FC<WordPageProps> = async ({ params: { slug } }) => {
               <h2 className="pb-4 pt-4">Definitions</h2>
               <div className={`w-fit mx-auto ${childrenCount > 1 ? 'lg:grid lg: grid-cols-2 gap-16' : 'flex justify-center'}`}>
                 {wordData.definitions.map((definition, index) => (
-                  <div key={index} className='relative  dark:bg-background1dark dark:shadow-xl rounded-2xl py-4 pt-10 px-8 shadow-sm max-w-[45rem] mx-auto mb-8 border-[.1rem] border-b-8 border-[#afb7be]  bg-background1 lg:mb-0 '>
+                  <div key={index} className='relative  dark:bg-background1dark dark:shadow-xl rounded-[2rem] py-4 pt-10 px-8 shadow-sm max-w-[45rem] mx-auto mb-8 border-[.1rem] border-b-4 border-[#bfc3c6]  bg-background1 lg:mb-0 '>
                     <figure >
                       <Image className='mx-auto pb-4' src={'/booksContext.svg'} unoptimized alt='' width={35} height={27}></Image>
                     </figure>
