@@ -105,3 +105,15 @@ export const citations = sqliteTable("citations", {
 	created_at: text("created_at").default("sql`(CURRENT_TIMESTAMP)`"),
 	updated_at: text("updated_at").default("sql`(CURRENT_TIMESTAMP)`"),
 });
+
+export const contextDefinition = sqliteTable("contextDefinition", {
+	slug: text("slug").primaryKey(),
+	concept: text("concept"),
+	formula: text("formula"),
+	pronunciation: text("pronunciation"),
+	definition: text("definition"),
+	references_text: text("references_text"),
+	types: text("types"),
+	created_at: text("created_at").default("sql`(CURRENT_TIMESTAMP)`"),
+	updated_at: text("updated_at").default("sql`(CURRENT_TIMESTAMP)`"),
+});

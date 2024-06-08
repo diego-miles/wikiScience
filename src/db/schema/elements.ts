@@ -118,7 +118,7 @@ export const chemical_element = sqliteTable('chemical_element', {
   legalStatus_legalRestrictions: text('legal_status_legal_restrictions'),
 
   // Interdisciplinary Connections
-  interdisciplinaryConnections: text('interdisciplinary_connections')
+  interdisciplinaryConnections: text('interdisciplinary_connections', { mode: 'json' })
 });
 
 

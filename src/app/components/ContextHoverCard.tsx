@@ -3,8 +3,15 @@ import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/h
 import { useState, useEffect } from 'react';
 import QuestionMark from '@/components/QuestionMark';
 import { generateSlug } from '@/utils/slugGenerator';
-import {ContextDefinition} from '@prisma/client'
+import { contextDefinition } from '@/db/schema/elements';
 
+
+
+
+interface contextData {
+  definition: string[];
+
+}
 
 interface ContextHoverCardProps {
   buttonText: string;
@@ -14,7 +21,7 @@ interface ContextHoverCardProps {
 
 export default function ContextHoverCard({ buttonText, children, questionMarkColor }: ContextHoverCardProps) {
   const [isHovered, setIsHovered] = useState(false);
-  const [contextData, setContextData] = useState<ContextDefinition | null>(null);
+  const [contextData, setContextData] = useState<typeof contextDefinition | null>(null);
   const slug = generateSlug(buttonText);
 
   useEffect(():void => {
@@ -66,9 +73,17 @@ export default function ContextHoverCard({ buttonText, children, questionMarkCol
     <div className="space-y-1">
       <h4>{buttonText}</h4>
       <div>
-        {contextData?.definition.map((parag, index) => (
+
+          {/* {Array.isArray(contextData?.definition) && contextData.definition.length > 0 && (
+            <p className="text-2xl font-normal font-serif">
+               {contextData.definition.join(', ')}
+            </p>
+          )}
+ */}
+
+        {/* {contextData?.definition.map((parag, index) => (
           <p key={index}>{parag}</p>
-        ))}
+        ))} */}
       </div>
     </div>
   </div>

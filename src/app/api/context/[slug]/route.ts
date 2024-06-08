@@ -1,8 +1,5 @@
 // pages/api/context/[slug].ts
-import { NextApiResponse } from 'next';
 import { NextRequest } from 'next/server';
-import { createClient } from '@libsql/client';
-import { drizzle } from 'drizzle-orm/libsql';
 import { contextDefinition } from '@/db/schema/elements';
 import { db } from '@/db/index';
 import { eq } from 'drizzle-orm';

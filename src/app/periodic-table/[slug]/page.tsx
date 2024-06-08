@@ -33,6 +33,10 @@ interface ElementPageProps {
   };
 }
 
+interface interdisciplinary {
+
+}
+
 // Obtener datos del elemento
 const getElementData = unstable_cache(async (slug: string) => {
   const element = await db.select().from(chemical_element).where(eq(chemical_element.slug, slug)).get();
@@ -98,7 +102,7 @@ async function ElementPage({ params: { slug } }: ElementPageProps) {
 
 
   const formatElectronicConfiguration = (config: string) => {
-    // Usar una expresión regular para encontrar uno o dos números al final de cada subconfiguración
+    // Usar una expresiÃ³n regular para encontrar uno o dos nÃºmeros al final de cada subconfiguraciÃ³n
     return config.replace(/(\d{1,2})(?=\s|$)/g, '<sup>$1</sup>');
   };
 
@@ -147,7 +151,7 @@ async function ElementPage({ params: { slug } }: ElementPageProps) {
             {/* Columna derecha */}
             <div>
               <div className={`border-4  dark:bg-background1dark border-[#1380b6] bg-background1 rounded-lg px-4 py-2 min-w-32 bg-${element.classification}`}>
-                {/* Configuración electrónica en la parte superior */}
+                {/* ConfiguraciÃ³n electrÃ³nica en la parte superior */}
                 <span className=" text-[1.4rem] min-h-8 text-dark dark:text-white tracking-wider             "              dangerouslySetInnerHTML={{ __html: formatElectronicConfiguration(element.electronConfiguration_configuration || "")}}            >
                 </span>
                 <span className="text-xl font-black text-dark dark:text-white block -mb-1 pb-0 ">{element.symbol}</span>
@@ -563,15 +567,16 @@ async function ElementPage({ params: { slug } }: ElementPageProps) {
   </section>
   <section id="25-interdisciplinary-connections">
     <h2>24. Interdisciplinary Connections</h2>
-    {/*  Assuming `element.interdisciplinaryConnections` is a string containing JSON data */}
-    {element.interdisciplinaryConnections && (
-      (element.interdisciplinaryConnections ? JSON.parse(element.interdisciplinaryConnections) : []).map(([key, description]: [string, string], index: string) => (
-        <div key={index}>
-          {generateStrong(key, key + ":")}
-          <p>{description || 'N/A'}</p>
-        </div>
-      ))
-    )}
+{/* {element.interdisciplinaryConnections && (
+  <div>
+    {Object.entries(element.interdisciplinaryConnections).map(([key, description], index) => (
+      <div key={index}>
+        <p>{generateStrong(key, key + ":")}</p> 
+        <p>{description}</p>
+      </div>
+    ))}
+  </div>
+)} */}
   </section>
   <section id="26-external-resources">
     <h2>25. External Resources</h2>
