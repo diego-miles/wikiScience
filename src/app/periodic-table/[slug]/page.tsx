@@ -1,7 +1,3 @@
-import { sqliteTable, text, integer, primaryKey } from 'drizzle-orm/sqlite-core';
-import { unique, foreignKey } from 'drizzle-orm/sqlite-core';
-import { drizzle } from 'drizzle-orm/libsql';
-import { createClient } from '@libsql/client';
 import React from 'react';
 import { unstable_cache } from 'next/cache';
 import ScrollTopButton from '@/components/ScrollTopButton';
@@ -10,7 +6,6 @@ import History from '@/components/tables/hystoryTable';
 import { Button } from "@/components/ui/button"
 import ContextHoverCard from '@/components/ContextHoverCard';
 import ChemicalFamilies from '../ChemicalFamilies'
-import PeriodicTable from '../PeriodicTable'
 import  PeriodicDrawer  from '@/components/Drawer';
 import { eq } from 'drizzle-orm';
 // Import your existing schema file (replace with the actual path)
