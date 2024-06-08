@@ -43,6 +43,13 @@
       "when": 1717797690876,
       "tag": "0005_foamy_wonder_man",
       "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "6",
+      "when": 1717834237659,
+      "tag": "0006_true_justice",
+      "breakpoints": true
     }
   ]
 }

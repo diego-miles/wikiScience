@@ -167,3 +167,35 @@ export const citations = sqliteTable('citations', {
   createdAt: text('created_at').default('CURRENT_TIMESTAMP'),
   updatedAt: text('updated_at').default('CURRENT_TIMESTAMP')
 });
+
+
+ // Define the Word table
+export const contextDefinition = sqliteTable('contextDefinition', {
+  slug: text('slug').unique(),
+  concept: text('concept').primaryKey(),
+  formula: text('formula'),
+  pronunciation: text('pronunciation'),
+  definition: text('definition', { mode: 'json' }),
+  references: text('references', { mode: 'json' }),
+  types: text('types', { mode: 'json' }),
+  createdAt: text('created_at').default('CURRENT_TIMESTAMP'),
+  updatedAt: text('updated_at').default('CURRENT_TIMESTAMP')
+});
+
+
+
+// model ContextDefinition {
+//   id          String    @id @map("_id") @db.ObjectId
+//   concept     String    
+//   formula     String?    
+//   definition  String[]
+//   references  String[]
+//   types        ContextDefinitionType[]
+//   slug        String    @unique
+// }
+
+// type ContextDefinitionType {
+//   type        String?
+//   description        String?
+//   formula        String?
+// }

@@ -80,21 +80,21 @@ async function ElementPage({ params: { slug } }: ElementPageProps) {
   // Assuming element.history is an array of objects with the structure { event: string; year: number; description: string; }
   // Then, pass this object to the History component
   // Assuming element.history is a string containing JSON data
-let sanitizedHistoryData: { event: any; year: any; description: any; }[] = [];
-if (element.history) {
-    try {
-        const parsedHistory = JSON.parse(element.history);
-        if (Array.isArray(parsedHistory)) {
-            sanitizedHistoryData = parsedHistory.map((histItem) => ({
-                event: histItem.event || 'Unknown Event',
-                year: histItem.year || 'Unknown Year',
-                description: histItem.description || 'No description available'
-            }));
-        }
-    } catch (error) {
-        console.error('Error parsing history:', error);
-    }
-}
+// let sanitizedHistoryData: { event: any; year: any; description: any; }[] = [];
+// if (element.history) {
+//     try {
+//         const parsedHistory = JSON.parse(element.history);
+//         if (Array.isArray(parsedHistory)) {
+//             sanitizedHistoryData = parsedHistory.map((histItem) => ({
+//                 event: histItem.event || 'Unknown Event',
+//                 year: histItem.year || 'Unknown Year',
+//                 description: histItem.description || 'No description available'
+//             }));
+//         }
+//     } catch (error) {
+//         console.error('Error parsing history:', error);
+//     }
+// }
 
 
   const formatElectronicConfiguration = (config: string) => {
@@ -110,14 +110,14 @@ if (element.history) {
       </div>
       <main  className=' pt-20  '>
         {/* <h1 >{element.name} ({element.symbol})</h1> */}
-        <div              className="pt-1 px-2 pb-0 mb-0 border-2 border-[#1d6aaa] top-4  left-3/4   -ml-28  p-1 bg-background1 rounded-xl absolute border-b-[.6rem] shadow-2xl transform transition-all duration-200 hover:translate-y-1 active:border-b-4 active:shadow-inner active:translate-y-2  z-50"            >
+        <div              className="pt-1 px-2 pb-0 mb-0 border-2 border-[#1d6aaa] top-4  left-3/4   -ml-28  p-1 bg-background1 rounded-xl absolute  border-b-[.6rem] shadow-2xl transform transition-all duration-200 hover:translate-y-1 active:border-b-4 active:shadow-inner active:translate-y-2  z-50"            >
           <PeriodicDrawer />
         </div>
         <section className='text-center  '>
-          <div      className={`relative flex w-fit mx-auto pr-40 mb-20`}    >
+          <div      className={`relative flex w-fit mx-auto pr-40 mb-20 `}    >
             {/* Columna izquierda */}
             <div className="text-right pt-10 ">
-              <div className="absolute  pb-1 pl-2 -right-5   border-[#168cc7]  top-0  text-dark font-medium dark:text-gray-100 block mt-1   border-b-2  text-[1.1rem]">
+              <div className="absolute  pb-1 pl-2 -right-5   border-[#168cc7]  top-0  text-dark font-medium dark:text-gray-100   block mt-1   border-b-2  text-[1.1rem]">
                 <ContextHoverCard buttonText={"Electronic Configuration"} questionMarkColor={"#85a985"}>
                   <Button variant="link">
                     <strong className='text-xs'>Electronic Config</strong>
@@ -125,7 +125,7 @@ if (element.history) {
                 </ContextHoverCard>
               </div>
               <div>
-                <div className="  text-dark dark:text-gray-100   border-b-2 px-3 inline-block border-[#168cc7]  font-medium text-xs">
+                <div className="  text-dark dark:text-gray-100   border-b-2 px-3 inline-block border-[#168cc7]  font-medium text-xs ">
                   <ContextHoverCard buttonText={"Electronic Configuration"} questionMarkColor={"#729c72"}>
                     <Button variant="link">
                       <strong className='text-xs'>{"Symbol"}</strong>
@@ -146,7 +146,7 @@ if (element.history) {
             </div>
             {/* Columna derecha */}
             <div>
-              <div className={`border-4 border-[#1380b6] bg-background1 rounded-lg px-4 py-2 min-w-32 bg-${element.classification}`}>
+              <div className={`border-4  dark:bg-background1dark border-[#1380b6] bg-background1 rounded-lg px-4 py-2 min-w-32 bg-${element.classification}`}>
                 {/* Configuración electrónica en la parte superior */}
                 <span className=" text-[1.4rem] min-h-8 text-dark dark:text-white tracking-wider             "              dangerouslySetInnerHTML={{ __html: formatElectronicConfiguration(element.electronConfiguration_configuration || "")}}            >
                 </span>
@@ -240,7 +240,7 @@ if (element.history) {
             <div>
               <h2>4. Discovery and History</h2>
             </div>
-            <History data={sanitizedHistoryData} />
+            {/* <History data={sanitizedHistoryData} /> */}
           </section>
           {/* Discovery Year, Melting and Boiling Points, Density, and Appearance */}
           {/* Physical Properties */}

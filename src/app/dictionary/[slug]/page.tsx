@@ -127,7 +127,7 @@ const WordPage: React.FC<WordPageProps> = async ({ params: { slug } }) => {
               <h2 className="pb-4 pt-4">Definitions</h2>
               <div className={`w-fit mx-auto ${childrenCount > 1 ? 'lg:grid lg: grid-cols-2 gap-16' : 'flex justify-center'}`}>
                 {wordData.definitions.map((definition, index) => (
-                  <div key={index} className='relative  dark:bg-background1dark dark:shadow-xl rounded-[2rem] py-4 pt-10 px-8 shadow-sm max-w-[45rem] mx-auto mb-8 border-[.1rem] border-b-[.8rem] border-l-2 border-[#bec7cf]  bg-background1 lg:mb-0 '>
+                  <div key={index} className='relative  dark:bg-background1dark dark:shadow-xl rounded-[2rem] py-4 pt-10 px-12 shadow-sm max-w-[55rem] mx-auto mb-8 border-[.1rem] border-b-[.8rem] border-l-2 border-[#bec7cf]  bg-background1 lg:mb-0 '>
                     <figure >
                       <Image className='mx-auto pb-4' src={'/booksContext.svg'} unoptimized alt='' width={35} height={27}></Image>
                     </figure>
