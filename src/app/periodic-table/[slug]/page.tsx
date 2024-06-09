@@ -4,15 +4,24 @@ import ScrollTopButton from '@/components/ScrollTopButton';
 import { notFound } from 'next/navigation';
 import History from '@/components/tables/hystoryTable';
 import { Button } from "@/components/ui/button"
-import ContextHoverCard from '@/components/ContextHoverCard';
+// import ContextHoverCard from '@/components/ContextHoverCard';
 import ChemicalFamilies from '../ChemicalFamilies'
-import  PeriodicDrawer  from '@/components/Drawer';
+// import  PeriodicDrawer  from '@/components/Drawer';
 import { eq } from 'drizzle-orm';
 // Import your existing schema file (replace with the actual path)
 import { chemical_element} from '@/db/schema/elements'; // Reemplaza con la ruta real a tu esquema
 import {db} from '@/db/index'
 // Create a LibSQL client
 // const client = createClient({ url: process.env.DATABASE_URL!, authToken: process.env.DATABASE_TOKEN! });
+import dynamic from 'next/dynamic';
+
+
+
+  const ContextHoverCard = dynamic(() => import('@/components/ContextHoverCard'), { ssr: false });
+
+
+  const PeriodicDrawer = dynamic(() => import('@/components/Drawer'), { ssr: false });
+
 
 type ChemicalElement = typeof chemical_element;
 

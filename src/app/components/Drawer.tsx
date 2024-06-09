@@ -15,6 +15,7 @@ import {
   DrawerTitle,
   DrawerTrigger,
 } from "@/components/ui/drawer"
+import PeriodicTablesvg from '@/components/PeriodicTablesvg'
 
 const data = [
   {
@@ -70,9 +71,10 @@ export default function PeriodicDrawer() {
       <DrawerTrigger asChild>
         <Button variant="outline">
             <figure> 
-                <Image src={"/periodic-table.svg"} alt="" width={22} height={30} unoptimized>
+              <PeriodicTablesvg></PeriodicTablesvg>
+                {/* <Image src={"/periodic-table.svg"} alt="" width={22} height={25} unoptimized>
 
-                </Image>
+                </Image> */}
             </figure>
             </Button>
       </DrawerTrigger>
