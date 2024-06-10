@@ -1,9 +1,20 @@
-"use client";
-
+"use client"
 import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card";
-import { useState } from "react";
-import QuestionMark from "@/components/QuestionMark";
-import { generateSlug } from "@/utils/slugGenerator";
+import { useState, useEffect } from 'react';
+import QuestionMark from '@/components/QuestionMark';
+import { generateSlug } from '@/utils/slugGenerator';
+
+interface ContextData {
+  slug: string;
+  concept: string;
+  formula?: string; 
+  pronunciation?: string;
+  definition: string | string[]; 
+  references: { [key: string]: any };
+  types: { [key: string]: any };
+  createdAt: string;
+  updatedAt: string;
+}
 
 interface ContextHoverCardProps {
   buttonText: string;
@@ -11,14 +22,11 @@ interface ContextHoverCardProps {
   questionMarkColor?: string;
 }
 
-export default function ContextHoverCard({
-  buttonText,
-  children,
-  questionMarkColor,
-}: ContextHoverCardProps) {
+export default function ContextHoverCard({ buttonText, children, questionMarkColor }: ContextHoverCardProps) {
   const [isHovered, setIsHovered] = useState(false);
-  const [contextData, setContextData] = useState<any>(null);
+  const [contextData, setContextData] = useState<ContextData | null>(null);
   const slug = generateSlug(buttonText);
+  const [error, setError] = useState<string | null>(null); // Add an error state
 
 const fetchData = async () => {
   try {
@@ -35,15 +43,14 @@ const fetchData = async () => {
   }
 };
 
-  const handleMouseEnter = (event: { preventDefault: () => void }) => {
-    event.preventDefault();
+  const handleMouseEnter = () => {
     setIsHovered(true);
     fetchData();
   };
 
-  const handleMouseLeave = () => {
-    setIsHovered(false);
-  };
+  // const handleMouseLeave = () => {
+  //   setIsHovered(false);
+  // };
 
   return (
     <div className="cursor-pointer w-fit">
@@ -51,7 +58,7 @@ const fetchData = async () => {
         <HoverCardTrigger
           asChild
           onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave} // Added handleMouseLeave to reset hover state
+          // onMouseLeave={handleMouseLeave} 
         >
           <div className="relative w-fit mr-4 h-fit">
             {children}
@@ -65,19 +72,27 @@ const fetchData = async () => {
             <div className="max-h-[28rem] overflow-y-auto">
               <div className="space-y-1">
                 <h4>{buttonText}</h4>
-                <div>
-                  {contextData?.definition ? (
-                    Array.isArray(contextData.definition) ? (
-                      contextData.definition.map((parag: any, index: any) => (
-                        <p key={index}>{parag}</p>
-                      ))
+                {error ? (
+                  <p>Error fetching context: {error}</p>
+                ) : (
+                  <div>
+                    {contextData?.definition ? (
+                      typeof contextData.definition === 'string' ? (
+                        <p>{contextData.definition}</p>
+                      ) : (
+                        Array.isArray(contextData.definition) ? (
+                          contextData.definition.map((parag, index) => (
+                            <p key={index}>{parag}</p>
+                          ))
+                        ) : (
+                          <p>Definition format not recognized</p>
+                        )
+                      )
                     ) : (
-                      <p>{contextData.definition}</p>
-                    )
-                  ) : (
-                    <p>No context available.</p>
-                  )}
-                </div>
+                      <p>No context available.</p>
+                    )}
+                  </div>
+                )}
               </div>
             </div>
           </HoverCardContent>
@@ -85,4 +100,4 @@ const fetchData = async () => {
       </HoverCard>
     </div>
   );
-}
+} 
