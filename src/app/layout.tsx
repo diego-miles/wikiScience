@@ -103,7 +103,7 @@ export default function RootLayout({
         {/* <ScrollTopButton /> */}
         <Footer />
         {/* <Analytics /> */}
-        <GoogleAdsScript />
+        {/* <GoogleAdsScript /> */}
 
         {/* <Script
             id="gtm-script"

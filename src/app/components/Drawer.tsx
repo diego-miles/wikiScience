@@ -1,5 +1,4 @@
-"use client"
-
+ 
 import * as React from "react"
 import { Minus, Plus } from "lucide-react"
 import Image from 'next/image'
@@ -17,54 +16,14 @@ import {
 } from "@/components/ui/drawer"
 import PeriodicTablesvg from '@/components/PeriodicTablesvg'
 
-const data = [
-  {
-    goal: 400,
-  },
-  {
-    goal: 300,
-  },
-  {
-    goal: 200,
-  },
-  {
-    goal: 300,
-  },
-  {
-    goal: 200,
-  },
-  {
-    goal: 278,
-  },
-  {
-    goal: 189,
-  },
-  {
-    goal: 239,
-  },
-  {
-    goal: 300,
-  },
-  {
-    goal: 200,
-  },
-  {
-    goal: 278,
-  },
-  {
-    goal: 189,
-  },
-  {
-    goal: 349,
-  },
-]
+
 
 export default function PeriodicDrawer() {
-  const [goal, setGoal] = React.useState(350)
+  // const [goal, setGoal] = React.useState(350)
 
-  function onClick(adjustment: number) {
-    setGoal(Math.max(200, Math.min(400, goal + adjustment)))
-  }
+  // function onClick(adjustment: number) {
+  //   setGoal(Math.max(200, Math.min(400, goal + adjustment)))
+  // }
 
   return (
     <Drawer>
@@ -81,8 +40,8 @@ export default function PeriodicDrawer() {
       <DrawerContent>
         <div className="mx-auto  ">
           <DrawerHeader>
-            <DrawerTitle>Move Goal</DrawerTitle>
-            <DrawerDescription>Set your daily activity goal.</DrawerDescription>
+            <DrawerTitle>Periodic Table</DrawerTitle>
+            {/* <DrawerDescription>Chemical Elements</DrawerDescription> */}
           </DrawerHeader>
           <div className="overflow-x-auto w-lvw px-2  ">
 
