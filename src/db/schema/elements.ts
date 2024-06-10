@@ -175,9 +175,9 @@ export const contextDefinition = sqliteTable('contextDefinition', {
   concept: text('concept').primaryKey(),
   formula: text('formula'),
   pronunciation: text('pronunciation'),
-  definition: text('definition' ) ,
-  references: text('references'),
-  types: text('types'),
+  definition: text('definition', { mode: 'json' }),
+  references: text('references', { mode: 'json' }),
+  types: text('types', { mode: 'json' }),
   createdAt: text('created_at').default('CURRENT_TIMESTAMP'),
   updatedAt: text('updated_at').default('CURRENT_TIMESTAMP')
 });
