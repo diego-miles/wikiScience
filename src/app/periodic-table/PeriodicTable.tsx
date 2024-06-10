@@ -78,7 +78,7 @@ const formatElectronicConfiguration = (config: string) => {
       zIndex: 1, // Ensure hovered element is on top
     };
     return (
-      <div
+      <div key={element.atomicNumber}
         className={`grid-item m-[.1rem] rounded-lg  py-2 w-[6.5rem]
           text-center relative group transition-transform duration-300 ease-in-out
           ${getBackgroundColor(element.family)}`}

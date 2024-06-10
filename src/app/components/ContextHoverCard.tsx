@@ -4,6 +4,10 @@ import { useState } from 'react';
 import QuestionMark from '@/components/QuestionMark';
 import { generateSlug } from '@/utils/slugGenerator';
 
+
+
+
+
 interface ContextHoverCardProps {
   buttonText: string;
   children: React.ReactNode;
@@ -15,22 +19,23 @@ export default function ContextHoverCard({ buttonText, children, questionMarkCol
   const [contextData, setContextData] = useState<any>(null);
   const slug = generateSlug(buttonText);
 
-const fetchData = async () => {
-    const endpoint = `/api/${slug}`;
+
+  const fetchData = async () => {
     try {
-        const response = await fetch(endpoint);
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
-        }
-        const responseText = await response.text();
-        console.log('Raw response:', responseText);
-        const data = JSON.parse(responseText);
-        console.log('Context data fetched:', data);
-        setContextData(data);
+      const response = await fetch(`/api/context/${slug}`);
+      console.log(response)
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      const data = await response.json();
+      console.log('Context data fetched:', data);
+      setContextData(data);
     } catch (error) {
-        console.error('Error fetching context:', error);
+      console.error('Error fetching context:', error);
     }
-};
+  };
+
+
 
 const handleMouseEnter = (event: { preventDefault: () => void; }) => {
   event.preventDefault(); // This will now work correctly

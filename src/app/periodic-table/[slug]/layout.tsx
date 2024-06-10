@@ -42,16 +42,6 @@ const sectionTitles = [
   }));
 
 
-
-// export default function localContexLinks({
-//   children,
-// }: {
-//   children: React.ReactNode
-// }) {
-
-//   <LocalContextLinks links={links}></LocalContextLinks>
-//   return <section>{children}</section>
-// }
 export default function DashboardLayout({
   children, // will be a page or nested layout
 }: {

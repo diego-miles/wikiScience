@@ -63,7 +63,8 @@ export default function RootLayout({
   const CookieConsent = dynamic(() => import('./CookieConsent'), { ssr: false });
   return (
 
-    <html lang="en">
+    <html>
+
       <meta name="google-adsense-account" content="ca-pub-6831545317289734"></meta>
       <body
         className={cn(
