@@ -1,12 +1,9 @@
-"use client"
+"use client";
+
 import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card";
-import { useState } from 'react';
-import QuestionMark from '@/components/QuestionMark';
-import { generateSlug } from '@/utils/slugGenerator';
-
-
-
-
+import { useState } from "react";
+import QuestionMark from "@/components/QuestionMark";
+import { generateSlug } from "@/utils/slugGenerator";
 
 interface ContextHoverCardProps {
   buttonText: string;
@@ -14,34 +11,35 @@ interface ContextHoverCardProps {
   questionMarkColor?: string;
 }
 
-export default function ContextHoverCard({ buttonText, children, questionMarkColor }: ContextHoverCardProps) {
+export default function ContextHoverCard({
+  buttonText,
+  children,
+  questionMarkColor,
+}: ContextHoverCardProps) {
   const [isHovered, setIsHovered] = useState(false);
   const [contextData, setContextData] = useState<any>(null);
   const slug = generateSlug(buttonText);
 
-
-  const fetchData = async () => {
-    try {
-      const response = await fetch(`/api/context/${slug}`);
-      console.log(response)
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
-      const data = await response.json();
-      console.log('Context data fetched:', data);
-      setContextData(data);
-    } catch (error) {
-      console.error('Error fetching context:', error);
+const fetchData = async () => {
+  try {
+    const response = await fetch(`/api/context/${slug}`);
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
     }
-  };
-
-
-
-const handleMouseEnter = (event: { preventDefault: () => void; }) => {
-  event.preventDefault(); // This will now work correctly
-  setIsHovered(true);
-  fetchData();
+    const data = await response.json();
+    console.log("Context data fetched:", data);
+    setContextData(data);
+  } catch (error) {
+    console.error("Error fetching context:", error);
+    // Handle the error gracefully (e.g., display a message to the user)
+  }
 };
+
+  const handleMouseEnter = (event: { preventDefault: () => void }) => {
+    event.preventDefault();
+    setIsHovered(true);
+    fetchData();
+  };
 
   const handleMouseLeave = () => {
     setIsHovered(false);

@@ -52,15 +52,17 @@
 
 
 
-
-
-import { NextApiResponse } from 'next';
-import {NextRequest} from 'next/server'
-import { contextDefinition } from '@/db/schema/elements';
 import { eq } from 'drizzle-orm';
+import { NextApiResponse } from 'next';
+import { NextRequest } from 'next/server';
+import { contextDefinition } from '@/db/schema/elements';
 import { z } from 'zod';
 import { db } from '@/db/index';
 
+
+
+
+// Your contextSchema is correct for a single string definition
 const contextSchema = z.object({
   slug: z.string(),
   concept: z.string(),
@@ -68,29 +70,29 @@ const contextSchema = z.object({
   // ... other fields
 });
 
-
-
-export async function GET(req: NextRequest, {params: {slug}}: {params: {slug:string}}) { 
+export async function GET(req: NextRequest, { params: { slug } }: { params: { slug: string } }) {
   try {
-//   const element = await db.select().from(contextDefinition).where(eq(contextDefinition.slug, slug)).get();
-    const context = await db.select().from(contextDefinition).where(eq(contextDefinition.slug, slug)).get();
+    // Use `findFirst` for a single record
+    const context = await db.select({
+      slug: contextDefinition.slug,
+      concept: contextDefinition.concept,
+      definition: contextDefinition.definition,
+      // Include other fields here as needed
+    }).from(contextDefinition).where(eq(contextDefinition.slug, slug)).get();
 
-    // return new Response(context)
-    console.log("executing api call")
-    console.log(context)
-
-    if (context == null) return new Response("not found")
-    else {
-      return Response.json(context)
+    // Ensure you only return a single result, not an array
+    if (!context) {
+      return new Response('Context not found', { status: 404 });
     }
-      } catch (error) {
+
+    console.log('executing api call');
+    console.log(context);
+
+    return Response.json(context); // Return the single result
+  } catch (error) {
     console.error('Error fetching context:', error);
-    // new Response("not gettin it")
+    return new Response('Error fetching data', { status: 500 });
   } finally {
-    // await db.$disconnect(); 
-
+    // await db.$disconnect(); // Consider using a connection pool for better performance
   }
-
 }
-
-
