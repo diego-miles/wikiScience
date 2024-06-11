@@ -1,7 +1,7 @@
 import React from 'react';
 
 const PeriodicTablesvg = ({ color = '#008eaa' }) => (
-  <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="30" height="auto">
+  <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="25" height="25">
     <style>
       {`
         .a { fill: #0058bf; }

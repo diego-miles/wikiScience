@@ -4,12 +4,13 @@ import Link from 'next/link';
 import styles from './NavbarContainer.module.css';
 import { Suspense, lazy } from 'react';
 import dynamic from 'next/dynamic';
-import DarkModeTooggle from '@/components/DarkModeToggle'
+// import DarkModeTooggle from '@/components/DarkModeToggle'
 import Image from 'next/image'
 import NavigationMenu from './NavigationMenu'
 
 // NavigationMenu
 // const NavigationMenu = dynamic(() => import('./NavigationMenu'), { ssr: false });
+const DarkModeTooggle = dynamic(() => import('@/components/DarkModeToggle'), { ssr: false });
 
 const toSlug = (title: string): string => title.toLowerCase().replace(/\s+/g, '_');
 
@@ -106,4 +107,4 @@ const NavBarContainer = memo(() => {
 
 NavBarContainer.displayName = 'NavBarContainer';
 
-export default memo(NavBarContainer);
+export default (NavBarContainer);

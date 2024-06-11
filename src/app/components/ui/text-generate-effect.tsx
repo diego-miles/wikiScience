@@ -52,7 +52,7 @@ const renderWords = () => {
   return (
     <div className={cn("font-normal", className)}>
 
-        <p className="font-mono mx-auto py-0 max-w-5xl tracking-wider  font-thin text-[3rem] leading-snug px-5">
+        <p className="font-mono mx-auto py-0 max-w-5xl tracking-wider  font-thin text-[2.8rem] leading-snug px-5">
           {renderWords()}
         </p>
     </div>

@@ -1,6 +1,6 @@
 import { MetadataRoute } from 'next';
 import data from '@/data/ScienceFieldsData'; // Asegúrate de que la ruta de importación sea correcta
-import words from '@/data/words'
+import words from '@/data/words.json'
 
 const baseUrl = 'https://wiki-science.com/top-science-books';
 const wordsBaseUrl = 'https://wiki-science.com/dictionary/'; 

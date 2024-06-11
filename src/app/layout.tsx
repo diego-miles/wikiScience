@@ -9,13 +9,13 @@ import Script from 'next/script'
 // import ConsentProvider  from '../contexts/ClientSideWrapper';
 // import Analytics from './GoogleAnalytics'
 import dynamic from 'next/dynamic';
-// import GoogleAdsScript from './GoogleAdsScript.js'
+// import GoogleAdsScript from './GoogleAdsScript.js
 // import React, { Suspense } from 'react';
 
 import { cn } from "../lib/utils"
 import { ThemeProvider } from "@/ThemProvider"
 import { GridBackgroundDemo } from './GridBackground'
-import NavBar from '@/components/navigation/NavbarContainer';
+// import NavBar from '@/components/navigation/NavbarContainer';
 
 
 const noto_sans_georgian = Noto_Sans_Georgian({
@@ -60,7 +60,8 @@ export default function RootLayout({
 }) {
 
   const GoogleAdsScript = dynamic(() => import('./GoogleAdsScript'), { ssr: false });
-  const CookieConsent = dynamic(() => import('./CookieConsent'), { ssr: false });
+  // const CookieConsent = dynamic(() => import('./CookieConsent'), { ssr: false });
+  const NavBar = dynamic(() => import('@/components/navigation/NavbarContainer'), { ssr: false });
   return (
 
     <html>
@@ -68,17 +69,22 @@ export default function RootLayout({
       <meta name="google-adsense-account" content="ca-pub-6831545317289734"></meta>
       <body
         className={cn(
-          "min-h-lvh font-sans antialiased ",
-          "bg-grid-[#eaeef4] dark:bg-none ",
+          "min-h-lvh font-sans antialiased bg-grid-[#eaeef4] dark:bg-none ",
           noto_sans_georgian.variable,
           noto_serif_georgian.variable,
           ibm_plex_mono.variable,
         )}
       >
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
         <GridBackgroundDemo />
 
 
-        <CookieConsent />
+        {/* <CookieConsent /> */}
         {/* <noscript>
           <iframe
             src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
@@ -87,23 +93,13 @@ export default function RootLayout({
             style={{ display: "none", visibility: "hidden" }}
           />
         </noscript> */}
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
           <NavBar></NavBar>
-          <div className='min-h-lvh'>
           {children}
-          </div>
-        </ThemeProvider>
-
         <Analytics />;
         {/* <ScrollTopButton /> */}
         <Footer />
         {/* <Analytics /> */}
-        {/* <GoogleAdsScript /> */}
+        <GoogleAdsScript />
 
         {/* <Script
             id="gtm-script"
@@ -135,6 +131,7 @@ export default function RootLayout({
             `}
           </Script> */}
 
+        </ThemeProvider>
       </body>
     </html>
 

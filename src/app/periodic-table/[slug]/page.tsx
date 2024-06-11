@@ -125,10 +125,10 @@ async function ElementPage({ params: { slug } }: ElementPageProps) {
   return (
     <>
       {/* <NavBar domain="www.wiki-science.com/" menuPath='./NavigationMenu' /> */}
-      <div className='max-w-full overflow-x-auto  mt-80 w-fit mx-auto '>
+      <div className='max-w-full overflow-x-auto  mt-52 lg:mt-64 w-fit mx-auto py-16 '>
         <ChemicalFamilies></ChemicalFamilies>
       </div>
-      <main  className=' pt-20  '>
+      <main  className=' pt-10  '>
         {/* <h1 >{element.name} ({element.symbol})</h1> */}
         <div              className="pt-1 px-2 pb-0 mb-0 border-2 border-[#1d6aaa] top-4  left-3/4   -ml-28  p-1 bg-background1 rounded-xl absolute  border-b-[.6rem] shadow-2xl transform transition-all duration-200 hover:translate-y-1 active:border-b-4 active:shadow-inner active:translate-y-2  z-50"            >
           <PeriodicDrawer />
@@ -136,7 +136,7 @@ async function ElementPage({ params: { slug } }: ElementPageProps) {
         <section className='text-center  '>
           <div      className={`relative flex w-fit mx-auto pr-40 mb-20 `}    >
             {/* Columna izquierda */}
-            <div className="text-right pt-10 ">
+            <div className="text-right pt-[3.5rem] -mr-1">
               <div className="absolute  pb-1 pl-2 -right-5   border-[#168cc7]  top-0  text-dark font-medium dark:text-gray-100   block mt-1   border-b-2  text-[1.1rem]">
                 <ContextHoverCard buttonText={"Electronic Configuration"} questionMarkColor={"#85a985"}>
                   <Button variant="link">
@@ -154,9 +154,9 @@ async function ElementPage({ params: { slug } }: ElementPageProps) {
                 </div>
               </div>
               <div>
-                <span className="  text-dark dark:text-gray-100 inline-block mt-3   border-b-[.2rem] border-[#168cc7]  px-3 font-medium text-xs" >Name</span>
+                <span className="  text-dark dark:text-gray-100 inline-block mt-1   border-b-[.2rem] border-[#168cc7]   px-3 font-medium text-xs" >Name</span>
               </div>
-              <div className="  text-dark dark:text-gray-100 inline-block mt-4   border-b-2 border-[#168cc7]  px-3 font-medium text-xs">
+              <div className="  text-dark dark:text-gray-100 inline-block mt-1   border-b-2 border-[#168cc7]   px-3 font-medium text-xs">
                 <ContextHoverCard buttonText={"Atomic number"} questionMarkColor={"#80ac80"}>
                   <Button variant="link">
                     <strong className='text-xs'>{"Atomic Number"}</strong>
@@ -166,13 +166,13 @@ async function ElementPage({ params: { slug } }: ElementPageProps) {
             </div>
             {/* Columna derecha */}
             <div>
-              <div className={`border-4  dark:bg-background1dark border-[#1380b6] bg-background1 rounded-lg px-4 py-2 min-w-32 bg-${element.classification}`}>
+              <div className={`border-4  dark:bg-${element.classification?.toLocaleLowerCase().replace(/\s+/g, '-')} border-[#168cc7]  rounded-lg px-4 py-2 min-w-32  bg-${element.classification?.toLowerCase().replace(/\s+/g, '-')}`}>
                 {/* ConfiguraciÃ³n electrÃ³nica en la parte superior */}
-                <span className=" text-[1.4rem] min-h-8 text-dark dark:text-white tracking-wider             "              dangerouslySetInnerHTML={{ __html: formatElectronicConfiguration(element.electronConfiguration_configuration || "")}}            >
+                <span className=" text-[1.4rem] min-h-8 text-white dark:text-white tracking-wider             "              dangerouslySetInnerHTML={{ __html: formatElectronicConfiguration(element.electronConfiguration_configuration || "")}}            >
                 </span>
-                <span className="text-xl font-black text-dark dark:text-white block -mb-1 pb-0 ">{element.symbol}</span>
-                <span className="text-[1.5rem] text-dark font-extrabold dark:text-white block ">{element.name}</span>
-                <span className="text-dark text-base dark:text-white block"> {element.atomicNumber}</span>
+                <span className="text-xl font-black text-white dark:text-white block -mb-1 pb-0 ">{element.symbol}</span>
+                <span className="text-[1.5rem] text-white font-extrabold dark:text-white block ">{element.name}</span>
+                <span className="text-dark text-white dark:text-white block"> {element.atomicNumber}</span>
               </div>
             </div>
             {/* <div className='absolute top-60'>        <p>[He] = 2s <sup>2</sup></p>      </div> */}
@@ -183,6 +183,7 @@ async function ElementPage({ params: { slug } }: ElementPageProps) {
           <div className='max-w-[50rem] mx-auto pb-12'>
             <p className='font-semibold text-h4 pb-0'>CLASSIFICATION: </p>
                 <p className='font-bold text-lg '>{element.classification}</p>
+                {/* <p className='font-bold text-lg '>{element.classification?.toLowerCase().replace(/\s+/g, '-')}</p> */}
                 <p>{element.classification_description}</p>
           </div>
           <div className='w-fit mx-auto'>
@@ -195,9 +196,7 @@ async function ElementPage({ params: { slug } }: ElementPageProps) {
           <p className='text-lg max-w-[50rem] mx-auto'> {element.description}</p>
         </section>
         <div className='lg:grid lg:grid-cols-2 gap-x-24 gap-y-12 lg:px-12 '>
-          {/* Atomic Structure */}
           <section id="1-atomic-structure">
-            {/* Atomic Structure */}
             {generateSectionHeader("Atomic Structure", "1. Atomic Structure")}
             <div className='flex flex-wrap text-left'>
               {generateStrong("Electrons", "Electrons:")}
@@ -260,10 +259,7 @@ async function ElementPage({ params: { slug } }: ElementPageProps) {
             <div>
               <h2>4. Discovery and History</h2>
             </div>
-            {/* <History data={sanitizedHistoryData} /> */}
           </section>
-          {/* Discovery Year, Melting and Boiling Points, Density, and Appearance */}
-          {/* Physical Properties */}
           <section id="3-physical-properties">
             <div>
               {generateSectionHeader("Physical Properties", "2. Physical Properties")}
@@ -436,9 +432,6 @@ async function ElementPage({ params: { slug } }: ElementPageProps) {
               {generateSectionHeader("Isotopes and Abundances", "10. Isotopes and Abundances")}
             </div>
             <div className='lg:grid lg:grid-cols-2 gap-x-12  max-w-fit mx-auto mt-16'>
-              {/* You'll need to handle the isotopes data from your database here */}
-              {/* For example, you might have a separate table for isotopes */}
-              {/* Replace this with your actual data fetching and rendering logic */}
             </div>
           </section>
           <section id="12-oxidation-states">
@@ -452,7 +445,6 @@ async function ElementPage({ params: { slug } }: ElementPageProps) {
             <div>
               {generateSectionHeader("Compounds", "12. Compounds")}
             </div>
-            {/*  Assuming `element.compounds` is a string containing JSON data */}
             {(element.compounds ? JSON.parse(element.compounds) : []).map((compound: { name: string, formula: string, description: string }, index: string) => (
               <div className='' key={index}>
                 <h3>{compound.name}</h3>
@@ -465,7 +457,6 @@ async function ElementPage({ params: { slug } }: ElementPageProps) {
             <div>
               {generateSectionHeader("Spectral Lines", "16. Spectral Lines")}
             </div>
-            {/*  Assuming `element.spectralLines` is a string containing JSON data */}
             {(element.spectralLines ? JSON.parse(element.spectralLines) : []).map((line: { wavelength: string, intensity: string, lineType: string }, index: string) => (
               <div className='mb-12' key={index}>
                 {generateStrong("Wavelength", "Wavelength:")}
@@ -481,7 +472,6 @@ async function ElementPage({ params: { slug } }: ElementPageProps) {
     <div>
       {generateSectionHeader("Allotropes", "9. Allotropes")}
     </div>
-    {/*  Assuming `element.allotropes` is a string containing JSON data */}
 {element.allotrops && (
   JSON.parse(element.allotrops).map((allotrope: any, index: string) => (
     <div className='border border-black dark:border-white/20 rounded-3xl py-8 my-12 px-7 min-h-[17rem] max-w-[32rem] justify-center' key={index}>
@@ -497,7 +487,6 @@ async function ElementPage({ params: { slug } }: ElementPageProps) {
     <div>
       <h2>17. Practical Applications</h2>
     </div>
-    {/*  Assuming `element.practicalApplications` is a string containing JSON data */}
     {element.practical_applications && (
       (element.practical_applications ? JSON.parse(element.practical_applications) : []).map((app: { application: string, description: string }, index: string) => (
         <div className='mt-12' key={index}>
@@ -571,7 +560,6 @@ async function ElementPage({ params: { slug } }: ElementPageProps) {
     <div>
       <h2>23. Future Predictions</h2>
     </div>
-    {/*  Assuming `element.futurePredictions` is a string containing JSON data */}
     {element.futurePredictions && (
       (element.futurePredictions ? JSON.parse(element.futurePredictions) : []).map((prediction: { prediction: string, description: string }, index: string) => (
         <div className='-scroll-mt-12' key={index}>
@@ -588,8 +576,8 @@ async function ElementPage({ params: { slug } }: ElementPageProps) {
     {Object.entries(JSON.parse(element.interdisciplinaryConnections)).map(
       ([key, description], index) => (
         <div key={index}>
-          <p>{generateStrong(key, key + ":")}</p> 
-          <p>{description as ReactNode}</p> {/* Type Assertion */}
+          <strong>{generateStrong(key, key + ":")}</strong> 
+          <div>{description as string}</div>
         </div>
       )
     )}
