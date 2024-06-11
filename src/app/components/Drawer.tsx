@@ -40,7 +40,7 @@ export default function PeriodicDrawer() {
       <DrawerContent>
         <div className="mx-auto  ">
           <DrawerHeader>
-            <DrawerTitle>Periodic Table</DrawerTitle>
+            {/* <DrawerTitle>Periodic Table</DrawerTitle> */}
             {/* <DrawerDescription>Chemical Elements</DrawerDescription> */}
           </DrawerHeader>
           <div className="overflow-x-auto w-lvw px-2  ">

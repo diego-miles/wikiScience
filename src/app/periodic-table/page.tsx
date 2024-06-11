@@ -29,7 +29,6 @@ async function Home() {
       <main className='h-[140rem] md:h-[140rem]'>
       <h1 className=" ">Periodic Table of the Chemical Elements</h1>
       {/* {element?.definition} */}
-<p>element</p>
       <div className='absolute left-0 right-0 overflow-auto md:overflow-hidden '>
         <div className='mx-auto   w-fit  max-h-40  text-center'>
             <ChemicalFamilies></ChemicalFamilies>

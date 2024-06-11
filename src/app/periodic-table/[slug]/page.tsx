@@ -115,8 +115,8 @@ async function ElementPage({ params: { slug } }: ElementPageProps) {
 //         console.error('Error parsing history:', error);
 //     }
 // }
-
-
+  const elementClass = element.classification?.toLocaleLowerCase().replace(/\s+/g, '-')
+  console.log(elementClass)
   const formatElectronicConfiguration = (config: string) => {
     // Usar una expresiÃ³n regular para encontrar uno o dos nÃºmeros al final de cada subconfiguraciÃ³n
     return config.replace(/(\d{1,2})(?=\s|$)/g, '<sup>$1</sup>');
@@ -166,13 +166,13 @@ async function ElementPage({ params: { slug } }: ElementPageProps) {
             </div>
             {/* Columna derecha */}
             <div>
-              <div className={`border-4  dark:bg-${element.classification?.toLocaleLowerCase().replace(/\s+/g, '-')} border-[#168cc7]  rounded-lg px-4 py-2 min-w-32  bg-${element.classification?.toLowerCase().replace(/\s+/g, '-')}`}>
+              <div className={`border-4  dark:bg-${elementClass} border-[#168cc7]  rounded-lg px-4 py-2 min-w-36 min-h-40  bg-${elementClass}`}>
                 {/* ConfiguraciÃ³n electrÃ³nica en la parte superior */}
-                <span className=" text-[1.4rem] min-h-8 text-white dark:text-white tracking-wider             "              dangerouslySetInnerHTML={{ __html: formatElectronicConfiguration(element.electronConfiguration_configuration || "")}}            >
+                <span className=" text-[.9rem] min-h-8 text-white dark:text-white tracking-wider             "              dangerouslySetInnerHTML={{ __html: formatElectronicConfiguration(element.electronConfiguration_configuration || "")}}            >
                 </span>
                 <span className="text-xl font-black text-white dark:text-white block -mb-1 pb-0 ">{element.symbol}</span>
                 <span className="text-[1.5rem] text-white font-extrabold dark:text-white block ">{element.name}</span>
-                <span className="text-dark text-white dark:text-white block"> {element.atomicNumber}</span>
+                <span className="text-dark font-black text-white dark:text-white block"> {element.atomicNumber}</span>
               </div>
             </div>
             {/* <div className='absolute top-60'>        <p>[He] = 2s <sup>2</sup></p>      </div> */}
