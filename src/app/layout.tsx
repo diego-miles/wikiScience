@@ -70,11 +70,12 @@ export default function RootLayout({
 
         <html lang="en">
         <head >
-      {/* <meta name="google-adsense-account" content="ca-pub-6831545317289734"></meta> */}
+      <meta name="google-adsense-account" content="ca-pub-6831545317289734"></meta>
 
         </head>
    
 
+    <Script   async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6831545317289734" crossOrigin='anonymous' strategy="afterInteractive"></Script>
 
 
 
@@ -86,7 +87,6 @@ export default function RootLayout({
           ibm_plex_mono.variable,
         )}
       >
-    {/* <Script   async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6831545317289734" crossOrigin='anonymous' strategy="afterInteractive"></Script> */}
   <Script src="https://alwingulla.com/88/tag.min.js" crossOrigin='anonymous' data-zone="72210" async data-cfasync="false"></Script>
         {/* <ThemeProvider
           attribute="class"
