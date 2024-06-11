@@ -57,8 +57,8 @@
   --color-transition-metal: #0080F8;
   --color-post-transition-metal: #00AC62;
   --color-metalloids: #0367AB;
-  --color-non-metals: #6D6D6D;
-  --color-non-metal: #6D6D6D;
+  --color-non-metal: rgb(83, 83, 83);
+  --color-non: #6d6d6d;
   --color-halogens: #DC0BB4;
   --color-noble-gas: #BB9600;
   --color-lanthanide: #00878B;
