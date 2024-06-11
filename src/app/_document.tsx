@@ -18,7 +18,6 @@ import { GridBackgroundDemo } from './GridBackground'
 import Head from 'next/head';
 import Script from 'next/script'
 import GoogleAdsense from "./GoogleAdsense";
-import GoogleAdUnit from 'nextjs13_google_adsense'
 
 
 const noto_sans_georgian = Noto_Sans_Georgian({
@@ -70,10 +69,10 @@ export default function RootLayout({
   return (
 
         <html lang="en">
-        <head >
+        <Head >
       <meta name="google-adsense-account" content="ca-pub-6831545317289734"></meta>
 
-        </head>
+        </Head>
    
 
 
@@ -87,7 +86,10 @@ export default function RootLayout({
           ibm_plex_mono.variable,
         )}
       >
-¿
+        <GoogleAdsense pId="(AdsenseのID)" />
+
+
+{/* <Script   async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6831545317289734" strategy="beforeInteractive"></Script> */}
         {/* <ThemeProvider
           attribute="class"
           defaultTheme="system"
