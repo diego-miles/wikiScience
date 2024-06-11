@@ -80,23 +80,21 @@ const LocalContextLinksPeriodicTable: React.FC<LocalContextLinksProps> = ({ link
   };
 
   useEffect(() => {
-    const handleWheel = (event: WheelEvent) => {
-      if (scrollContainerRef.current && event.deltaY !== 0) {
-        scrollContainerRef.current.scrollLeft += event.deltaY;
-        event.preventDefault();
-      }
-    };
-
-    const scrollContainer = scrollContainerRef.current;
-    if (scrollContainer) {
-      scrollContainer.addEventListener('wheel', handleWheel);
-    }
-
-    return () => {
+      const handleWheel = (event: WheelEvent) => {
+          if (scrollContainerRef.current && event.deltaY !== 0) {
+              scrollContainerRef.current.scrollLeft += event.deltaY;
+              event.preventDefault(); // Only necessary if you want to override default scroll behavior
+          }
+      };
+      const scrollContainer = scrollContainerRef.current;
       if (scrollContainer) {
-        scrollContainer.removeEventListener('wheel', handleWheel);
+          scrollContainer.addEventListener('wheel', handleWheel, { passive: true }); // Add { passive: true }
       }
-    };
+      return () => {
+          if (scrollContainer) {
+              scrollContainer.removeEventListener('wheel', handleWheel);
+          }
+      };
   }, [dropdownActive]);
 
   useEffect(() => {

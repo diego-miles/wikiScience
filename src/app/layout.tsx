@@ -13,7 +13,7 @@ import dynamic from 'next/dynamic';
 // import React, { Suspense } from 'react';
 
 import { cn } from "../lib/utils"
-import { ThemeProvider } from "@/ThemProvider"
+// import { ThemeProvider } from "@/ThemProvider"
 import { GridBackgroundDemo } from './GridBackground'
 // import NavBar from '@/components/navigation/NavbarContainer';
 
@@ -62,9 +62,11 @@ export default function RootLayout({
   const GoogleAdsScript = dynamic(() => import('./GoogleAdsScript'), { ssr: false });
   // const CookieConsent = dynamic(() => import('./CookieConsent'), { ssr: false });
   const NavBar = dynamic(() => import('@/components/navigation/NavbarContainer'), { ssr: false });
+
+  
   return (
 
-    <html>
+        <html lang="en">
 
       <meta name="google-adsense-account" content="ca-pub-6831545317289734"></meta>
       <body
@@ -75,12 +77,12 @@ export default function RootLayout({
           ibm_plex_mono.variable,
         )}
       >
-        <ThemeProvider
+        {/* <ThemeProvider
           attribute="class"
           defaultTheme="system"
           enableSystem
           disableTransitionOnChange
-        >
+        > */}
         <GridBackgroundDemo />
 
 
@@ -131,7 +133,7 @@ export default function RootLayout({
             `}
           </Script> */}
 
-        </ThemeProvider>
+        {/* </ThemeProvider> */}
       </body>
     </html>
 
