@@ -125,7 +125,6 @@ async function ElementPage({ params: { slug } }: ElementPageProps) {
 
   return (
     <>
-    <Script   async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6831545317289734" crossOrigin='anonymous' strategy="beforeInteractive"></Script>
       {/* <NavBar domain="www.wiki-science.com/" menuPath='./NavigationMenu' /> */}
       <div className='max-w-full overflow-x-auto  mt-52 lg:mt-64 w-fit mx-auto py-16 '>
         <ChemicalFamilies></ChemicalFamilies>
