@@ -116,7 +116,8 @@ async function ElementPage({ params: { slug } }: ElementPageProps) {
 //         console.error('Error parsing history:', error);
 //     }
 // }
-  const elementClass = element.classification?.toLocaleLowerCase().replace(/\s+/g, '-')
+  const elementClass = element.classification ? element.classification.toLowerCase().replace(/Non/g, 'no') : '';
+
   console.log(elementClass)
   const formatElectronicConfiguration = (config: string) => {
     // Usar una expresiÃ³n regular para encontrar uno o dos nÃºmeros al final de cada subconfiguraciÃ³n
@@ -167,7 +168,7 @@ async function ElementPage({ params: { slug } }: ElementPageProps) {
             </div>
             {/* Columna derecha */}
             <div>
-              <div className={`border-4  dark:bg-${elementClass} border-[#168cc7]  rounded-lg px-4 py-2 min-w-36 min-h-40  bg-${elementClass}`}>
+              <div className={`border-4 dark:bg-${elementClass} border-[#168cc7]  rounded-lg px-4 py-2 min-w-36 min-h-40 bg-${elementClass}`}>
                 {/* ConfiguraciÃ³n electrÃ³nica en la parte superior */}
                 <span className=" text-[.9rem] min-h-8 text-white dark:text-white tracking-wider             "              dangerouslySetInnerHTML={{ __html: formatElectronicConfiguration(element.electronConfiguration_configuration || "")}}            >
                 </span>

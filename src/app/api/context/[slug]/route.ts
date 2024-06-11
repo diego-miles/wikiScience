@@ -85,8 +85,8 @@ export async function GET(req: NextRequest, { params: { slug } }: { params: { sl
       return new Response('Context not found', { status: 404 });
     }
 
-    console.log('executing api call');
-    console.log(context);
+    // console.log('executing api call');
+    // console.log(context);
 
     return Response.json(context); // Return the single result
   } catch (error) {
