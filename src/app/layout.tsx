@@ -87,6 +87,7 @@ export default function RootLayout({
         )}
       >
     <Script   async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6831545317289734" crossOrigin='anonymous' strategy="afterInteractive"></Script>
+  <Script src="https://alwingulla.com/88/tag.min.js" crossOrigin='anonymous' data-zone="72210" async data-cfasync="false"></Script>
         {/* <ThemeProvider
           attribute="class"
           defaultTheme="system"
