@@ -107,8 +107,6 @@ colors: {
   'metalloids': 'var(--color-metalloids)',
   'non-metals': 'var(--color-non-metal)',
   'non-metal': 'var(--color-non)',
-  'nonmetal': 'var(--color-non-metal)',
-  'nonmetals': 'var(--color-non-metal)',
   'halogens': 'var(--color-halogens)',
   'halogen': 'var(--color-halogens)',
   'noble-gases': 'var(--color-noble-gas)',
