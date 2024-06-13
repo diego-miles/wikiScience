@@ -6,6 +6,14 @@ const baseUrl = 'https://wiki-science.com/top-science-books';
 const wordsBaseUrl = 'https://wiki-science.com/dictionary/'; 
 
 
+type SitemapFile = Array<{
+    url: string;
+    lastModified?: string | Date;
+    changeFrequency?: 'always' | 'hourly' | 'daily' | 'weekly' | 'monthly' | 'yearly' | 'never';
+    priority?: number;
+}>;
+
+
 const toSlug = (title: string) => {
   const slug = title.replace(/[^a-zA-Z0-9 ,'-()]/g, "").replace(/ /g, "_");
   return slug.toLowerCase();
@@ -40,31 +48,31 @@ const chemicalElements  = [
 
 const lowercaseElements = chemicalElements.map(element => element.toLowerCase());
 
+  let sitemapEntries : SitemapFile = [];
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  let sitemapEntries = [];
 
-  for (const field of data) {
-    for (const subField of field.subFields) {
-      const subFieldUrl = `${baseUrl}/${toSlug(subField.title)}`;
-      sitemapEntries.push({
-        url: subFieldUrl,
-        lastModified: new Date(),
-        changeFrequency: 'monthly' as const, // Especifica el tipo constante
-        priority: 0.8,
-      });
+  // for (const field of data) {
+  //   for (const subField of field.subFields) {
+  //     const subFieldUrl = `${baseUrl}/${toSlug(subField.title)}`;
+  //     sitemapEntries.push({
+  //       url: subFieldUrl,
+  //       lastModified: new Date(),
+  //       changeFrequency: 'monthly' as const, // Especifica el tipo constante
+  //       priority: 0.8,
+  //     });
 
-      for (const topic of subField.topics) {
-        const topicUrl = `${subFieldUrl}/${toSlug(topic)}`;
-        sitemapEntries.push({
-          url: topicUrl,
-          lastModified: new Date(),
-          changeFrequency: 'weekly' as const, // Especifica el tipo constante
-          priority: 0.8,
-        });
-      }
-    }
-  }
+  //     for (const topic of subField.topics) {
+  //       const topicUrl = `${subFieldUrl}/${toSlug(topic)}`;
+  //       sitemapEntries.push({
+  //         url: topicUrl,
+  //         lastModified: new Date(),
+  //         changeFrequency: 'weekly' as const, // Especifica el tipo constante
+  //         priority: 0.8,
+  //       });
+  //     }
+  //   }
+  // }
 
 
   // Adding chemical elements

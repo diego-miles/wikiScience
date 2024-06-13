@@ -74,18 +74,13 @@ const NavigationMenu: React.FC<NavigationMenuProps> = ({ style, closeMenu  }) =>
               </div>
             </AccordionContent> */}
           </AccordionItem>
-          <AccordionItem value="item-2">
+          {/* <AccordionItem value="item-2">
             <AccordionTrigger>
               <h2 className='text-center py-6 mb-3 w-full text-base dark:text-white font-extrabold pb-4 text-h1'>Top Science Books</h2>
 
             </AccordionTrigger>
             <AccordionContent>
-
-
-
 <section>
-  {/* <div className="text-center text-xl font-medium text-gray-400 rounded-md mx-auto max-w-xs p-2 mb-4">~ Top Science Books ~</div> */}
-
   <div className="container text-left mx-auto px-3 grid grid-cols-1 md:grid-cols-2 gap-4">
     {data.map((field, idx) => (
       <div key={idx} className=" rounded-lg p-6">
@@ -119,7 +114,7 @@ const NavigationMenu: React.FC<NavigationMenuProps> = ({ style, closeMenu  }) =>
 
 
             </AccordionContent>
-          </AccordionItem>
+          </AccordionItem> */}
         </Accordion>
 
 
