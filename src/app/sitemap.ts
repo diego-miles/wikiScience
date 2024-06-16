@@ -100,6 +100,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
   });
 
 
+console.log(sitemapEntries)
+
+
 
   return sitemapEntries;
 }

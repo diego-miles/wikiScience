@@ -14,8 +14,18 @@ import { Badge } from "@/components/ui/badge";
 import { eq } from 'drizzle-orm';
 import { citations } from '@/db/schema/elements'; // Replace with the actual path to your schema
 import {db} from '@/db/index';
-
+import Audio from './audio'
 // const prisma = new PrismaClient();
+
+
+
+
+
+
+
+
+
+
 
 // Interface for your word data based on your schema
 interface WordData {
@@ -98,9 +108,13 @@ const WordPage: React.FC<WordPageProps> = async ({ params: { slug } }) => {
           {wordData.pronunciation && (
             <p className="pt-4" >Pronunciation: <span>{wordData.pronunciation}</span></p>
           )}
+          <div className='h-32'>
+
+          <Audio slug={wordData.slug }></Audio>
+          </div>
           <h1 className="pb-4">{wordData.word}</h1>
           {wordData.language && (
-            <p className="absolute top-10 font-serif left-0 right-0 text-center font-semibold text-xs   wider text-[#1f7670]">
+            <p className="absolute top-10 font-serif left-0 right-0 text-center font-semibold text-sm   wider text-[#1f7670]">
               {wordData.language}
             </p>
           )}

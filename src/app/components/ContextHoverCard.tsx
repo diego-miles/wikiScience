@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card";
 import { useState, useEffect } from 'react';
 import QuestionMark from '@/components/QuestionMark';
@@ -7,9 +7,9 @@ import { generateSlug } from '@/utils/slugGenerator';
 interface ContextData {
   slug: string;
   concept: string;
-  formula?: string; 
+  formula?: string;
   pronunciation?: string;
-  definition: string | string[]; 
+  definition: string | string[];
   references: { [key: string]: any };
   types: { [key: string]: any };
   createdAt: string;
@@ -26,41 +26,33 @@ export default function ContextHoverCard({ buttonText, children, questionMarkCol
   const [isHovered, setIsHovered] = useState(false);
   const [contextData, setContextData] = useState<ContextData | null>(null);
   const slug = generateSlug(buttonText);
-  const [error, setError] = useState<string | null>(null); // Add an error state
+  const [error, setError] = useState<string | null>(null);
 
-const fetchData = async () => {
-  try {
-    const response = await fetch(`/api/context/${slug}`);
-    if (!response.ok) {
-      throw new Error(`HTTP error! Status: ${response.status}`);
+  const fetchData = async () => {
+    try {
+      const response = await fetch(`/api/context/${slug}`);
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+      const data = await response.json();
+      console.log("Context data fetched:", data);
+      setContextData(data);
+    } catch (error) {
+      console.error("Error fetching context:", error);
+      throw error;
     }
-    const data = await response.json();
-    console.log("Context data fetched:", data);
-    setContextData(data);
-  } catch (error) {
-    console.error("Error fetching context:", error);
-    // Handle the error gracefully (e.g., display a message to the user)
-  }
-};
+  };
 
   const handleMouseEnter = () => {
     setIsHovered(true);
     fetchData();
   };
 
-  // const handleMouseLeave = () => {
-  //   setIsHovered(false);
-  // };
-
   return (
     <div className="cursor-pointer w-fit">
       <HoverCard>
-        <HoverCardTrigger
-          asChild
-          onMouseEnter={handleMouseEnter}
-          // onMouseLeave={handleMouseLeave} 
-        >
-          <div id="a" className="relative w-fit mr-4 h-fit">
+        <HoverCardTrigger asChild onMouseEnter={handleMouseEnter}>
+          <div className="relative w-fit mr-4 h-fit">
             {children}
             <div className="absolute -top-[.1rem] -right-[.8rem]">
               <QuestionMark color={questionMarkColor} />
@@ -100,4 +92,4 @@ const fetchData = async () => {
       </HoverCard>
     </div>
   );
-} 
+}

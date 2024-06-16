@@ -8,8 +8,7 @@ const nextConfig = {
     ignoreBuildErrors: true,
   },
   experimental: {
-    nextScriptWorkers: true,
-    crossOrigin: 'anonymous',
+    nextScriptWorkers: true
   },
   async headers() {
     return [
@@ -20,8 +19,18 @@ const nextConfig = {
             key: 'X-Content-Type-Options',
             value: 'nosniff',
           },
-          // Aquí agregamos la excepción CORS para pagead2.googlesyndication.com
-          // Puedes agregar más cabeceras de seguridad aquí según sea necesario
+          {
+            key: 'Access-Control-Allow-Origin',
+            value: '*', // You can specify specific origins instead of '*' if needed
+          },
+          {
+            key: 'Access-Control-Allow-Methods',
+            value: 'GET, POST, PUT, DELETE, OPTIONS',
+          },
+          {
+            key: 'Access-Control-Allow-Headers',
+            value: 'X-Requested-With, Content-Type, Authorization',
+          },
         ],
       },
     ];
