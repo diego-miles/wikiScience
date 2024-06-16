@@ -49,7 +49,7 @@ const Audio: React.FC<{ slug: string | null }> = ({ slug }) => {
       {audioUrl && (
         <>
           {duration !== null && <p className='text-sm -mb-6'> {duration.toFixed(2)} seconds</p>}
-          <audio controls src={audioUrl} onLoadedMetadata={handleLoadedMetadata}></audio>
+          <audio className='mx-auto text-xs w-52' controls src={audioUrl} onLoadedMetadata={handleLoadedMetadata}></audio>
         </>
       )}
     </div>
