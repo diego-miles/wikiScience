@@ -19,7 +19,10 @@ export async function GET(req: NextRequest, { params: { slug } }: { params: { sl
 
     const url = await getSignedUrl(s3Client, command, { expiresIn: 3600 });
 
-    return NextResponse.json({ url });
+    const response = NextResponse.json({ url });
+    response.headers.set('Cache-Control', 's-maxage=3600, stale-while-revalidate');
+
+    return response;
   } catch (error) {
     console.error('Error fetching context:', error);
     return new NextResponse('Error fetching data', { status: 500 });

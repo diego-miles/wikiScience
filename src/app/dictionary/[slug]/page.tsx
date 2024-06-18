@@ -120,7 +120,7 @@ const WordPage: React.FC<WordPageProps> = async ({ params: { slug } }) => {
           )}
           {/* <p className=" ">Slug: {wordData.slug}</p> */}
           {wordData.etymology && (
-            <p className="font-serif font-bold   pt-4 pb-6 max-w-[50rem] mx-auto">{wordData.etymology}</p>
+            <p className="font-serif font-bold pt-4 pb-6 max-w-[50rem] mx-auto">{JSON.parse(wordData.etymology)}</p>
           )}
           {wordData.tags?.length > 0 && (
             <div>
@@ -189,8 +189,8 @@ const WordPage: React.FC<WordPageProps> = async ({ params: { slug } }) => {
             </p>
           )}
         </section>
-        <section className='text-left grid lg:grid-cols-2 gap-y-12 gap-x-20  lg:pl-12 mx-auto max-w-[80rem] pt-16 '>
-          <div className='bg-background1 rounded-bl-sm  rounded-[2.8rem] rounded-br-[3rem] border border-black/30 dark:border-white/80 pb-[3.5rem] dark:bg-background1dark px-10 pt-2'>
+        <section className='text-left grid lg:grid-cols-2 gap-y-12 gap-x-20 lg:pl-12 mx-auto max-w-[80rem] pt-16 '>
+          <div className='bg-background1 rounded-bl-sm rounded-[2.8rem] rounded-br-[3rem] border border-black/30 dark:border-white/80 pb-[3.5rem] dark:bg-background1dark px-10 pt-2'>
             {wordData.examples.length > 0 && (
               <>
                 <h3>Examples:</h3>
@@ -214,7 +214,7 @@ const WordPage: React.FC<WordPageProps> = async ({ params: { slug } }) => {
               </>
             )}
           </div>
-          <div className='bg-background1 rounded-bl-sm  rounded-[2.8rem] rounded-br-[3rem] border border-black/30 dark:border-white/80 pb-[3.5rem] dark:bg-background1dark px-10 pt-2'>
+          <div className='bg-background1 rounded-bl-sm rounded-[2.8rem] rounded-br-[3rem] border border-black/30 dark:border-white/80 pb-[3.5rem] dark:bg-background1dark px-10 pt-2'>
             {wordData.historicalSignificance.length > 0 && (
               <>
                 <h3>Historical Significance</h3>
@@ -226,7 +226,7 @@ const WordPage: React.FC<WordPageProps> = async ({ params: { slug } }) => {
               </>
             )}
           </div>
-          <div className='bg-background1 rounded-bl-sm  rounded-[2.8rem] rounded-br-[3rem] border border-black/30 dark:border-white/80 pb-[3.5rem] dark:bg-background1dark px-10 pt-2'>
+          <div className='bg-background1 rounded-bl-sm rounded-[2.8rem] rounded-br-[3rem] border border-black/30 dark:border-white/80 pb-[3.5rem] dark:bg-background1dark px-10 pt-2'>
             {wordData.measurementUnits.length > 0 && (
               <>
                 <h3>Measurement Units</h3>
