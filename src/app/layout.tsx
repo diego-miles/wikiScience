@@ -11,7 +11,7 @@ import GoogleAdsScript from './GoogleAdsScript'
 // import React, { Suspense } from 'react';
 
 import { cn } from "../lib/utils"
-// import { ThemeProvider } from "@/ThemProvider"
+import { ThemeProvider } from "./ThemProvider"
 import { GridBackgroundDemo } from './GridBackground'
 // import NavBar from '@/components/navigation/NavbarContainer';
 import Head from 'next/head';
@@ -86,12 +86,12 @@ export default function RootLayout({
         )}
       >
   <Script src="https://alwingulla.com/88/tag.min.js" crossOrigin='anonymous' data-zone="72210" async data-cfasync="false"></Script>
-        {/* <ThemeProvider
+        <ThemeProvider
           attribute="class"
           defaultTheme="system"
           enableSystem
           disableTransitionOnChange
-        > */}
+        >
         <GridBackgroundDemo />
 
 
@@ -142,7 +142,7 @@ export default function RootLayout({
             `}
           </Script> */}
 
-        {/* </ThemeProvider> */}
+        </ThemeProvider>
       </body>
     </html>
 

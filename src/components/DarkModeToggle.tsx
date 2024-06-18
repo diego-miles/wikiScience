@@ -8,7 +8,7 @@ export default function ModeToggle() {
   const [isChecked, setIsChecked] = React.useState(false);
 
   React.useEffect(() => {
-    setIsChecked(theme === 'dark');
+    setIsChecked(theme === 'light');
   }, [theme]);
 
   return (
@@ -16,7 +16,7 @@ export default function ModeToggle() {
       <Switch
         checked={isChecked} // Now using local state
         onCheckedChange={() => {
-          setTheme(theme === 'dark' ? 'light' : 'dark');
+          setTheme(theme === 'light' ? 'dark' : 'light');
           setIsChecked(!isChecked); // Update local state on change
         }}
         disabled={false}
