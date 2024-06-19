@@ -16,6 +16,7 @@ import { GridBackgroundDemo } from './GridBackground'
 // import NavBar from '@/components/navigation/NavbarContainer';
 import Head from 'next/head';
 import Script from 'next/script'
+import { CSPostHogProvider } from './_analytics/provider';
 
 
 const noto_sans_georgian = Noto_Sans_Georgian({
@@ -65,7 +66,8 @@ export default function RootLayout({
 
   
   return (
-
+<CSPostHogProvider>
+  
         <html lang="en">
         {/* <head >
       <meta name="google-adsense-account" content="ca-pub-6831545317289734"></meta>
@@ -145,6 +147,8 @@ export default function RootLayout({
         </ThemeProvider>
       </body>
     </html>
+</CSPostHogProvider>
+
 
   )
 }

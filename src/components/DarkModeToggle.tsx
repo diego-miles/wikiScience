@@ -14,6 +14,7 @@ export default function ModeToggle() {
   return (
     <div className="flex">
       <Switch
+      className="mt-1"
         checked={isChecked} // Now using local state
         onCheckedChange={() => {
           setTheme(theme === 'light' ? 'dark' : 'light');
