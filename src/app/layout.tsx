@@ -17,6 +17,13 @@ import { GridBackgroundDemo } from './GridBackground'
 import Head from 'next/head';
 import Script from 'next/script'
 import { CSPostHogProvider } from './_analytics/provider';
+import { PHProvider } from './providers'
+
+
+
+const PostHogPageView = dynamic(() => import('./PostHogPageView'), {
+  ssr: false,
+})
 
 
 const noto_sans_georgian = Noto_Sans_Georgian({
@@ -66,7 +73,7 @@ export default function RootLayout({
 
   
   return (
-<CSPostHogProvider>
+<PHProvider>
   
         <html lang="en">
         {/* <head >
@@ -150,7 +157,7 @@ export default function RootLayout({
         </ThemeProvider>
       </body>
     </html>
-</CSPostHogProvider>
+</PHProvider>
 
 
   )
