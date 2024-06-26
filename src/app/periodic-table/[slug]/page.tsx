@@ -17,6 +17,7 @@ import dynamic from 'next/dynamic';
 import Script from 'next/script'
 import Image from 'next/image';
 import ElementsCarousel from '@/components/ElementsCarousel'
+import { generateSlug } from '@/utils/slugGenerator';
 
 
   // const ContextHoverCard = dynamic(() => import('@/components/ContextHoverCard'), { ssr: false });
@@ -78,7 +79,7 @@ const generateSectionHeader = (buttonText: string, title: string, buttonColor?: 
 );
 
 // Function to generate JSX for strong elements with hover cards
-const generateStrong = (content: string, buttonText: string, buttonColor?: string) => (
+const generateStrong = ( buttonText: string, content: string, buttonColor?: string) => (
   <div className=' w-fit'>
     <ContextHoverCard buttonText={buttonText} questionMarkColor={buttonColor}>
       <Button variant="link">
@@ -124,6 +125,10 @@ async function ElementPage({ params: { slug } }: ElementPageProps) {
     // Usar una expresiÃ³n regular para encontrar uno o dos nÃºmeros al final de cada subconfiguraciÃ³n
     return config.replace(/(\d{1,2})(?=\s|$)/g, '<sup>$1</sup>');
   };
+
+
+
+
 
   return (
     <>

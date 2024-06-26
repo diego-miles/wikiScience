@@ -40,7 +40,7 @@ export default function CarouselDApiDemo({ slug1, slug2, slug3 }: CarouselDApiDe
 
   return (
     <div>
-      <Carousel setApi={setApi} className="w-fit mx-auto max-w-sm">
+      <Carousel setApi={setApi} className="w-fit mx-auto max-w-[28rem]">
         <CarouselContent>
           {imageSlugs.map((slug, index) => (
             <CarouselItem key={index}>
@@ -52,8 +52,8 @@ export default function CarouselDApiDemo({ slug1, slug2, slug3 }: CarouselDApiDe
                       alt={`${slug} borh model`}
                       priority={true}
                       quality={100}
-                      width={250}
-                      height={250}
+                      width={300}
+                      height={300}
                       className=""
                     />
                   </figure>
@@ -65,7 +65,7 @@ export default function CarouselDApiDemo({ slug1, slug2, slug3 }: CarouselDApiDe
         <CarouselPrevious />
         <CarouselNext />
       </Carousel>
-      <div className="py-2 text-center text-sm text-muted-foreground">
+      <div className="py-4 text-center text-sm text-muted-foreground">
         <p className="text-sm max-w-[30rem]"> <strong>Simplified 2D Bohr model:</strong>Central red circle is the nucleus (proton). Blue ring represents the electron&apos;s orbit. Small blue dot is the electron. Note: This basic model doesn&apos;t show quantum behavior.</p>
       </div>
     </div>
