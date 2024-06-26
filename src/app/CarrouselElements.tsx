@@ -12,7 +12,9 @@ import {
 import chemicalElements from '@/data/elementsData.json'; 
 import Link from "next/link";
 
-export default function CarouselSpacing() {
+
+
+export default function ElementsCarousel() {
   const [api, setApi] = React.useState<CarouselApi>()
   const [current, setCurrent] = React.useState(0)
 

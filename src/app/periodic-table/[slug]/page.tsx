@@ -15,7 +15,8 @@ import {db} from '@/db/index'
 // const client = createClient({ url: process.env.DATABASE_URL!, authToken: process.env.DATABASE_TOKEN! });
 import dynamic from 'next/dynamic';
 import Script from 'next/script'
-
+import Image from 'next/image';
+import ElementsCarousel from '@/components/ElementsCarousel'
 
 
   // const ContextHoverCard = dynamic(() => import('@/components/ContextHoverCard'), { ssr: false });
@@ -130,15 +131,32 @@ async function ElementPage({ params: { slug } }: ElementPageProps) {
       <div className='max-w-full overflow-x-auto  mt-52 lg:mt-64 w-fit mx-auto py-16 '>
         <ChemicalFamilies></ChemicalFamilies>
       </div>
-      <main  className=' pt-10  '>
+      <main  className=' pt-0  '>
+
         {/* <h1 >{element.name} ({element.symbol})</h1> */}
         <div              className="pt-1 px-2 pb-0 mb-0 border-2 border-[#1d6aaa] top-4  left-3/4   -ml-28  p-1 bg-background1 rounded-xl absolute  border-b-[.6rem] shadow-2xl transform transition-all duration-200 hover:translate-y-1 active:border-b-4 active:shadow-inner active:translate-y-2  z-50"            >
           <PeriodicDrawer />
         </div>
         <section className='text-center  '>
-          <div      className={`relative flex w-fit mx-auto pr-40 mb-20 `}    >
+          <h1>{element.name}</h1>
+          <div className='w-fit mx-auto'>
+<ElementsCarousel slug1={slug}></ElementsCarousel>
+          </div>
+                          {/* <figure className='w-fit mx-auto' >
+          <Image
+            src={`${slug}.svg`}
+            alt={`${slug} borh model`}
+            priority= {true}
+            quality={100}
+            width={250}
+            height={250}
+            className=''
+          />
+        </figure> */}
+          <div      className={`relative flex w-fit mx-auto pr-40 mb-20 mt-12 `}    >
             {/* Columna izquierda */}
-            <div className="text-right pt-[3.5rem] -mr-1">
+            <div className='-mx-8'>
+            <div className="text-right pt-[3.5rem] mr-7">
               <div className="absolute  pb-1 pl-2 -right-5   border-[#168cc7]  top-0  text-dark font-medium dark:text-gray-100   block mt-1   border-b-2  text-[1.1rem]">
                 <ContextHoverCard buttonText={"Electronic Configuration"} questionMarkColor={"#85a985"}>
                   <Button variant="link">
@@ -166,6 +184,8 @@ async function ElementPage({ params: { slug } }: ElementPageProps) {
                 </ContextHoverCard>
               </div>
             </div>
+
+            </div>
             {/* Columna derecha */}
             <div>
 
@@ -184,6 +204,8 @@ async function ElementPage({ params: { slug } }: ElementPageProps) {
           {/* <LocalContextLinks links={links} /> */}
           {/* <div className='w-fit mx-auto'>            <div className='flex flex-wrap'>                          {generateStrong("Atomic Number", "Atomic Number:")}            <p className=''> {element.atomicNumber}</p>            </div>          </div> */}
           <div className='max-w-[50rem] mx-auto pb-12'>
+
+
             <p className='font-semibold text-h4 pb-0'>CLASSIFICATION: </p>
                 <p className='font-bold text-lg '>{element.classification}</p>
                 {/* <p className='font-bold text-lg '>{element.classification?.toLowerCase().replace(/\s+/g, '-')}</p> */}
@@ -199,6 +221,10 @@ async function ElementPage({ params: { slug } }: ElementPageProps) {
           <p className='text-lg max-w-[50rem] mx-auto'> {element.description}</p>
         </section>
         <div className='lg:grid lg:grid-cols-2 gap-x-24 gap-y-12 lg:px-12 '>
+          
+
+
+
           <section id="1-atomic-structure">
             {generateSectionHeader("Atomic Structure", "1. Atomic Structure")}
             <div className='flex flex-wrap text-left'>
