@@ -100,24 +100,7 @@ async function ElementPage({ params: { slug } }: ElementPageProps) {
   if (!element) {
     return <div>Error fetching element data</div>;
   }
-  // Assuming element.history is an array of objects with the structure { event: string; year: number; description: string; }
-  // Then, pass this object to the History component
-  // Assuming element.history is a string containing JSON data
-// let sanitizedHistoryData: { event: any; year: any; description: any; }[] = [];
-// if (element.history) {
-//     try {
-//         const parsedHistory = JSON.parse(element.history);
-//         if (Array.isArray(parsedHistory)) {
-//             sanitizedHistoryData = parsedHistory.map((histItem) => ({
-//                 event: histItem.event || 'Unknown Event',
-//                 year: histItem.year || 'Unknown Year',
-//                 description: histItem.description || 'No description available'
-//             }));
-//         }
-//     } catch (error) {
-//         console.error('Error parsing history:', error);
-//     }
-// }
+
   const elementClass = element.classification ? element.classification.toLowerCase().replace(/Non/g, 'no') : '';
 
   console.log(elementClass)

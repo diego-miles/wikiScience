@@ -40,7 +40,7 @@ export default function CarouselDApiDemo({ slug1, slug2, slug3 }: CarouselDApiDe
 
   return (
     <div>
-      <Carousel setApi={setApi} className="w-fit mx-auto max-w-[28rem]">
+      <Carousel setApi={setApi} className=" mx-auto lg:max-w-[60rem]">
         <CarouselContent>
           {imageSlugs.map((slug, index) => (
             <CarouselItem key={index}>
@@ -54,7 +54,7 @@ export default function CarouselDApiDemo({ slug1, slug2, slug3 }: CarouselDApiDe
                       quality={100}
                       width={300}
                       height={300}
-                      className=""
+                      className="p-8"
                     />
                   </figure>
                 </CardContent>
@@ -66,7 +66,7 @@ export default function CarouselDApiDemo({ slug1, slug2, slug3 }: CarouselDApiDe
         <CarouselNext />
       </Carousel>
       <div className="py-4 text-center text-sm text-muted-foreground">
-        <p className="text-sm max-w-[30rem]"> <strong>Simplified 2D Bohr model:</strong>Central red circle is the nucleus (proton). Blue ring represents the electron&apos;s orbit. Small blue dot is the electron. Note: This basic model doesn&apos;t show quantum behavior.</p>
+        <p className="text-sm max-w-[32rem] mx-auto"> <strong>Simplified 2D Bohr model:</strong>Central red circle is the nucleus (proton). Blue ring represents the electron&apos;s orbit. Small blue dot is the electron. Note: This basic model doesn&apos;t show quantum behavior.</p>
       </div>
     </div>
   );
