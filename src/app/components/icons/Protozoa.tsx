@@ -1,25 +1,18 @@
+import React from 'react';
 
-
-
-
-// En el componente SVG (MySVG.jsx)
-const ParasiteNematode = ({ color }: any) => {
+const Protozoa = ({ color }: any) => {
   return (
-
-
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-  <ellipse cx="50" cy="50" rx="40" ry="30" fill="#7CB9E8" stroke="#0066CC" stroke-width="2"/>
-  <circle cx="35" cy="45" r="8" fill="#004080"/>
-  <path d="M15,50 Q25,30 35,50 T55,50" fill="none" stroke="#004080" stroke-width="2"/>
-  <path d="M85,40 Q75,30 65,40" fill="none" stroke="#004080" stroke-width="2"/>
-  <path d="M85,60 Q75,70 65,60" fill="none" stroke="#004080" stroke-width="2"/>
-  <path d="M90,50 L110,30 M90,50 L110,50 M90,50 L110,70" fill="none" stroke="#004080" stroke-width="2"/>
-</svg>
-
-    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 100">
+      <g>
+        <ellipse cx="70" cy="50" rx="40" ry="30" fill="#96c7ed" stroke="#0066CC" strokeWidth="4"/>
+        <circle cx="85" cy="45" r="8" fill="#0050a0"/>
+        <path d="M105,50 Q95,30 85,50 T65,50" fill="none" stroke="#004080" strokeWidth="4"/>
+        <path d="M35,40 Q45,30 55,40" fill="none" stroke="#004080" strokeWidth="4"/>
+        <path d="M35,60 Q45,70 55,60" fill="none" stroke="#0061c2" strokeWidth="4"/>
+        <path d="M30,50 L0,20 M30,50 L0,50 M30,50 L0,80" fill="none" stroke="#006ad3" strokeWidth="4"/>
+      </g>
+    </svg>
   );
 };
 
-export default  ParasiteNematode;
-
-
+export default Protozoa;

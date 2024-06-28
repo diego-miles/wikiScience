@@ -1,5 +1,5 @@
 import type { NextPage } from 'next';
-import SoilFoodWebFrenzy from '@/components/SoilFoodWeb';
+import SoilFoodWebFrenzy from './SoilFoodWeb';
 
 const GamePage: NextPage = () => {
   return (
